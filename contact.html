@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Contact Us — Horizon Technology Group</title>
+  <meta name="description" content="Contact Horizon Technology Group for sales, support, and partnership inquiries." />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="logo" href="./index.html" aria-label="Horizon Technology Group home">
+        <img src="./logo.svg" alt="" width="140" height="28" decoding="async" />
+        <span class="sr-only">Horizon Technology Group</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false"><span class="sr-only">Menu</span>☰</button>
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="./index.html" >Home</a></li>
+          <li><a href="./solutions.html" >Solutions</a></li>
+          <li><a href="./about.html" >About Us</a></li>
+          <li><a href="./contact.html" aria-current="page">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero skin skin--mesh" aria-labelledby="hero-title">
+      <div class="skin__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <h1 id="hero-title">Contact Us</h1>
+          <p class="lead">Tell us about your environment and goals—our team will reply by email.</p>
+        </div>
+        <div class="hero__media"><img src="./images/contact-hero.webp" width="720" height="520" alt="Get in touch"/></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="form-title">
+      <div class="container">
+        <h2 id="form-title">Send a message</h2>
+        <form id="contact-form" class="lead-form">
+          <div class="form-row"><label for="c-name">Full name</label><input id="c-name" required /></div>
+          <div class="form-row"><label for="c-email">Work email</label><input id="c-email" type="email" required /></div>
+          <div class="form-row"><label for="c-company">Company</label><input id="c-company" /></div>
+          <div class="form-row"><label for="c-topic">Topic</label>
+            <select id="c-topic" class="input">
+              <option>Safety & Surveillance</option>
+              <option>Critical Connectivity</option>
+              <option>Assets Management</option>
+              <option>IP Networks</option>
+              <option>Cybersecurity</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row"><label for="c-message">Message</label><textarea id="c-message" rows="5" required></textarea></div>
+          <button class="btn btn--primary" type="submit">Send</button>
+        </form>
+        <p class="small" style="color:var(--muted);margin-top:12px">This offline build uses your email client to send the message. On deployment, we can wire this form to your SMTP/service endpoint for server‑side email.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="./index.html">Horizon Technology Group</a>
+        <p class="small">© 2025 Horizon Technology Group</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="./solutions.html">Solutions</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <address class="footer__contact" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="addressLocality">Conakry</span>, <span itemprop="addressCountry">Guinea</span><br />
+        <a href="mailto:contact@horizontech.gn">contact@horizontech.gn</a>
+      </address>
+    </div>
+  </footer>
+  <script src="./js/skins.js"></script>
+  <script src="./js/chatbot.js"></script>
+<script>
+(function(){
+  const form=document.getElementById('contact-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name=document.getElementById('c-name').value.trim();
+    const email=document.getElementById('c-email').value.trim();
+    const company=document.getElementById('c-company').value.trim();
+    const topic=document.getElementById('c-topic').value;
+    const message=document.getElementById('c-message').value.trim();
+    const subject = `Contact: ${topic}`;
+    const body = `Name: ${name}
+Email: ${email}
+Company: ${company}
+Topic: ${topic}
+Message: ${message}`;
+    const mailto = `mailto:contact@horizontech.gn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+})();
+</script>
+</body>
+</html>
