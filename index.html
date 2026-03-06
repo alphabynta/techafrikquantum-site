@@ -20,9 +20,24 @@
         <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false"><span class="sr-only">Menu</span>☰</button>
         <ul id="nav-menu" class="nav-list">
           <li><a href="./index.html" aria-current="page">Home</a></li>
-          <li><a href="./solutions.html" >Solutions</a></li>
-          <li><a href="./about.html" >About Us</a></li>
-          <li><a href="./contact.html" >Contact Us</a></li>
+          <li class="nav-item--dropdown">
+            <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">Solutions <span class="nav-arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="./solutions.html#safety">Safety &amp; Surveillance</a></li>
+              <li><a href="./solutions.html#connectivity">Critical Connectivity</a></li>
+              <li><a href="./solutions.html#assets">Assets Management</a></li>
+              <li><a href="./solutions.html#ipnetworks">IP Networks</a></li>
+              <li><a href="./solutions.html#cyber">Cybersecurity</a></li>
+            </ul>
+          </li>
+          <li class="nav-item--dropdown">
+            <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">Company <span class="nav-arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./partners.html">Partners</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>

@@ -222,3 +222,119 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .modal__card{width:96%;padding:var(--space-3)}
   .trust-points{flex-direction:column;gap:8px}
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PALANTIR-INSPIRED DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --green:#00e5a0;--green-dim:rgba(0,229,160,.12);--green-border:rgba(0,229,160,.28);
+  --black:#020608;
+}
+
+/* Section label — Palantir-style small caps */
+.section-label{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin:0 0 14px}
+
+/* Bigger cinematic hero headings */
+.hero h1{font-size:clamp(34px,5.5vw,72px);letter-spacing:-.025em;font-weight:800}
+.hero--full{min-height:92vh;display:flex;align-items:center}
+
+/* ── Dynamic video hero wrapper (all pages) ─────────────────── */
+.hero--video-bg{position:relative;isolation:isolate;overflow:clip}
+.hero-video-bg{position:absolute;inset:0;z-index:-2;pointer-events:none}
+.hero-video-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.65) brightness(.5) contrast(1.1)}
+.hero-video-overlay{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(135deg,rgba(2,6,8,.96) 0%,rgba(5,12,24,.82) 55%,rgba(2,6,8,.65) 100%),
+    radial-gradient(ellipse 90% 60% at 15% 50%,rgba(0,229,160,.07),transparent 65%);
+}
+
+/* ── Cyber animated skin for inner sections ─────────────────── */
+.skin--cyber .skin__bg::before{
+  content:"";
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -5%,rgba(0,229,160,.1),transparent 55%),
+    radial-gradient(ellipse 60% 55% at 85% 100%,rgba(245,165,36,.09),transparent 60%),
+    repeating-linear-gradient(to right,rgba(0,229,160,.035),rgba(0,229,160,.035) 1px,transparent 1px,transparent 44px),
+    repeating-linear-gradient(to bottom,rgba(0,229,160,.035),rgba(0,229,160,.035) 1px,transparent 1px,transparent 44px),
+    linear-gradient(180deg,#050912 0%,#08142a 100%);
+  animation:cyberPulse 10s ease-in-out infinite
+}
+@keyframes cyberPulse{0%,100%{opacity:1}50%{opacity:.7}}
+
+/* ── Green button variant ───────────────────────────────────── */
+.btn--green{background:var(--green);color:#030d0a;font-weight:700}
+.btn--green:hover{background:#00c48a}
+.btn--outline-green{background:transparent;border:1px solid var(--green-border);color:var(--green)}
+.btn--outline-green:hover{background:var(--green-dim)}
+
+/* ── Feature numbered list (Palantir style) ─────────────────── */
+.feature-list{list-style:none;margin:0;padding:0;counter-reset:feat}
+.feature-list li{counter-increment:feat;display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--border)}
+.feature-list li:first-child{border-top:1px solid var(--border)}
+.feature-list li::before{content:"0" counter(feat);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);min-width:28px;padding-top:4px;flex-shrink:0}
+.feature-list strong{display:block;margin-bottom:4px;color:var(--text)}
+.feature-list p{margin:0;color:var(--muted);font-size:14px}
+
+/* ── Card accent top-border (Palantir style) ────────────────── */
+.card--accent{border-top:2px solid var(--green)}
+.card--gold{border-top:2px solid var(--primary)}
+
+/* ── Nav Dropdown ───────────────────────────────────────────── */
+.nav-item--dropdown{position:relative}
+.nav-dropdown-btn{background:transparent;border:none;color:var(--muted);padding:8px 10px;border-radius:8px;cursor:pointer;font-size:inherit;font-family:inherit;display:inline-flex;align-items:center;gap:5px;transition:color .15s,background .15s}
+.nav-dropdown-btn:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-arrow{font-size:9px;transition:transform .2s;display:inline-block}
+.nav-item--dropdown:hover .nav-arrow,.nav-item--dropdown.is-open .nav-arrow{transform:rotate(180deg)}
+.nav-dropdown{
+  position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:rgba(5,10,22,.98);backdrop-filter:blur(20px);
+  border:1px solid var(--border);border-radius:12px;padding:6px;min-width:210px;
+  list-style:none;margin:0;display:none;flex-direction:column;gap:0;z-index:200;
+  box-shadow:0 24px 56px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.04)
+}
+.nav-item--dropdown:hover .nav-dropdown,.nav-item--dropdown.is-open .nav-dropdown{display:flex}
+.nav-dropdown a{display:block;padding:10px 14px;border-radius:8px;color:var(--muted);font-size:14px;transition:color .15s,background .15s}
+.nav-dropdown a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+.nav-dropdown li+li{border-top:1px solid rgba(255,255,255,.04)}
+@media(max-width:900px){
+  .nav-dropdown{position:static;transform:none;background:rgba(255,255,255,.04);border:none;border-radius:8px;box-shadow:none;padding:4px 0 4px 14px;margin-top:4px;display:none}
+  .nav-item--dropdown.is-open .nav-dropdown{display:flex}
+  .nav-item--dropdown:hover .nav-dropdown{display:none}
+  .nav-item--dropdown.is-open .nav-dropdown{display:flex}
+}
+
+/* ── CEO section ────────────────────────────────────────────── */
+.ceo-quote blockquote{margin:0 0 var(--space-4);padding:0 0 0 var(--space-4);border-left:3px solid var(--green)}
+.ceo-quote blockquote p{font-size:clamp(18px,2.2vw,24px);line-height:1.65;color:var(--text);font-style:italic;margin:0}
+.ceo-attribution{display:flex;align-items:center;gap:14px;margin-top:var(--space-4)}
+.ceo-avatar{width:56px;height:56px;border-radius:999px;background:var(--green-dim);border:2px solid var(--green-border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--green);letter-spacing:.06em;flex-shrink:0}
+.ceo-attribution strong{display:block;color:var(--text)}
+.ceo-attribution span{color:var(--muted);font-size:13px}
+
+/* ── Partners page ──────────────────────────────────────────── */
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--space-4);margin-top:var(--space-5)}
+.partner-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);display:flex;align-items:center;justify-content:center;min-height:110px;color:var(--muted);font-size:13px;text-align:center;transition:border-color .2s,box-shadow .2s}
+.partner-card:hover{border-color:var(--green-border);box-shadow:0 0 20px rgba(0,229,160,.08)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);margin-top:var(--space-5)}
+.testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5);position:relative;overflow:hidden}
+.testimonial-card::before{content:"\201C";position:absolute;top:10px;left:18px;font-size:72px;line-height:1;color:var(--green);opacity:.18;font-family:Georgia,serif;pointer-events:none}
+.testimonial-card p{color:var(--muted);font-size:15px;line-height:1.75;margin:0 0 var(--space-3);padding-top:var(--space-3)}
+.testimonial-card cite{display:block;font-style:normal;font-size:13px;color:var(--text);font-weight:600;border-top:1px solid var(--border);padding-top:var(--space-2)}
+.testimonial-card cite span{display:block;color:var(--muted);font-weight:400}
+
+/* ── Company hub page ───────────────────────────────────────── */
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);margin-top:var(--space-5)}
+.hub-card{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--green);border-radius:var(--radius);padding:var(--space-5);transition:border-color .2s,transform .2s}
+.hub-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.hub-card h3{margin:0 0 10px;color:var(--text)}
+.hub-card p{color:var(--muted);margin:0 0 var(--space-3);font-size:15px}
+.hub-card a{color:var(--green);font-weight:600;font-size:14px}
+
+/* ── Scrolling ticker / data strip ─────────────────────────── */
+.data-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:10px 0;background:rgba(0,229,160,.03)}
+.data-strip__inner{display:flex;gap:48px;width:max-content;animation:ticker 28s linear infinite}
+.data-strip__inner span{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.data-strip__inner span::before{content:"● ";opacity:.5}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.data-strip__inner{animation:none}}

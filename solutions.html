@@ -20,9 +20,24 @@
         <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false"><span class="sr-only">Menu</span>☰</button>
         <ul id="nav-menu" class="nav-list">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./solutions.html" aria-current="page">Solutions</a></li>
-          <li><a href="./about.html">About Us</a></li>
-          <li><a href="./contact.html">Contact Us</a></li>
+          <li class="nav-item--dropdown">
+            <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">Solutions <span class="nav-arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="./solutions.html#safety" aria-current="page">Safety &amp; Surveillance</a></li>
+              <li><a href="./solutions.html#connectivity">Critical Connectivity</a></li>
+              <li><a href="./solutions.html#assets">Assets Management</a></li>
+              <li><a href="./solutions.html#ipnetworks">IP Networks</a></li>
+              <li><a href="./solutions.html#cyber">Cybersecurity</a></li>
+            </ul>
+          </li>
+          <li class="nav-item--dropdown">
+            <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">Company <span class="nav-arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./partners.html">Partners</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
@@ -31,16 +46,29 @@
   <main id="main">
 
     <!-- PAGE HERO -->
-    <section class="hero skin skin--mesh" aria-labelledby="hero-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container hero__grid">
+    <section class="hero skin hero--video-bg hero--full" aria-labelledby="hero-title">
+      <div class="hero-video-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="none" poster="./images/hero-poster.jpg">
+          <source src="./videos/hero.webm" type="video/webm" />
+          <source src="./videos/hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-video-overlay" aria-hidden="true"></div>
+      <div class="container">
         <div class="hero__content reveal">
+          <p class="section-label">What We Deliver</p>
           <h1 id="hero-title">Solutions</h1>
           <p class="lead">Vendor‑agnostic engineering for mission‑critical operations—deployed fast and supported locally.</p>
           <ul class="trust-points"><li>Outcomes over vendors</li><li>Clear SLAs</li><li>On‑site enablement</li></ul>
         </div>
       </div>
     </section>
+    <!-- SCROLLING DATA STRIP -->
+    <div class="data-strip" aria-hidden="true">
+      <div class="data-strip__inner">
+        <span>Safety &amp; Surveillance</span><span>Critical Connectivity</span><span>Assets Management</span><span>IP Networks</span><span>Cybersecurity</span><span>Mission-Critical</span><span>Safety &amp; Surveillance</span><span>Critical Connectivity</span><span>Assets Management</span><span>IP Networks</span><span>Cybersecurity</span><span>Mission-Critical</span>
+      </div>
+    </div>
 
     <!-- SAFETY & SURVEILLANCE -->
     <section class="sol-section" id="safety" aria-labelledby="safety-title"
