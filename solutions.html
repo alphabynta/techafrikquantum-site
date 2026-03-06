@@ -20,15 +20,18 @@
       <nav class="primary-nav" aria-label="Primary">
         <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false"><span class="sr-only">Menu</span>☰</button>
         <ul id="nav-menu" class="nav-list">
-          <li><a href="./index.html" >Home</a></li>
+          <li><a href="./index.html">Home</a></li>
           <li><a href="./solutions.html" aria-current="page">Solutions</a></li>
-          <li><a href="./about.html" >About Us</a></li>
-          <li><a href="./contact.html" >Contact Us</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main id="main">
+
+    <!-- PAGE HERO -->
     <section class="hero skin skin--mesh" aria-labelledby="hero-title">
       <div class="skin__bg" aria-hidden="true"></div>
       <div class="container hero__grid">
@@ -43,113 +46,83 @@
       </div>
     </section>
 
-    <!-- SAFETY -->
-    <section class="section skin skin--grid" id="safety" aria-labelledby="safety-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container">
+    <!-- SAFETY & SURVEILLANCE -->
+    <section class="sol-section" id="safety" aria-labelledby="safety-title"
+      style="background-image:url('./images/hero-poster.jpg')">
+      <div class="sol-section__overlay" aria-hidden="true"></div>
+      <div class="container sol-section__content">
         <h2 id="safety-title">Safety &amp; Surveillance</h2>
-        <div class="grid">
-          <div class="card sol-card-main">
-            <p>IP video (VMS + analytics), perimeter intrusion detection, LPR, ISR drones for perimeter patrol, and body‑worn cameras with secure evidence workflows.</p>
-            <button class="btn btn--primary" data-demo="Safety & Surveillance">Request a demo</button>
-          </div>
-          <div class="card sol-card-side">
-            <h3>Typical outcomes</h3>
-            <ul>
-              <li>Real‑time perimeter alerts</li>
-              <li>Reduced incident response time</li>
-              <li>Evidence‑grade retention & chain of custody</li>
-            </ul>
-          </div>
-        </div>
+        <p>IP video (VMS + analytics), perimeter intrusion detection, LPR, ISR drones for perimeter patrol, and body‑worn cameras with secure evidence workflows.</p>
+        <ul class="sol-outcomes">
+          <li>Real‑time perimeter alerts</li>
+          <li>Reduced incident response time</li>
+          <li>Evidence‑grade retention &amp; chain of custody</li>
+        </ul>
+        <button class="btn btn--primary" data-demo="Safety & Surveillance">Request a demo</button>
       </div>
     </section>
 
-    <!-- CONNECTIVITY -->
-    <section class="section skin skin--grid" id="connectivity" aria-labelledby="conn-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container">
+    <!-- CRITICAL CONNECTIVITY -->
+    <section class="sol-section sol-section--flip" id="connectivity" aria-labelledby="conn-title"
+      style="background-image:url('./images/solutions-hero.webp')">
+      <div class="sol-section__overlay" aria-hidden="true"></div>
+      <div class="container sol-section__content">
         <h2 id="conn-title">Critical Connectivity</h2>
-        <div class="grid">
-          <div class="card sol-card-main">
-            <p>SCPC satellite links with QoS, redundancy and failover; teleport design and RF engineering; traffic engineering and monitoring, built for 99.9%+ availability.</p>
-            <button class="btn btn--primary" data-demo="Critical Connectivity">Request a demo</button>
-          </div>
-          <div class="card sol-card-side">
-            <h3>Typical outcomes</h3>
-            <ul>
-              <li>Deterministic bandwidth for OT apps</li>
-              <li>Differentiated classes of service</li>
-              <li>Resilient architectures across sites</li>
-            </ul>
-          </div>
-        </div>
+        <p>Satellite and radio communication solutions with QoS, redundancy and failover; RF engineering and spectrum management; traffic engineering and monitoring, built for 99.9%+ availability.</p>
+        <ul class="sol-outcomes">
+          <li>Deterministic bandwidth for OT apps</li>
+          <li>Differentiated classes of service</li>
+          <li>Resilient architectures across sites</li>
+        </ul>
+        <button class="btn btn--primary" data-demo="Critical Connectivity">Request a demo</button>
       </div>
     </section>
 
     <!-- ASSETS MANAGEMENT -->
-    <section class="section skin skin--grid" id="assets" aria-labelledby="assets-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container">
+    <section class="sol-section" id="assets" aria-labelledby="assets-title"
+      style="background-image:url('./images/about-hero.webp')">
+      <div class="sol-section__overlay" aria-hidden="true"></div>
+      <div class="container sol-section__content">
         <h2 id="assets-title">Assets Management</h2>
-        <div class="grid">
-          <div class="card sol-card-main">
-            <p>Fleet tracking, driver behavior scoring, route optimization, and fuel anti‑fraud sensors with alerts and reports to reduce loss and improve safety.</p>
-            <button class="btn btn--primary" data-demo="Assets Management">Request a demo</button>
-          </div>
-          <div class="card sol-card-side">
-            <h3>Typical outcomes</h3>
-            <ul>
-              <li>Lower fuel losses and theft</li>
-              <li>Improved driver safety and compliance</li>
-              <li>Actionable operational analytics</li>
-            </ul>
-          </div>
-        </div>
+        <p>Fleet tracking, driver behavior scoring, route optimization, and fuel anti‑fraud sensors with alerts and reports to reduce loss and improve safety.</p>
+        <ul class="sol-outcomes">
+          <li>Lower fuel losses and theft</li>
+          <li>Improved driver safety and compliance</li>
+          <li>Actionable operational analytics</li>
+        </ul>
+        <button class="btn btn--primary" data-demo="Assets Management">Request a demo</button>
       </div>
     </section>
 
     <!-- IP NETWORKS -->
-    <section class="section skin skin--grid" id="ipnetworks" aria-labelledby="net-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container">
+    <section class="sol-section sol-section--flip" id="ipnetworks" aria-labelledby="net-title"
+      style="background-image:url('./images/hero-panel.webp')">
+      <div class="sol-section__overlay" aria-hidden="true"></div>
+      <div class="container sol-section__content">
         <h2 id="net-title">IP Networks</h2>
-        <div class="grid">
-          <div class="card sol-card-main">
-            <p>Network orchestration, golden configuration management, and approvals; telemetry pipelines for metrics, logs, and traces; observability dashboards and SLOs.</p>
-            <button class="btn btn--primary" data-demo="IP Networks">Request a demo</button>
-          </div>
-          <div class="card sol-card-side">
-            <h3>Typical outcomes</h3>
-            <ul>
-              <li>Change risk reduced with automation</li>
-              <li>Faster incident triage with telemetry</li>
-              <li>Service health and SLO visibility</li>
-            </ul>
-          </div>
-        </div>
+        <p>Network orchestration, golden configuration management, and approvals; telemetry pipelines for metrics, logs, and traces; observability dashboards and SLOs.</p>
+        <ul class="sol-outcomes">
+          <li>Change risk reduced with automation</li>
+          <li>Faster incident triage with telemetry</li>
+          <li>Service health and SLO visibility</li>
+        </ul>
+        <button class="btn btn--primary" data-demo="IP Networks">Request a demo</button>
       </div>
     </section>
 
     <!-- CYBERSECURITY -->
-    <section class="section skin skin--grid" id="cyber" aria-labelledby="cyber-title">
-      <div class="skin__bg" aria-hidden="true"></div>
-      <div class="container">
+    <section class="sol-section" id="cyber" aria-labelledby="cyber-title"
+      style="background-image:url('./images/contact-hero.webp')">
+      <div class="sol-section__overlay" aria-hidden="true"></div>
+      <div class="container sol-section__content">
         <h2 id="cyber-title">Cybersecurity</h2>
-        <div class="grid">
-          <div class="card sol-card-main">
-            <p>Penetration testing (external/internal/web/mobile/wireless), SOC onboarding and detection use‑cases, governance & compliance, and IAM (SSO/MFA/PAM).</p>
-            <button class="btn btn--primary" data-demo="Cybersecurity">Request a demo</button>
-          </div>
-          <div class="card sol-card-side">
-            <h3>Typical outcomes</h3>
-            <ul>
-              <li>Prioritized remediation guidance</li>
-              <li>Operationalized detection & response</li>
-              <li>Identity security and least privilege</li>
-            </ul>
-          </div>
-        </div>
+        <p>Penetration testing (external/internal/web/mobile/wireless), SOC onboarding and detection use‑cases, governance &amp; compliance, and IAM (SSO/MFA/PAM).</p>
+        <ul class="sol-outcomes">
+          <li>Prioritized remediation guidance</li>
+          <li>Operationalized detection &amp; response</li>
+          <li>Identity security and least privilege</li>
+        </ul>
+        <button class="btn btn--primary" data-demo="Cybersecurity">Request a demo</button>
       </div>
     </section>
 
@@ -170,7 +143,9 @@
         </form>
       </div>
     </div>
+
   </main>
+
   <footer class="site-footer" role="contentinfo">
     <div class="footer__top">
       <div class="container footer__columns">
