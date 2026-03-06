@@ -179,6 +179,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   text-shadow:none;
   backdrop-filter:blur(4px);
 }
+/* IP Networks — CSS-only background (no placeholder image) */
+.sol-section--networks{
+  background-image:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(245,165,36,.18), transparent 65%),
+    radial-gradient(ellipse 60% 80% at 20% 60%, rgba(30,60,120,.5), transparent 65%),
+    linear-gradient(135deg,#050912 0%,#0b1830 60%,#050912 100%);
+}
+.sol-section--networks .sol-section__overlay{background:rgba(5,9,18,.55)}
+.sol-section--networks.sol-section--flip .sol-section__overlay{background:rgba(5,9,18,.55)}
 @media(prefers-reduced-motion:reduce){
   .sol-section{background-attachment:scroll}
 }
