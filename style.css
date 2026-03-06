@@ -242,6 +242,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .hero--video-bg{position:relative;isolation:isolate;overflow:clip}
 .hero-video-bg{position:absolute;inset:0;z-index:-2;pointer-events:none}
 .hero-video-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.65) brightness(.5) contrast(1.1)}
+/* Canvas animated backgrounds */
+canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !important;z-index:-2;pointer-events:none;display:block}
 .hero-video-overlay{
   position:absolute;inset:0;z-index:-1;
   background:

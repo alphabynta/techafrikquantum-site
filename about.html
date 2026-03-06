@@ -45,14 +45,9 @@
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="hero skin hero--video-bg hero--full" aria-labelledby="hero-title">
-      <div class="hero-video-bg" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="none" poster="./images/hero-poster.jpg">
-          <source src="./videos/hero.webm" type="video/webm" />
-          <source src="./videos/hero.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <!-- PAGE HERO — Comms background -->
+    <section class="hero hero--video-bg hero--full" aria-labelledby="hero-title">
+      <canvas class="bg-canvas" data-scene="comms"></canvas>
       <div class="hero-video-overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__content reveal">
@@ -220,6 +215,7 @@
     </div>
   </footer>
   <script src="./js/skins.js"></script>
+  <script src="./js/backgrounds.js"></script>
   <script src="./js/chatbot.js"></script>
 </body>
 </html>

@@ -45,14 +45,9 @@
 
   <main id="main">
 
-    <!-- PAGE HERO -->
-    <section class="hero skin hero--video-bg hero--full" aria-labelledby="hero-title">
-      <div class="hero-video-bg" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="none" poster="./images/hero-poster.jpg">
-          <source src="./videos/hero.webm" type="video/webm" />
-          <source src="./videos/hero.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <!-- PAGE HERO — Network background -->
+    <section class="hero hero--video-bg hero--full" aria-labelledby="hero-title">
+      <canvas class="bg-canvas" data-scene="network"></canvas>
       <div class="hero-video-overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__content reveal">
@@ -63,6 +58,7 @@
         </div>
       </div>
     </section>
+
     <!-- SCROLLING DATA STRIP -->
     <div class="data-strip" aria-hidden="true">
       <div class="data-strip__inner">
@@ -70,11 +66,12 @@
       </div>
     </div>
 
-    <!-- SAFETY & SURVEILLANCE -->
-    <section class="sol-section" id="safety" aria-labelledby="safety-title"
-      style="background-image:url('./images/hero-poster.jpg')">
+    <!-- SAFETY & SURVEILLANCE — Drone radar background -->
+    <section class="sol-section" id="safety" aria-labelledby="safety-title">
+      <canvas class="bg-canvas" data-scene="drones"></canvas>
       <div class="sol-section__overlay" aria-hidden="true"></div>
       <div class="container sol-section__content">
+        <p class="section-label">01 — Safety</p>
         <h2 id="safety-title">Safety &amp; Surveillance</h2>
         <p>IP video (VMS + analytics), perimeter intrusion detection, LPR, ISR drones for perimeter patrol, and body‑worn cameras with secure evidence workflows.</p>
         <ul class="sol-outcomes">
@@ -86,11 +83,12 @@
       </div>
     </section>
 
-    <!-- CRITICAL CONNECTIVITY -->
-    <section class="sol-section sol-section--flip" id="connectivity" aria-labelledby="conn-title"
-      style="background-image:url('./images/solutions-hero.webp')">
+    <!-- CRITICAL CONNECTIVITY — Satellite comms background -->
+    <section class="sol-section sol-section--flip" id="connectivity" aria-labelledby="conn-title">
+      <canvas class="bg-canvas" data-scene="comms"></canvas>
       <div class="sol-section__overlay" aria-hidden="true"></div>
       <div class="container sol-section__content">
+        <p class="section-label">02 — Connectivity</p>
         <h2 id="conn-title">Critical Connectivity</h2>
         <p>Satellite and radio communication solutions with QoS, redundancy and failover; RF engineering and spectrum management; traffic engineering and monitoring, built for 99.9%+ availability.</p>
         <ul class="sol-outcomes">
@@ -102,11 +100,12 @@
       </div>
     </section>
 
-    <!-- ASSETS MANAGEMENT -->
-    <section class="sol-section" id="assets" aria-labelledby="assets-title"
-      style="background-image:url('./images/about-hero.webp')">
+    <!-- ASSETS MANAGEMENT — Fleet tracking background -->
+    <section class="sol-section" id="assets" aria-labelledby="assets-title">
+      <canvas class="bg-canvas" data-scene="fleet"></canvas>
       <div class="sol-section__overlay" aria-hidden="true"></div>
       <div class="container sol-section__content">
+        <p class="section-label">03 — Assets</p>
         <h2 id="assets-title">Assets Management</h2>
         <p>Fleet tracking, driver behavior scoring, route optimization, and fuel anti‑fraud sensors with alerts and reports to reduce loss and improve safety.</p>
         <ul class="sol-outcomes">
@@ -118,10 +117,12 @@
       </div>
     </section>
 
-    <!-- IP NETWORKS -->
-    <section class="sol-section sol-section--flip sol-section--networks" id="ipnetworks" aria-labelledby="net-title">
+    <!-- IP NETWORKS — Network nodes background -->
+    <section class="sol-section sol-section--flip" id="ipnetworks" aria-labelledby="net-title">
+      <canvas class="bg-canvas" data-scene="network"></canvas>
       <div class="sol-section__overlay" aria-hidden="true"></div>
       <div class="container sol-section__content">
+        <p class="section-label">04 — Networks</p>
         <h2 id="net-title">IP Networks</h2>
         <p>Network orchestration, golden configuration management, and approvals; telemetry pipelines for metrics, logs, and traces; observability dashboards and SLOs.</p>
         <ul class="sol-outcomes">
@@ -133,11 +134,12 @@
       </div>
     </section>
 
-    <!-- CYBERSECURITY -->
-    <section class="sol-section" id="cyber" aria-labelledby="cyber-title"
-      style="background-image:url('./images/contact-hero.webp')">
+    <!-- CYBERSECURITY — Matrix rain background -->
+    <section class="sol-section" id="cyber" aria-labelledby="cyber-title">
+      <canvas class="bg-canvas" data-scene="cyber"></canvas>
       <div class="sol-section__overlay" aria-hidden="true"></div>
       <div class="container sol-section__content">
+        <p class="section-label">05 — Security</p>
         <h2 id="cyber-title">Cybersecurity</h2>
         <p>Penetration testing (external/internal/web/mobile/wireless), SOC onboarding and detection use‑cases, governance &amp; compliance, and IAM (SSO/MFA/PAM).</p>
         <ul class="sol-outcomes">
@@ -149,7 +151,7 @@
       </div>
     </section>
 
-    <!-- Demo Modal (shared) -->
+    <!-- Demo Modal -->
     <div class="modal" id="demo-modal" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-title">
       <div class="modal__card" role="document">
         <div class="modal__header">
@@ -193,7 +195,7 @@
           <h4 class="footer__heading">Company</h4>
           <ul class="footer__links">
             <li><a href="./about.html">About Us</a></li>
-            <li><a href="./about.html#careers-title">Careers</a></li>
+            <li><a href="./partners.html">Partners</a></li>
             <li><a href="./contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -224,6 +226,7 @@
     </div>
   </footer>
   <script src="./js/skins.js"></script>
+  <script src="./js/backgrounds.js"></script>
   <script src="./js/chatbot.js"></script>
 </body>
 </html>

@@ -42,42 +42,51 @@
       </nav>
     </div>
   </header>
+
   <main id="main">
-    <section class="hero skin skin--video hero--tactical" aria-labelledby="hero-title">
-      <div class="skin__bg" aria-hidden="true">
-        <video class="bg-video" autoplay muted loop playsinline preload="none" poster="./images/hero-poster.jpg">
-          <source src="./videos/hero.webm" type="video/webm" />
-          <source src="./videos/hero.mp4" type="video/mp4" />
-        </video>
-        <div class="tactical-overlay"><div class="tactical-grid"></div><div class="scanlines"></div></div>
-      </div>
+    <!-- HERO — Drone radar background -->
+    <section class="hero hero--video-bg hero--full skin skin--video hero--tactical" aria-labelledby="hero-title">
+      <canvas class="bg-canvas" data-scene="drones"></canvas>
+      <div class="tactical-overlay" aria-hidden="true"><div class="tactical-grid"></div><div class="scanlines"></div></div>
+      <div class="hero-video-overlay" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__content reveal">
+          <p class="section-label">Mission-Critical Integration</p>
           <h1 id="hero-title">Persistent Eyes &amp; Comms. When Minutes Matter.</h1>
           <p class="lead">Field‑proven integration for safety, critical connectivity, assets management, IP networks, and cybersecurity.</p>
           <div class="cta-group">
             <a class="btn btn--primary" href="./solutions.html">Explore Solutions</a>
-            <a class="btn btn--ghost" href="./about.html">About Us</a>
+            <a class="btn btn--outline-green" href="./about.html">About Us</a>
           </div>
           <ul class="trust-points"><li>Tactical reliability</li><li>Vendor‑agnostic integration</li><li>Local field support</li></ul>
         </div>
       </div>
     </section>
 
+    <!-- SCROLLING DATA STRIP -->
+    <div class="data-strip" aria-hidden="true">
+      <div class="data-strip__inner">
+        <span>Drone Control</span><span>Military Comms</span><span>Cybersecurity</span><span>Fleet Management</span><span>IP Networks</span><span>Satellite Links</span><span>Drone Control</span><span>Military Comms</span><span>Cybersecurity</span><span>Fleet Management</span><span>IP Networks</span><span>Satellite Links</span>
+      </div>
+    </div>
+
+    <!-- FIVE MISSION AREAS -->
     <section class="section skin skin--grid" aria-labelledby="quick-title">
       <div class="skin__bg" aria-hidden="true"></div>
       <div class="container">
-        <h2 id="quick-title">Five mission areas</h2>
+        <p class="section-label">What We Do</p>
+        <h2 id="quick-title">Five Mission Areas</h2>
         <ul class="grid cards" role="list">
-          <li class="card"><h3>Safety &amp; Surveillance</h3><p>IP video, analytics, ISR drones, and body‑worn cameras.</p><a class="card-link" href="./solutions.html#safety">Learn more</a></li>
-          <li class="card"><h3>Critical Connectivity</h3><p>Satellite and radio communication links and infrastructure.</p><a class="card-link" href="./solutions.html#connectivity">Learn more</a></li>
-          <li class="card"><h3>Assets Management</h3><p>Fleet tracking, driver analytics, and fuel anti‑fraud.</p><a class="card-link" href="./solutions.html#assets">Learn more</a></li>
-          <li class="card"><h3>IP Networks</h3><p>Orchestration, configuration management, and observability.</p><a class="card-link" href="./solutions.html#ipnetworks">Learn more</a></li>
-          <li class="card"><h3>Cybersecurity</h3><p>PenTesting, SOC, governance, and IAM.</p><a class="card-link" href="./solutions.html#cyber">Learn more</a></li>
+          <li class="card card--accent"><h3>Safety &amp; Surveillance</h3><p>IP video, analytics, ISR drones, and body‑worn cameras.</p><a class="card-link" href="./solutions.html#safety">Learn more</a></li>
+          <li class="card card--accent"><h3>Critical Connectivity</h3><p>Satellite and radio communication links and infrastructure.</p><a class="card-link" href="./solutions.html#connectivity">Learn more</a></li>
+          <li class="card card--accent"><h3>Assets Management</h3><p>Fleet tracking, driver analytics, and fuel anti‑fraud.</p><a class="card-link" href="./solutions.html#assets">Learn more</a></li>
+          <li class="card card--accent"><h3>IP Networks</h3><p>Orchestration, configuration management, and observability.</p><a class="card-link" href="./solutions.html#ipnetworks">Learn more</a></li>
+          <li class="card card--gold"><h3>Cybersecurity</h3><p>PenTesting, SOC, governance, and IAM.</p><a class="card-link" href="./solutions.html#cyber">Learn more</a></li>
         </ul>
       </div>
     </section>
   </main>
+
   <footer class="site-footer" role="contentinfo">
     <div class="footer__top">
       <div class="container footer__columns">
@@ -102,7 +111,7 @@
           <h4 class="footer__heading">Company</h4>
           <ul class="footer__links">
             <li><a href="./about.html">About Us</a></li>
-            <li><a href="./about.html#careers-title">Careers</a></li>
+            <li><a href="./partners.html">Partners</a></li>
             <li><a href="./contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -133,6 +142,7 @@
     </div>
   </footer>
   <script src="./js/skins.js"></script>
+  <script src="./js/backgrounds.js"></script>
   <script src="./js/chatbot.js"></script>
 </body>
 </html>
