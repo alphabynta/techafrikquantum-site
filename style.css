@@ -14,7 +14,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .section--alt{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.72);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
 .site-header .container{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space-3);padding:var(--space-3) 0}
-.logo{font-weight:700;letter-spacing:.5px}
+.logo{font-weight:700;letter-spacing:.5px;display:inline-flex;align-items:center;gap:8px}
+.logo img{border-radius:8px;object-fit:contain}
 .primary-nav .nav-list{display:flex;gap:var(--space-3);list-style:none;margin:0;padding:0}
 .primary-nav a{color:var(--muted);padding:8px 10px;border-radius:8px}
 .primary-nav a[aria-current="page"]{color:var(--text);background:rgba(255,255,255,.06)}
