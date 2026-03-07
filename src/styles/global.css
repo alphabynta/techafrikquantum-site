@@ -15,7 +15,7 @@
   --radius-lg: 18px;
   --space-1: 8px; --space-2: 12px; --space-3: 16px;
   --space-4: 24px; --space-5: 32px; --space-6: 48px;
-  --maxw: 1400px;
+  --maxw: 1600px;
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.65;
   color: var(--text);
   background: #000;
@@ -58,8 +58,8 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -.02em; line-height: 1.1; col
 h1 { font-size: clamp(48px, 7vw, 96px); font-weight: 800; letter-spacing: -.04em; }
 h2 { font-size: clamp(32px, 5vw, 72px); font-weight: 800; letter-spacing: -.04em; }
 h3 { font-size: clamp(18px, 2.5vw, 26px); font-weight: 700; }
-p { color: var(--muted); line-height: 1.7; }
-.lead { font-size: clamp(16px, 1.9vw, 20px); color: var(--muted); line-height: 1.75; }
+p { color: var(--muted); line-height: 1.75; font-size: 18px; }
+.lead { font-size: clamp(18px, 2.2vw, 23px); color: var(--muted); line-height: 1.8; }
 
 /* ── Section label ──────────────────────────────────────────── */
 .section-label {
