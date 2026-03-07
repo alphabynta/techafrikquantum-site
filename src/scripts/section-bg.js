@@ -7,23 +7,13 @@
     hero:      '#0a0a0a',  /* dark        */
     sectors:   '#f2f2f2',  /* white       */
     solutions: '#1e1e1e',  /* dark grey   */
-    about:     '#2d3d08',  /* olive green */
+    about:     '#0a0a0a',  /* dark        */
     partners:  '#0a0a0a',  /* dark        */
     contact:   '#f2f2f2',  /* white       */
   };
 
   /* Sections whose background is light — needs dark text */
   var lightBg = { sectors: true, contact: true };
-
-  /* Particle (neurone) RGB per section */
-  var particleRgb = {
-    hero:      '245,165,36',   /* amber       */
-    sectors:   '107,142,35',   /* olive green */
-    solutions: '255,120,20',   /* orange      */
-    about:     '255,255,255',  /* white       */
-    partners:  '255,255,255',  /* white       */
-    contact:   '107,142,35',   /* olive green */
-  };
 
   var bg = document.getElementById('page-bg');
   if (!bg) return;
@@ -48,10 +38,10 @@
   };
 
   function applySection(id) {
-    if (bgColors[id])    bg.style.backgroundColor = bgColors[id];
-    if (particleRgb[id]) window.__particleRgb = particleRgb[id];
+    if (bgColors[id]) bg.style.backgroundColor = bgColors[id];
     var isLight = !!lightBg[id];
     document.body.setAttribute('data-bg-tone', isLight ? 'light' : 'dark');
+    document.body.setAttribute('data-section', id);
     /* Set tokens directly on :root — overrides any @media preference */
     var tokens = isLight ? lightTokens : darkTokens;
     var root = document.documentElement;
