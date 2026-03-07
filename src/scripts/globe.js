@@ -9,7 +9,7 @@
   const ctx = canvas.getContext('2d');
 
   const ZOOM  = 5;
-  const SPEED = 360 / (280 * 60); /* 5× faster */
+  const SPEED = 360 / (93 * 60); /* 15× original */
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let centerLon = 0;
