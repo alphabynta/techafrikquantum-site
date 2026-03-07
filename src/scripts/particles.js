@@ -234,16 +234,38 @@
     }
   }
 
+  /* ── Separation — prevents overlap between same-type entities ── */
+  function separateAll(entities, minDist, maxSpeed) {
+    for (let i = 0; i < entities.length; i++) {
+      for (let j = i + 1; j < entities.length; j++) {
+        const dx = entities[i].x - entities[j].x;
+        const dy = entities[i].y - entities[j].y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < minDist && d > 0) {
+          const force = (minDist - d) / minDist * 0.5;
+          const fx = (dx / d) * force;
+          const fy = (dy / d) * force;
+          entities[i].vx += fx; entities[i].vy += fy;
+          entities[j].vx -= fx; entities[j].vy -= fy;
+          [entities[i], entities[j]].forEach(function (e) {
+            const spd = Math.sqrt(e.vx * e.vx + e.vy * e.vy);
+            if (spd > maxSpeed) { e.vx = e.vx / spd * maxSpeed; e.vy = e.vy / spd * maxSpeed; }
+          });
+        }
+      }
+    }
+  }
+
   /* ── Drone base mixin ───────────────────────────────────────── */
   function droneBase() {
     return {
       reset() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - .5) * .035;
-        this.vy = (Math.random() - .5) * .035;
+        this.vx = (Math.random() - .5) * .175;
+        this.vy = (Math.random() - .5) * .175;
         this.angle = Math.random() * Math.PI * 2;
-        this.spin  = (Math.random() - .5) * 0.0004;
+        this.spin  = (Math.random() - .5) * 0.002;
       },
       update() {
         this.x += this.vx; this.y += this.vy;
@@ -398,9 +420,14 @@
 
   function animate() {
     ctx.clearRect(0, 0, w, h);
-    particles.forEach(p => { p.update(); p.draw(); });
-    drawLines();
+    const isHero = document.body.getAttribute('data-section') === 'hero';
+    if (!isHero) {
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+    }
+    separateAll(satellites, 120, 0.00875);
     satellites.forEach(s => { s.update(); s.draw(); });
+    separateAll(drones, 80, 0.175);
     drones.forEach(d => { d.update(); d.draw(); });
     requestAnimationFrame(animate);
   }
