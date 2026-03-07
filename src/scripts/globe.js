@@ -12,7 +12,7 @@
   const SPEED = 360 / (700 * 60);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let centerLon = 0;
+  let centerLon = -12; /* start centred on Guinea (~12°W) */
   let countries, borders, graticule;
 
   function makeProjection() {
