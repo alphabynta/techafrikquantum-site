@@ -11,6 +11,7 @@
   function getRgb() { return window.__particleRgb || '245,165,36'; }
   let particles = [];
   let satellites = [];
+  let drones = [];
   let w, h;
 
   function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
@@ -231,6 +232,148 @@
     }
   }
 
+  /* ── Drone base mixin ───────────────────────────────────────── */
+  function droneBase() {
+    return {
+      reset() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - .5) * .35;
+        this.vy = (Math.random() - .5) * .35;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin  = (Math.random() - .5) * 0.004;
+      },
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+        this.angle += this.spin;
+      },
+    };
+  }
+
+  /* ── Drone type 1 — ISR (Global Hawk style) ─────────────────── */
+  /* Top-down: long slender fuselage, very high-aspect straight wings,
+     bulbous sensor nose, twin-boom V-tail */
+  class DroneISR {
+    constructor() { Object.assign(this, droneBase()); this.reset(); }
+    draw() {
+      const rgb = getRgb();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
+      ctx.lineWidth   = 0.9;
+
+      /* fuselage — long thin shape */
+      ctx.beginPath();
+      ctx.moveTo(28, 0);           /* nose tip */
+      ctx.bezierCurveTo(28, -5,  16, -5,  10, -5);
+      ctx.lineTo(-22, -4);
+      ctx.lineTo(-28, 0);          /* tail tip */
+      ctx.lineTo(-22,  4);
+      ctx.lineTo(10,   5);
+      ctx.bezierCurveTo(16, 5,  28, 5, 28, 0);
+      ctx.fill(); ctx.stroke();
+
+      /* bulbous sensor nose dome */
+      ctx.beginPath();
+      ctx.arc(28, 0, 6, -Math.PI/2, Math.PI/2);
+      ctx.fill(); ctx.stroke();
+
+      /* high-aspect straight wings — span ~100px */
+      ctx.beginPath();
+      ctx.moveTo(8,  -5);
+      ctx.lineTo(4,  -52);
+      ctx.lineTo(-4, -52);
+      ctx.lineTo(-8, -5);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(8,   5);
+      ctx.lineTo(4,   52);
+      ctx.lineTo(-4,  52);
+      ctx.lineTo(-8,  5);
+      ctx.fill(); ctx.stroke();
+
+      /* V-tail — two angled fins at rear */
+      ctx.beginPath();
+      ctx.moveTo(-22, -4);
+      ctx.lineTo(-38, -16);
+      ctx.lineTo(-36, -4);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-22,  4);
+      ctx.lineTo(-38,  16);
+      ctx.lineTo(-36,  4);
+      ctx.fill(); ctx.stroke();
+
+      /* engine intake on top (center) */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.40)';
+      ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.arc(4, 0, 4, Math.PI, 0); ctx.stroke();
+
+      ctx.restore();
+    }
+  }
+
+  /* ── Drone type 2 — Military UCAV (Reaper / stealth style) ──── */
+  /* Top-down: swept delta wings, angular faceted fuselage,
+     inverted V-tail, weapons pylons under wings */
+  class DroneMilitary {
+    constructor() { Object.assign(this, droneBase()); this.reset(); }
+    draw() {
+      const rgb = getRgb();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
+      ctx.lineWidth   = 0.9;
+
+      /* main swept-wing body — flying wing delta */
+      ctx.beginPath();
+      ctx.moveTo(26,  0);    /* nose */
+      ctx.lineTo(10, -6);
+      ctx.lineTo(-10, -42);  /* left wingtip */
+      ctx.lineTo(-22, -40);
+      ctx.lineTo(-20, -6);
+      ctx.lineTo(-28,  0);   /* tail notch */
+      ctx.lineTo(-20,  6);
+      ctx.lineTo(-22,  40);
+      ctx.lineTo(-10,  42);  /* right wingtip */
+      ctx.lineTo(10,   6);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+      /* angular fuselage spine */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.35)';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(26, 0); ctx.lineTo(-28, 0); ctx.stroke();
+
+      /* inverted-V tail fins */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.lineWidth = 0.9;
+      ctx.beginPath();
+      ctx.moveTo(-20, -6); ctx.lineTo(-36, -18); ctx.lineTo(-34, -6);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-20,  6); ctx.lineTo(-36,  18); ctx.lineTo(-34,  6);
+      ctx.fill(); ctx.stroke();
+
+      /* weapons pylons — small rectangles under each wing */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.55)';
+      ctx.lineWidth = 0.7;
+      ctx.beginPath(); ctx.rect(-2, -28, 14, 4); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-2,  24, 14, 4); ctx.stroke();
+      /* missile tips */
+      ctx.beginPath(); ctx.moveTo(12, -26); ctx.lineTo(18, -26); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(12,  26); ctx.lineTo(18,  26); ctx.stroke();
+
+      ctx.restore();
+    }
+  }
+
   function drawLines() {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
@@ -254,6 +397,7 @@
     particles.forEach(p => { p.update(); p.draw(); });
     drawLines();
     satellites.forEach(s => { s.update(); s.draw(); });
+    drones.forEach(d => { d.update(); d.draw(); });
     requestAnimationFrame(animate);
   }
 
@@ -265,6 +409,10 @@
     new SatSputnik(), new SatSputnik(),
     new SatISS(),     new SatISS(),
     new SatCubeSat(), new SatCubeSat(),
+  ];
+  drones = [
+    new DroneISR(),      new DroneISR(),      new DroneISR(),
+    new DroneMilitary(), new DroneMilitary(), new DroneMilitary(),
   ];
   animate();
 })();
