@@ -7,7 +7,7 @@
   const PARTICLE_COUNT = 90;
   const MAX_DIST = 160;
   /* Colour is driven by section-bg.js via window.__particleRgb */
-  function getRgb() { return window.__particleRgb || '255,102,0'; }
+  function getRgb() { return window.__particleRgb || '245,165,36'; }
   let particles = [];
   let w, h;
 
