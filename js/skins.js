@@ -89,7 +89,7 @@
     const note=document.getElementById('demo-note').value.trim();
     const subject='Demo Request: '+sol;
     const body=`Solution: ${sol}\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nMessage: ${note}`;
-    const mailto=`mailto:info@techafrikquantomgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto=`mailto:info@techafrikquantumgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href=mailto;
     closeModal();
   });
