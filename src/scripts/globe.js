@@ -1,64 +1,69 @@
-/* globe.js — accurate flat world map via D3 + Natural Earth / world-atlas */
+/* globe.js — zoomed flat world map, JS-animated rotation */
 (function () {
   const canvas = document.getElementById('globe-canvas');
   if (!canvas) return;
 
-  const MAP_W = 2400;
-  const MAP_H = 1200;
-  canvas.width  = MAP_W * 2;
-  canvas.height = MAP_H;
+  const W = 2400, H = 1200;
+  canvas.width  = W;
+  canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  /* Dynamically load a script from CDN */
-  function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      const s = document.createElement('script');
-      s.src = src; s.onload = resolve; s.onerror = reject;
-      document.head.appendChild(s);
-    });
+  const ZOOM  = 5;
+  /* 10× slower than original 140s → 1400s per full rotation at 60fps */
+  const SPEED = 360 / (1400 * 60);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let centerLon = 0;
+  let countries, borders, graticule;
+
+  function makeProjection() {
+    return d3.geoEquirectangular()
+      .scale(H / Math.PI * ZOOM)
+      .translate([W / 2, H / 2])
+      .rotate([-centerLon, 0]);
   }
 
-  function drawMap(countries, borders, graticule) {
-    [0, MAP_W].forEach(function (offsetX) {
-      const projection = d3.geoEquirectangular()
-        .scale(MAP_H / Math.PI)
-        .translate([offsetX + MAP_W / 2, MAP_H / 2]);
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const proj = makeProjection();
+    const path = d3.geoPath().projection(proj).context(ctx);
 
-      const path = d3.geoPath().projection(projection).context(ctx);
+    /* Grid */
+    ctx.beginPath(); path(graticule);
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth   = 0.4; ctx.stroke();
 
-      /* Grid lines */
-      ctx.beginPath();
-      path(graticule);
-      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-      ctx.lineWidth   = 0.4;
-      ctx.stroke();
+    /* Equator */
+    ctx.beginPath();
+    path({ type: 'LineString', coordinates: [[-180,0],[180,0]] });
+    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+    ctx.lineWidth   = 0.8; ctx.stroke();
 
-      /* Equator */
-      ctx.beginPath();
-      path({ type: 'LineString', coordinates: [[-180, 0], [180, 0]] });
-      ctx.strokeStyle = 'rgba(255,255,255,0.14)';
-      ctx.lineWidth   = 0.8;
-      ctx.stroke();
+    /* Country fill */
+    ctx.beginPath(); path(countries);
+    ctx.fillStyle = 'rgba(255,255,255,0.10)'; ctx.fill();
 
-      /* Country fill */
-      ctx.beginPath();
-      path(countries);
-      ctx.fillStyle = 'rgba(255,255,255,0.10)';
-      ctx.fill();
+    /* Coastlines */
+    ctx.beginPath(); path(countries);
+    ctx.strokeStyle = 'rgba(255,255,255,0.80)';
+    ctx.lineWidth   = 1.2; ctx.stroke();
 
-      /* Outer coastline */
-      ctx.beginPath();
-      path(countries);
-      ctx.strokeStyle = 'rgba(255,255,255,0.80)';
-      ctx.lineWidth   = 1.2;
-      ctx.stroke();
+    /* Internal borders */
+    ctx.beginPath(); path(borders);
+    ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+    ctx.lineWidth   = 0.7; ctx.stroke();
 
-      /* Country borders (internal) */
-      ctx.beginPath();
-      path(borders);
-      ctx.strokeStyle = 'rgba(255,255,255,0.45)';
-      ctx.lineWidth   = 0.7;
-      ctx.stroke();
+    if (!reduced) {
+      centerLon = (centerLon + SPEED) % 360;
+      requestAnimationFrame(draw);
+    }
+  }
+
+  function loadScript(src) {
+    return new Promise(function (res, rej) {
+      const s = document.createElement('script');
+      s.src = src; s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
     });
   }
 
@@ -71,10 +76,10 @@
     })
     .then(function (r) { return r.json(); })
     .then(function (world) {
-      const countries = topojson.feature(world, world.objects.countries);
-      const borders   = topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; });
-      const graticule = d3.geoGraticule().step([30, 30])();
-      drawMap(countries, borders, graticule);
+      countries = topojson.feature(world, world.objects.countries);
+      borders   = topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; });
+      graticule = d3.geoGraticule().step([30, 30])();
+      draw();
     })
     .catch(function (e) { console.warn('globe.js: failed to load map data', e); });
 })();
