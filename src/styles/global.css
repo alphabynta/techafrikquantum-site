@@ -185,7 +185,7 @@ p { color: var(--muted); line-height: 1.75; font-size: 18px; }
 .lang-switcher { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
 .lang-btn {
   background: transparent; border: 1px solid var(--border);
-  color: var(--muted); border-radius: 6px;
+  color: #ffffff; border-radius: 6px;
   padding: 5px 10px; font-size: 12px; font-weight: 600;
   font-family: var(--font); cursor: pointer;
   transition: color .15s, border-color .15s, background .15s;
