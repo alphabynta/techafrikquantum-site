@@ -262,15 +262,17 @@ import contactConfig  from './bg-sections/contact.js';
     }
     _pos() {
       /* Read globe canvas position from DOM so any CSS offset is respected.
-         Guinea: lon=-12° = horizontal centre of canvas (x = 0.5 × width)
-                 lat=11°N → native y = H/2 - scale×lat_rad
-                          = 600 - (1200/π×5) × (11×π/180) ≈ 233
-                          → ratio 233/1200 of canvas height */
+         Guinea: lon=-12°, lat=11°N
+         x_native = (-12 - centerLon) × (H/π × ZOOM × π/180) + W/2
+                  = (-12 - centerLon) × 100/3 + 1200  (with H=1200, ZOOM=5, W=2400)
+         y_native ≈ 233/1200 of canvas height (lat 11°N) */
       const gc = document.getElementById('globe-canvas');
       if (!gc) return { x: w / 2, y: h / 2 };
       const r = gc.getBoundingClientRect();
+      const centerLon = window.__globeCenterLon != null ? window.__globeCenterLon : -12;
+      const x_native  = (-12 - centerLon) * (100 / 3) + 1200;
       return {
-        x: r.left + r.width  * 0.5,
+        x: r.left + (x_native / 2400) * r.width,
         y: r.top  + r.height * (233 / 1200),
       };
     }
