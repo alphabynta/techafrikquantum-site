@@ -94,7 +94,7 @@ const solutions = [
   .solutions-main-heading {
     font-size: clamp(40px, 6vw, 80px);
     font-weight: 800; letter-spacing: -.04em;
-    color: #fff; text-transform: uppercase; line-height: 1;
+    color: var(--text); text-transform: uppercase; line-height: 1;
   }
   .text-accent { color: var(--accent); }
 
@@ -161,7 +161,7 @@ const solutions = [
   }
   .sol-panel__body {
     font-size: clamp(17px, 1.6vw, 21px);
-    color: rgba(255,255,255,.72);
+    color: var(--sol-text, rgba(255,255,255,.72));
     line-height: 1.75; max-width: 580px;
     margin-bottom: clamp(24px, 3vw, 40px);
   }
@@ -172,7 +172,7 @@ const solutions = [
   }
   .sol-panel__list li {
     font-size: clamp(15px, 1.4vw, 18px);
-    color: rgba(255,255,255,.60);
+    color: var(--sol-text-dim, rgba(255,255,255,.60));
     padding-left: 22px; position: relative;
   }
   .sol-panel__list li::before {
@@ -190,6 +190,31 @@ const solutions = [
     z-index: 1;
   }
   .sol-panel--flip .sol-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
+
+  /* Light mode: transparent overlay, dark text */
+  @media (prefers-color-scheme: light) {
+    .sol-panel__overlay,
+    .sol-panel--flip .sol-panel__overlay {
+      background: linear-gradient(
+        105deg,
+        rgba(255,255,255,0.70) 0%,
+        rgba(255,255,255,0.40) 55%,
+        rgba(255,255,255,0.10) 100%
+      );
+    }
+    .sol-panel--flip .sol-panel__overlay {
+      background: linear-gradient(
+        -105deg,
+        rgba(255,255,255,0.70) 0%,
+        rgba(255,255,255,0.40) 55%,
+        rgba(255,255,255,0.10) 100%
+      );
+    }
+    :root {
+      --sol-text: rgba(0,0,0,.72);
+      --sol-text-dim: rgba(0,0,0,.55);
+    }
+  }
 
   /* Mobile */
   @media (max-width: 768px) {
