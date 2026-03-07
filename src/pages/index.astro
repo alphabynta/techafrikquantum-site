@@ -1,6 +1,26 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Sectors from '../components/Sectors.astro';
+import Solutions from '../components/Solutions.astro';
+import About from '../components/About.astro';
+import Partners from '../components/Partners.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
-<html lang="en">
-  <head><title>TechAfrikQuantum</title></head>
-  <body><h1>Coming soon</h1></body>
-</html>
+<Layout
+  title="Techafrik Quantum Group — Secure. Connect. Protect."
+  description="Defense-grade surveillance, critical connectivity, and intelligent fleet management across West Africa."
+>
+  <Nav />
+  <main id="main">
+    <Hero />
+    <Sectors />
+    <Solutions />
+    <About />
+    <Partners />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
