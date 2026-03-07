@@ -8,18 +8,19 @@
   canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  const ZOOM  = 5;
-  const SPEED = 360 / (700 * 60);
+  const ZOOM  = 5;     /* 2× zoom on the wider view */
+  const TILT  = -20;   /* tilt northward: view centres on ~20°N */
+  const SPEED = 360 / (1400 * 60);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let centerLon = -12; /* start centred on Guinea (~12°W) */
+  let centerLon = 0;
   let countries, borders, graticule;
 
   function makeProjection() {
     return d3.geoEquirectangular()
       .scale(H / Math.PI * ZOOM)
       .translate([W / 2, H / 2])
-      .rotate([-centerLon, 0]);
+      .rotate([-centerLon, TILT]);
   }
 
   function draw() {
@@ -54,7 +55,6 @@
 
     if (!reduced) {
       centerLon = (centerLon + SPEED) % 360;
-      window.__globeCenterLon = centerLon;
       requestAnimationFrame(draw);
     }
   }
