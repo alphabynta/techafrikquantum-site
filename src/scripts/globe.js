@@ -8,7 +8,7 @@
   canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  const ZOOM  = 10;
+  const ZOOM  = 5;
   const SPEED = 360 / (700 * 60);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
