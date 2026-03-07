@@ -5,7 +5,7 @@
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const PARTICLE_COUNT = 90;
-  const SATELLITE_COUNT = 6;
+  const SATELLITE_COUNT = 8;
   const MAX_DIST = 160;
   /* Colour is driven by section-bg.js via window.__particleRgb */
   function getRgb() { return window.__particleRgb || '245,165,36'; }
@@ -37,23 +37,16 @@
     }
   }
 
-  class Satellite {
+  /* ── Satellite type A — Classic comsat ─────────────────────── */
+  class SatComsat {
     constructor() { this.reset(); }
     reset() {
-      this.x  = Math.random() * w;
-      this.y  = Math.random() * h;
-      /* same speed range as particles */
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
       this.vx = (Math.random() - .5) * .35;
       this.vy = (Math.random() - .5) * .35;
-      /* random tilt angle, rotates slowly */
-      this.angle    = Math.random() * Math.PI * 2;
-      this.spin     = (Math.random() - .5) * 0.004;
-      /* body half-sizes */
-      this.bw = 20; /* half-width of body */
-      this.bh = 12; /* half-height of body */
-      /* panel dimensions */
-      this.pw = 32; /* panel width */
-      this.ph = 8;  /* panel height */
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin  = (Math.random() - .5) * 0.004;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -68,33 +61,172 @@
       ctx.rotate(this.angle);
       ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
       ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
-      ctx.lineWidth   = 0.8;
-
-      /* body */
+      ctx.lineWidth   = 0.9;
+      /* cylindrical body */
       ctx.beginPath();
-      ctx.rect(-this.bw, -this.bh, this.bw * 2, this.bh * 2);
-      ctx.fill();
+      ctx.rect(-10, -14, 20, 28);
+      ctx.fill(); ctx.stroke();
+      /* solar wings */
+      ctx.beginPath(); ctx.rect(-42, -6, 28, 12); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(14,  -6, 28, 12); ctx.fill(); ctx.stroke();
+      /* panel divider lines */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.35)';
+      ctx.lineWidth = 0.5;
+      for (let i = 1; i < 3; i++) {
+        ctx.beginPath(); ctx.moveTo(-42 + i * 9.3, -6); ctx.lineTo(-42 + i * 9.3, 6); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(14  + i * 9.3, -6); ctx.lineTo(14  + i * 9.3, 6); ctx.stroke();
+      }
+      /* dish antenna */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.lineWidth = 0.9;
+      ctx.beginPath();
+      ctx.arc(0, -14, 10, Math.PI, 0);
       ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, -14); ctx.lineTo(0, -24); ctx.stroke();
+      ctx.restore();
+    }
+  }
 
-      /* left solar panel */
-      ctx.beginPath();
-      ctx.rect(-this.bw - this.pw - 1, -this.ph, this.pw, this.ph * 2);
-      ctx.fill();
-      ctx.stroke();
+  /* ── Satellite type B — Sputnik ─────────────────────────────── */
+  class SatSputnik {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - .5) * .35;
+      this.vy = (Math.random() - .5) * .35;
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin  = (Math.random() - .5) * 0.004;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.y < 0 || this.y > h) this.vy *= -1;
+      this.angle += this.spin;
+    }
+    draw() {
+      const rgb = getRgb();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
+      ctx.lineWidth   = 0.9;
+      /* sphere body */
+      ctx.beginPath(); ctx.arc(0, 0, 12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      /* 4 antenna spikes at 45° intervals */
+      const spikes = [45, 135, 225, 315];
+      spikes.forEach(function(deg) {
+        const rad = deg * Math.PI / 180;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(rad) * 12, Math.sin(rad) * 12);
+        ctx.lineTo(Math.cos(rad) * 40, Math.sin(rad) * 40);
+        ctx.strokeStyle = 'rgba(' + rgb + ',0.55)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+      ctx.restore();
+    }
+  }
 
-      /* right solar panel */
-      ctx.beginPath();
-      ctx.rect(this.bw + 1, -this.ph, this.pw, this.ph * 2);
-      ctx.fill();
-      ctx.stroke();
+  /* ── Satellite type C — ISS-style ───────────────────────────── */
+  class SatISS {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - .5) * .35;
+      this.vy = (Math.random() - .5) * .35;
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin  = (Math.random() - .5) * 0.004;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.y < 0 || this.y > h) this.vy *= -1;
+      this.angle += this.spin;
+    }
+    draw() {
+      const rgb = getRgb();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
+      ctx.lineWidth   = 0.9;
+      /* central truss */
+      ctx.beginPath(); ctx.rect(-52, -3, 104, 6); ctx.fill(); ctx.stroke();
+      /* module cluster at center */
+      ctx.beginPath(); ctx.rect(-10, -8, 20, 16); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-6,  -14, 12, 6);  ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-6,  8,   12, 6);  ctx.fill(); ctx.stroke();
+      /* 4 solar panel segments — 2 each side */
+      const panels = [-52, -28, 20, 44];
+      panels.forEach(function(px) {
+        ctx.beginPath(); ctx.rect(px, -18, 20, 15); ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.rect(px,   3, 20, 15); ctx.fill(); ctx.stroke();
+        /* panel divider */
+        ctx.strokeStyle = 'rgba(' + rgb + ',0.30)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath(); ctx.moveTo(px + 10, -18); ctx.lineTo(px + 10, 18); ctx.stroke();
+        ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+        ctx.lineWidth = 0.9;
+      });
+      ctx.restore();
+    }
+  }
 
-      /* antenna — short line from top of body */
-      ctx.beginPath();
-      ctx.moveTo(0, -this.bh);
-      ctx.lineTo(0, -this.bh - 16);
+  /* ── Satellite type D — CubeSat ─────────────────────────────── */
+  class SatCubeSat {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - .5) * .35;
+      this.vy = (Math.random() - .5) * .35;
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin  = (Math.random() - .5) * 0.004;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.y < 0 || this.y > h) this.vy *= -1;
+      this.angle += this.spin;
+    }
+    draw() {
+      const rgb = getRgb();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
+      ctx.lineWidth   = 0.9;
+      /* square body */
+      ctx.beginPath(); ctx.rect(-14, -14, 28, 28); ctx.fill(); ctx.stroke();
+      /* cross detail on face */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.30)';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(-14, 0); ctx.lineTo(14, 0); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, -14); ctx.lineTo(0, 14); ctx.stroke();
+      /* flat open solar panels — book-cover style */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
+      ctx.lineWidth = 0.9;
+      ctx.beginPath(); ctx.rect(-46, -14, 28, 28); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect( 18, -14, 28, 28); ctx.fill(); ctx.stroke();
+      /* panel grid */
+      ctx.strokeStyle = 'rgba(' + rgb + ',0.30)';
+      ctx.lineWidth = 0.5;
+      [-32, -23].forEach(function(px) {
+        ctx.beginPath(); ctx.moveTo(px, -14); ctx.lineTo(px, 14); ctx.stroke();
+      });
+      [18+9, 18+18].forEach(function(px) {
+        ctx.beginPath(); ctx.moveTo(px, -14); ctx.lineTo(px, 14); ctx.stroke();
+      });
+      /* antenna nub on corner */
       ctx.strokeStyle = 'rgba(' + rgb + ',0.55)';
-      ctx.stroke();
-
+      ctx.lineWidth = 0.9;
+      ctx.beginPath(); ctx.moveTo(14, -14); ctx.lineTo(22, -22); ctx.stroke();
+      ctx.beginPath(); ctx.arc(22, -22, 2, 0, Math.PI * 2); ctx.stroke();
       ctx.restore();
     }
   }
@@ -128,6 +260,11 @@
   resize();
   window.addEventListener('resize', resize, { passive: true });
   particles  = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
-  satellites = Array.from({ length: SATELLITE_COUNT }, () => new Satellite());
+  satellites = [
+    new SatComsat(), new SatComsat(),
+    new SatSputnik(), new SatSputnik(),
+    new SatISS(),     new SatISS(),
+    new SatCubeSat(), new SatCubeSat(),
+  ];
   animate();
 })();
