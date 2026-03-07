@@ -53,6 +53,11 @@
     ctx.strokeStyle = 'rgba(255,255,255,0.45)';
     ctx.lineWidth   = 0.7; ctx.stroke();
 
+    /* Expose Guinea's canvas position for DroneGuinea in bg-engine.js */
+    const gp = proj([-12, 11]);
+    window.__guineaCanvasX = gp ? gp[0] : W / 2;
+    window.__guineaCanvasY = gp ? gp[1] : 233;
+
     if (!reduced) {
       centerLon = (centerLon + SPEED) % 360;
       requestAnimationFrame(draw);

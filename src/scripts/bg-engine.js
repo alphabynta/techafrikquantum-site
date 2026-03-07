@@ -249,6 +249,59 @@ import contactConfig  from './bg-sections/contact.js';
     }
   }
 
+  /* ── Guinea patrol drone — always orbits Guinea on the map ──── */
+  class DroneGuinea {
+    constructor() {
+      this.orbitAngle = 0;
+      this.orbitSpeed = 0.008;
+      this.orbitRadius = 50;
+      const p = this._pos();
+      this.x = p.x + this.orbitRadius;
+      this.y = p.y;
+      this.angle = Math.PI / 2;
+    }
+    _pos() {
+      /* globe.js exposes Guinea's exact canvas coordinates each frame */
+      const gc = document.getElementById('globe-canvas');
+      if (!gc) return { x: w / 2, y: h / 2 };
+      const r  = gc.getBoundingClientRect();
+      const cx = window.__guineaCanvasX != null ? window.__guineaCanvasX : 1200;
+      const cy = window.__guineaCanvasY != null ? window.__guineaCanvasY : 233;
+      return {
+        x: r.left + (cx / 2400) * r.width,
+        y: r.top  + (cy / 1200) * r.height,
+      };
+    }
+    update() {
+      const p  = this._pos();
+      const px = this.x, py = this.y;
+      this.orbitAngle += this.orbitSpeed;
+      this.x = p.x + Math.cos(this.orbitAngle) * this.orbitRadius;
+      this.y = p.y + Math.sin(this.orbitAngle) * this.orbitRadius;
+      this.angle = Math.atan2(this.y - py, this.x - px);
+    }
+    draw() {
+      const rgb = DRONE_RGB;
+      ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.5, 0.5);
+      ctx.strokeStyle = `rgba(${rgb},0.90)`; ctx.fillStyle = `rgba(${rgb},0.28)`; ctx.lineWidth = 1.1;
+      ctx.beginPath();
+      ctx.moveTo(26,0); ctx.lineTo(10,-6); ctx.lineTo(-10,-42); ctx.lineTo(-22,-40); ctx.lineTo(-20,-6);
+      ctx.lineTo(-28,0); ctx.lineTo(-20,6); ctx.lineTo(-22,40); ctx.lineTo(-10,42); ctx.lineTo(10,6);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = `rgba(${rgb},0.45)`; ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.moveTo(26,0); ctx.lineTo(-28,0); ctx.stroke();
+      ctx.strokeStyle = `rgba(${rgb},0.90)`; ctx.lineWidth = 1.1;
+      ctx.beginPath(); ctx.moveTo(-20,-6); ctx.lineTo(-36,-18); ctx.lineTo(-34,-6); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-20,6);  ctx.lineTo(-36,18);  ctx.lineTo(-34,6);  ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = `rgba(${rgb},0.70)`; ctx.lineWidth = 0.8;
+      ctx.beginPath(); ctx.rect(-2,-28,14,4); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-2,24,14,4); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(12,-26); ctx.lineTo(18,-26); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(12,26);  ctx.lineTo(18,26);  ctx.stroke();
+      ctx.restore();
+    }
+  }
+
   /* ── Separation helpers ─────────────────────────────────────── */
   function separateAll(entities, minDist, maxSpeed) {
     for (let i = 0; i < entities.length; i++) {
@@ -326,6 +379,7 @@ import contactConfig  from './bg-sections/contact.js';
     new DroneISR(),      new DroneISR(),      new DroneISR(),
     new DroneMilitary(), new DroneMilitary(), new DroneMilitary(),
   ];
+  const guineaDrone = new DroneGuinea();
 
   /* ── Section observer ───────────────────────────────────────── */
   const observer = new IntersectionObserver(function (entries) {
@@ -352,6 +406,7 @@ import contactConfig  from './bg-sections/contact.js';
     satellites.forEach(s => { s.update(); s.draw(); });
     separateDrones(drones, 80);
     drones.forEach(d => { d.update(); d.draw(); });
+    guineaDrone.update(); guineaDrone.draw();
     requestAnimationFrame(animate);
   }
   animate();
