@@ -1,0 +1,197 @@
+---
+const sectors = [
+  {
+    num: '01', id: 'defense',
+    labelKey: 'defense.label', titleKey: 'defense.title', bodyKey: 'defense.body',
+    liKeys: ['defense.li1','defense.li2','defense.li3'],
+    label: 'Defense', title: 'Defense',
+    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces operating in challenging environments. Our solutions are designed for reliability under pressure — from perimeter protection to command-and-control connectivity.',
+    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Rapid deployment & field-serviceable systems'],
+  },
+  {
+    num: '02', id: 'government',
+    labelKey: 'government.label', titleKey: 'government.title', bodyKey: 'government.body',
+    liKeys: ['government.li1','government.li2','government.li3'],
+    label: 'Government', title: 'Government',
+    body: 'We support government agencies and public institutions with secure network infrastructure, surveillance systems, and digital governance tools.',
+    li: ['Public safety & smart city infrastructure','Secure inter-agency communications','Governance, risk & compliance frameworks'],
+  },
+  {
+    num: '03', id: 'enterprise',
+    labelKey: 'enterprise.label', titleKey: 'enterprise.title', bodyKey: 'enterprise.body',
+    liKeys: ['enterprise.li1','enterprise.li2','enterprise.li3'],
+    label: 'Enterprise', title: 'Enterprise',
+    body: 'Corporate networks, cybersecurity operations, and assets management for businesses that cannot afford downtime.',
+    li: ['Enterprise network design & orchestration','SOC onboarding & IAM implementation','Fleet & assets tracking for operations'],
+  },
+  {
+    num: '04', id: 'oilgas',
+    labelKey: 'oilgas.label', titleKey: 'oilgas.title', bodyKey: 'oilgas.body',
+    liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
+    label: 'Oil & Gas', title: 'Oil & Gas',
+    body: 'Remote sites, offshore platforms, and pipeline corridors demand connectivity and safety systems that work without exception.',
+    li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
+  },
+  {
+    num: '05', id: 'cellular',
+    labelKey: 'cellular.label', titleKey: 'cellular.title', bodyKey: 'cellular.body',
+    liKeys: ['cellular.li1','cellular.li2','cellular.li3'],
+    label: 'Cellular', title: 'Cellular',
+    body: 'We partner with cellular operators to deliver RF engineering, spectrum management, and network orchestration services.',
+    li: ['RF engineering & spectrum management','Network telemetry & SLO observability','QoS & traffic engineering for carrier-grade networks'],
+  },
+  {
+    num: '06', id: 'mobility',
+    labelKey: 'mobility.label', titleKey: 'mobility.title', bodyKey: 'mobility.body',
+    liKeys: ['mobility.li1','mobility.li2','mobility.li3'],
+    label: 'Mobility', title: 'Mobility',
+    body: 'Transport operators, logistics companies, and national fleets rely on our mobility solutions to reduce costs, improve safety, and gain operational visibility.',
+    li: ['Real-time GPS fleet tracking & geofencing','Driver behavior scoring & safety compliance','Route optimization & fuel efficiency analytics'],
+  },
+];
+---
+
+<section class="hscroll-section sectors-section" id="sectors" aria-labelledby="sectors-heading">
+  <div class="hscroll-sticky">
+    <div class="hscroll-header container">
+      <p class="section-label" data-i18n="nav.sectors">Sectors</p>
+      <h2 id="sectors-heading" class="hscroll-heading">
+        Who We <span class="text-accent">Serve</span>
+      </h2>
+    </div>
+    <div class="hscroll-track">
+      <div class="hscroll-cards" id="sectors-cards">
+        {sectors.map(s => (
+          <article class="hcard" id={s.id}>
+            <span class="hcard__num" aria-hidden="true">{s.num}</span>
+            <p class="section-label" data-i18n={s.labelKey}>{s.label}</p>
+            <h3 class="hcard__title" data-i18n={s.titleKey}>{s.title}</h3>
+            <p class="hcard__body" data-i18n={s.bodyKey}>{s.body}</p>
+            <ul class="pill-list">
+              {s.li.map((text, i) => (
+                <li data-i18n={s.liKeys[i]}>{text}</li>
+              ))}
+            </ul>
+            <a class="btn btn--ghost hcard__cta" href="#contact">Contact Us</a>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="hscroll-progress-track" aria-hidden="true">
+      <div class="hscroll-bar"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Outer: tall enough to drive scroll distance */
+  .sectors-section {
+    height: calc(100vh * 6);
+    background: var(--bg);
+  }
+
+  /* Sticky inner viewport */
+  .hscroll-sticky {
+    position: sticky; top: 0;
+    height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .hscroll-header {
+    padding-top: 80px;
+    margin-bottom: 28px;
+    flex-shrink: 0;
+  }
+  .hscroll-heading {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: #fff; text-transform: uppercase;
+    line-height: 1;
+  }
+  .text-accent { color: var(--accent); }
+
+  /* Scrolling track */
+  .hscroll-track {
+    overflow: hidden;
+    padding-left: clamp(16px, 3vw, 60px);
+    flex: 1; display: flex; align-items: center;
+  }
+  .hscroll-cards {
+    display: flex; gap: 20px;
+    will-change: transform;
+    padding-right: 120px;
+    align-items: stretch;
+  }
+
+  /* Card */
+  .hcard {
+    flex-shrink: 0;
+    width: clamp(280px, 28vw, 380px);
+    min-height: clamp(380px, 52vh, 520px);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 36px);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow .2s;
+  }
+  .hcard:hover { box-shadow: 0 0 40px rgba(245,165,36,.10); }
+
+  .hcard__num {
+    position: absolute; top: -14px; right: 12px;
+    font-size: clamp(80px, 10vw, 130px);
+    font-weight: 800; letter-spacing: -.05em;
+    color: var(--accent); opacity: 0.07;
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hcard .section-label { margin-bottom: 6px; position: relative; z-index: 1; }
+  .hcard__title {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 800; color: #fff;
+    letter-spacing: -.03em; text-transform: uppercase;
+    margin-bottom: 12px; position: relative; z-index: 1;
+  }
+  .hcard__body {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7; flex: 1; margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .hcard__cta { margin-top: auto; align-self: flex-start; }
+
+  /* Progress bar */
+  .hscroll-progress-track {
+    height: 2px; background: var(--border);
+    flex-shrink: 0;
+  }
+  .hscroll-bar {
+    height: 100%; width: 0%;
+    background: var(--accent);
+  }
+
+  /* Mobile: disable sticky, enable horizontal swipe */
+  @media (max-width: 768px) {
+    .sectors-section { height: auto; }
+    .hscroll-sticky {
+      position: static; height: auto; overflow: visible;
+      padding: clamp(40px, 6vw, 80px) 0;
+    }
+    .hscroll-header { padding-top: 0; }
+    .hscroll-track {
+      padding: 0; overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-left: clamp(16px, 3vw, 60px);
+    }
+    .hscroll-cards {
+      flex-wrap: nowrap; padding-right: 40px;
+      transform: none !important;
+    }
+    .hcard {
+      width: 82vw; min-height: 360px;
+      scroll-snap-align: start;
+    }
+    .hscroll-progress-track { display: none; }
+  }
+</style>
