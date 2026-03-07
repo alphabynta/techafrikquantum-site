@@ -1,0 +1,92 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+    <a class="logo" href={`${base}`} aria-label="Techafrik Quantum Group home">
+      <img src={`${base}logo.png`} alt="Techafrik Quantum Group" width="48" height="48" decoding="async" />
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav-list" role="list">
+        <li><a class="nav-link" href="#hero" data-i18n="nav.home">Home</a></li>
+        <li><a class="nav-link" href="#sectors" data-i18n="nav.sectors">Sectors</a></li>
+        <li><a class="nav-link" href="#solutions" data-i18n="nav.solutions">Solutions</a></li>
+        <li><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
+        <li><a class="nav-link" href="#partners" data-i18n="nav.partners">Partners</a></li>
+        <li><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switcher" aria-label="Language selector">
+      <button class="lang-btn lang-btn--active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .3s ease, border-color .3s ease;
+  }
+  .site-header.is-scrolled {
+    background: rgba(0,0,0,.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: var(--border);
+  }
+  .site-header__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-top: 18px; padding-bottom: 18px;
+  }
+  .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .logo img { border-radius: 8px; object-fit: contain; }
+  .primary-nav { display: flex; align-items: center; }
+  .nav-list {
+    display: flex; gap: 2px; list-style: none; align-items: center; flex-wrap: nowrap;
+  }
+  .nav-link {
+    color: rgba(255,255,255,.55);
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 14px; font-weight: 500; white-space: nowrap;
+    transition: color .15s, background .15s;
+  }
+  .nav-link:hover { color: #fff; background: rgba(255,255,255,.07); }
+  .nav-link.is-active { color: var(--accent); background: rgba(245,165,36,.08); }
+  .nav-toggle {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    background: transparent; border: 1px solid var(--border);
+    padding: 10px 12px; border-radius: 10px; cursor: pointer; flex-shrink: 0;
+    width: 42px; height: 42px; align-items: center;
+  }
+  .nav-toggle__bar {
+    display: block; width: 18px; height: 1.5px;
+    background: var(--text); border-radius: 2px;
+    transition: transform .2s, opacity .2s;
+  }
+  @media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .nav-list {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 4px;
+      background: rgba(0,0,0,.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px 20px; z-index: 49;
+    }
+    .nav-list.is-open { display: flex; }
+    .nav-link { padding: 12px 16px; font-size: 16px; }
+  }
+</style>
