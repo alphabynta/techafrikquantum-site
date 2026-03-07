@@ -33,20 +33,12 @@ const sectors = [
     li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
   },
   {
-    num: '05', id: 'cellular',
+    num: '05', id: 'cellular-mobility',
     labelKey: 'cellular.label', titleKey: 'cellular.title', bodyKey: 'cellular.body',
-    liKeys: ['cellular.li1','cellular.li2','cellular.li3'],
-    label: 'Cellular', title: 'Cellular',
-    body: 'We partner with cellular operators to deliver RF engineering, spectrum management, and network orchestration services.',
-    li: ['RF engineering & spectrum management','Network telemetry & SLO observability','QoS & traffic engineering for carrier-grade networks'],
-  },
-  {
-    num: '06', id: 'mobility',
-    labelKey: 'mobility.label', titleKey: 'mobility.title', bodyKey: 'mobility.body',
-    liKeys: ['mobility.li1','mobility.li2','mobility.li3'],
-    label: 'Mobility', title: 'Mobility',
-    body: 'Transport operators, logistics companies, and national fleets rely on our mobility solutions to reduce costs, improve safety, and gain operational visibility.',
-    li: ['Real-time GPS fleet tracking & geofencing','Driver behavior scoring & safety compliance','Route optimization & fuel efficiency analytics'],
+    liKeys: ['cellular.li1','cellular.li2','mobility.li1','mobility.li2'],
+    label: 'Cellular & Mobility', title: 'Cellular & Mobility',
+    body: 'We partner with cellular operators on RF engineering and spectrum management, while helping transport operators and national fleets gain connectivity, reduce costs, and improve safety.',
+    li: ['RF engineering & spectrum management','QoS & traffic engineering for carrier-grade networks','Real-time GPS fleet tracking & geofencing','Driver behavior scoring & safety compliance'],
   },
 ];
 ---
@@ -84,8 +76,7 @@ const sectors = [
 <style>
   /* Outer: height set dynamically by hscroll.js */
   .sectors-section {
-    height: calc(100vh + 2400px);
-    background: var(--bg);
+    height: calc(100vh + 2000px);
   }
 
   /* Sticky inner viewport */

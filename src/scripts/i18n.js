@@ -57,8 +57,8 @@
       'oilgas.li2': 'Perimeter intrusion detection for critical assets',
       'oilgas.li3': 'Fleet tracking & fuel anti-fraud systems',
 
-      'cellular.label': 'Cellular',
-      'cellular.title': 'Cellular',
+      'cellular.label': 'Cellular & Mobility',
+      'cellular.title': 'Cellular & Mobility',
       'cellular.body': 'We partner with cellular operators to deliver RF engineering, spectrum management, and network orchestration services.',
       'cellular.li1': 'RF engineering & spectrum management',
       'cellular.li2': 'Network telemetry & SLO observability',
@@ -210,8 +210,8 @@
       'oilgas.li2': "Détection d'intrusion périmétrique pour actifs critiques",
       'oilgas.li3': 'Suivi de flotte & systèmes anti-fraude carburant',
 
-      'cellular.label': 'Cellulaire',
-      'cellular.title': 'Cellulaire',
+      'cellular.label': 'Cellulaire & Mobilité',
+      'cellular.title': 'Cellulaire & Mobilité',
       'cellular.body': "Nous collaborons avec les opérateurs cellulaires pour fournir des services d'ingénierie RF, de gestion du spectre et d'orchestration réseau.",
       'cellular.li1': 'Ingénierie RF & gestion du spectre',
       'cellular.li2': 'Télémétrie réseau & observabilité SLO',
