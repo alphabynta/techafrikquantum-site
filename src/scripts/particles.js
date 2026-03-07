@@ -447,7 +447,10 @@
     const isHero = document.body.getAttribute('data-section') === 'hero';
     if (isHero) {
       ctx.globalAlpha = 0.15;
+      const savedRgb = window.__particleRgb;
+      window.__particleRgb = '255,255,255';
       particles.forEach(p => { p.update(); p.draw(); });
+      window.__particleRgb = savedRgb;
       ctx.globalAlpha = 1;
     } else {
       particles.forEach(p => { p.update(); p.draw(); });
