@@ -28,11 +28,11 @@ const year = new Date().getFullYear();
   .site-footer {
     background: var(--surface);
     border-top: 1px solid var(--border);
-    padding: clamp(16px, 2vw, 28px) 0;
+    padding: 8px 0;
   }
   .footer-strip {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap;
+    gap: 16px; flex-wrap: wrap; min-height: 64px; overflow: visible;
   }
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo-mask {
