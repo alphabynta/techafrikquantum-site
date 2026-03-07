@@ -155,7 +155,7 @@ const sectors = [
   }
   .sec-panel__body {
     font-size: clamp(17px, 1.6vw, 21px);
-    color: var(--sec-text, rgba(255,255,255,.72));
+    color: var(--muted);
     line-height: 1.75; max-width: 580px;
     margin-bottom: clamp(24px, 3vw, 40px);
   }
@@ -166,7 +166,7 @@ const sectors = [
   }
   .sec-panel__list li {
     font-size: clamp(15px, 1.4vw, 18px);
-    color: var(--sec-text-dim, rgba(255,255,255,.60));
+    color: var(--text);
     padding-left: 22px; position: relative;
   }
   .sec-panel__list li::before {
@@ -184,30 +184,6 @@ const sectors = [
     z-index: 1;
   }
   .sec-panel--flip .sec-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
-
-  /* Light mode — heavier overlay so text stays readable on light page-bg */
-  @media (prefers-color-scheme: light) {
-    .sec-panel__overlay {
-      background: linear-gradient(
-        105deg,
-        rgba(255,255,255,0.82) 0%,
-        rgba(255,255,255,0.55) 55%,
-        rgba(255,255,255,0.20) 100%
-      );
-    }
-    .sec-panel--flip .sec-panel__overlay {
-      background: linear-gradient(
-        -105deg,
-        rgba(255,255,255,0.82) 0%,
-        rgba(255,255,255,0.55) 55%,
-        rgba(255,255,255,0.20) 100%
-      );
-    }
-    :root {
-      --sec-text: rgba(0,0,0,.72);
-      --sec-text-dim: rgba(0,0,0,.55);
-    }
-  }
 
   /* Mobile */
   @media (max-width: 768px) {

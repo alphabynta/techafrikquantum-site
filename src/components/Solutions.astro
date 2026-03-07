@@ -77,7 +77,6 @@ const solutions = [
         </ul>
         <a class="btn btn--ghost sol-panel__cta" href="#contact">Contact Us</a>
       </div>
-      <div class="sol-panel__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
     </article>
   ))}
 
@@ -161,7 +160,7 @@ const solutions = [
   }
   .sol-panel__body {
     font-size: clamp(17px, 1.6vw, 21px);
-    color: var(--sol-text, rgba(255,255,255,.72));
+    color: var(--muted);
     line-height: 1.75; max-width: 580px;
     margin-bottom: clamp(24px, 3vw, 40px);
   }
@@ -172,47 +171,12 @@ const solutions = [
   }
   .sol-panel__list li {
     font-size: clamp(15px, 1.4vw, 18px);
-    color: var(--sol-text-dim, rgba(255,255,255,.60));
+    color: var(--text);
     padding-left: 22px; position: relative;
   }
   .sol-panel__list li::before {
     content: '—'; position: absolute; left: 0;
     color: var(--accent); font-weight: 700;
-  }
-
-  /* Large faint number — decorative */
-  .sol-panel__num {
-    position: absolute; bottom: -24px; right: clamp(20px, 4vw, 80px);
-    font-size: clamp(120px, 18vw, 260px);
-    font-weight: 800; letter-spacing: -.06em;
-    color: #fff; opacity: 0.04;
-    line-height: 1; user-select: none; pointer-events: none;
-    z-index: 1;
-  }
-  .sol-panel--flip .sol-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
-
-  /* Light mode — heavier overlay so text stays readable on light page-bg */
-  @media (prefers-color-scheme: light) {
-    .sol-panel__overlay {
-      background: linear-gradient(
-        105deg,
-        rgba(255,255,255,0.82) 0%,
-        rgba(255,255,255,0.55) 55%,
-        rgba(255,255,255,0.20) 100%
-      );
-    }
-    .sol-panel--flip .sol-panel__overlay {
-      background: linear-gradient(
-        -105deg,
-        rgba(255,255,255,0.82) 0%,
-        rgba(255,255,255,0.55) 55%,
-        rgba(255,255,255,0.20) 100%
-      );
-    }
-    :root {
-      --sol-text: rgba(0,0,0,.72);
-      --sol-text-dim: rgba(0,0,0,.55);
-    }
   }
 
   /* Mobile */
