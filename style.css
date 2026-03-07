@@ -353,7 +353,7 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
   .container{padding:0 var(--space-2)}
   .footer__columns{grid-template-columns:1fr}
   .footer__brand{grid-column:span 1}
-  .logo img{width:80px !important;height:80px !important}
+  .logo img{width:100px !important;height:100px !important}
   .btn{padding:10px 16px;font-size:14px}
   .card{padding:var(--space-3)}
   .hero--full{min-height:clamp(320px,80vh,500px)}
