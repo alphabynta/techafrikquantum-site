@@ -18,7 +18,7 @@
     });
   }
 
-  function drawMap(land, graticule) {
+  function drawMap(countries, borders, graticule) {
     [0, MAP_W].forEach(function (offsetX) {
       const projection = d3.geoEquirectangular()
         .scale(MAP_H / Math.PI)
@@ -36,21 +36,28 @@
       /* Equator */
       ctx.beginPath();
       path({ type: 'LineString', coordinates: [[-180, 0], [180, 0]] });
-      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
-      ctx.lineWidth   = 0.7;
+      ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+      ctx.lineWidth   = 0.8;
       ctx.stroke();
 
-      /* Land fill */
+      /* Country fill */
       ctx.beginPath();
-      path(land);
-      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      path(countries);
+      ctx.fillStyle = 'rgba(255,255,255,0.07)';
       ctx.fill();
 
-      /* Land outline */
+      /* Outer coastline */
       ctx.beginPath();
-      path(land);
-      ctx.strokeStyle = 'rgba(255,255,255,0.65)';
-      ctx.lineWidth   = 1.1;
+      path(countries);
+      ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+      ctx.lineWidth   = 1.0;
+      ctx.stroke();
+
+      /* Country borders (internal) */
+      ctx.beginPath();
+      path(borders);
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+      ctx.lineWidth   = 0.5;
       ctx.stroke();
     });
   }
@@ -60,13 +67,14 @@
       return loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js');
     })
     .then(function () {
-      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json');
+      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
     })
     .then(function (r) { return r.json(); })
     .then(function (world) {
-      const land      = topojson.feature(world, world.objects.land);
+      const countries = topojson.feature(world, world.objects.countries);
+      const borders   = topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; });
       const graticule = d3.geoGraticule().step([30, 30])();
-      drawMap(land, graticule);
+      drawMap(countries, borders, graticule);
     })
     .catch(function (e) { console.warn('globe.js: failed to load map data', e); });
 })();
