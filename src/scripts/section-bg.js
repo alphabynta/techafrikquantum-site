@@ -14,7 +14,7 @@
 
   /* Particle (neurone) RGB per section — matches contrast requirement */
   var particleRgb = {
-    hero:      '245,165,36',   /* amber        */
+    hero:      '255,102,0',   /* amber        */
     sectors:   '107,142,35',   /* olive green  */
     solutions: '255,120,20',   /* orange       */
     about:     '255,255,255',  /* white        */
