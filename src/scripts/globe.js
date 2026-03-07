@@ -3,8 +3,8 @@
   const canvas = document.getElementById('globe-canvas');
   if (!canvas) return;
 
-  const MAP_W = 1400;
-  const MAP_H = 700;
+  const MAP_W = 2400;
+  const MAP_H = 1200;
   canvas.width  = MAP_W * 2;
   canvas.height = MAP_H;
   const ctx = canvas.getContext('2d');
@@ -43,21 +43,21 @@
       /* Country fill */
       ctx.beginPath();
       path(countries);
-      ctx.fillStyle = 'rgba(255,255,255,0.07)';
+      ctx.fillStyle = 'rgba(255,255,255,0.10)';
       ctx.fill();
 
       /* Outer coastline */
       ctx.beginPath();
       path(countries);
-      ctx.strokeStyle = 'rgba(255,255,255,0.55)';
-      ctx.lineWidth   = 1.0;
+      ctx.strokeStyle = 'rgba(255,255,255,0.80)';
+      ctx.lineWidth   = 1.2;
       ctx.stroke();
 
       /* Country borders (internal) */
       ctx.beginPath();
       path(borders);
-      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
-      ctx.lineWidth   = 0.5;
+      ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+      ctx.lineWidth   = 0.7;
       ctx.stroke();
     });
   }
@@ -67,7 +67,7 @@
       return loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js');
     })
     .then(function () {
-      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');
     })
     .then(function (r) { return r.json(); })
     .then(function (world) {
