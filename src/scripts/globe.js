@@ -13,8 +13,8 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let centerLon = 0;
-  let countries, borders, land, rivers, lakes;
-  let graticule5, graticule30;
+  let countries, borders, land;
+  let graticule;
 
   function makeProjection() {
     return d3.geoEquirectangular()
@@ -33,15 +33,10 @@
     const proj = makeProjection();
     const path = d3.geoPath().projection(proj).context(ctx);
 
-    /* Fine grid — 5° steps */
-    ctx.beginPath(); path(graticule5);
-    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
-    ctx.lineWidth   = 0.25; ctx.stroke();
-
-    /* Major grid — 30° steps */
-    ctx.beginPath(); path(graticule30);
-    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-    ctx.lineWidth   = 0.55; ctx.stroke();
+    /* Grid — 15° steps */
+    ctx.beginPath(); path(graticule);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth   = 0.4; ctx.stroke();
 
     /* Arctic & Antarctic circles (±66.5°) */
     [66.5, -66.5].forEach(function (lat) {
@@ -80,21 +75,6 @@
     ctx.beginPath(); path(countries);
     ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fill();
 
-    /* Rivers */
-    if (rivers) {
-      ctx.beginPath(); path(rivers);
-      ctx.strokeStyle = 'rgba(180,220,255,0.22)';
-      ctx.lineWidth   = 0.5; ctx.stroke();
-    }
-
-    /* Lakes */
-    if (lakes) {
-      ctx.beginPath(); path(lakes);
-      ctx.fillStyle   = 'rgba(180,220,255,0.14)'; ctx.fill();
-      ctx.strokeStyle = 'rgba(180,220,255,0.18)';
-      ctx.lineWidth   = 0.4; ctx.stroke();
-    }
-
     /* Internal country borders */
     ctx.beginPath(); path(borders);
     ctx.strokeStyle = 'rgba(255,255,255,0.40)';
@@ -124,28 +104,13 @@
       return loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js');
     })
     .then(function () {
-      return Promise.all([
-        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json').then(function (r) { return r.json(); }),
-        fetch('https://cdn.jsdelivr.net/npm/visionscarto-world-atlas@0.1.0/world/50m.json')
-          .then(function (r) { return r.json(); })
-          .catch(function () { return null; }),
-      ]);
+      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json').then(function (r) { return r.json(); });
     })
-    .then(function (results) {
-      const world  = results[0];
-      const vworld = results[1];
-
+    .then(function (world) {
       countries = topojson.feature(world, world.objects.countries);
       borders   = topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; });
       land      = topojson.feature(world, world.objects.land);
-      graticule5  = d3.geoGraticule().step([5, 5])();
-      graticule30 = d3.geoGraticule().step([30, 30])();
-
-      if (vworld) {
-        try { if (vworld.objects.rivers) rivers = topojson.feature(vworld, vworld.objects.rivers); } catch (e) {}
-        try { if (vworld.objects.lakes)  lakes  = topojson.feature(vworld, vworld.objects.lakes);  } catch (e) {}
-      }
-
+      graticule = d3.geoGraticule().step([15, 15])();
       draw();
     })
     .catch(function (e) { console.warn('globe.js: failed to load map data', e); });
