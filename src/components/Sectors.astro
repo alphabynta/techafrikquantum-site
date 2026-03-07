@@ -70,7 +70,6 @@ const sectors = [
         </ul>
         <a class="btn btn--ghost sec-panel__cta" href="#contact">Contact Us</a>
       </div>
-      <div class="sec-panel__num" aria-hidden="true">{s.num}</div>
     </article>
   ))}
 
@@ -174,16 +173,6 @@ const sectors = [
     color: var(--accent); font-weight: 700;
   }
 
-  /* Large faint number — decorative */
-  .sec-panel__num {
-    position: absolute; bottom: -24px; right: clamp(20px, 4vw, 80px);
-    font-size: clamp(120px, 18vw, 260px);
-    font-weight: 800; letter-spacing: -.06em;
-    color: #fff; opacity: 0.04;
-    line-height: 1; user-select: none; pointer-events: none;
-    z-index: 1;
-  }
-  .sec-panel--flip .sec-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
 
   /* Mobile */
   @media (max-width: 768px) {
