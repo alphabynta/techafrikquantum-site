@@ -1,39 +1,41 @@
-/* globe.js — orthographic 3D rotating globe for hero section */
+/* globe.js — flat equirectangular world map, scrolling to simulate rotation */
 (function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('globe-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  let rotation = 0;
-  const SPEED = 0.0015; /* radians per frame — slow drift */
+  /* Internal drawing resolution — one map copy */
+  const MAP_W = 1400;
+  const MAP_H = 700;
+  canvas.width  = MAP_W * 2;  /* two copies side-by-side for seamless loop */
+  canvas.height = MAP_H;
 
-  function resize() {
-    const size = Math.min(window.innerHeight * 0.82, window.innerWidth * 0.55, 640);
-    canvas.width  = size;
-    canvas.height = size;
-  }
-
-  /* lat/lon → 3D unit-sphere point, rotated around Y axis */
-  function toXYZ(lat, lon) {
-    const phi = lat * Math.PI / 180;
-    const lam = lon * Math.PI / 180 + rotation;
+  /* Equirectangular projection: lat/lon → x,y on one map copy */
+  function toXY(lat, lon, offsetX) {
     return {
-      x:  Math.cos(phi) * Math.sin(lam),
-      y: -Math.sin(phi),                   /* flip so north is up */
-      z:  Math.cos(phi) * Math.cos(lam),
+      x: offsetX + (lon + 180) / 360 * MAP_W,
+      y: (90 - lat) / 180 * MAP_H,
     };
   }
 
-  /* 3D → 2D canvas coords */
-  function project(p) {
-    const r  = canvas.width * 0.46;
-    const cx = canvas.width  / 2;
-    const cy = canvas.height / 2;
-    return { x: cx + p.x * r, y: cy + p.y * r };
+  /* Draw a lat/lon polyline, breaking on date-line crossings */
+  function drawPath(path, offsetX) {
+    ctx.beginPath();
+    let pen = false;
+    let prevLon = null;
+    path.forEach(function ([lat, lon]) {
+      if (prevLon !== null && Math.abs(lon - prevLon) > 180) {
+        ctx.stroke(); ctx.beginPath(); pen = false;
+      }
+      prevLon = lon;
+      const p = toXY(lat, lon, offsetX);
+      pen ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+      pen = true;
+    });
+    ctx.stroke();
   }
 
-  /* Simplified continent outlines as [lat, lon] arrays */
+  /* Continent outlines as [lat, lon] arrays */
   const continents = [
     /* North America */
     [[70,-140],[72,-100],[60,-85],[55,-82],[47,-70],[44,-66],[42,-70],[40,-74],
@@ -57,7 +59,7 @@
      [-25,33],[-34,26],[-35,20],[-34,18],[-28,16],[-22,14],[-18,12],[-6,12],
      [0,9],[6,2],[6,5],[4,8],[5,2],[6,-3],[5,-2],[10,2],[15,2],[14,-17],
      [16,-17],[18,-16],[22,-16],[28,-13],[32,-8],[36,-5]],
-    /* Asia (main) */
+    /* Asia */
     [[37,29],[42,29],[42,44],[40,50],[36,52],[28,57],[24,57],[20,58],[13,45],
      [15,42],[22,60],[22,70],[23,68],[22,74],[22,80],[13,80],[8,77],[8,80],
      [22,88],[26,89],[28,88],[27,90],[28,85],[34,74],[36,74],[38,78],[40,70],
@@ -67,111 +69,74 @@
      [60,152],[56,162],[58,164],[60,162],[60,155],[62,164],[66,170],[70,160],
      [72,142],[73,130],[72,110],[72,80],[70,60],[68,58],[62,55],[60,52],
      [56,38],[56,30],[50,36],[44,34],[42,29]],
-    /* India */
-    [[28,68],[28,74],[22,68],[22,74],[22,80],[13,80],[8,77],[8,78],[22,88],
-     [26,89],[28,88],[34,74],[28,68]],
-    /* Southeast Asia + Indochina */
+    /* Indian Subcontinent */
+    [[28,68],[34,74],[28,85],[22,88],[8,80],[8,77],[13,80],[22,80],[22,74],
+     [23,68],[22,68],[28,68]],
+    /* SE Asia / Indochina */
     [[22,100],[22,108],[18,106],[16,108],[10,104],[2,104],[1,104],
      [5,100],[10,99],[14,98],[16,100],[22,100]],
     /* Australia */
-    [[-18,122],[-14,126],[-12,130],[-14,132],[-12,136],[-12,136],
-     [-16,138],[-18,140],[-24,151],[-26,153],[-34,151],[-38,147],
-     [-38,144],[-36,138],[-32,134],[-32,130],[-34,120],[-32,116],
-     [-26,114],[-22,114],[-18,122]],
+    [[-18,122],[-14,126],[-12,130],[-14,132],[-12,136],[-16,138],[-18,140],
+     [-24,151],[-26,153],[-34,151],[-38,147],[-38,144],[-36,138],[-32,134],
+     [-32,130],[-34,120],[-32,116],[-26,114],[-22,114],[-18,122]],
     /* Greenland */
     [[83,-45],[80,-18],[76,-18],[72,-24],[68,-28],[62,-42],[60,-48],
      [63,-52],[70,-52],[74,-58],[76,-68],[80,-60],[83,-45]],
     /* Japan */
-    [[44,142],[40,141],[36,136],[34,132],[34,132],[36,136],[40,141],[44,142]],
-    /* UK + Ireland */
+    [[44,142],[40,141],[36,136],[34,132],[36,136],[40,141],[44,142]],
+    /* UK */
     [[58,-5],[56,-6],[54,-3],[52,-4],[50,-5],[51,0],[52,2],[54,0],[58,-4],[58,-5]],
+    /* Ireland */
     [[54,-10],[52,-10],[52,-8],[54,-6],[54,-10]],
     /* New Zealand */
     [[-34,172],[-40,175],[-46,168],[-44,170],[-40,175],[-34,172]],
     /* Madagascar */
     [[-12,49],[-18,44],[-26,44],[-26,48],[-18,50],[-12,50],[-12,49]],
+    /* Borneo */
+    [[6,116],[4,118],[0,110],[-4,114],[-4,116],[0,118],[4,118],[6,116]],
+    /* Sumatra */
+    [[4,96],[2,100],[-2,104],[-6,106],[-5,104],[-2,100],[2,100],[4,96]],
+    /* Iceland */
+    [[64,-24],[64,-14],[65,-14],[66,-16],[66,-22],[64,-24]],
+    /* Cuba */
+    [[22,-84],[22,-76],[20,-75],[20,-84],[22,-84]],
+    /* Sri Lanka */
+    [[10,80],[6,80],[6,82],[8,82],[10,80]],
   ];
 
-  function drawGlobe() {
+  function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const r  = canvas.width  * 0.46;
-    const cx = canvas.width  / 2;
-    const cy = canvas.height / 2;
 
-    /* Outer sphere circle */
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
-    ctx.lineWidth = 0.8;
-    ctx.stroke();
-
-    /* Latitude grid lines */
-    for (let lat = -60; lat <= 60; lat += 30) {
-      ctx.beginPath();
-      let pen = false;
-      for (let lon = -180; lon <= 182; lon += 3) {
-        const p = toXYZ(lat, lon);
-        if (p.z <= 0) { pen = false; continue; }
-        const s = project(p);
-        pen ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
-        pen = true;
-      }
-      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-      ctx.lineWidth = 0.4;
-      ctx.stroke();
-    }
-
-    /* Longitude grid lines */
-    for (let lon = 0; lon < 360; lon += 30) {
-      ctx.beginPath();
-      let pen = false;
-      for (let lat = -90; lat <= 90; lat += 3) {
-        const p = toXYZ(lat, lon);
-        if (p.z <= 0) { pen = false; continue; }
-        const s = project(p);
-        pen ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
-        pen = true;
-      }
-      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-      ctx.lineWidth = 0.4;
-      ctx.stroke();
-    }
-
-    /* Equator highlight */
-    ctx.beginPath();
-    let pen = false;
-    for (let lon = -180; lon <= 182; lon += 2) {
-      const p = toXYZ(0, lon);
-      if (p.z <= 0) { pen = false; continue; }
-      const s = project(p);
-      pen ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
-      pen = true;
-    }
-    ctx.strokeStyle = 'rgba(255,255,255,0.10)';
-    ctx.lineWidth = 0.6;
-    ctx.stroke();
-
-    /* Continent outlines */
-    continents.forEach(function (path) {
-      ctx.beginPath();
-      let penDown = false;
-      path.forEach(function ([lat, lon]) {
-        const p = toXYZ(lat, lon);
-        if (p.z <= 0) { penDown = false; return; }
-        const s = project(p);
-        if (!penDown) { ctx.moveTo(s.x, s.y); penDown = true; }
-        else ctx.lineTo(s.x, s.y);
+    /* Grid — drawn twice */
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 0.5;
+    [0, MAP_W].forEach(function (ox) {
+      /* Latitude lines */
+      [-60,-30,0,30,60].forEach(function (lat) {
+        const y = (90 - lat) / 180 * MAP_H;
+        ctx.beginPath(); ctx.moveTo(ox, y); ctx.lineTo(ox + MAP_W, y);
+        ctx.strokeStyle = lat === 0 ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)';
+        ctx.lineWidth   = lat === 0 ? 0.7 : 0.4;
+        ctx.stroke();
       });
-      ctx.strokeStyle = 'rgba(255,255,255,0.60)';
-      ctx.lineWidth = 1.1;
-      ctx.stroke();
+      /* Longitude lines */
+      for (let lon = -180; lon < 180; lon += 30) {
+        const x = ox + (lon + 180) / 360 * MAP_W;
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, MAP_H);
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+        ctx.lineWidth   = 0.4;
+        ctx.stroke();
+      }
     });
 
-    rotation += SPEED;
-    requestAnimationFrame(drawGlobe);
+    /* Continent outlines — drawn twice for seamless tile */
+    ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+    ctx.lineWidth   = 1.4;
+    continents.forEach(function (path) {
+      drawPath(path, 0);
+      drawPath(path, MAP_W);
+    });
   }
 
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-  drawGlobe();
+  draw();
 })();

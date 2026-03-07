@@ -42,15 +42,24 @@ const base = import.meta.env.BASE_URL;
     position: relative; z-index: 1;
     padding-top: 100px;
   }
-  /* 3D globe */
+  /* Flat world map — scrolls left to simulate globe rotation */
   #globe-canvas {
     position: absolute;
-    right: -8%;
-    top: 50%;
+    left: 0; top: 50%;
+    width: 200%;
+    height: auto;
     transform: translateY(-50%);
-    opacity: 0.18;
+    opacity: 0.10;
     pointer-events: none;
     z-index: 0;
+    animation: mapDrift 140s linear infinite;
+  }
+  @keyframes mapDrift {
+    from { transform: translateY(-50%) translateX(0); }
+    to   { transform: translateY(-50%) translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #globe-canvas { animation: none; }
   }
 
   .hero__headline {
