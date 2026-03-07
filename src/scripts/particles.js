@@ -10,6 +10,7 @@
   /* Colour is driven by section-bg.js via window.__particleRgb */
   function getRgb() { return window.__particleRgb || '245,165,36'; }
   const DRONE_RGB = '148,51,234'; /* purple — fixed regardless of section */
+  const SAT_RGB   = '57,255,20';  /* neon green — fixed regardless of section */
   let particles = [];
   let satellites = [];
   let drones = [];
@@ -57,7 +58,7 @@
       this.angle += this.spin;
     }
     draw() {
-      const rgb = getRgb();
+      const rgb = SAT_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
@@ -107,7 +108,7 @@
       this.angle += this.spin;
     }
     draw() {
-      const rgb = getRgb();
+      const rgb = SAT_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
@@ -149,7 +150,7 @@
       this.angle += this.spin;
     }
     draw() {
-      const rgb = getRgb();
+      const rgb = SAT_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
@@ -196,7 +197,7 @@
       this.angle += this.spin;
     }
     draw() {
-      const rgb = getRgb();
+      const rgb = SAT_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
