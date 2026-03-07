@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="Techafrik Quantum Group home">
-      <img src={`${base}logo.png`} alt="Techafrik Quantum Group" width="280" height="280" decoding="async" />
+      <span class="footer-logo-mask" style={`--logo-url: url('${base}logo.png')`} role="img" aria-label="Techafrik Quantum Group logo"></span>
     </a>
     <p class="footer-copy" data-i18n="footer.copyright">
       &copy; {year} Techafrik Quantum Group. All rights reserved.
@@ -35,14 +35,21 @@ const year = new Date().getFullYear();
     gap: 16px; flex-wrap: wrap;
   }
   .footer-logo { display: inline-flex; align-items: center; }
-  .footer-logo img {
-    width: clamp(80px, 18vw, 160px);
-    height: auto;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(67%) sepia(100%) saturate(600%) hue-rotate(2deg) brightness(1.05);
+  .footer-logo-mask {
+    display: block;
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(60px, 10vw, 100px);
+    background-color: var(--primary);
+    -webkit-mask-image: var(--logo-url);
+    mask-image: var(--logo-url);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
   }
   @media (prefers-color-scheme: light) {
-    .footer-logo img { filter: brightness(0) saturate(100%) invert(67%) sepia(100%) saturate(600%) hue-rotate(2deg) brightness(1.05); }
     .site-footer { background: var(--surface); }
   }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
