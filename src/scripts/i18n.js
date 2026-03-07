@@ -21,7 +21,7 @@
       'hero.line1': 'SECURE.',
       'hero.line2': 'CONNECT.',
       'hero.line3': 'PROTECT.',
-      'hero.sub': 'Defense-grade surveillance, critical connectivity, and intelligent fleet management across West Africa.',
+      'hero.sub': 'Defense-grade surveillance, critical connectivity, cybersecurity, and intelligent fleet management across West Africa.',
       'hero.cta': 'Explore Solutions',
       'hero.cta2': 'Contact Us',
       'hero.trust1': 'Defense-Grade',
@@ -139,7 +139,7 @@
       'partners.t3.role': 'Operations Director, [Client Organization]',
 
       /* CONTACT */
-      'contact.form.label': 'Send a Message',
+      'contact.form.label': 'Leave Us a Message',
       'contact.form.title': 'How Can We Help?',
       'contact.name': 'Full name',
       'contact.email': 'Work email',
@@ -174,7 +174,7 @@
       'hero.line1': 'SÉCURISER.',
       'hero.line2': 'CONNECTER.',
       'hero.line3': 'PROTÉGER.',
-      'hero.sub': "Surveillance de qualité défense, connectivité critique et gestion intelligente de flotte à travers l'Afrique de l'Ouest.",
+      'hero.sub': "Surveillance de qualité défense, connectivité critique, cybersécurité et gestion intelligente de flotte à travers l'Afrique de l'Ouest.",
       'hero.cta': 'Explorer les Solutions',
       'hero.cta2': 'Nous Contacter',
       'hero.trust1': 'Qualité Défense',
@@ -292,7 +292,7 @@
       'partners.t3.role': 'Directeur des Opérations, [Organisation Cliente]',
 
       /* CONTACT */
-      'contact.form.label': 'Envoyer un Message',
+      'contact.form.label': 'Laissez-Nous un Message',
       'contact.form.title': 'Comment Pouvons-Nous Vous Aider ?',
       'contact.name': 'Nom complet',
       'contact.email': 'Email professionnel',

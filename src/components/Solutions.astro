@@ -1,160 +1,200 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const solutions = [
   {
-    num: '01', id: 'safety',
-    labelKey: 'safety.label', titleKey: 'safety.title', bodyKey: 'safety.body',
+    id: 'safety',
+    titleKey: 'safety.title', bodyKey: 'safety.body',
     liKeys: ['safety.li1','safety.li2','safety.li3'],
-    label: 'Safety & Surveillance', title: 'Safety & Surveillance',
+    title: 'Safety & Surveillance',
     body: 'Integrated camera networks, drone monitoring, and analytics platforms that give your security team total situational awareness — day and night, indoors and outdoors.',
     li: ['IP CCTV & thermal imaging networks','ISR drone integration & airspace monitoring','AI-assisted video analytics & alerting'],
+    /* TODO: replace with actual image path, e.g. `${base}images/safety-bg.jpg` */
+    img: null,
   },
   {
-    num: '02', id: 'connectivity',
-    labelKey: 'connectivity.label', titleKey: 'connectivity.title', bodyKey: 'connectivity.body',
+    id: 'connectivity',
+    titleKey: 'connectivity.title', bodyKey: 'connectivity.body',
     liKeys: ['connectivity.li1','connectivity.li2','connectivity.li3'],
-    label: 'Critical Connectivity', title: 'Critical Connectivity',
+    title: 'Critical Connectivity',
     body: 'When your operation cannot afford downtime, we engineer redundant, multi-path connectivity with failover designed for mission-critical environments.',
     li: ['VSAT & LEO satellite links for remote sites','Microwave & LTE hybrid WAN with automatic failover','Network SLA monitoring & proactive NOC support'],
+    img: null,
   },
   {
-    num: '03', id: 'assets',
-    labelKey: 'assets.label', titleKey: 'assets.title', bodyKey: 'assets.body',
+    id: 'assets',
+    titleKey: 'assets.title', bodyKey: 'assets.body',
     liKeys: ['assets.li1','assets.li2','assets.li3'],
-    label: 'Assets Management', title: 'Assets Management',
+    title: 'Assets Management',
     body: 'Real-time visibility over vehicles, equipment, and personnel. Reduce fuel waste, prevent theft, and make smarter operational decisions.',
     li: ['GPS fleet tracking & geofencing','Fuel anti-fraud & consumption analytics','Driver behavior & safety scoring'],
+    img: null,
   },
   {
-    num: '04', id: 'ipnetworks',
-    labelKey: 'ipnetworks.label', titleKey: 'ipnetworks.title', bodyKey: 'ipnetworks.body',
+    id: 'ipnetworks',
+    titleKey: 'ipnetworks.title', bodyKey: 'ipnetworks.body',
     liKeys: ['ipnetworks.li1','ipnetworks.li2','ipnetworks.li3'],
-    label: 'IP Networks', title: 'IP Networks',
+    title: 'IP Networks',
     body: 'Enterprise-grade LAN/WAN design, SD-WAN deployment, and network orchestration. Secure, observable, built to grow with your organisation.',
     li: ['LAN/WAN design, deployment & optimisation','SD-WAN & MPLS for multi-site enterprises','Network telemetry, SNMP & flow analytics'],
+    img: null,
   },
   {
-    num: '05', id: 'cyber',
-    labelKey: 'cyber.label', titleKey: 'cyber.title', bodyKey: 'cyber.body',
+    id: 'cyber',
+    titleKey: 'cyber.title', bodyKey: 'cyber.body',
     liKeys: ['cyber.li1','cyber.li2','cyber.li3'],
-    label: 'Cybersecurity', title: 'Cybersecurity',
+    title: 'Cybersecurity',
     body: 'From risk assessment to SOC implementation, we help organisations build a security posture that withstands real-world threats in the West African threat landscape.',
     li: ['Vulnerability assessment & penetration testing','SOC onboarding & 24/7 threat monitoring','IAM, zero-trust & compliance frameworks'],
+    img: null,
   },
 ];
 ---
 
-<section class="hscroll-section solutions-section" id="solutions" aria-labelledby="solutions-heading">
-  <div class="hscroll-sticky">
-    <div class="hscroll-header container">
-      <h2 id="solutions-heading" class="hscroll-heading">
-        What We <span class="text-accent">Build</span>
-      </h2>
-    </div>
-    <div class="hscroll-track">
-      <div class="hscroll-cards">
-        {solutions.map(s => (
-          <article class="hcard" id={s.id}>
-            <p class="section-label" data-i18n={s.labelKey}>{s.label}</p>
-            <h3 class="hcard__title" data-i18n={s.titleKey}>{s.title}</h3>
-            <p class="hcard__body" data-i18n={s.bodyKey}>{s.body}</p>
-            <ul class="pill-list">
-              {s.li.map((text, i) => (
-                <li data-i18n={s.liKeys[i]}>{text}</li>
-              ))}
-            </ul>
-            <a class="btn btn--ghost hcard__cta" href="#contact">Contact Us</a>
-          </article>
-        ))}
-      </div>
-    </div>
-    <div class="hscroll-progress-track" aria-hidden="true">
-      <div class="hscroll-bar"></div>
-    </div>
+<section id="solutions" aria-labelledby="solutions-heading" class="solutions-section">
+
+  <div class="solutions-heading-wrap container">
+    <h2 id="solutions-heading" class="solutions-main-heading">
+      What We <span class="text-accent">Build</span>
+    </h2>
   </div>
+
+  {solutions.map((s, i) => (
+    <article
+      class={`sol-panel${i % 2 === 1 ? ' sol-panel--flip' : ''}`}
+      id={s.id}
+      style={s.img ? `--panel-img: url('${s.img}')` : ''}
+    >
+      <div class="sol-panel__bg" aria-hidden="true"></div>
+      <div class="sol-panel__overlay" aria-hidden="true"></div>
+      <div class="container sol-panel__content">
+        <h3 class="sol-panel__title" data-i18n={s.titleKey}>{s.title}</h3>
+        <p class="sol-panel__body" data-i18n={s.bodyKey}>{s.body}</p>
+        <ul class="sol-panel__list">
+          {s.li.map((text, j) => (
+            <li data-i18n={s.liKeys[j]}>{text}</li>
+          ))}
+        </ul>
+        <a class="btn btn--ghost sol-panel__cta" href="#contact">Contact Us</a>
+      </div>
+      <div class="sol-panel__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+    </article>
+  ))}
+
 </section>
 
 <style>
-  /* height set dynamically by hscroll.js */
   .solutions-section {
-    height: calc(100vh + 2000px);
+    /* background transparent — page-bg shows */
   }
-  .solutions-section .hscroll-sticky {
-    position: sticky; top: 0;
-    height: 100vh; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: center;
+
+  .solutions-heading-wrap {
+    padding: clamp(80px, 10vw, 130px) 0 clamp(32px, 4vw, 56px);
   }
-  .solutions-section .hscroll-header {
-    padding-top: 80px; margin-bottom: 28px; flex-shrink: 0;
-  }
-  .hscroll-heading {
-    font-size: clamp(36px, 5vw, 72px);
+  .solutions-main-heading {
+    font-size: clamp(40px, 6vw, 80px);
     font-weight: 800; letter-spacing: -.04em;
     color: #fff; text-transform: uppercase; line-height: 1;
   }
   .text-accent { color: var(--accent); }
-  .solutions-section .hscroll-track {
+
+  /* ── Full-width panel ── */
+  .sol-panel {
+    position: relative;
+    min-height: 70vh;
+    display: flex; align-items: center;
     overflow: hidden;
-    padding-left: clamp(16px, 3vw, 60px);
-    flex: 1; display: flex; align-items: center;
+    border-top: 1px solid var(--border);
   }
-  .solutions-section .hscroll-cards {
-    display: flex; gap: 20px;
-    will-change: transform;
-    padding-right: 120px;
-    align-items: stretch;
+
+  /* Background image — swapped via --panel-img CSS var */
+  .sol-panel__bg {
+    position: absolute; inset: 0;
+    background-image: var(--panel-img, none);
+    background-size: cover; background-position: center;
+    transition: transform 0.6s ease;
   }
-  .solutions-section .hcard {
-    flex-shrink: 0;
-    width: clamp(280px, 28vw, 380px);
-    min-height: clamp(380px, 52vh, 520px);
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    border-radius: var(--radius-lg);
-    padding: clamp(24px, 3vw, 36px);
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    transition: box-shadow .2s;
+  .sol-panel:hover .sol-panel__bg { transform: scale(1.03); }
+
+  /* Dark overlay so text is always readable */
+  .sol-panel__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.65) 55%,
+      rgba(0,0,0,0.40) 100%
+    );
   }
-  .solutions-section .hcard:hover { box-shadow: 0 0 40px rgba(245,165,36,.10); }
-  .hcard .section-label { margin-bottom: 6px; }
-  .hcard__title {
-    font-size: clamp(22px, 2.4vw, 30px);
+  .sol-panel--flip .sol-panel__overlay {
+    background: linear-gradient(
+      -105deg,
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.65) 55%,
+      rgba(0,0,0,0.40) 100%
+    );
+  }
+
+  /* Amber left accent line */
+  .sol-panel::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--accent);
+    z-index: 2;
+  }
+  .sol-panel--flip::before { left: auto; right: 0; }
+
+  /* Content */
+  .sol-panel__content {
+    position: relative; z-index: 2;
+    padding-top: clamp(56px, 7vh, 100px);
+    padding-bottom: clamp(56px, 7vh, 100px);
+    max-width: 780px;
+  }
+  .sol-panel--flip .sol-panel__content { margin-left: auto; }
+
+  .sol-panel__title {
+    font-size: clamp(40px, 6vw, 88px);
     font-weight: 800; color: #fff;
-    letter-spacing: -.03em; text-transform: uppercase;
-    margin-bottom: 14px;
+    letter-spacing: -.04em; text-transform: uppercase;
+    line-height: 0.95; margin-bottom: clamp(20px, 2.5vw, 36px);
   }
-  .hcard__body {
-    font-size: 16px; color: var(--muted);
-    line-height: 1.75; flex: 1; margin-bottom: 18px;
+  .sol-panel__body {
+    font-size: clamp(17px, 1.6vw, 21px);
+    color: rgba(255,255,255,.72);
+    line-height: 1.75; max-width: 580px;
+    margin-bottom: clamp(24px, 3vw, 40px);
   }
-  .hcard__cta { margin-top: auto; align-self: flex-start; }
-  .hscroll-progress-track {
-    height: 2px; background: var(--border); flex-shrink: 0;
+
+  .sol-panel__list {
+    list-style: none; padding: 0; margin: 0 0 clamp(28px, 3.5vw, 48px);
+    display: flex; flex-direction: column; gap: 12px;
   }
-  .hscroll-bar {
-    height: 100%; width: 0%; background: var(--accent);
+  .sol-panel__list li {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: rgba(255,255,255,.60);
+    padding-left: 22px; position: relative;
   }
+  .sol-panel__list li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* Large faint number — decorative */
+  .sol-panel__num {
+    position: absolute; bottom: -24px; right: clamp(20px, 4vw, 80px);
+    font-size: clamp(120px, 18vw, 260px);
+    font-weight: 800; letter-spacing: -.06em;
+    color: #fff; opacity: 0.04;
+    line-height: 1; user-select: none; pointer-events: none;
+    z-index: 1;
+  }
+  .sol-panel--flip .sol-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
+
+  /* Mobile */
   @media (max-width: 768px) {
-    .solutions-section { height: auto; }
-    .solutions-section .hscroll-sticky {
-      position: static; height: auto; overflow: visible;
-      padding: clamp(40px, 6vw, 80px) 0;
-    }
-    .solutions-section .hscroll-header { padding-top: 0; }
-    .solutions-section .hscroll-track {
-      padding: 0; overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-left: clamp(16px, 3vw, 60px);
-    }
-    .solutions-section .hscroll-cards {
-      flex-wrap: nowrap; padding-right: 40px;
-      transform: none !important;
-    }
-    .solutions-section .hcard {
-      width: 82vw; min-height: 360px; scroll-snap-align: start;
-    }
-    .solutions-section .hscroll-progress-track { display: none; }
+    .sol-panel { min-height: 80vw; }
+    .sol-panel--flip .sol-panel__content { margin-left: 0; }
+    .sol-panel__title { font-size: clamp(36px, 10vw, 60px); }
   }
 </style>
