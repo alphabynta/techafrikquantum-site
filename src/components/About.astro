@@ -5,10 +5,8 @@
   <!-- Panel 1: Mission -->
   <div class="about-panel about-panel--dark">
     <div class="container about-panel__inner">
-      <div class="about-panel__num" aria-hidden="true">01</div>
       <div class="about-panel__content">
-        <p class="section-label" data-i18n="about.mission.label">Our Purpose</p>
-        <h2 id="about-title" data-i18n="about.mission.title">Mission</h2>
+        <h2 id="about-title" data-i18n="about.mission.title">Our Mission</h2>
         <p class="lead" data-i18n="about.mission.body">
           To deliver world-class, integrated technology solutions that secure, connect, and optimize the operations of defense forces, governments, and enterprises across West Africa.
         </p>
@@ -19,10 +17,8 @@
   <!-- Panel 2: Vision -->
   <div class="about-panel about-panel--surface">
     <div class="container about-panel__inner">
-      <div class="about-panel__num" aria-hidden="true">02</div>
       <div class="about-panel__content">
-        <p class="section-label" data-i18n="about.vision.label">Where We're Going</p>
-        <h2 data-i18n="about.vision.title">Vision</h2>
+        <h2 data-i18n="about.vision.title">Our Vision</h2>
         <p class="lead" data-i18n="about.vision.body">
           To be West Africa's most trusted technology partner — known for engineering excellence, local expertise, and the ability to deliver in the most demanding environments.
         </p>
@@ -33,9 +29,7 @@
   <!-- Panel 3: Values + CEO Quote -->
   <div class="about-panel about-panel--dark">
     <div class="container about-panel__inner">
-      <div class="about-panel__num" aria-hidden="true">03</div>
       <div class="about-panel__content">
-        <p class="section-label" data-i18n="about.values.label">What Drives Us</p>
         <h2 data-i18n="about.values.title">Our Values</h2>
         <ul class="values-list">
           <li data-i18n="about.values.li1">Reliability — systems that work when lives depend on them</li>
@@ -64,19 +58,7 @@
 
   .about-panel__inner {
     position: relative;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: clamp(32px, 5vw, 80px);
-    align-items: center;
-  }
-
-  .about-panel__num {
-    font-size: clamp(120px, 16vw, 220px);
-    font-weight: 800; letter-spacing: -.05em;
-    color: var(--accent); opacity: 0.07;
-    line-height: 1; user-select: none;
-    pointer-events: none;
-    display: flex; align-items: center; justify-content: center;
+    max-width: 860px;
   }
 
   .about-panel__content { position: relative; z-index: 1; }
@@ -124,12 +106,6 @@
   }
 
   @media (max-width: 900px) {
-    .about-panel__inner { grid-template-columns: 1fr; gap: 0; }
-    .about-panel__num {
-      font-size: clamp(80px, 20vw, 140px);
-      opacity: 0.05;
-      position: absolute; top: 20px; right: 16px;
-      justify-content: flex-end;
-    }
+    .about-panel__inner { max-width: 100%; }
   }
 </style>

@@ -109,10 +109,10 @@
 
       /* ABOUT */
       'about.mission.label': 'Our Purpose',
-      'about.mission.title': 'Mission',
+      'about.mission.title': 'Our Mission',
       'about.mission.body': 'To empower West African governments, enterprises, and security forces with world-class technology solutions — delivering reliable surveillance, connectivity, and intelligence systems that protect people and enable growth.',
       'about.vision.label': "Where We're Going",
-      'about.vision.title': 'Vision',
+      'about.vision.title': 'Our Vision',
       'about.vision.body': "To be West Africa's most trusted technology partner for defense, security, and connectivity — bridging the gap between global innovation and local operational realities.",
       'about.values.label': 'What Drives Us',
       'about.values.title': 'Our Values',
@@ -262,10 +262,10 @@
 
       /* ABOUT */
       'about.mission.label': 'Notre Mission',
-      'about.mission.title': 'Mission',
+      'about.mission.title': 'Notre Mission',
       'about.mission.body': "Donner aux gouvernements, entreprises et forces de sécurité ouest-africains des solutions technologiques de classe mondiale — offrant des systèmes fiables de surveillance, connectivité et renseignement qui protègent les personnes et favorisent la croissance.",
       'about.vision.label': 'Notre Direction',
-      'about.vision.title': 'Vision',
+      'about.vision.title': 'Notre Vision',
       'about.vision.body': "Devenir le partenaire technologique le plus fiable d'Afrique de l'Ouest pour la défense, la sécurité et la connectivité — comblant le fossé entre l'innovation mondiale et les réalités opérationnelles locales.",
       'about.values.label': 'Ce Qui Nous Anime',
       'about.values.title': 'Nos Valeurs',
