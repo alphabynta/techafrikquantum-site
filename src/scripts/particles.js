@@ -49,11 +49,11 @@
       this.angle    = Math.random() * Math.PI * 2;
       this.spin     = (Math.random() - .5) * 0.004;
       /* body half-sizes */
-      this.bw = 5; /* half-width of body */
-      this.bh = 3; /* half-height of body */
+      this.bw = 20; /* half-width of body */
+      this.bh = 12; /* half-height of body */
       /* panel dimensions */
-      this.pw = 8; /* panel width */
-      this.ph = 2; /* panel height */
+      this.pw = 32; /* panel width */
+      this.ph = 8;  /* panel height */
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -91,7 +91,7 @@
       /* antenna — short line from top of body */
       ctx.beginPath();
       ctx.moveTo(0, -this.bh);
-      ctx.lineTo(0, -this.bh - 4);
+      ctx.lineTo(0, -this.bh - 16);
       ctx.strokeStyle = 'rgba(' + rgb + ',0.55)';
       ctx.stroke();
 
