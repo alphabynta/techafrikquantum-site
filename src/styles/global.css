@@ -32,9 +32,9 @@
     --surface-2: #e0e0e0;
     --text: #0d0d0d;
     --muted: #505050;
-    --accent: #b8720a;
-    --accent-dim: rgba(184, 114, 10, .10);
-    --accent-border: rgba(184, 114, 10, .30);
+    --accent: #f5a524;
+    --accent-dim: rgba(245, 165, 36, .14);
+    --accent-border: rgba(245, 165, 36, .40);
     --border: #cccccc;
     --input-bg: #ffffff;
     --nav-scrolled-bg: rgba(244,244,244,0.94);

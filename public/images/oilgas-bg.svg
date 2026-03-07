@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#03080f"/>
+      <stop offset="55%" stop-color="#07182e"/>
+      <stop offset="100%" stop-color="#0c2642"/>
+    </linearGradient>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c2642"/>
+      <stop offset="100%" stop-color="#020a14"/>
+    </linearGradient>
+    <radialGradient id="flare-glow" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#ff7700" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#ff4400" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4cbb0"/>
+      <stop offset="100%" stop-color="#a89e80"/>
+    </radialGradient>
+    <radialGradient id="moonhalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8899aa" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#8899aa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="platform-light" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#f5a524" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#f5a524" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="flare-water" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#ff6600" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ff6600" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur-sm">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <filter id="blur-md">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur-lg">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- Stars layer -->
+  <g opacity="0.85">
+    <circle cx="80"  cy="44"  r="1.0" fill="#fff" opacity=".7"/>
+    <circle cx="155" cy="22"  r="0.8" fill="#fff" opacity=".5"/>
+    <circle cx="230" cy="65"  r="1.2" fill="#fff" opacity=".6"/>
+    <circle cx="310" cy="18"  r="0.9" fill="#fff" opacity=".8"/>
+    <circle cx="390" cy="50"  r="1.0" fill="#fff" opacity=".5"/>
+    <circle cx="460" cy="32"  r="0.7" fill="#fff" opacity=".7"/>
+    <circle cx="530" cy="78"  r="1.1" fill="#fff" opacity=".6"/>
+    <circle cx="600" cy="25"  r="0.8" fill="#fff" opacity=".5"/>
+    <circle cx="680" cy="55"  r="1.0" fill="#fff" opacity=".7"/>
+    <circle cx="120" cy="110" r="0.9" fill="#fff" opacity=".4"/>
+    <circle cx="260" cy="140" r="1.0" fill="#fff" opacity=".5"/>
+    <circle cx="430" cy="95"  r="0.8" fill="#fff" opacity=".6"/>
+    <circle cx="560" cy="130" r="1.2" fill="#fff" opacity=".4"/>
+    <circle cx="50"  cy="180" r="0.7" fill="#fff" opacity=".5"/>
+    <circle cx="340" cy="200" r="1.0" fill="#fff" opacity=".4"/>
+    <circle cx="1100" cy="40"  r="1.0" fill="#fff" opacity=".6"/>
+    <circle cx="1200" cy="18"  r="0.8" fill="#fff" opacity=".8"/>
+    <circle cx="1280" cy="60"  r="1.1" fill="#fff" opacity=".5"/>
+    <circle cx="1350" cy="30"  r="0.9" fill="#fff" opacity=".7"/>
+    <circle cx="1430" cy="55"  r="1.0" fill="#fff" opacity=".6"/>
+    <circle cx="1510" cy="22"  r="0.7" fill="#fff" opacity=".5"/>
+    <circle cx="1560" cy="75"  r="1.2" fill="#fff" opacity=".7"/>
+    <circle cx="1150" cy="110" r="0.8" fill="#fff" opacity=".4"/>
+    <circle cx="1320" cy="140" r="1.0" fill="#fff" opacity=".5"/>
+    <circle cx="1480" cy="100" r="0.9" fill="#fff" opacity=".6"/>
+    <circle cx="780"  cy="35"  r="0.8" fill="#fff" opacity=".5"/>
+    <circle cx="850"  cy="70"  r="1.0" fill="#fff" opacity=".6"/>
+    <circle cx="950"  cy="28"  r="0.9" fill="#fff" opacity=".7"/>
+    <circle cx="1020" cy="88"  r="0.7" fill="#fff" opacity=".4"/>
+    <circle cx="900"  cy="150" r="0.8" fill="#fff" opacity=".4"/>
+  </g>
+
+  <!-- Moon -->
+  <circle cx="1420" cy="110" r="38" fill="url(#moonhalo)" filter="url(#blur-md)"/>
+  <circle cx="1420" cy="110" r="22" fill="url(#moon)" opacity="0.85"/>
+
+  <!-- Distant fog band at horizon -->
+  <rect x="0" y="468" width="1600" height="70" fill="#1a3a5c" opacity="0.18" filter="url(#blur-md)"/>
+
+  <!-- Ocean surface -->
+  <rect x="0" y="508" width="1600" height="392" fill="url(#ocean)"/>
+
+  <!-- Horizon line -->
+  <line x1="0" y1="509" x2="1600" y2="509" stroke="#1e4060" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Ocean subtle wave lines -->
+  <g opacity="0.25" stroke="#2a5a80" stroke-width="0.8" fill="none">
+    <path d="M0,540 Q200,535 400,542 T800,538 T1200,543 T1600,539"/>
+    <path d="M0,560 Q250,555 500,562 T1000,558 T1600,561"/>
+    <path d="M0,585 Q300,580 600,586 T1200,582 T1600,585"/>
+    <path d="M0,615 Q350,610 700,617 T1400,612 T1600,615"/>
+    <path d="M0,650 Q400,645 800,652 T1600,647"/>
+    <path d="M0,690 Q450,686 900,692 T1600,688"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MAIN PLATFORM (centre-right, x≈940) -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <!-- Jacket legs into water -->
+  <rect x="858" y="438" width="14" height="175" fill="#08121e"/>
+  <rect x="910" y="432" width="16" height="181" fill="#08121e"/>
+  <rect x="970" y="438" width="14" height="175" fill="#08121e"/>
+  <rect x="1032" y="442" width="12" height="171" fill="#08121e"/>
+  <rect x="810"  y="450" width="10" height="163" fill="#08121e"/>
+
+  <!-- Cross bracing -->
+  <g stroke="#08121e" stroke-width="3.5" fill="none">
+    <line x1="858" y1="455" x2="910" y2="490"/>
+    <line x1="910" y1="455" x2="858" y2="490"/>
+    <line x1="910" y1="455" x2="970" y2="490"/>
+    <line x1="970" y1="455" x2="910" y2="490"/>
+    <line x1="970" y1="455" x2="1032" y2="488"/>
+    <line x1="1032" y1="455" x2="970" y2="488"/>
+    <line x1="858" y1="490" x2="910" y2="525"/>
+    <line x1="910" y1="490" x2="858" y2="525"/>
+    <line x1="910" y1="490" x2="970" y2="525"/>
+    <line x1="970" y1="490" x2="910" y2="525"/>
+  </g>
+
+  <!-- Main deck -->
+  <rect x="790" y="418" width="272" height="24" fill="#0a1828" rx="2"/>
+  <!-- Deck railing suggestion -->
+  <rect x="792" y="415" width="268" height="3" fill="#0d2035"/>
+
+  <!-- Upper equipment deck -->
+  <rect x="820" y="392" width="210" height="28" fill="#0b1c2e" rx="2"/>
+
+  <!-- Accommodation / living quarters block -->
+  <rect x="830" y="338" width="96" height="56" fill="#0d2035" rx="2"/>
+  <!-- Windows in rows -->
+  <g fill="#f5a524" opacity="0.55" rx="1">
+    <rect x="839" y="347" width="10" height="6" rx="1"/>
+    <rect x="855" y="347" width="10" height="6" rx="1"/>
+    <rect x="871" y="347" width="10" height="6" rx="1"/>
+    <rect x="887" y="347" width="10" height="6" rx="1"/>
+    <rect x="903" y="347" width="10" height="6" rx="1"/>
+    <rect x="839" y="360" width="10" height="6" rx="1" opacity=".3"/>
+    <rect x="855" y="360" width="10" height="6" rx="1" opacity=".7"/>
+    <rect x="871" y="360" width="10" height="6" rx="1" opacity=".4"/>
+    <rect x="887" y="360" width="10" height="6" rx="1" opacity=".6"/>
+    <rect x="903" y="360" width="10" height="6" rx="1" opacity=".2"/>
+    <rect x="839" y="373" width="10" height="6" rx="1" opacity=".5"/>
+    <rect x="871" y="373" width="10" height="6" rx="1" opacity=".3"/>
+    <rect x="903" y="373" width="10" height="6" rx="1" opacity=".6"/>
+  </g>
+
+  <!-- Process module / equipment block -->
+  <rect x="940" y="350" width="100" height="44" fill="#0a1626" rx="2"/>
+  <!-- Pipe runs on deck -->
+  <rect x="830" y="388" width="210" height="5" fill="#0b1828" rx="1"/>
+  <rect x="850" y="383" width="4" height="12" fill="#0b1828"/>
+  <rect x="900" y="383" width="4" height="12" fill="#0b1828"/>
+  <rect x="960" y="383" width="4" height="12" fill="#0b1828"/>
+  <rect x="1010" y="383" width="4" height="12" fill="#0b1828"/>
+
+  <!-- Drilling derrick (lattice tower) -->
+  <polygon points="930,148 902,420 958,420" fill="#08121e"/>
+  <!-- Derrick horizontal cross members -->
+  <g stroke="#04080f" stroke-width="1.8" fill="none">
+    <line x1="910" y1="180" x2="950" y2="180"/>
+    <line x1="906" y1="220" x2="954" y2="220"/>
+    <line x1="903" y1="260" x2="957" y2="260"/>
+    <line x1="900" y1="300" x2="960" y2="300"/>
+    <line x1="897" y1="340" x2="963" y2="340"/>
+    <line x1="894" y1="380" x2="966" y2="380"/>
+  </g>
+  <!-- Diagonal bracing inside derrick -->
+  <g stroke="#060e1a" stroke-width="1.2" fill="none">
+    <line x1="910" y1="180" x2="906" y2="220"/>
+    <line x1="950" y1="180" x2="954" y2="220"/>
+    <line x1="906" y1="220" x2="903" y2="260"/>
+    <line x1="954" y1="220" x2="957" y2="260"/>
+    <line x1="903" y1="260" x2="900" y2="300"/>
+    <line x1="957" y1="260" x2="960" y2="300"/>
+    <line x1="910" y1="180" x2="954" y2="220"/>
+    <line x1="950" y1="180" x2="906" y2="220"/>
+  </g>
+  <!-- Derrick crown block -->
+  <rect x="924" y="142" width="12" height="8" fill="#08121e"/>
+  <!-- Crown warning light -->
+  <circle cx="930" cy="140" r="4" fill="#ff3333" opacity="0.9" filter="url(#blur-sm)"/>
+  <circle cx="930" cy="140" r="2.5" fill="#ff6666"/>
+
+  <!-- Crane boom (left side) -->
+  <rect x="792" y="372" width="8" height="48" fill="#08121e"/>
+  <line x1="796" y1="372" x2="740" y2="330" stroke="#08121e" stroke-width="7"/>
+  <line x1="740" y1="330" x2="740" y2="418" stroke="#08121e" stroke-width="3"/>
+  <!-- Crane cable -->
+  <line x1="768" y1="350" x2="768" y2="420" stroke="#08121e" stroke-width="1.5"/>
+
+  <!-- Helipad (on top of accommodation, slightly raised) -->
+  <circle cx="870" cy="320" r="30" fill="#0c1c2e" stroke="#1e3850" stroke-width="1.5"/>
+  <circle cx="870" cy="320" r="22" fill="none" stroke="#1e3850" stroke-width="1.2"/>
+  <line x1="848" y1="320" x2="892" y2="320" stroke="#1e3850" stroke-width="1.5"/>
+  <line x1="870" y1="298" x2="870" y2="342" stroke="#1e3850" stroke-width="1.5"/>
+
+  <!-- Flare boom (extending right) -->
+  <line x1="1060" y1="406" x2="1160" y2="352" stroke="#08121e" stroke-width="8"/>
+  <line x1="1160" y1="352" x2="1185" y2="280" stroke="#08121e" stroke-width="6"/>
+  <!-- Support cable for flare boom -->
+  <line x1="1060" y1="390" x2="1185" y2="270" stroke="#08121e" stroke-width="1.5"/>
+
+  <!-- Gas flare glow -->
+  <ellipse cx="1190" cy="255" rx="55" ry="65" fill="url(#flare-glow)" filter="url(#blur-md)"/>
+  <!-- Flare flames -->
+  <ellipse cx="1190" cy="245" rx="9" ry="30" fill="#ff7700" opacity="0.92"/>
+  <ellipse cx="1187" cy="238" rx="6" ry="22" fill="#ffaa00" opacity="0.85"/>
+  <ellipse cx="1193" cy="235" rx="4" ry="16" fill="#ffdd44" opacity="0.7"/>
+  <ellipse cx="1190" cy="230" rx="2.5" ry="10" fill="#fff" opacity="0.4"/>
+  <!-- Flare smoke plume -->
+  <ellipse cx="1196" cy="215" rx="14" ry="22" fill="#1a1a1a" opacity="0.28"/>
+  <ellipse cx="1208" cy="196" rx="19" ry="24" fill="#1a1a1a" opacity="0.20"/>
+  <ellipse cx="1228" cy="178" rx="26" ry="26" fill="#1a1a1a" opacity="0.14"/>
+  <ellipse cx="1255" cy="162" rx="34" ry="28" fill="#1a1a1a" opacity="0.10"/>
+
+  <!-- Platform amber work lights -->
+  <circle cx="1040" cy="400" r="5" fill="#f5a524" opacity="0.80" filter="url(#blur-sm)"/>
+  <circle cx="1040" cy="400" r="2.5" fill="#f5a524"/>
+  <circle cx="960"  cy="394" r="4" fill="#f5a524" opacity="0.65" filter="url(#blur-sm)"/>
+  <circle cx="840"  cy="394" r="4" fill="#f5a524" opacity="0.55" filter="url(#blur-sm)"/>
+  <circle cx="800"  cy="420" r="3" fill="#f5a524" opacity="0.50" filter="url(#blur-sm)"/>
+
+  <!-- Platform ambient glow on water surface -->
+  <ellipse cx="940" cy="530" rx="260" ry="45" fill="url(#platform-light)" filter="url(#blur-lg)"/>
+  <!-- Flare glow on water -->
+  <ellipse cx="1190" cy="520" rx="120" ry="28" fill="url(#flare-water)" filter="url(#blur-md)"/>
+
+  <!-- Platform reflection in water (mirrored, faded) -->
+  <g opacity="0.18">
+    <rect x="858" y="510" width="14" height="80" fill="#0d2a44"/>
+    <rect x="910" y="510" width="16" height="75" fill="#0d2a44"/>
+    <rect x="970" y="510" width="14" height="78" fill="#0d2a44"/>
+    <polygon points="930,512 916,570 944,570" fill="#0d2a44"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- DISTANT PLATFORM (left, x≈300) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g opacity="0.55">
+    <!-- Legs -->
+    <rect x="266" y="482" width="7" height="60" fill="#07111e"/>
+    <rect x="292" y="480" width="8" height="62" fill="#07111e"/>
+    <rect x="320" y="482" width="7" height="60" fill="#07111e"/>
+    <!-- Deck -->
+    <rect x="255" y="470" width="82" height="14" fill="#07111e" rx="1"/>
+    <!-- Small derrick -->
+    <polygon points="296,390 281,470 311,470" fill="#07111e"/>
+    <!-- Warning light -->
+    <circle cx="296" cy="388" r="3" fill="#ff3333" opacity="0.7" filter="url(#blur-sm)"/>
+    <!-- Work light -->
+    <circle cx="330" cy="468" r="3" fill="#f5a524" opacity="0.6" filter="url(#blur-sm)"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FAR-DISTANCE PLATFORM (right, x≈1400) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g opacity="0.30">
+    <rect x="1370" y="494" width="5" height="38" fill="#07111e"/>
+    <rect x="1388" y="492" width="6" height="40" fill="#07111e"/>
+    <rect x="1406" y="494" width="5" height="38" fill="#07111e"/>
+    <rect x="1360" y="484" width="60" height="12" fill="#07111e" rx="1"/>
+    <polygon points="1388,432 1377,484 1399,484" fill="#07111e"/>
+    <circle cx="1388" cy="430" r="2.5" fill="#ff3333" opacity="0.65" filter="url(#blur-sm)"/>
+    <circle cx="1410" cy="482" r="2" fill="#f5a524" opacity="0.55" filter="url(#blur-sm)"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SUPPLY VESSEL (water level, x≈580) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g opacity="0.60">
+    <!-- Hull -->
+    <path d="M480,508 L680,508 L690,518 L470,518 Z" fill="#06101c"/>
+    <!-- Superstructure -->
+    <rect x="510" y="488" width="90" height="22" fill="#07141f" rx="1"/>
+    <rect x="530" y="476" width="55" height="14" fill="#07141f" rx="1"/>
+    <!-- Mast -->
+    <line x1="558" y1="464" x2="558" y2="476" stroke="#07141f" stroke-width="3"/>
+    <!-- Navigation light -->
+    <circle cx="558" cy="462" r="2" fill="#fff" opacity="0.7"/>
+    <!-- Hull windows -->
+    <g fill="#f5a524" opacity="0.45">
+      <rect x="516" y="493" width="7" height="4" rx="1"/>
+      <rect x="529" y="493" width="7" height="4" rx="1"/>
+      <rect x="542" y="493" width="7" height="4" rx="1"/>
+      <rect x="555" y="493" width="7" height="4" rx="1"/>
+      <rect x="568" y="493" width="7" height="4" rx="1"/>
+    </g>
+    <!-- Reflection -->
+    <path d="M480,518 L690,518 L695,534 L475,534 Z" fill="#06101c" opacity="0.35"/>
+  </g>
+
+  <!-- Water shimmer / moonlight path -->
+  <ellipse cx="800" cy="600" rx="520" ry="30" fill="#1e4a6e" opacity="0.12"/>
+  <ellipse cx="1420" cy="580" rx="180" ry="16" fill="#c8b880" opacity="0.06"/>
+
+  <!-- Subtle vignette overlay -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="black" stop-opacity="0"/>
+    <stop offset="100%" stop-color="black" stop-opacity="0.45"/>
+  </radialGradient>
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>

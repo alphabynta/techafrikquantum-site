@@ -1,7 +1,8 @@
 ---
+const base = import.meta.env.BASE_URL;
 const sectors = [
   {
-    num: '01', id: 'defense',
+    num: '01', id: 'defense', bgImg: null,
     labelKey: 'defense.label', titleKey: 'defense.title', bodyKey: 'defense.body',
     liKeys: ['defense.li1','defense.li2','defense.li3'],
     label: 'Defense', title: 'Defense',
@@ -12,6 +13,7 @@ const sectors = [
     num: '02', id: 'government',
     labelKey: 'government.label', titleKey: 'government.title', bodyKey: 'government.body',
     liKeys: ['government.li1','government.li2','government.li3'],
+    bgImg: null,
     label: 'Government', title: 'Government',
     body: 'We support government agencies and public institutions with secure network infrastructure, surveillance systems, and digital governance tools.',
     li: ['Public safety & smart city infrastructure','Secure inter-agency communications','Governance, risk & compliance frameworks'],
@@ -20,6 +22,7 @@ const sectors = [
     num: '03', id: 'enterprise',
     labelKey: 'enterprise.label', titleKey: 'enterprise.title', bodyKey: 'enterprise.body',
     liKeys: ['enterprise.li1','enterprise.li2','enterprise.li3'],
+    bgImg: null,
     label: 'Enterprise', title: 'Enterprise',
     body: 'Corporate networks, cybersecurity operations, and assets management for businesses that cannot afford downtime.',
     li: ['Enterprise network design & orchestration','SOC onboarding & IAM implementation','Fleet & assets tracking for operations'],
@@ -28,6 +31,7 @@ const sectors = [
     num: '04', id: 'oilgas',
     labelKey: 'oilgas.label', titleKey: 'oilgas.title', bodyKey: 'oilgas.body',
     liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
+    bgImg: 'images/oilgas-bg.svg',
     label: 'Oil & Gas', title: 'Oil & Gas',
     body: 'Remote sites, offshore platforms, and pipeline corridors demand connectivity and safety systems that work without exception.',
     li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
@@ -36,6 +40,7 @@ const sectors = [
     num: '05', id: 'cellular-mobility',
     labelKey: 'cellular.label', titleKey: 'cellular.title', bodyKey: 'cellular.body',
     liKeys: ['cellular.li1','cellular.li2','mobility.li1','mobility.li2'],
+    bgImg: null,
     label: 'Cellular & Mobility', title: 'Cellular & Mobility',
     body: 'We partner with cellular operators on RF engineering and spectrum management, while helping transport operators and national fleets gain connectivity, reduce costs, and improve safety.',
     li: ['RF engineering & spectrum management','QoS & traffic engineering for carrier-grade networks','Real-time GPS fleet tracking & geofencing','Driver behavior scoring & safety compliance'],
@@ -53,7 +58,12 @@ const sectors = [
     <div class="hscroll-track">
       <div class="hscroll-cards" id="sectors-cards">
         {sectors.map(s => (
-          <article class="hcard" id={s.id}>
+          <article
+            class={`hcard${s.bgImg ? ' hcard--bg' : ''}`}
+            id={s.id}
+            style={s.bgImg ? `--card-bg: url('${base}${s.bgImg}')` : ''}
+          >
+            {s.bgImg && <div class="hcard__bg-overlay" aria-hidden="true"></div>}
             <p class="section-label" data-i18n={s.labelKey}>{s.label}</p>
             <h3 class="hcard__title" data-i18n={s.titleKey}>{s.title}</h3>
             <p class="hcard__body" data-i18n={s.bodyKey}>{s.body}</p>
@@ -127,6 +137,19 @@ const sectors = [
     transition: box-shadow .2s;
   }
   .hcard:hover { box-shadow: 0 0 40px rgba(245,165,36,.10); }
+
+  /* Background image variant */
+  .hcard--bg {
+    background-image: var(--card-bg);
+    background-size: cover; background-position: center;
+  }
+  .hcard__bg-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 100%);
+    border-radius: inherit;
+    z-index: 0;
+  }
+  .hcard--bg > * { position: relative; z-index: 1; }
 
   .hcard .section-label { margin-bottom: 6px; }
   .hcard__title {
