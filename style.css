@@ -7,9 +7,9 @@
   --muted:#808080;
   --primary:#f5a524;
   --primary-600:#d68c16;
-  --purple:#8b5cf6;
-  --purple-dim:rgba(139,92,246,.12);
-  --purple-border:rgba(139,92,246,.35);
+  --purple:#f5a524;
+  --purple-dim:rgba(245,165,36,.12);
+  --purple-border:rgba(245,165,36,.35);
   --border:#1e1e1e;
   --radius:12px;
   --radius-lg:18px;
@@ -205,7 +205,7 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
 .btn--ghost{background:transparent;color:var(--text);border-color:var(--border)}
 .btn--ghost:hover{background:rgba(255,255,255,.06)}
 .btn--purple{background:var(--purple);color:#fff;border-color:var(--purple)}
-.btn--purple:hover{background:#7c3aed;border-color:#7c3aed}
+.btn--purple:hover{background:#d68c16;border-color:#d68c16}
 .btn--outline-purple{background:transparent;border-color:var(--purple-border);color:var(--purple)}
 .btn--outline-purple:hover{background:var(--purple-dim)}
 /* Aliases for legacy classes */
