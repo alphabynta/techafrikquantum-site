@@ -45,10 +45,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .35;
-      this.vy = (Math.random() - .5) * .35;
+      this.vx = (Math.random() - .5) * .175;
+      this.vy = (Math.random() - .5) * .175;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.004;
+      this.spin  = (Math.random() - .5) * 0.002;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -95,10 +95,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .35;
-      this.vy = (Math.random() - .5) * .35;
+      this.vx = (Math.random() - .5) * .175;
+      this.vy = (Math.random() - .5) * .175;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.004;
+      this.spin  = (Math.random() - .5) * 0.002;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -137,10 +137,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .35;
-      this.vy = (Math.random() - .5) * .35;
+      this.vx = (Math.random() - .5) * .175;
+      this.vy = (Math.random() - .5) * .175;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.004;
+      this.spin  = (Math.random() - .5) * 0.002;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -184,10 +184,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .35;
-      this.vy = (Math.random() - .5) * .35;
+      this.vx = (Math.random() - .5) * .175;
+      this.vy = (Math.random() - .5) * .175;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.004;
+      this.spin  = (Math.random() - .5) * 0.002;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
