@@ -402,7 +402,7 @@ import contactConfig  from './bg-sections/contact.js';
     if (showP) particles.forEach(p => { p.update(); p.draw(); });
     else particles.forEach(p => p.update());
     if (showP && cfg.showLinks) drawLinks(particles);
-    separateAll(satellites, 120, 0.0645); /* cap matches satellite speed */
+    separateAll(satellites, 120, 0.3225); /* cap matches satellite speed */
     satellites.forEach(s => { s.update(); s.draw(); });
     separateDrones(drones, 80);
     drones.forEach(d => { d.update(); d.draw(); });
