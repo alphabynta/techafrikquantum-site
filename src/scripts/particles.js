@@ -9,6 +9,7 @@
   const MAX_DIST = 160;
   /* Colour is driven by section-bg.js via window.__particleRgb */
   function getRgb() { return window.__particleRgb || '245,165,36'; }
+  const DRONE_RGB = '148,51,234'; /* purple — fixed regardless of section */
   let particles = [];
   let satellites = [];
   let drones = [];
@@ -258,10 +259,11 @@
   class DroneISR {
     constructor() { Object.assign(this, droneBase()); this.reset(); }
     draw() {
-      const rgb = getRgb();
+      const rgb = DRONE_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
+      ctx.scale(0.5, 0.5);
       ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
       ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
       ctx.lineWidth   = 0.9;
@@ -323,10 +325,11 @@
   class DroneMilitary {
     constructor() { Object.assign(this, droneBase()); this.reset(); }
     draw() {
-      const rgb = getRgb();
+      const rgb = DRONE_RGB;
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);
+      ctx.scale(0.5, 0.5);
       ctx.strokeStyle = 'rgba(' + rgb + ',0.70)';
       ctx.fillStyle   = 'rgba(' + rgb + ',0.18)';
       ctx.lineWidth   = 0.9;
