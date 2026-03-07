@@ -344,8 +344,10 @@ import contactConfig  from './bg-sections/contact.js';
   /* ── Animate ────────────────────────────────────────────────── */
   function animate() {
     ctx.clearRect(0, 0, w, h);
-    particles.forEach(p => { p.update(); p.draw(); });
-    if (cfg.showLinks) drawLinks(particles);
+    const showP = cfg.showParticles !== false;
+    if (showP) particles.forEach(p => { p.update(); p.draw(); });
+    else particles.forEach(p => p.update());
+    if (showP && cfg.showLinks) drawLinks(particles);
     separateAll(satellites, 120, 0.00875);
     satellites.forEach(s => { s.update(); s.draw(); });
     separateDrones(drones, 80);

@@ -7,5 +7,6 @@
 export default {
   rgb:          '255,255,255',
   particleAlpha: 0.15,
-  showLinks:    true,
+  showParticles: false,
+  showLinks:    false,
 };
