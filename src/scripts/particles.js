@@ -234,7 +234,7 @@
     }
   }
 
-  /* ── Separation — prevents overlap between same-type entities ── */
+  /* ── Satellite separation — repels overlapping satellites ──── */
   function separateAll(entities, minDist, maxSpeed) {
     for (let i = 0; i < entities.length; i++) {
       for (let j = i + 1; j < entities.length; j++) {
@@ -256,22 +256,46 @@
     }
   }
 
+  /* ── Drone separation — steers angle away from nearby drones ── */
+  function shortAngleDiff(target, current) {
+    let d = target - current;
+    while (d >  Math.PI) d -= 2 * Math.PI;
+    while (d < -Math.PI) d += 2 * Math.PI;
+    return d;
+  }
+  function separateDrones(drones, minDist) {
+    for (let i = 0; i < drones.length; i++) {
+      for (let j = i + 1; j < drones.length; j++) {
+        const dx = drones[i].x - drones[j].x;
+        const dy = drones[i].y - drones[j].y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < minDist && d > 0) {
+          const force = (minDist - d) / minDist * 0.15;
+          drones[i].angle += shortAngleDiff(Math.atan2(dy, dx),   drones[i].angle) * force;
+          drones[j].angle += shortAngleDiff(Math.atan2(-dy, -dx), drones[j].angle) * force;
+        }
+      }
+    }
+  }
+
   /* ── Drone base mixin ───────────────────────────────────────── */
   function droneBase() {
     return {
       reset() {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.vx = (Math.random() - .5) * 3.5;
-        this.vy = (Math.random() - .5) * 3.5;
+        this.x     = Math.random() * w;
+        this.y     = Math.random() * h;
+        this.speed = 1.75;
         this.angle = Math.random() * Math.PI * 2;
-        this.spin  = (Math.random() - .5) * 0.04;
+        this.spin  = (Math.random() - .5) * 0.02;
       },
       update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > w) this.vx *= -1;
-        if (this.y < 0 || this.y > h) this.vy *= -1;
         this.angle += this.spin;
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (this.x < 0) { this.x = 0; this.angle = Math.PI - this.angle; }
+        if (this.x > w) { this.x = w; this.angle = Math.PI - this.angle; }
+        if (this.y < 0) { this.y = 0; this.angle = -this.angle; }
+        if (this.y > h) { this.y = h; this.angle = -this.angle; }
       },
     };
   }
@@ -427,7 +451,7 @@
     }
     separateAll(satellites, 120, 0.00875);
     satellites.forEach(s => { s.update(); s.draw(); });
-    separateAll(drones, 80, 3.5);
+    separateDrones(drones, 80);
     drones.forEach(d => { d.update(); d.draw(); });
     requestAnimationFrame(animate);
   }
