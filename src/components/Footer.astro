@@ -26,13 +26,15 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: var(--surface);
+    background: var(--nav-scrolled-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--border);
-    padding: 8px 0;
+    overflow: visible;
   }
   .footer-strip {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap; min-height: 64px; overflow: visible;
+    gap: 16px; flex-wrap: wrap; height: 64px; overflow: visible;
   }
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo-mask {
@@ -48,9 +50,6 @@ const year = new Date().getFullYear();
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-  }
-  @media (prefers-color-scheme: light) {
-    .site-footer { background: var(--surface); }
   }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
