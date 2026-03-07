@@ -46,10 +46,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .0875;
-      this.vy = (Math.random() - .5) * .0875;
+      this.vx = (Math.random() - .5) * .00875;
+      this.vy = (Math.random() - .5) * .00875;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.001;
+      this.spin  = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -96,10 +96,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .0875;
-      this.vy = (Math.random() - .5) * .0875;
+      this.vx = (Math.random() - .5) * .00875;
+      this.vy = (Math.random() - .5) * .00875;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.001;
+      this.spin  = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -138,10 +138,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .0875;
-      this.vy = (Math.random() - .5) * .0875;
+      this.vx = (Math.random() - .5) * .00875;
+      this.vy = (Math.random() - .5) * .00875;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.001;
+      this.spin  = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -185,10 +185,10 @@
     reset() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .0875;
-      this.vy = (Math.random() - .5) * .0875;
+      this.vx = (Math.random() - .5) * .00875;
+      this.vy = (Math.random() - .5) * .00875;
       this.angle = Math.random() * Math.PI * 2;
-      this.spin  = (Math.random() - .5) * 0.001;
+      this.spin  = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
@@ -240,10 +240,10 @@
       reset() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - .5) * .35;
-        this.vy = (Math.random() - .5) * .35;
+        this.vx = (Math.random() - .5) * .035;
+        this.vy = (Math.random() - .5) * .035;
         this.angle = Math.random() * Math.PI * 2;
-        this.spin  = (Math.random() - .5) * 0.004;
+        this.spin  = (Math.random() - .5) * 0.0004;
       },
       update() {
         this.x += this.vx; this.y += this.vy;
