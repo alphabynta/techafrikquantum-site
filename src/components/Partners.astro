@@ -35,7 +35,7 @@ const testimonials = [
 
     <div class="testimonials">
       <p class="section-label" data-i18n="partners.testimonials.label">What They Say</p>
-      <h3 class="testimonials-heading" data-i18n="partners.testimonials.title">Client Testimonials</h3>
+      <h3 class="testimonials-heading" data-i18n="partners.testimonials.title">CLIENT TESTIMONIALS</h3>
       <div class="testimonials-grid">
         {testimonials.map(t => (
           <div class="tcard">
@@ -59,7 +59,7 @@ const testimonials = [
   .partners-heading {
     font-size: clamp(32px, 5vw, 64px);
     font-weight: 800; letter-spacing: -.04em;
-    color: #fff; text-transform: uppercase;
+    color: var(--accent); text-transform: uppercase;
     margin-bottom: clamp(32px, 4vw, 56px);
     line-height: 1;
   }
@@ -85,7 +85,8 @@ const testimonials = [
   .testimonials { margin-top: 0; }
   .testimonials-heading {
     font-size: clamp(24px, 3vw, 40px);
-    font-weight: 800; letter-spacing: -.03em; color: #fff;
+    font-weight: 800; letter-spacing: -.03em; color: var(--accent);
+    text-transform: uppercase;
     margin-bottom: clamp(24px, 3vw, 48px); line-height: 1;
   }
   .testimonials-grid {
