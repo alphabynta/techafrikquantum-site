@@ -23,6 +23,7 @@ const base = import.meta.env.BASE_URL;
 </head>
 <body>
   <div id="page-bg" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
   <slot />
   <script>
     import '../scripts/nav.js';
@@ -35,6 +36,9 @@ const base = import.meta.env.BASE_URL;
   </script>
   <script>
     import '../scripts/section-bg.js';
+  </script>
+  <script>
+    import '../scripts/particles.js';
   </script>
 </body>
 </html>

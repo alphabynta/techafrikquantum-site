@@ -64,9 +64,16 @@ body {
 #page-bg {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background-color: #000;
   transition: background-color 0.9s ease;
+}
+#particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100% !important; height: 100% !important;
+  z-index: -1;
+  pointer-events: none;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
