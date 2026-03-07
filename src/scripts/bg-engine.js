@@ -63,7 +63,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -95,7 +95,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -122,7 +122,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -154,7 +154,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
