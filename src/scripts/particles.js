@@ -6,7 +6,7 @@
   const ctx = canvas.getContext('2d');
   const PARTICLE_COUNT = 90;
   const SATELLITE_COUNT = 8;
-  const MAX_DIST = 640;
+  const MAX_DIST = 320;
   /* Colour is driven by section-bg.js via window.__particleRgb */
   function getRgb() { return window.__particleRgb || '245,165,36'; }
   const DRONE_RGB = '148,51,234'; /* purple — fixed regardless of section */
