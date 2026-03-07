@@ -53,7 +53,6 @@
     ctx.lineWidth   = 0.7; ctx.stroke();
 
     if (!reduced) {
-      centerLon = (centerLon + SPEED) % 360;
       requestAnimationFrame(draw);
     }
   }
