@@ -2,6 +2,15 @@
 const base = import.meta.env.BASE_URL;
 ---
 <section class="hero" id="hero" aria-label="Hero">
+
+  <!-- Slowly scrolling world map — globe rotation illusion -->
+  <div class="hero__worldmap" aria-hidden="true">
+    <div class="hero__worldmap-track">
+      <img src={`${base}images/world-map.svg`} class="hero__worldmap-tile" alt="" />
+      <img src={`${base}images/world-map.svg`} class="hero__worldmap-tile" alt="" />
+    </div>
+  </div>
+
   <div class="container hero__content">
     <p class="section-label" data-i18n="hero.eyebrow">West Africa's Defense &amp; Connectivity Leader</p>
     <h1 class="hero__headline">
@@ -38,6 +47,28 @@ const base = import.meta.env.BASE_URL;
     position: relative; z-index: 1;
     padding-top: 100px;
   }
+  /* World map globe rotation */
+  .hero__worldmap {
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
+    display: flex; align-items: center;
+  }
+  .hero__worldmap-track {
+    display: flex; flex-shrink: 0; width: 200%;
+    animation: globeRotate 160s linear infinite;
+  }
+  .hero__worldmap-tile {
+    width: 50%; height: auto; flex-shrink: 0;
+    opacity: 0.06;
+  }
+  @keyframes globeRotate {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__worldmap-track { animation: none; }
+  }
+
   .hero__headline {
     display: flex; flex-direction: column;
     font-size: clamp(36px, 5vw, 72px);
