@@ -3,7 +3,7 @@
   --bg:#000000;--surface:#0d0d0d;--surface-2:#111111;
   --text:#f5f5f7;--muted:#888888;
   --primary:#f5a524;--primary-600:#d68c16;--border:#222222;
-  --green:#00e5a0;--green-dim:rgba(0,229,160,.12);--green-border:rgba(0,229,160,.28);
+  --green:#8b5cf6;--green-dim:rgba(139,92,246,.15);--green-border:rgba(139,92,246,.40);
   --radius:14px;
   --space-1:8px;--space-2:12px;--space-3:16px;--space-4:24px;--space-5:32px;--space-6:48px;
   --maxw:1100px
@@ -100,7 +100,7 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
   position:absolute;inset:0;z-index:-1;
   background:
     linear-gradient(135deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.78) 55%,rgba(0,0,0,.55) 100%),
-    radial-gradient(ellipse 90% 60% at 15% 50%,rgba(0,229,160,.06),transparent 65%);
+    radial-gradient(ellipse 90% 60% at 15% 50%,rgba(139,92,246,.06),transparent 65%);
 }
 
 /* ── Tactical overlay (home hero) ───────────────────────────── */
@@ -122,8 +122,8 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
 .btn--primary:hover{background:var(--primary-600)}
 .btn--ghost{background:transparent;color:var(--text);border-color:var(--border)}
 .btn--ghost:hover{background:rgba(255,255,255,.06)}
-.btn--green{background:var(--green);color:#030d0a;font-weight:700}
-.btn--green:hover{background:#00c48a}
+.btn--green{background:var(--green);color:#fff;font-weight:700}
+.btn--green:hover{background:#7c3aed}
 .btn--outline-green{background:transparent;border:1px solid var(--green-border);color:var(--green)}
 .btn--outline-green:hover{background:var(--green-dim)}
 
@@ -146,10 +146,10 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
   linear-gradient(180deg,rgba(5,5,5,.8),rgba(0,0,0,.95))}
 .skin--cyber .skin__bg::before{content:"";
   background:
-    radial-gradient(ellipse 80% 50% at 50% -5%,rgba(0,229,160,.09),transparent 55%),
+    radial-gradient(ellipse 80% 50% at 50% -5%,rgba(139,92,246,.09),transparent 55%),
     radial-gradient(ellipse 60% 55% at 85% 100%,rgba(245,165,36,.07),transparent 60%),
-    repeating-linear-gradient(to right,rgba(0,229,160,.03),rgba(0,229,160,.03) 1px,transparent 1px,transparent 44px),
-    repeating-linear-gradient(to bottom,rgba(0,229,160,.03),rgba(0,229,160,.03) 1px,transparent 1px,transparent 44px),
+    repeating-linear-gradient(to right,rgba(139,92,246,.03),rgba(139,92,246,.03) 1px,transparent 1px,transparent 44px),
+    repeating-linear-gradient(to bottom,rgba(139,92,246,.03),rgba(139,92,246,.03) 1px,transparent 1px,transparent 44px),
     linear-gradient(180deg,#050505 0%,#0a0a0a 100%);
   animation:cyberPulse 10s ease-in-out infinite}
 @keyframes cyberPulse{0%,100%{opacity:1}50%{opacity:.7}}
