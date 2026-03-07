@@ -110,22 +110,23 @@ const sectors = [
   }
   .sec-panel:hover .sec-panel__bg { transform: scale(1.03); }
 
-  /* Dark overlay */
+  /* Subtle overlay — lets page-bg cycling show through in dark mode.
+     Heavy overlay only kicks in when a background image is present (light mode). */
   .sec-panel__overlay {
     position: absolute; inset: 0;
     background: linear-gradient(
       105deg,
-      rgba(0,0,0,0.88) 0%,
-      rgba(0,0,0,0.65) 55%,
-      rgba(0,0,0,0.40) 100%
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.08) 55%,
+      rgba(0,0,0,0.02) 100%
     );
   }
   .sec-panel--flip .sec-panel__overlay {
     background: linear-gradient(
       -105deg,
-      rgba(0,0,0,0.88) 0%,
-      rgba(0,0,0,0.65) 55%,
-      rgba(0,0,0,0.40) 100%
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.08) 55%,
+      rgba(0,0,0,0.02) 100%
     );
   }
 
@@ -185,23 +186,22 @@ const sectors = [
   }
   .sec-panel--flip .sec-panel__num { right: auto; left: clamp(20px, 4vw, 80px); }
 
-  /* Light mode */
+  /* Light mode — heavier overlay so text stays readable on light page-bg */
   @media (prefers-color-scheme: light) {
-    .sec-panel__overlay,
-    .sec-panel--flip .sec-panel__overlay {
+    .sec-panel__overlay {
       background: linear-gradient(
         105deg,
-        rgba(255,255,255,0.70) 0%,
-        rgba(255,255,255,0.40) 55%,
-        rgba(255,255,255,0.10) 100%
+        rgba(255,255,255,0.82) 0%,
+        rgba(255,255,255,0.55) 55%,
+        rgba(255,255,255,0.20) 100%
       );
     }
     .sec-panel--flip .sec-panel__overlay {
       background: linear-gradient(
         -105deg,
-        rgba(255,255,255,0.70) 0%,
-        rgba(255,255,255,0.40) 55%,
-        rgba(255,255,255,0.10) 100%
+        rgba(255,255,255,0.82) 0%,
+        rgba(255,255,255,0.55) 55%,
+        rgba(255,255,255,0.20) 100%
       );
     }
     :root {
