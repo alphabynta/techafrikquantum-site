@@ -1,0 +1,141 @@
+---
+---
+<section id="contact" aria-labelledby="contact-title" class="contact-section">
+  <div class="container contact-split">
+
+    <!-- LEFT: Form -->
+    <div class="contact-form-col">
+      <p class="section-label" data-i18n="contact.form.label">Send a Message</p>
+      <h2 id="contact-title" class="contact-heading" data-i18n="contact.form.title">How Can We Help?</h2>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="c-name" data-i18n="contact.name">Full name</label>
+          <input id="c-name" class="input" type="text" required autocomplete="name" />
+        </div>
+        <div class="form-row">
+          <label for="c-email" data-i18n="contact.email">Work email</label>
+          <input id="c-email" class="input" type="email" required autocomplete="email" />
+        </div>
+        <div class="form-row">
+          <label for="c-company" data-i18n="contact.company">Company</label>
+          <input id="c-company" class="input" type="text" autocomplete="organization" />
+        </div>
+        <div class="form-row">
+          <label for="c-topic" data-i18n="contact.topic">Topic</label>
+          <select id="c-topic" class="input">
+            <option data-i18n="nav.safety">Safety &amp; Surveillance</option>
+            <option data-i18n="nav.connectivity">Critical Connectivity</option>
+            <option data-i18n="nav.assets">Assets Management</option>
+            <option data-i18n="nav.ipnetworks">IP Networks</option>
+            <option data-i18n="nav.cyber">Cybersecurity</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="c-message" data-i18n="contact.message">Message</label>
+          <textarea id="c-message" class="textarea" rows="5" required></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit" data-i18n="contact.submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- RIGHT: Info -->
+    <div class="contact-info-col">
+      <div class="contact-info">
+        <div class="contact-info__item">
+          <p class="contact-info__label" data-i18n="contact.email.title">Email</p>
+          <a href="mailto:info@techafrikquantumgroup.com" class="contact-info__value">
+            info@techafrikquantumgroup.com
+          </a>
+        </div>
+        <div class="contact-info__item">
+          <p class="contact-info__label" data-i18n="contact.location.title">Location</p>
+          <p class="contact-info__value">Conakry, Guinea<br />West Africa</p>
+        </div>
+        <div class="contact-info__item">
+          <p class="contact-info__label" data-i18n="contact.careers.title">Careers</p>
+          <a href="mailto:careers@techafrikquantumgroup.com" class="contact-info__value">
+            careers@techafrikquantumgroup.com
+          </a>
+        </div>
+        <div class="contact-social">
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Twitter / X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+(function(){
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('c-name').value.trim();
+      var email = document.getElementById('c-email').value.trim();
+      var company = document.getElementById('c-company').value.trim();
+      var topic = document.getElementById('c-topic').value;
+      var message = document.getElementById('c-message').value.trim();
+      var subject = 'Contact: ' + topic;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nTopic: ' + topic + '\nMessage: ' + message;
+      window.location.href = 'mailto:info@techafrikquantumgroup.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  });
+})();
+</script>
+
+<style>
+  .contact-section {
+    background: var(--bg);
+    padding: clamp(80px, 10vw, 140px) 0;
+  }
+  .contact-split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 100px); align-items: start;
+  }
+  .contact-heading {
+    font-size: clamp(32px, 4vw, 60px);
+    font-weight: 800; letter-spacing: -.04em; color: #fff;
+    text-transform: uppercase;
+    margin-bottom: clamp(28px, 3vw, 44px);
+    line-height: 1;
+  }
+  .contact-form { display: grid; gap: 20px; }
+
+  .contact-info {
+    padding-left: clamp(24px, 3vw, 48px);
+    border-left: 2px solid var(--accent);
+    margin-top: clamp(80px, 10vw, 120px); /* align with form content below heading */
+  }
+  .contact-info__item { margin-bottom: 36px; }
+  .contact-info__label {
+    font-size: 11px; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .contact-info__value {
+    font-size: clamp(14px, 1.4vw, 17px); color: var(--text);
+    line-height: 1.6; display: block; transition: color .15s;
+    margin: 0;
+  }
+  a.contact-info__value:hover { color: var(--accent); }
+  .contact-social { display: flex; gap: 10px; margin-top: 40px; }
+
+  @media (max-width: 768px) {
+    .contact-split { grid-template-columns: 1fr; gap: clamp(40px, 6vw, 60px); }
+    .contact-info {
+      border-left: none; border-top: 2px solid var(--accent);
+      padding-left: 0; padding-top: 36px; margin-top: 0;
+    }
+  }
+</style>
