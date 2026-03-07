@@ -32,7 +32,12 @@ const base = import.meta.env.BASE_URL;
     gap: 16px; padding-top: 18px; padding-bottom: 18px;
   }
   .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
-  .logo img { object-fit: contain; filter: brightness(0) saturate(100%) invert(67%) sepia(100%) saturate(600%) hue-rotate(2deg) brightness(1.05); }
+  .logo img {
+    width: clamp(80px, 18vw, 160px);
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(67%) sepia(100%) saturate(600%) hue-rotate(2deg) brightness(1.05);
+  }
   @media (prefers-color-scheme: light) {
     .logo img { filter: brightness(0) saturate(100%) invert(67%) sepia(100%) saturate(600%) hue-rotate(2deg) brightness(1.05); }
   }
