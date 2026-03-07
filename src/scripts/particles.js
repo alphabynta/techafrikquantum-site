@@ -445,15 +445,7 @@
   function animate() {
     ctx.clearRect(0, 0, w, h);
     const isHero = document.body.getAttribute('data-section') === 'hero';
-    if (isHero) {
-      ctx.globalAlpha = 0.15;
-      const savedRgb = window.__particleRgb;
-      window.__particleRgb = '255,255,255';
-      particles.forEach(p => { p.update(); p.draw(); });
-      drawLines();
-      window.__particleRgb = savedRgb;
-      ctx.globalAlpha = 1;
-    } else {
+    if (!isHero) {
       particles.forEach(p => { p.update(); p.draw(); });
       drawLines();
     }
