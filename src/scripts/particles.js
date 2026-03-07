@@ -10,7 +10,7 @@
   /* Colour is driven by section-bg.js via window.__particleRgb */
   function getRgb() { return window.__particleRgb || '245,165,36'; }
   const DRONE_RGB = '148,51,234'; /* purple — fixed regardless of section */
-  const SAT_RGB   = '255,30,30';  /* red — fixed regardless of section */
+  const SAT_RGB   = '160,160,160';  /* grey — fixed regardless of section */
   let particles = [];
   let satellites = [];
   let drones = [];
