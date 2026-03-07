@@ -8,13 +8,13 @@
   canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  const ZOOM  = 5;
-  /* 10× slower than original 140s → 1400s per full rotation at 60fps */
-  const SPEED = 360 / (1400 * 60);
+  const ZOOM    = 5;
+  const SPEED   = 360 / (1400 * 60);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let centerLon = 0;
-  let countries, borders, graticule;
+  let countries, borders, land, rivers, lakes;
+  let graticule5, graticule30;
 
   function makeProjection() {
     return d3.geoEquirectangular()
@@ -23,35 +23,87 @@
       .rotate([-centerLon, 0]);
   }
 
+  function latLine(path, lat) {
+    ctx.beginPath();
+    path({ type: 'LineString', coordinates: [[-180, lat], [180, lat]] });
+  }
+
   function draw() {
     ctx.clearRect(0, 0, W, H);
     const proj = makeProjection();
     const path = d3.geoPath().projection(proj).context(ctx);
 
-    /* Grid */
-    ctx.beginPath(); path(graticule);
-    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-    ctx.lineWidth   = 0.4; ctx.stroke();
+    /* Fine grid — 5° steps */
+    ctx.beginPath(); path(graticule5);
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.lineWidth   = 0.25; ctx.stroke();
+
+    /* Major grid — 30° steps */
+    ctx.beginPath(); path(graticule30);
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.lineWidth   = 0.55; ctx.stroke();
+
+    /* Arctic & Antarctic circles (±66.5°) */
+    [66.5, -66.5].forEach(function (lat) {
+      latLine(path, lat);
+      ctx.strokeStyle = 'rgba(255,255,255,0.09)';
+      ctx.lineWidth   = 0.45; ctx.stroke();
+    });
+
+    /* Tropics of Cancer & Capricorn (±23.5°) — amber tint */
+    [23.5, -23.5].forEach(function (lat) {
+      latLine(path, lat);
+      ctx.strokeStyle = 'rgba(245,165,36,0.18)';
+      ctx.lineWidth   = 0.6; ctx.stroke();
+    });
 
     /* Equator */
-    ctx.beginPath();
-    path({ type: 'LineString', coordinates: [[-180,0],[180,0]] });
-    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
-    ctx.lineWidth   = 0.8; ctx.stroke();
+    latLine(path, 0);
+    ctx.strokeStyle = 'rgba(255,255,255,0.20)';
+    ctx.lineWidth   = 0.9; ctx.stroke();
+
+    /* Prime meridian & antimeridian */
+    [0, 180, -180].forEach(function (lon) {
+      ctx.beginPath();
+      path({ type: 'LineString', coordinates: [[lon, -90], [lon, 90]] });
+      ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+      ctx.lineWidth   = 0.5; ctx.stroke();
+    });
+
+    /* Land fill — base tone */
+    if (land) {
+      ctx.beginPath(); path(land);
+      ctx.fillStyle = 'rgba(255,255,255,0.07)'; ctx.fill();
+    }
 
     /* Country fill */
     ctx.beginPath(); path(countries);
-    ctx.fillStyle = 'rgba(255,255,255,0.10)'; ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fill();
 
-    /* Coastlines */
-    ctx.beginPath(); path(countries);
-    ctx.strokeStyle = 'rgba(255,255,255,0.80)';
-    ctx.lineWidth   = 1.2; ctx.stroke();
+    /* Rivers */
+    if (rivers) {
+      ctx.beginPath(); path(rivers);
+      ctx.strokeStyle = 'rgba(180,220,255,0.22)';
+      ctx.lineWidth   = 0.5; ctx.stroke();
+    }
 
-    /* Internal borders */
+    /* Lakes */
+    if (lakes) {
+      ctx.beginPath(); path(lakes);
+      ctx.fillStyle   = 'rgba(180,220,255,0.14)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(180,220,255,0.18)';
+      ctx.lineWidth   = 0.4; ctx.stroke();
+    }
+
+    /* Internal country borders */
     ctx.beginPath(); path(borders);
-    ctx.strokeStyle = 'rgba(255,255,255,0.45)';
-    ctx.lineWidth   = 0.7; ctx.stroke();
+    ctx.strokeStyle = 'rgba(255,255,255,0.40)';
+    ctx.lineWidth   = 0.65; ctx.stroke();
+
+    /* Coastlines — brightest layer */
+    ctx.beginPath(); path(countries);
+    ctx.strokeStyle = 'rgba(255,255,255,0.82)';
+    ctx.lineWidth   = 1.1; ctx.stroke();
 
     if (!reduced) {
       centerLon = (centerLon + SPEED) % 360;
@@ -72,13 +124,28 @@
       return loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js');
     })
     .then(function () {
-      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');
+      return Promise.all([
+        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json').then(function (r) { return r.json(); }),
+        fetch('https://cdn.jsdelivr.net/npm/visionscarto-world-atlas@0.1.0/world/50m.json')
+          .then(function (r) { return r.json(); })
+          .catch(function () { return null; }),
+      ]);
     })
-    .then(function (r) { return r.json(); })
-    .then(function (world) {
+    .then(function (results) {
+      const world  = results[0];
+      const vworld = results[1];
+
       countries = topojson.feature(world, world.objects.countries);
       borders   = topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; });
-      graticule = d3.geoGraticule().step([30, 30])();
+      land      = topojson.feature(world, world.objects.land);
+      graticule5  = d3.geoGraticule().step([5, 5])();
+      graticule30 = d3.geoGraticule().step([30, 30])();
+
+      if (vworld) {
+        try { if (vworld.objects.rivers) rivers = topojson.feature(vworld, vworld.objects.rivers); } catch (e) {}
+        try { if (vworld.objects.lakes)  lakes  = topojson.feature(vworld, vworld.objects.lakes);  } catch (e) {}
+      }
+
       draw();
     })
     .catch(function (e) { console.warn('globe.js: failed to load map data', e); });
