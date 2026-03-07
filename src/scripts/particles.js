@@ -6,10 +6,8 @@
   const ctx = canvas.getContext('2d');
   const PARTICLE_COUNT = 90;
   const MAX_DIST = 160;
-  /* Olive Drab: #6B8E23 = rgb(107,142,35) */
-  const dotColor = 'rgba(107,142,35,0.75)';
-  const lineAlpha = 0.55;
-  const rgb = '107,142,35';
+  /* Colour is driven by section-bg.js via window.__particleRgb */
+  function getRgb() { return window.__particleRgb || '245,165,36'; }
   let particles = [];
   let w, h;
 
@@ -32,7 +30,7 @@
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = dotColor;
+      ctx.fillStyle = 'rgba(' + getRgb() + ',0.80)';
       ctx.fill();
     }
   }
@@ -47,7 +45,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(${rgb},${lineAlpha * (1 - d / MAX_DIST)})`;
+          ctx.strokeStyle = 'rgba(' + getRgb() + ',' + (0.55 * (1 - d / MAX_DIST)) + ')';
           ctx.lineWidth = .6;
           ctx.stroke();
         }
