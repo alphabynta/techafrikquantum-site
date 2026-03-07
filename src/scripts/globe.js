@@ -8,8 +8,8 @@
   canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  const ZOOM  = 5;
-  /* 10× slower than original 140s → 1400s per full rotation at 60fps */
+  const ZOOM  = 5;     /* 2× zoom on the wider view */
+  const TILT  = -20;   /* tilt northward: view centres on ~20°N */
   const SPEED = 360 / (1400 * 60);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -20,7 +20,7 @@
     return d3.geoEquirectangular()
       .scale(H / Math.PI * ZOOM)
       .translate([W / 2, H / 2])
-      .rotate([-centerLon, 0]);
+      .rotate([-centerLon, TILT]);
   }
 
   function draw() {
