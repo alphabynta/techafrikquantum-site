@@ -36,6 +36,10 @@ const year = new Date().getFullYear();
   }
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo img { object-fit: contain; filter: brightness(0) invert(1); }
+  @media (prefers-color-scheme: light) {
+    .footer-logo img { filter: brightness(0); }
+    .site-footer { background: var(--surface); }
+  }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
   .social-icon {

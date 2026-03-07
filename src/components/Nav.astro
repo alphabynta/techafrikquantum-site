@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
     transition: background .3s ease, border-color .3s ease;
   }
   .site-header.is-scrolled {
-    background: rgba(0,0,0,.92);
+    background: var(--nav-scrolled-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom-color: var(--border);
@@ -33,4 +33,7 @@ const base = import.meta.env.BASE_URL;
   }
   .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
   .logo img { object-fit: contain; filter: brightness(0) invert(1); }
+  @media (prefers-color-scheme: light) {
+    .logo img { filter: brightness(0); }
+  }
 </style>

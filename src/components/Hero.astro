@@ -38,6 +38,9 @@ const base = import.meta.env.BASE_URL;
   const ctx = canvas.getContext('2d');
   const PARTICLE_COUNT = 90;
   const MAX_DIST = 160;
+  const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const dotColor = isLight ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.55)';
+  const lineAlpha = isLight ? 0.07 : 0.10;
   let particles = [];
   let w, h;
   function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
@@ -45,12 +48,13 @@ const base = import.meta.env.BASE_URL;
     constructor() { this.reset(); }
     reset() { this.x = Math.random()*w; this.y = Math.random()*h; this.vx = (Math.random()-.5)*.35; this.vy = (Math.random()-.5)*.35; this.r = Math.random()*1.5+.5; }
     update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1; }
-    draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle='rgba(255,255,255,0.55)'; ctx.fill(); }
+    draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=dotColor; ctx.fill(); }
   }
   function drawLines() {
     for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){
       const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<MAX_DIST){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(255,255,255,${.10*(1-d/MAX_DIST)})`;ctx.lineWidth=.6;ctx.stroke();}
+      const rgb = isLight ? '0,0,0' : '255,255,255';
+      if(d<MAX_DIST){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(${rgb},${lineAlpha*(1-d/MAX_DIST)})`;ctx.lineWidth=.6;ctx.stroke();}
     }}
   }
   function animate() { ctx.clearRect(0,0,w,h); particles.forEach(p=>{p.update();p.draw();}); drawLines(); requestAnimationFrame(animate); }
@@ -65,7 +69,7 @@ const base = import.meta.env.BASE_URL;
   .hero {
     position: relative; width: 100%; height: 100vh; min-height: 600px;
     display: flex; align-items: center;
-    background: #000; overflow: hidden; isolation: isolate;
+    background: var(--bg); overflow: hidden; isolation: isolate;
   }
   #hero-canvas {
     position: absolute; inset: 0;
@@ -80,7 +84,7 @@ const base = import.meta.env.BASE_URL;
     display: flex; flex-direction: column;
     font-size: clamp(56px, 8vw, 112px);
     font-weight: 800; letter-spacing: -.04em;
-    line-height: 0.95; color: #fff;
+    line-height: 0.95; color: var(--text);
     margin-bottom: clamp(20px, 3vw, 36px);
     text-transform: uppercase;
   }
@@ -96,7 +100,7 @@ const base = import.meta.env.BASE_URL;
   .trust-strip li {
     font-size: 12px; font-weight: 600; color: var(--muted);
     padding: 5px 14px; border: 1px solid var(--border);
-    border-radius: 999px; background: rgba(255,255,255,.03);
+    border-radius: 999px; background: var(--surface);
     letter-spacing: .04em; text-transform: uppercase;
   }
   .hero__scroll-hint {
