@@ -2,23 +2,23 @@
 (function () {
   var light = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  /* dark → military green → grey cycling per section */
+  /* dark → amber → grey → olive drab cycling */
   var darkColors = {
-    hero:      '#000000',
-    sectors:   '#0d1a0d',  /* dark military green */
-    solutions: '#131313',
-    about:     '#000000',
-    partners:  '#0d1a0d',  /* dark military green */
-    contact:   '#131313',
+    hero:      '#050505',  /* dark */
+    sectors:   '#3a2000',  /* amber */
+    solutions: '#1c1c1c',  /* grey */
+    about:     '#1c2a02',  /* olive drab */
+    partners:  '#3a2000',  /* amber */
+    contact:   '#1c1c1c',  /* grey */
   };
 
   var lightColors = {
-    hero:      '#f4f4f4',
-    sectors:   '#edf2ed',  /* light military green tint */
-    solutions: '#e8e8e8',
-    about:     '#f4f4f4',
-    partners:  '#edf2ed',
-    contact:   '#e8e8e8',
+    hero:      '#f5f5f5',  /* light */
+    sectors:   '#fdf0d0',  /* amber tint */
+    solutions: '#ebebeb',  /* grey */
+    about:     '#e8f2d4',  /* olive drab tint */
+    partners:  '#fdf0d0',  /* amber tint */
+    contact:   '#ebebeb',  /* grey */
   };
 
   var colors = light ? lightColors : darkColors;
