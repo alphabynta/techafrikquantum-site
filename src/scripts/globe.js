@@ -1,142 +1,72 @@
-/* globe.js — flat equirectangular world map, scrolling to simulate rotation */
+/* globe.js — accurate flat world map via D3 + Natural Earth / world-atlas */
 (function () {
   const canvas = document.getElementById('globe-canvas');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
 
-  /* Internal drawing resolution — one map copy */
   const MAP_W = 1400;
   const MAP_H = 700;
-  canvas.width  = MAP_W * 2;  /* two copies side-by-side for seamless loop */
+  canvas.width  = MAP_W * 2;
   canvas.height = MAP_H;
+  const ctx = canvas.getContext('2d');
 
-  /* Equirectangular projection: lat/lon → x,y on one map copy */
-  function toXY(lat, lon, offsetX) {
-    return {
-      x: offsetX + (lon + 180) / 360 * MAP_W,
-      y: (90 - lat) / 180 * MAP_H,
-    };
-  }
-
-  /* Draw a lat/lon polyline, breaking on date-line crossings */
-  function drawPath(path, offsetX) {
-    ctx.beginPath();
-    let pen = false;
-    let prevLon = null;
-    path.forEach(function ([lat, lon]) {
-      if (prevLon !== null && Math.abs(lon - prevLon) > 180) {
-        ctx.stroke(); ctx.beginPath(); pen = false;
-      }
-      prevLon = lon;
-      const p = toXY(lat, lon, offsetX);
-      pen ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
-      pen = true;
-    });
-    ctx.stroke();
-  }
-
-  /* Continent outlines as [lat, lon] arrays */
-  const continents = [
-    /* North America */
-    [[70,-140],[72,-100],[60,-85],[55,-82],[47,-70],[44,-66],[42,-70],[40,-74],
-     [35,-76],[30,-81],[25,-80],[24,-83],[19,-90],[16,-90],[8,-83],[9,-79],
-     [15,-92],[22,-105],[32,-117],[38,-123],[49,-124],[54,-132],[60,-145],
-     [65,-168],[66,-162],[70,-140]],
-    /* South America */
-    [[12,-72],[10,-62],[6,-60],[4,-52],[2,-50],[-5,-35],[-8,-35],[-10,-38],
-     [-15,-39],[-23,-43],[-28,-49],[-34,-53],[-38,-57],[-42,-63],[-52,-68],
-     [-55,-68],[-53,-70],[-45,-66],[-38,-57],[-34,-72],[-30,-72],[-18,-70],
-     [-5,-81],[0,-80],[8,-77],[12,-72]],
-    /* Europe */
-    [[36,-9],[38,-9],[44,-9],[46,-2],[48,-5],[51,-1],[52,5],[54,10],[57,10],
-     [58,7],[60,5],[58,6],[58,10],[60,18],[60,25],[65,22],[68,18],[70,22],
-     [71,26],[70,30],[69,33],[68,40],[62,30],[56,37],[50,30],[44,29],[41,29],
-     [38,26],[36,28],[37,22],[38,26],[36,22],[37,14],[37,9],[37,3],[36,-5],
-     [36,-9]],
-    /* Africa */
-    [[36,-5],[37,3],[37,9],[37,14],[31,25],[30,32],[22,37],[15,42],[11,43],
-     [12,44],[8,44],[2,42],[-1,42],[-5,40],[-10,40],[-15,36],[-18,36],
-     [-25,33],[-34,26],[-35,20],[-34,18],[-28,16],[-22,14],[-18,12],[-6,12],
-     [0,9],[6,2],[6,5],[4,8],[5,2],[6,-3],[5,-2],[10,2],[15,2],[14,-17],
-     [16,-17],[18,-16],[22,-16],[28,-13],[32,-8],[36,-5]],
-    /* Asia */
-    [[37,29],[42,29],[42,44],[40,50],[36,52],[28,57],[24,57],[20,58],[13,45],
-     [15,42],[22,60],[22,70],[23,68],[22,74],[22,80],[13,80],[8,77],[8,80],
-     [22,88],[26,89],[28,88],[27,90],[28,85],[34,74],[36,74],[38,78],[40,70],
-     [42,80],[55,78],[58,82],[55,98],[52,106],[48,118],[45,132],[43,132],
-     [40,124],[37,122],[35,120],[32,121],[30,122],[25,122],[22,114],[22,112],
-     [30,121],[36,120],[40,120],[44,130],[48,135],[50,140],[55,138],[56,140],
-     [60,152],[56,162],[58,164],[60,162],[60,155],[62,164],[66,170],[70,160],
-     [72,142],[73,130],[72,110],[72,80],[70,60],[68,58],[62,55],[60,52],
-     [56,38],[56,30],[50,36],[44,34],[42,29]],
-    /* Indian Subcontinent */
-    [[28,68],[34,74],[28,85],[22,88],[8,80],[8,77],[13,80],[22,80],[22,74],
-     [23,68],[22,68],[28,68]],
-    /* SE Asia / Indochina */
-    [[22,100],[22,108],[18,106],[16,108],[10,104],[2,104],[1,104],
-     [5,100],[10,99],[14,98],[16,100],[22,100]],
-    /* Australia */
-    [[-18,122],[-14,126],[-12,130],[-14,132],[-12,136],[-16,138],[-18,140],
-     [-24,151],[-26,153],[-34,151],[-38,147],[-38,144],[-36,138],[-32,134],
-     [-32,130],[-34,120],[-32,116],[-26,114],[-22,114],[-18,122]],
-    /* Greenland */
-    [[83,-45],[80,-18],[76,-18],[72,-24],[68,-28],[62,-42],[60,-48],
-     [63,-52],[70,-52],[74,-58],[76,-68],[80,-60],[83,-45]],
-    /* Japan */
-    [[44,142],[40,141],[36,136],[34,132],[36,136],[40,141],[44,142]],
-    /* UK */
-    [[58,-5],[56,-6],[54,-3],[52,-4],[50,-5],[51,0],[52,2],[54,0],[58,-4],[58,-5]],
-    /* Ireland */
-    [[54,-10],[52,-10],[52,-8],[54,-6],[54,-10]],
-    /* New Zealand */
-    [[-34,172],[-40,175],[-46,168],[-44,170],[-40,175],[-34,172]],
-    /* Madagascar */
-    [[-12,49],[-18,44],[-26,44],[-26,48],[-18,50],[-12,50],[-12,49]],
-    /* Borneo */
-    [[6,116],[4,118],[0,110],[-4,114],[-4,116],[0,118],[4,118],[6,116]],
-    /* Sumatra */
-    [[4,96],[2,100],[-2,104],[-6,106],[-5,104],[-2,100],[2,100],[4,96]],
-    /* Iceland */
-    [[64,-24],[64,-14],[65,-14],[66,-16],[66,-22],[64,-24]],
-    /* Cuba */
-    [[22,-84],[22,-76],[20,-75],[20,-84],[22,-84]],
-    /* Sri Lanka */
-    [[10,80],[6,80],[6,82],[8,82],[10,80]],
-  ];
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    /* Grid — drawn twice */
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-    ctx.lineWidth = 0.5;
-    [0, MAP_W].forEach(function (ox) {
-      /* Latitude lines */
-      [-60,-30,0,30,60].forEach(function (lat) {
-        const y = (90 - lat) / 180 * MAP_H;
-        ctx.beginPath(); ctx.moveTo(ox, y); ctx.lineTo(ox + MAP_W, y);
-        ctx.strokeStyle = lat === 0 ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)';
-        ctx.lineWidth   = lat === 0 ? 0.7 : 0.4;
-        ctx.stroke();
-      });
-      /* Longitude lines */
-      for (let lon = -180; lon < 180; lon += 30) {
-        const x = ox + (lon + 180) / 360 * MAP_W;
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, MAP_H);
-        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-        ctx.lineWidth   = 0.4;
-        ctx.stroke();
-      }
-    });
-
-    /* Continent outlines — drawn twice for seamless tile */
-    ctx.strokeStyle = 'rgba(255,255,255,0.65)';
-    ctx.lineWidth   = 1.4;
-    continents.forEach(function (path) {
-      drawPath(path, 0);
-      drawPath(path, MAP_W);
+  /* Dynamically load a script from CDN */
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      const s = document.createElement('script');
+      s.src = src; s.onload = resolve; s.onerror = reject;
+      document.head.appendChild(s);
     });
   }
 
-  draw();
+  function drawMap(land, graticule) {
+    [0, MAP_W].forEach(function (offsetX) {
+      const projection = d3.geoEquirectangular()
+        .scale(MAP_H / Math.PI)
+        .translate([offsetX + MAP_W / 2, MAP_H / 2]);
+
+      const path = d3.geoPath().projection(projection).context(ctx);
+
+      /* Grid lines */
+      ctx.beginPath();
+      path(graticule);
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.lineWidth   = 0.4;
+      ctx.stroke();
+
+      /* Equator */
+      ctx.beginPath();
+      path({ type: 'LineString', coordinates: [[-180, 0], [180, 0]] });
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth   = 0.7;
+      ctx.stroke();
+
+      /* Land fill */
+      ctx.beginPath();
+      path(land);
+      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      ctx.fill();
+
+      /* Land outline */
+      ctx.beginPath();
+      path(land);
+      ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+      ctx.lineWidth   = 1.1;
+      ctx.stroke();
+    });
+  }
+
+  loadScript('https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js')
+    .then(function () {
+      return loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js');
+    })
+    .then(function () {
+      return fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json');
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (world) {
+      const land      = topojson.feature(world, world.objects.land);
+      const graticule = d3.geoGraticule().step([30, 30])();
+      drawMap(land, graticule);
+    })
+    .catch(function (e) { console.warn('globe.js: failed to load map data', e); });
 })();
