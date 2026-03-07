@@ -63,7 +63,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .0175; this.vy = (Math.random() - .5) * .0175;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -95,7 +95,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .0175; this.vy = (Math.random() - .5) * .0175;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -122,7 +122,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .0175; this.vy = (Math.random() - .5) * .0175;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -154,7 +154,7 @@ import contactConfig  from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .00875; this.vy = (Math.random() - .5) * .00875;
+      this.vx = (Math.random() - .5) * .0175; this.vy = (Math.random() - .5) * .0175;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -348,7 +348,7 @@ import contactConfig  from './bg-sections/contact.js';
     if (showP) particles.forEach(p => { p.update(); p.draw(); });
     else particles.forEach(p => p.update());
     if (showP && cfg.showLinks) drawLinks(particles);
-    separateAll(satellites, 120, 0.00875);
+    separateAll(satellites, 120, 0.0175);
     satellites.forEach(s => { s.update(); s.draw(); });
     separateDrones(drones, 80);
     drones.forEach(d => { d.update(); d.draw(); });
