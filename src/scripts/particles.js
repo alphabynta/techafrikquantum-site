@@ -447,7 +447,6 @@
     const isHero = document.body.getAttribute('data-section') === 'hero';
     if (!isHero) {
       particles.forEach(p => { p.update(); p.draw(); });
-      drawLines();
     }
     separateAll(satellites, 120, 0.00875);
     satellites.forEach(s => { s.update(); s.draw(); });
