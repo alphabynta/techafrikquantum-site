@@ -19,14 +19,7 @@ const base = import.meta.env.BASE_URL;
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: transparent;
     border-bottom: 1px solid transparent;
-    transition: background .3s ease, border-color .3s ease;
     overflow: visible;
-  }
-  .site-header.is-scrolled {
-    background: var(--nav-scrolled-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom-color: var(--border);
   }
   .site-header__inner {
     display: flex; align-items: center; justify-content: space-between;
