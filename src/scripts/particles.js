@@ -6,10 +6,10 @@
   const ctx = canvas.getContext('2d');
   const PARTICLE_COUNT = 90;
   const MAX_DIST = 160;
-  const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const dotColor = isLight ? 'rgba(0,0,0,0.30)' : 'rgba(255,255,255,0.50)';
-  const lineAlpha = isLight ? 0.06 : 0.09;
-  const rgb = isLight ? '0,0,0' : '255,255,255';
+  /* Olive Drab: #6B8E23 = rgb(107,142,35) */
+  const dotColor = 'rgba(107,142,35,0.75)';
+  const lineAlpha = 0.55;
+  const rgb = '107,142,35';
   let particles = [];
   let w, h;
 
