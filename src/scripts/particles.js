@@ -262,10 +262,10 @@
       reset() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - .5) * .175;
-        this.vy = (Math.random() - .5) * .175;
+        this.vx = (Math.random() - .5) * 3.5;
+        this.vy = (Math.random() - .5) * 3.5;
         this.angle = Math.random() * Math.PI * 2;
-        this.spin  = (Math.random() - .5) * 0.002;
+        this.spin  = (Math.random() - .5) * 0.04;
       },
       update() {
         this.x += this.vx; this.y += this.vy;
@@ -427,7 +427,7 @@
     }
     separateAll(satellites, 120, 0.00875);
     satellites.forEach(s => { s.update(); s.draw(); });
-    separateAll(drones, 80, 0.175);
+    separateAll(drones, 80, 3.5);
     drones.forEach(d => { d.update(); d.draw(); });
     requestAnimationFrame(animate);
   }
