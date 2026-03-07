@@ -1,0 +1,135 @@
+---
+---
+<section id="about" aria-labelledby="about-title">
+
+  <!-- Panel 1: Mission -->
+  <div class="about-panel about-panel--dark">
+    <div class="container about-panel__inner">
+      <div class="about-panel__num" aria-hidden="true">01</div>
+      <div class="about-panel__content">
+        <p class="section-label" data-i18n="about.mission.label">Our Purpose</p>
+        <h2 id="about-title" data-i18n="about.mission.title">Mission</h2>
+        <p class="lead" data-i18n="about.mission.body">
+          To deliver world-class, integrated technology solutions that secure, connect, and optimize the operations of defense forces, governments, and enterprises across West Africa.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Vision -->
+  <div class="about-panel about-panel--surface">
+    <div class="container about-panel__inner">
+      <div class="about-panel__num" aria-hidden="true">02</div>
+      <div class="about-panel__content">
+        <p class="section-label" data-i18n="about.vision.label">Where We're Going</p>
+        <h2 data-i18n="about.vision.title">Vision</h2>
+        <p class="lead" data-i18n="about.vision.body">
+          To be West Africa's most trusted technology partner — known for engineering excellence, local expertise, and the ability to deliver in the most demanding environments.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3: Values + CEO Quote -->
+  <div class="about-panel about-panel--dark">
+    <div class="container about-panel__inner">
+      <div class="about-panel__num" aria-hidden="true">03</div>
+      <div class="about-panel__content">
+        <p class="section-label" data-i18n="about.values.label">What Drives Us</p>
+        <h2 data-i18n="about.values.title">Our Values</h2>
+        <ul class="values-list">
+          <li data-i18n="about.values.li1">Reliability — systems that work when lives depend on them</li>
+          <li data-i18n="about.values.li2">Integrity — honest advice, no vendor lock-in</li>
+          <li data-i18n="about.values.li3">Excellence — internationally certified, locally proven</li>
+          <li data-i18n="about.values.li4">Partnership — long-term relationships over one-time sales</li>
+        </ul>
+        <blockquote class="ceo-quote">
+          <p data-i18n="about.ceo.quote">"Africa's security and connectivity challenges demand solutions built for Africa. We exist to bridge the gap between global technology and the realities on the ground."</p>
+          <cite data-i18n="about.ceo.label">Leadership — Techafrik Quantum Group</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .about-panel {
+    position: relative; overflow: hidden;
+    padding: clamp(80px, 10vw, 140px) 0;
+    min-height: 60vh; display: flex; align-items: center;
+  }
+  .about-panel--dark { background: var(--bg); }
+  .about-panel--surface { background: var(--surface); }
+
+  .about-panel__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+
+  .about-panel__num {
+    font-size: clamp(120px, 16vw, 220px);
+    font-weight: 800; letter-spacing: -.05em;
+    color: var(--accent); opacity: 0.07;
+    line-height: 1; user-select: none;
+    pointer-events: none;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .about-panel__content { position: relative; z-index: 1; }
+  .about-panel__content h2 {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: #fff; text-transform: uppercase;
+    margin-bottom: clamp(16px, 2vw, 28px);
+    line-height: 1;
+  }
+  .about-panel__content .lead {
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--muted); max-width: 640px; line-height: 1.75;
+  }
+
+  .values-list {
+    list-style: none; padding: 0;
+    display: flex; flex-direction: column; gap: 14px;
+    margin: 24px 0 40px;
+  }
+  .values-list li {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--muted); padding-left: 24px; position: relative;
+    line-height: 1.5;
+  }
+  .values-list li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  .ceo-quote {
+    border-left: 3px solid var(--accent);
+    padding-left: clamp(16px, 2vw, 28px);
+    margin: 0;
+  }
+  .ceo-quote p {
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--text); font-style: italic;
+    line-height: 1.7; margin-bottom: 14px;
+  }
+  .ceo-quote cite {
+    font-size: 12px; color: var(--accent);
+    font-style: normal; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .about-panel__inner { grid-template-columns: 1fr; gap: 0; }
+    .about-panel__num {
+      font-size: clamp(80px, 20vw, 140px);
+      opacity: 0.05;
+      position: absolute; top: 20px; right: 16px;
+      justify-content: flex-end;
+    }
+  }
+</style>

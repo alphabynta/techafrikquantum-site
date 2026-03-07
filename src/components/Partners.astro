@@ -1,0 +1,128 @@
+---
+const partners = [
+  'Partner Logo 1','Partner Logo 2','Partner Logo 3','Partner Logo 4',
+  'Partner Logo 5','Partner Logo 6','Partner Logo 7','Partner Logo 8',
+];
+const testimonials = [
+  {
+    bodyKey: 'partners.t1.body', nameKey: 'partners.t1.name', roleKey: 'partners.t1.role',
+    body: '"Techafrik Quantum Group delivered a fully integrated surveillance and connectivity solution under a tight deadline. Their local support team made the difference."',
+    name: 'Client Name', role: 'CTO, [Client Organization]',
+  },
+  {
+    bodyKey: 'partners.t2.body', nameKey: 'partners.t2.name', roleKey: 'partners.t2.role',
+    body: '"Their cybersecurity assessment identified critical gaps in our infrastructure. The SOC onboarding process was professional and thorough."',
+    name: 'Client Name', role: 'Head of IT Security, [Client Organization]',
+  },
+  {
+    bodyKey: 'partners.t3.body', nameKey: 'partners.t3.name', roleKey: 'partners.t3.role',
+    body: '"The fleet tracking and fuel anti-fraud system reduced our operational losses significantly within the first quarter of deployment."',
+    name: 'Client Name', role: 'Operations Director, [Client Organization]',
+  },
+];
+---
+
+<section id="partners" aria-labelledby="partners-title" class="partners-section">
+  <div class="container">
+    <p class="section-label" data-i18n="partners.tech.label">Technology Partners</p>
+    <h2 id="partners-title" class="partners-heading" data-i18n="partners.tech.title">Our Partners</h2>
+
+    <div class="partners-grid">
+      {partners.map(p => (
+        <div class="partner-card">{p}</div>
+      ))}
+    </div>
+
+    <div class="testimonials">
+      <p class="section-label" data-i18n="partners.testimonials.label">What They Say</p>
+      <h3 class="testimonials-heading" data-i18n="partners.testimonials.title">Client Testimonials</h3>
+      <div class="testimonials-grid">
+        {testimonials.map(t => (
+          <div class="tcard">
+            <div class="tcard__quote" aria-hidden="true">&ldquo;</div>
+            <p class="tcard__body" data-i18n={t.bodyKey}>{t.body}</p>
+            <cite class="tcard__cite">
+              <strong data-i18n={t.nameKey}>{t.name}</strong>
+              <span data-i18n={t.roleKey}>{t.role}</span>
+            </cite>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners-section {
+    background: var(--surface-2);
+    padding: clamp(80px, 10vw, 140px) 0;
+  }
+  .partners-heading {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: #fff; text-transform: uppercase;
+    margin-bottom: clamp(32px, 4vw, 56px);
+    line-height: 1;
+  }
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: clamp(60px, 8vw, 100px);
+  }
+  .partner-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 20px;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100px; color: var(--muted); font-size: 13px;
+    text-align: center; font-weight: 500;
+    transition: border-color .2s, background .2s;
+  }
+  .partner-card:hover {
+    border-color: var(--accent);
+    background: rgba(245,165,36,.04);
+  }
+
+  .testimonials { margin-top: 0; }
+  .testimonials-heading {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 800; letter-spacing: -.03em; color: #fff;
+    margin-bottom: clamp(24px, 3vw, 48px); line-height: 1;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .tcard {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px);
+    position: relative; overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .tcard:hover {
+    border-color: rgba(255,255,255,.12);
+    box-shadow: 0 4px 32px rgba(0,0,0,.5);
+  }
+  .tcard__quote {
+    font-size: 80px; line-height: 1;
+    color: var(--accent); opacity: 0.15;
+    font-family: Georgia, serif;
+    position: absolute; top: 4px; left: 14px;
+    pointer-events: none; user-select: none;
+  }
+  .tcard__body {
+    color: var(--muted); font-size: 15px; line-height: 1.75;
+    margin: 0 0 20px; padding-top: 28px;
+  }
+  .tcard__cite {
+    display: block; font-style: normal;
+    border-top: 1px solid var(--border); padding-top: 16px;
+  }
+  .tcard__cite strong {
+    display: block; font-size: 14px; color: var(--text); font-weight: 600;
+  }
+  .tcard__cite span {
+    display: block; color: var(--muted); font-size: 13px; margin-top: 2px;
+  }
+</style>

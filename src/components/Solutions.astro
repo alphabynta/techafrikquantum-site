@@ -1,0 +1,171 @@
+---
+const solutions = [
+  {
+    num: '01', id: 'safety',
+    labelKey: 'safety.label', titleKey: 'safety.title', bodyKey: 'safety.body',
+    liKeys: ['safety.li1','safety.li2','safety.li3'],
+    label: 'Safety & Surveillance', title: 'Safety & Surveillance',
+    body: 'Integrated camera networks, drone monitoring, and analytics platforms that give your security team total situational awareness — day and night, indoors and outdoors.',
+    li: ['IP CCTV & thermal imaging networks','ISR drone integration & airspace monitoring','AI-assisted video analytics & alerting'],
+  },
+  {
+    num: '02', id: 'connectivity',
+    labelKey: 'connectivity.label', titleKey: 'connectivity.title', bodyKey: 'connectivity.body',
+    liKeys: ['connectivity.li1','connectivity.li2','connectivity.li3'],
+    label: 'Critical Connectivity', title: 'Critical Connectivity',
+    body: 'When your operation cannot afford downtime, we engineer redundant, multi-path connectivity with failover designed for mission-critical environments.',
+    li: ['VSAT & LEO satellite links for remote sites','Microwave & LTE hybrid WAN with automatic failover','Network SLA monitoring & proactive NOC support'],
+  },
+  {
+    num: '03', id: 'assets',
+    labelKey: 'assets.label', titleKey: 'assets.title', bodyKey: 'assets.body',
+    liKeys: ['assets.li1','assets.li2','assets.li3'],
+    label: 'Assets Management', title: 'Assets Management',
+    body: 'Real-time visibility over vehicles, equipment, and personnel. Reduce fuel waste, prevent theft, and make smarter operational decisions.',
+    li: ['GPS fleet tracking & geofencing','Fuel anti-fraud & consumption analytics','Driver behavior & safety scoring'],
+  },
+  {
+    num: '04', id: 'ipnetworks',
+    labelKey: 'ipnetworks.label', titleKey: 'ipnetworks.title', bodyKey: 'ipnetworks.body',
+    liKeys: ['ipnetworks.li1','ipnetworks.li2','ipnetworks.li3'],
+    label: 'IP Networks', title: 'IP Networks',
+    body: 'Enterprise-grade LAN/WAN design, SD-WAN deployment, and network orchestration. Secure, observable, built to grow with your organisation.',
+    li: ['LAN/WAN design, deployment & optimisation','SD-WAN & MPLS for multi-site enterprises','Network telemetry, SNMP & flow analytics'],
+  },
+  {
+    num: '05', id: 'cyber',
+    labelKey: 'cyber.label', titleKey: 'cyber.title', bodyKey: 'cyber.body',
+    liKeys: ['cyber.li1','cyber.li2','cyber.li3'],
+    label: 'Cybersecurity', title: 'Cybersecurity',
+    body: 'From risk assessment to SOC implementation, we help organisations build a security posture that withstands real-world threats in the West African threat landscape.',
+    li: ['Vulnerability assessment & penetration testing','SOC onboarding & 24/7 threat monitoring','IAM, zero-trust & compliance frameworks'],
+  },
+];
+---
+
+<section class="hscroll-section solutions-section" id="solutions" aria-labelledby="solutions-heading">
+  <div class="hscroll-sticky">
+    <div class="hscroll-header container">
+      <p class="section-label" data-i18n="nav.solutions">Solutions</p>
+      <h2 id="solutions-heading" class="hscroll-heading">
+        What We <span class="text-accent">Build</span>
+      </h2>
+    </div>
+    <div class="hscroll-track">
+      <div class="hscroll-cards">
+        {solutions.map(s => (
+          <article class="hcard" id={s.id}>
+            <span class="hcard__num" aria-hidden="true">{s.num}</span>
+            <p class="section-label" data-i18n={s.labelKey}>{s.label}</p>
+            <h3 class="hcard__title" data-i18n={s.titleKey}>{s.title}</h3>
+            <p class="hcard__body" data-i18n={s.bodyKey}>{s.body}</p>
+            <ul class="pill-list">
+              {s.li.map((text, i) => (
+                <li data-i18n={s.liKeys[i]}>{text}</li>
+              ))}
+            </ul>
+            <a class="btn btn--ghost hcard__cta" href="#contact">Contact Us</a>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="hscroll-progress-track" aria-hidden="true">
+      <div class="hscroll-bar"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solutions-section {
+    height: calc(100vh * 5);
+    background: var(--surface);
+  }
+  .solutions-section .hscroll-sticky {
+    position: sticky; top: 0;
+    height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--surface);
+  }
+  .solutions-section .hscroll-header {
+    padding-top: 80px; margin-bottom: 28px; flex-shrink: 0;
+  }
+  .hscroll-heading {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: #fff; text-transform: uppercase; line-height: 1;
+  }
+  .text-accent { color: var(--accent); }
+  .solutions-section .hscroll-track {
+    overflow: hidden;
+    padding-left: clamp(16px, 3vw, 60px);
+    flex: 1; display: flex; align-items: center;
+  }
+  .solutions-section .hscroll-cards {
+    display: flex; gap: 20px;
+    will-change: transform;
+    padding-right: 120px;
+    align-items: stretch;
+  }
+  .solutions-section .hcard {
+    flex-shrink: 0;
+    width: clamp(280px, 28vw, 380px);
+    min-height: clamp(380px, 52vh, 520px);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 36px);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow .2s;
+  }
+  .solutions-section .hcard:hover { box-shadow: 0 0 40px rgba(245,165,36,.10); }
+  .hcard__num {
+    position: absolute; top: -14px; right: 12px;
+    font-size: clamp(80px, 10vw, 130px);
+    font-weight: 800; letter-spacing: -.05em;
+    color: var(--accent); opacity: 0.07;
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hcard .section-label { margin-bottom: 6px; position: relative; z-index: 1; }
+  .hcard__title {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 800; color: #fff;
+    letter-spacing: -.03em; text-transform: uppercase;
+    margin-bottom: 12px; position: relative; z-index: 1;
+  }
+  .hcard__body {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7; flex: 1; margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .hcard__cta { margin-top: auto; align-self: flex-start; }
+  .hscroll-progress-track {
+    height: 2px; background: var(--border); flex-shrink: 0;
+  }
+  .hscroll-bar {
+    height: 100%; width: 0%; background: var(--accent);
+  }
+  @media (max-width: 768px) {
+    .solutions-section { height: auto; }
+    .solutions-section .hscroll-sticky {
+      position: static; height: auto; overflow: visible;
+      padding: clamp(40px, 6vw, 80px) 0;
+    }
+    .solutions-section .hscroll-header { padding-top: 0; }
+    .solutions-section .hscroll-track {
+      padding: 0; overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-left: clamp(16px, 3vw, 60px);
+    }
+    .solutions-section .hscroll-cards {
+      flex-wrap: nowrap; padding-right: 40px;
+      transform: none !important;
+    }
+    .solutions-section .hcard {
+      width: 82vw; min-height: 360px; scroll-snap-align: start;
+    }
+    .solutions-section .hscroll-progress-track { display: none; }
+  }
+</style>
