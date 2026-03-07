@@ -450,6 +450,7 @@
       const savedRgb = window.__particleRgb;
       window.__particleRgb = '255,255,255';
       particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
       window.__particleRgb = savedRgb;
       ctx.globalAlpha = 1;
     } else {
