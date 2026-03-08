@@ -106,7 +106,6 @@ const solutions = [
   /* Card — mirrors sec-card exactly */
   .sol-card {
     border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
     background: rgba(255,255,255,0.04);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -126,6 +125,8 @@ const solutions = [
     text-transform: uppercase;
     letter-spacing: -.02em;
     line-height: 1;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--accent);
   }
   .sol-card__body {
     font-size: clamp(15px, 1.3vw, 17px);
