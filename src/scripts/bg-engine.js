@@ -42,8 +42,8 @@ import contactConfig  from './bg-sections/contact.js';
     reset() {
       this.x  = Math.random() * w;
       this.y  = Math.random() * h;
-      this.vx = (Math.random() - .5) * .175;
-      this.vy = (Math.random() - .5) * .175;
+      this.vx = (Math.random() - .5) * 0.6;
+      this.vy = (Math.random() - .5) * 0.6;
       this.r  = Math.random() * 1.5 + .5;
     }
     update() {
