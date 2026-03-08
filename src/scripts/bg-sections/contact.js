@@ -14,7 +14,7 @@ export default {
   particleAlpha:    0.80,
   showParticles:    true,
   showLinks:        true,
-  showSatellites:   false,
-  showDrones:       false,
+  showSatellites:   true,
+  showDrones:       true,
   showGuineaDrone:  false,
 };

@@ -15,6 +15,6 @@ export default {
   showParticles:    true,
   showLinks:        true,
   showSatellites:   true,
-  showDrones:       false,
+  showDrones:       true,
   showGuineaDrone:  false,
 };
