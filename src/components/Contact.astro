@@ -1,11 +1,17 @@
 ---
 ---
 <section id="contact" aria-labelledby="contact-title" class="contact-section">
+
+  <div class="contact-heading-wrap container">
+    <h2 id="contact-title" class="contact-main-heading">
+      Contact <span class="text-accent">Us</span>
+    </h2>
+  </div>
+
   <div class="container contact-split">
 
     <!-- LEFT: Form -->
     <div class="contact-form-col">
-      <h2 id="contact-title" class="contact-heading" data-i18n="contact.form.title">How Can We Help?</h2>
 
       <form id="contact-form" class="contact-form" novalidate>
         <div class="form-row">
@@ -105,18 +111,20 @@
 
 <style>
   .contact-section {
-    padding: clamp(80px, 10vw, 140px) 0;
+    padding: clamp(40px, 5vw, 64px) 0;
   }
+  .contact-heading-wrap {
+    padding: 0 0 clamp(32px, 4vw, 56px);
+  }
+  .contact-main-heading {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .text-accent { color: var(--accent); }
   .contact-split {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: clamp(40px, 6vw, 100px); align-items: start;
-  }
-  .contact-heading {
-    font-size: clamp(32px, 4vw, 60px);
-    font-weight: 800; letter-spacing: -.04em; color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: clamp(28px, 3vw, 44px);
-    line-height: 1;
   }
   .contact-form { display: grid; gap: 20px; }
 
