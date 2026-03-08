@@ -26,8 +26,8 @@ import contactConfig     from './bg-sections/contact.js';
   let cfg = heroConfig; /* active config — updated by IntersectionObserver */
 
   /* ── Canvas resize ──────────────────────────────────────────── */
-  const PARTICLE_COUNT = 120;
-  const MAX_DIST = 90;
+  const PARTICLE_COUNT = 40;
+  const MAX_DIST = 160;
   const SAT_RGB   = '160,160,160';
   const DRONE_RGB = '148,51,234';
   let w, h;
