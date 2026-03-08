@@ -58,17 +58,15 @@ const sectors = [
         TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and Oil & Gas sectors.
       </p>
 
-      <!-- Cards -->
-      <div class="wwa-cards">
+      <!-- Two-column: left card + right placeholder -->
+      <div class="wwa-split">
+
+        <!-- LEFT: merged card -->
         <div class="wwa-card">
           <h3 class="wwa-card__title" data-i18n="about.mission.title">Our Mission</h3>
           <p class="wwa-card__body" data-i18n="about.mission.body">To empower West African governments, enterprises, and security forces with world-class technology solutions — delivering reliable surveillance, connectivity, and intelligence systems that protect people and enable growth.</p>
-        </div>
-        <div class="wwa-card">
           <h3 class="wwa-card__title" data-i18n="about.vision.title">Our Vision</h3>
           <p class="wwa-card__body" data-i18n="about.vision.body">To be West Africa's most trusted technology partner for defense, security, and connectivity — bridging the gap between global innovation and local operational realities.</p>
-        </div>
-        <div class="wwa-card">
           <h3 class="wwa-card__title" data-i18n="about.values.title">Our Values</h3>
           <ul class="wwa-card__list">
             <li data-i18n="about.values.li1">Reliability — systems that work when lives depend on them</li>
@@ -77,6 +75,10 @@ const sectors = [
             <li data-i18n="about.values.li4">Partnership — long-term relationships over one-time sales</li>
           </ul>
         </div>
+
+        <!-- RIGHT: placeholder -->
+        <div class="wwa-right"></div>
+
       </div>
 
     </div>
@@ -128,15 +130,24 @@ const sectors = [
     font-style: italic;
   }
 
-  /* Horizontal cards — side by side */
-  .wwa-cards {
+  /* Two-column: card left, content right */
+  .wwa-split {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
     width: 100%;
+    align-items: start;
+  }
+  .wwa-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .wwa-right {
+    min-height: 200px;
   }
   @media (max-width: 900px) {
-    .wwa-cards { grid-template-columns: 1fr; }
+    .wwa-split { grid-template-columns: 1fr; }
   }
   .wwa-card {
     border: 1px solid var(--border);
