@@ -138,6 +138,9 @@
       'partners.t3.body': '"The fleet tracking and fuel anti-fraud system reduced our operational losses significantly within the first quarter of deployment."',
       'partners.t3.name': 'Client Name',
       'partners.t3.role': 'Operations Director, [Client Organization]',
+      'partners.t4.body': '"Techafrik Quantum Group redesigned our entire WAN infrastructure across three sites. The transition was seamless, and network uptime has been exceptional ever since."',
+      'partners.t4.name': 'Client Name',
+      'partners.t4.role': 'IT Director, [Client Organization]',
 
       /* CONTACT */
       'contact.form.label': 'Leave Us a Message',
@@ -292,6 +295,9 @@
       'partners.t3.body': '"Le système de suivi de flotte et d\'anti-fraude carburant a significativement réduit nos pertes opérationnelles dès le premier trimestre de déploiement."',
       'partners.t3.name': 'Nom du Client',
       'partners.t3.role': 'Directeur des Opérations, [Organisation Cliente]',
+      'partners.t4.body': '"Techafrik Quantum Group a repensé l\'intégralité de notre infrastructure WAN sur trois sites. La transition a été transparente et la disponibilité du réseau est exemplaire depuis lors."',
+      'partners.t4.name': 'Nom du Client',
+      'partners.t4.role': 'Directeur IT, [Organisation Cliente]',
 
       /* CONTACT */
       'contact.form.label': 'Laissez-Nous un Message',
@@ -446,6 +452,9 @@
       'partners.t3.body': '"خفّض نظام تتبع الأسطول ومكافحة احتيال الوقود خسائرنا التشغيلية بشكل ملحوظ خلال الربع الأول من النشر."',
       'partners.t3.name': 'اسم العميل',
       'partners.t3.role': 'مدير العمليات، [المنظمة العميلة]',
+      'partners.t4.body': '"أعادت مجموعة تيكافريك كوانتم تصميم بنية الشبكة الواسعة بالكامل عبر ثلاثة مواقع. كان الانتقال سلساً، وظلّت نسبة تشغيل الشبكة استثنائية منذ ذلك الحين."',
+      'partners.t4.name': 'اسم العميل',
+      'partners.t4.role': 'مدير تكنولوجيا المعلومات، [المنظمة العميلة]',
 
       /* CONTACT */
       'contact.form.label': 'أرسل رسالة',
