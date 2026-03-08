@@ -62,6 +62,7 @@ const solutions = [
     <h2 id="solutions-heading" class="solutions-main-heading">
       What We <span class="text-accent">Build</span>
     </h2>
+    <p class="solutions-intro lead" data-i18n="solutions.intro">We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and Oil &amp; Gas sectors.</p>
   </div>
 
   {solutions.map((s, i) => (
@@ -99,6 +100,11 @@ const solutions = [
     font-size: clamp(40px, 6vw, 80px);
     font-weight: 800; letter-spacing: -.04em;
     color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .solutions-intro {
+    margin-top: clamp(20px, 2.5vw, 32px);
+    font-style: italic;
+    color: var(--muted);
   }
   .text-accent { color: var(--accent); }
 
