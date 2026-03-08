@@ -4,7 +4,7 @@
   /* Background colour per section — edit each independently */
   var bgColors = {
     hero:            '#000000',
-    'who-we-are':    '#222222',
+    'who-we-are':    '#3a3a3a',
     'what-we-build': '#c8c8c8',
     partners:        '#f5f0e8',
     contact:         '#ffffff',
@@ -86,39 +86,49 @@
   /* Transition zone: color lerps over this many px as section enters viewport */
   var ZONE = window.innerWidth < 768 ? 500 : 300;
 
+  function applyColor(color) {
+    bg.style.backgroundColor = color;
+    if (nav) {
+      var rgb = hexToRgb(color);
+      nav.style.backgroundColor = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.88)';
+    }
+  }
+
   function update() {
     var vh = window.innerHeight;
     var center = window.scrollY + vh * 0.5;
+    if (sections.length === 0) return;
 
+    /* Before first section */
+    var firstRect = sections[0].el.getBoundingClientRect();
+    var firstTop  = firstRect.top + window.scrollY;
+    if (center < firstTop) {
+      applyColor(bgColors[sections[0].id]);
+      applySection(sections[0].id);
+      return;
+    }
+
+    /* Inside a section */
     for (var i = 0; i < sections.length; i++) {
       var s = sections[i];
-      var rect = s.el.getBoundingClientRect();
-      var top = rect.top + window.scrollY;
+      var rect   = s.el.getBoundingClientRect();
+      var top    = rect.top + window.scrollY;
       var bottom = rect.bottom + window.scrollY;
 
       if (center >= top && center < bottom) {
         var colorA = i > 0 ? bgColors[sections[i - 1].id] : bgColors[s.id];
         var colorB = bgColors[s.id];
         var t = Math.min(1, (center - top) / ZONE);
-
-        var lerpedColor = lerpColor(colorA, colorB, t);
-        bg.style.backgroundColor = lerpedColor;
-
-        /* Nav follows the same interpolated color with opacity */
-        if (nav) {
-          var rgb = hexToRgb(colorA);
-          var rgb2 = hexToRgb(colorB);
-          var r = Math.round(rgb[0] + (rgb2[0] - rgb[0]) * t);
-          var g = Math.round(rgb[1] + (rgb2[1] - rgb[1]) * t);
-          var b = Math.round(rgb[2] + (rgb2[2] - rgb[2]) * t);
-          nav.style.backgroundColor = 'rgba(' + r + ',' + g + ',' + b + ',0.88)';
-        }
-
-        /* Swap text tokens at the midpoint of the transition */
+        applyColor(lerpColor(colorA, colorB, t));
         applySection(t >= 0.5 ? s.id : (i > 0 ? sections[i - 1].id : s.id));
         return;
       }
     }
+
+    /* Past last section */
+    var last = sections[sections.length - 1];
+    applyColor(bgColors[last.id]);
+    applySection(last.id);
   }
 
   /* ── Init ─────────────────────────────────────────────────── */
