@@ -16,8 +16,11 @@
   var bg = document.getElementById('page-bg');
   if (!bg) return;
 
+  var nav = document.querySelector('.site-header');
+
   /* Disable CSS transition — we drive color manually on every scroll frame */
   bg.style.transition = 'none';
+  if (nav) nav.style.transition = 'none';
 
   var darkTokens = {
     '--text':    '#f0f0f2',
@@ -98,7 +101,18 @@
         var colorB = bgColors[s.id];
         var t = Math.min(1, (center - top) / ZONE);
 
-        bg.style.backgroundColor = lerpColor(colorA, colorB, t);
+        var lerpedColor = lerpColor(colorA, colorB, t);
+        bg.style.backgroundColor = lerpedColor;
+
+        /* Nav follows the same interpolated color with opacity */
+        if (nav) {
+          var rgb = hexToRgb(colorA);
+          var rgb2 = hexToRgb(colorB);
+          var r = Math.round(rgb[0] + (rgb2[0] - rgb[0]) * t);
+          var g = Math.round(rgb[1] + (rgb2[1] - rgb[1]) * t);
+          var b = Math.round(rgb[2] + (rgb2[2] - rgb[2]) * t);
+          nav.style.backgroundColor = 'rgba(' + r + ',' + g + ',' + b + ',0.88)';
+        }
 
         /* Swap text tokens at the midpoint of the transition */
         applySection(t >= 0.5 ? s.id : (i > 0 ? sections[i - 1].id : s.id));
@@ -111,6 +125,7 @@
   buildSections();
   applySection(keys[0]);
   bg.style.backgroundColor = bgColors[keys[0]];
+  if (nav) nav.style.backgroundColor = 'rgba(0,0,0,0.88)';
 
   var ticking = false;
   window.addEventListener('scroll', function () {
