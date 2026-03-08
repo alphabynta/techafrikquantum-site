@@ -46,6 +46,13 @@ const base = import.meta.env.BASE_URL;
     pointer-events: none;
     z-index: 0;
   }
+  @media (max-width: 768px) {
+    #globe-canvas {
+      width: auto;
+      height: 100%;
+      min-height: 100%;
+    }
+  }
 
   .hero__headline {
     display: flex; flex-direction: column;
