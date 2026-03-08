@@ -130,7 +130,7 @@
       'partners.tech.label': 'Technology Partners',
       'partners.tech.title': 'Our Partners',
       'partners.testimonials.label': 'What They Say',
-      'partners.testimonials.title': 'CLIENT TESTIMONIALS',
+      'partners.testimonials.title': 'TESTIMONIALS',
       'partners.t1.body': '"TechAfrik Quantum Group delivered a fully integrated surveillance and connectivity solution under a tight deadline. Their local support team made the difference."',
       'partners.t1.name': 'Client Name',
       'partners.t1.role': 'CTO, [Client Organization]',
