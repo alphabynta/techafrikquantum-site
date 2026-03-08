@@ -88,7 +88,8 @@ const testimonials = [
     margin-bottom: clamp(60px, 8vw, 100px);
   }
   .partner-card {
-    background: transparent; border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-radius: var(--radius); padding: 28px 20px;
     display: flex; align-items: center; justify-content: center;
     min-height: 100px; color: var(--muted); font-size: 13px;
@@ -112,7 +113,8 @@ const testimonials = [
     gap: 20px;
   }
   .tcard {
-    background: transparent; border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px);
     position: relative; overflow: hidden;
     transition: border-color .2s, box-shadow .2s;
