@@ -4,10 +4,10 @@
   /* Background colour per section */
   var bgColors = {
     hero:            '#000000',
-    'who-we-are':    '#1a1a1a',
-    'what-we-build': '#3b3a00',
-    partners:        '#0d0d1a',
-    contact:         '#0f0a00',
+    'who-we-are':    '#000000',
+    'what-we-build': '#000000',
+    partners:        '#000000',
+    contact:         '#000000',
   };
 
   /* Sections whose background is light — needs dark text/tokens */
