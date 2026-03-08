@@ -6,7 +6,7 @@
    ──────────────────────────────────────────────────────────────── */
 export default {
   rgb:          '245,165,36',
-  bgColor:      '#0d0900',
+  bgColor:      '#ffffff',
   particleAlpha: 0.80,
   showLinks:    true,
 };

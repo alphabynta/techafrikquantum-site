@@ -4,14 +4,14 @@
   /* Background colours per section */
   var bgColors = {
     hero:            '#000000',  /* pure black      */
-    'who-we-are':    '#0d0900',  /* amber-warm dark */
-    'what-we-build': '#050a02',  /* olive dark      */
-    partners:        '#060608',  /* cool grey dark  */
-    contact:         '#0d0d0d',  /* neutral dark    */
+    'who-we-are':    '#ffffff',  /* bright white    */
+    'what-we-build': '#3b3a00',  /* olive green     */
+    partners:        '#f5f2ed',  /* warm off-white  */
+    contact:         '#1a1a1a',  /* dark grey       */
   };
 
   /* Sections whose background is light — needs dark text */
-  var lightBg = {};
+  var lightBg = { 'who-we-are': true, partners: true };
 
   var bg = document.getElementById('page-bg');
   if (!bg) return;
