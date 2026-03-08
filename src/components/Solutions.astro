@@ -88,7 +88,7 @@ const solutions = [
 
 </section>
 
-<style>
+<style define:vars={{ droneUrl: `url('${base}icons/drone.svg')` }}>
   .solutions-section {
     /* background transparent — page-bg shows */
   }
@@ -183,14 +183,17 @@ const solutions = [
   .sol-panel__list li {
     font-size: clamp(15px, 1.4vw, 18px);
     color: var(--text);
-    padding-left: 20px; position: relative;
+    padding-left: 26px; position: relative;
   }
   .sol-panel__list li::before {
-    content: '✦';
-    position: absolute; left: 0; top: 0;
-    color: var(--accent);
-    font-size: 12px;
-    line-height: 1.6;
+    content: '';
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 16px; height: 16px;
+    background-image: var(--droneUrl);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   /* Mobile */
