@@ -4,7 +4,7 @@
   /* Background colour per section — edit each independently */
   var bgColors = {
     hero:            '#000000',
-    'who-we-are':    '#555555',
+    'who-we-are':    '#222222',
     'what-we-build': '#c8c8c8',
     partners:        '#ffffff',
     contact:         '#f5f0e8',
