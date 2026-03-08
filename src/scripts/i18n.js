@@ -27,7 +27,7 @@
       /* WHO WE ARE */
       'whoweare.label': 'Who We Are',
       'whoweare.title': 'WHO WE ARE',
-      'whoweare.body': "TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and Oil & Gas sectors.",
+      'whoweare.body': "TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and Oil & Gas sectors. Our mission is to empower governments, enterprises, and security forces with world-class technology — with a vision to become West Africa's most trusted partner for defense, security, and connectivity. We are guided by reliability, integrity, excellence, and long-term partnership in everything we deliver.",
 
       /* SECTORS */
       'defense.label': 'Defense',
@@ -184,7 +184,7 @@
       /* WHO WE ARE */
       'whoweare.label': 'Qui Nous Sommes',
       'whoweare.title': 'QUI NOUS SOMMES',
-      'whoweare.body': "TechAfrik Quantum Group est l'un des intégrateurs de systèmes à la croissance la plus rapide en Afrique de l'Ouest — né d'une entreprise spécialisée dans la gestion de flotte et la surveillance du niveau de carburant, devenu un intégrateur multi-plateformes. Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et du pétrole & gaz.",
+      'whoweare.body': "TechAfrik Quantum Group est l'un des intégrateurs de systèmes à la croissance la plus rapide en Afrique de l'Ouest — né d'une entreprise spécialisée dans la gestion de flotte et la surveillance du niveau de carburant, devenu un intégrateur multi-plateformes. Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et du pétrole & gaz. Notre mission est d'autonomiser les gouvernements, les entreprises et les forces de sécurité avec des solutions technologiques de classe mondiale — avec la vision de devenir le partenaire le plus fiable d'Afrique de l'Ouest pour la défense, la sécurité et la connectivité. Nous sommes guidés par la fiabilité, l'intégrité, l'excellence et le partenariat à long terme dans tout ce que nous faisons.",
 
       /* SECTORS */
       'defense.label': 'Défense',
@@ -341,7 +341,7 @@
       /* WHO WE ARE */
       'whoweare.label': 'من نحن',
       'whoweare.title': 'من نحن',
-      'whoweare.body': 'تعدّ مجموعة تيكافريك كوانتم من أسرع شركات تكامل الأنظمة نموًا في غرب أفريقيا — انطلقت من شركة متخصصة في إدارة الأسطول ومراقبة مستوى الوقود، لتتحول إلى مُدمج متعدد المنصات. نصمم ونبني وننفذ حلول تكنولوجيا المعلومات والاتصالات عبر قطاعات الدفاع والحكومة والمؤسسات والاتصالات والتنقل والنفط والغاز.',
+      'whoweare.body': 'تعدّ مجموعة تيكافريك كوانتم من أسرع شركات تكامل الأنظمة نموًا في غرب أفريقيا — انطلقت من شركة متخصصة في إدارة الأسطول ومراقبة مستوى الوقود، لتتحول إلى مُدمج متعدد المنصات. نصمم ونبني وننفذ حلول تكنولوجيا المعلومات والاتصالات عبر قطاعات الدفاع والحكومة والمؤسسات والاتصالات والتنقل والنفط والغاز. مهمتنا تمكين الحكومات والمؤسسات وقوات الأمن بحلول تكنولوجية عالمية — برؤية أن نصبح الشريك الأكثر ثقة في غرب أفريقيا للدفاع والأمن والاتصال. نسترشد بالموثوقية والنزاهة والتميز والشراكة طويلة الأمد في كل ما نقدمه.',
 
       /* SECTORS */
       'defense.label': 'الدفاع',
