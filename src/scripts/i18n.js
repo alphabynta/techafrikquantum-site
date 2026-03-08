@@ -27,7 +27,7 @@
       /* WHO WE ARE */
       'whoweare.label': 'Who We Are',
       'whoweare.title': 'WHO WE ARE',
-      'whoweare.body': "Techafrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and energy sectors.",
+      'whoweare.body': "TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and energy sectors.",
 
       /* SECTORS */
       'defense.label': 'Defense',
@@ -122,14 +122,14 @@
       'about.values.li3': 'Excellence — internationally certified, locally proven',
       'about.values.li4': 'Partnership — long-term relationships over one-time sales',
       'about.ceo.quote': '"Africa\'s security and connectivity challenges demand solutions built for Africa. We exist to bridge the gap between global technology and the realities on the ground."',
-      'about.ceo.label': 'Leadership — Techafrik Quantum Group',
+      'about.ceo.label': 'Leadership — TechAfrik Quantum Group',
 
       /* PARTNERS */
       'partners.tech.label': 'Technology Partners',
       'partners.tech.title': 'Our Partners',
       'partners.testimonials.label': 'What They Say',
       'partners.testimonials.title': 'CLIENT TESTIMONIALS',
-      'partners.t1.body': '"Techafrik Quantum Group delivered a fully integrated surveillance and connectivity solution under a tight deadline. Their local support team made the difference."',
+      'partners.t1.body': '"TechAfrik Quantum Group delivered a fully integrated surveillance and connectivity solution under a tight deadline. Their local support team made the difference."',
       'partners.t1.name': 'Client Name',
       'partners.t1.role': 'CTO, [Client Organization]',
       'partners.t2.body': '"Their cybersecurity assessment identified critical gaps in our infrastructure. The SOC onboarding process was professional and thorough."',
@@ -138,7 +138,7 @@
       'partners.t3.body': '"The fleet tracking and fuel anti-fraud system reduced our operational losses significantly within the first quarter of deployment."',
       'partners.t3.name': 'Client Name',
       'partners.t3.role': 'Operations Director, [Client Organization]',
-      'partners.t4.body': '"Techafrik Quantum Group redesigned our entire WAN infrastructure across three sites. The transition was seamless, and network uptime has been exceptional ever since."',
+      'partners.t4.body': '"TechAfrik Quantum Group redesigned our entire WAN infrastructure across three sites. The transition was seamless, and network uptime has been exceptional ever since."',
       'partners.t4.name': 'Client Name',
       'partners.t4.role': 'IT Director, [Client Organization]',
 
@@ -156,7 +156,7 @@
       'contact.careers.title': 'Careers',
 
       /* FOOTER */
-      'footer.copyright': '© 2025 Techafrik Quantum Group. All rights reserved.',
+      'footer.copyright': '© 2025 TechAfrik Quantum Group. All rights reserved.',
     },
 
     fr: {
@@ -184,7 +184,7 @@
       /* WHO WE ARE */
       'whoweare.label': 'Qui Nous Sommes',
       'whoweare.title': 'QUI NOUS SOMMES',
-      'whoweare.body': "Techafrik Quantum Group est l'un des intégrateurs de systèmes à la croissance la plus rapide en Afrique de l'Ouest — né d'une entreprise spécialisée dans la gestion de flotte et la surveillance du niveau de carburant, devenu un intégrateur multi-plateformes. Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et de l'énergie.",
+      'whoweare.body': "TechAfrik Quantum Group est l'un des intégrateurs de systèmes à la croissance la plus rapide en Afrique de l'Ouest — né d'une entreprise spécialisée dans la gestion de flotte et la surveillance du niveau de carburant, devenu un intégrateur multi-plateformes. Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et de l'énergie.",
 
       /* SECTORS */
       'defense.label': 'Défense',
@@ -279,14 +279,14 @@
       'about.values.li3': 'Excellence — certifié internationalement, prouvé localement',
       'about.values.li4': 'Partenariat — relations à long terme plutôt que ventes ponctuelles',
       'about.ceo.quote': '"Les défis de sécurité et de connectivité africains exigent des solutions construites pour l\'Afrique. Nous existons pour combler le fossé entre la technologie mondiale et les réalités sur le terrain."',
-      'about.ceo.label': 'Direction — Techafrik Quantum Group',
+      'about.ceo.label': 'Direction — TechAfrik Quantum Group',
 
       /* PARTNERS */
       'partners.tech.label': 'Partenaires Technologiques',
       'partners.tech.title': 'Nos Partenaires',
       'partners.testimonials.label': 'Ce Qu\'ils Disent',
       'partners.testimonials.title': 'Témoignages Clients',
-      'partners.t1.body': '"Techafrik Quantum Group a livré une solution intégrée de surveillance et connectivité dans des délais serrés. Leur équipe locale de support a fait la différence."',
+      'partners.t1.body': '"TechAfrik Quantum Group a livré une solution intégrée de surveillance et connectivité dans des délais serrés. Leur équipe locale de support a fait la différence."',
       'partners.t1.name': 'Nom du Client',
       'partners.t1.role': 'CTO, [Organisation Cliente]',
       'partners.t2.body': '"Leur audit de cybersécurité a identifié des failles critiques dans notre infrastructure. Le processus d\'intégration SOC était professionnel et minutieux."',
@@ -295,7 +295,7 @@
       'partners.t3.body': '"Le système de suivi de flotte et d\'anti-fraude carburant a significativement réduit nos pertes opérationnelles dès le premier trimestre de déploiement."',
       'partners.t3.name': 'Nom du Client',
       'partners.t3.role': 'Directeur des Opérations, [Organisation Cliente]',
-      'partners.t4.body': '"Techafrik Quantum Group a repensé l\'intégralité de notre infrastructure WAN sur trois sites. La transition a été transparente et la disponibilité du réseau est exemplaire depuis lors."',
+      'partners.t4.body': '"TechAfrik Quantum Group a repensé l\'intégralité de notre infrastructure WAN sur trois sites. La transition a été transparente et la disponibilité du réseau est exemplaire depuis lors."',
       'partners.t4.name': 'Nom du Client',
       'partners.t4.role': 'Directeur IT, [Organisation Cliente]',
 
@@ -313,7 +313,7 @@
       'contact.careers.title': 'Carrières',
 
       /* FOOTER */
-      'footer.copyright': '© 2025 Techafrik Quantum Group. Tous droits réservés.',
+      'footer.copyright': '© 2025 TechAfrik Quantum Group. Tous droits réservés.',
     },
 
     ar: {
