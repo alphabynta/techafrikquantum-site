@@ -21,12 +21,13 @@
 
   var darkTokens = {
     '--text':    '#f0f0f2',
-    '--muted':   '#808080',
+    '--muted':   '#b0b0b0',
     '--surface': '#0d0d0d',
     '--surface-2': '#111111',
     '--border':  '#2a2a2a',
     '--input-bg': '#111111',
     '--nav-scrolled-bg': 'rgba(0,0,0,0.92)',
+    '--accent':  '#ffffff',
   };
   var lightTokens = {
     '--text':    '#0d0d0d',
@@ -36,6 +37,7 @@
     '--border':  '#cccccc',
     '--input-bg': '#ffffff',
     '--nav-scrolled-bg': 'rgba(244,244,244,0.94)',
+    '--accent':  '#1a1a1a',
   };
 
   /* ── Colour helpers ───────────────────────────────────────── */
