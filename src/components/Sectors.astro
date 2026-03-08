@@ -1,32 +1,232 @@
 ---
+const base = import.meta.env.BASE_URL;
+const sectors = [
+  {
+    num: '01', id: 'defense', bgImg: null,
+    labelKey: 'defense.label', titleKey: 'defense.title', bodyKey: 'defense.body',
+    liKeys: ['defense.li1','defense.li2','defense.li3'],
+    label: 'Defense', title: 'Defense',
+    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces operating in challenging environments. Our solutions are designed for reliability under pressure — from perimeter protection to command-and-control connectivity.',
+    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Rapid deployment & field-serviceable systems'],
+  },
+  {
+    num: '02', id: 'government', bgImg: null,
+    labelKey: 'government.label', titleKey: 'government.title', bodyKey: 'government.body',
+    liKeys: ['government.li1','government.li2','government.li3'],
+    label: 'Government', title: 'Government',
+    body: 'We support government agencies and public institutions with secure network infrastructure, surveillance systems, and digital governance tools.',
+    li: ['Public safety & smart city infrastructure','Secure inter-agency communications','Governance, risk & compliance frameworks'],
+  },
+  {
+    num: '03', id: 'enterprise', bgImg: null,
+    labelKey: 'enterprise.label', titleKey: 'enterprise.title', bodyKey: 'enterprise.body',
+    liKeys: ['enterprise.li1','enterprise.li2','enterprise.li3'],
+    label: 'Enterprise', title: 'Enterprise',
+    body: 'Corporate networks, cybersecurity operations, and assets management for businesses that cannot afford downtime.',
+    li: ['Enterprise network design & orchestration','SOC onboarding & IAM implementation','Fleet & assets tracking for operations'],
+  },
+  {
+    num: '04', id: 'oilgas', bgImg: null,
+    labelKey: 'oilgas.label', titleKey: 'oilgas.title', bodyKey: 'oilgas.body',
+    liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
+    label: 'Oil & Gas', title: 'Oil & Gas',
+    body: 'Remote sites, offshore platforms, and pipeline corridors demand connectivity and safety systems that work without exception.',
+    li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
+  },
+  {
+    num: '05', id: 'cellular-mobility', bgImg: null,
+    labelKey: 'cellular.label', titleKey: 'cellular.title', bodyKey: 'cellular.body',
+    liKeys: ['cellular.li1','cellular.li2','mobility.li1','mobility.li2'],
+    label: 'Cellular & Mobility', title: 'Cellular & Mobility',
+    body: 'We partner with cellular operators on RF engineering and spectrum management, while helping transport operators and national fleets gain connectivity, reduce costs, and improve safety.',
+    li: ['RF engineering & spectrum management','QoS & traffic engineering for carrier-grade networks','Real-time GPS fleet tracking & geofencing','Driver behavior scoring & safety compliance'],
+  },
+];
 ---
 
 <section id="sectors" aria-labelledby="sectors-heading" class="sectors-section">
+
   <div class="sectors-heading-wrap container">
     <h2 id="sectors-heading" class="sectors-main-heading">
       Who We <span class="text-accent">Are</span>
     </h2>
+
+    <!-- Sentence 1 -->
     <p class="wwa-intro lead" data-i18n="whoweare.intro">
       TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. Our mission is to empower governments, enterprises, and security forces with world-class technology — with a vision to become West Africa's most trusted partner for defense, security, and connectivity. We are guided by reliability, integrity, excellence, and long-term partnership in everything we deliver.
     </p>
+
   </div>
+
+  <div class="container sectors-grid-wrap">
+    <div class="sectors-grid">
+      {sectors.map((s) => (
+        <div class="sec-card" id={s.id}>
+          <h3 class="sec-card__title" data-i18n={s.titleKey}>{s.title}</h3>
+          <p class="sec-card__body" data-i18n={s.bodyKey}>{s.body}</p>
+          <ul class="sec-card__list">
+            {s.li.map((text, j) => (
+              <li data-i18n={s.liKeys[j]}>{text}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
 </section>
 
-<style>
+<style define:vars={{ droneUrl: `url('${base}icons/drone.svg')` }}>
+  .sectors-section {
+    /* background transparent — page-bg shows */
+  }
+
   .sectors-heading-wrap {
-    padding: clamp(80px, 10vw, 130px) 0 clamp(48px, 6vw, 80px);
+    padding: clamp(80px, 10vw, 130px) 0 clamp(32px, 4vw, 56px);
   }
-  .sectors-main-heading {
-    font-size: clamp(40px, 6vw, 80px);
-    font-weight: 800; letter-spacing: -.04em;
-    color: var(--text); text-transform: uppercase; line-height: 1;
-    margin-bottom: clamp(20px, 3vw, 36px);
+  /* Single-column stack */
+  .wwa-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(32px, 4vw, 56px);
+    margin-bottom: clamp(32px, 4vw, 56px);
+    gap: clamp(32px, 4vw, 48px);
   }
-  .text-accent { color: var(--accent); }
   .wwa-intro {
     width: 100%;
     max-width: 100%;
     text-align: center;
     font-style: italic;
+  }
+
+  /* Two-column: card left, content right */
+  .wwa-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    width: 100%;
+    align-items: start;
+  }
+  .wwa-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .wwa-right {
+    min-height: 200px;
+  }
+  @media (max-width: 900px) {
+    .wwa-split { grid-template-columns: 1fr; }
+  }
+  .wwa-card {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(20px, 2.5vw, 32px);
+    border-radius: 4px;
+  }
+  .wwa-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    margin-bottom: 8px;
+  }
+  .wwa-card__title {
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: 800;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+  .wwa-card__body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .wwa-card__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wwa-card__list li {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .sectors-main-heading {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .text-accent { color: var(--accent); }
+
+  /* ── Sector card grid ── */
+  .sectors-grid-wrap {
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .sec-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(24px, 2.5vw, 36px);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background 0.2s ease;
+  }
+  .sec-card:hover { background: rgba(255,255,255,0.06); }
+  .sec-card__title {
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    line-height: 1;
+  }
+  .sec-card__body {
+    font-size: clamp(14px, 1.1vw, 15px);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .sec-card__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .sec-card__list li {
+    font-size: clamp(13px, 1vw, 14px);
+    color: var(--text);
+    padding-left: 22px; position: relative;
+    line-height: 1.5;
+  }
+  .sec-card__list li::before {
+    content: '';
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 14px; height: 14px;
+    background-image: var(--droneUrl);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @media (max-width: 900px) {
+    .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .sectors-grid { grid-template-columns: 1fr; }
   }
 </style>
