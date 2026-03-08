@@ -50,9 +50,41 @@ const sectors = [
     <h2 id="sectors-heading" class="sectors-main-heading">
       Who We <span class="text-accent">Are</span>
     </h2>
-    <p class="sectors-intro lead" data-i18n="whoweare.body">
-      Techafrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and energy sectors.
-    </p>
+
+    <div class="wwa-split">
+
+      <!-- LEFT: Mission / Vision / Values cards -->
+      <div class="wwa-cards">
+        <div class="wwa-card">
+          <p class="wwa-card__label" data-i18n="about.mission.label">Our Purpose</p>
+          <h3 class="wwa-card__title" data-i18n="about.mission.title">Our Mission</h3>
+          <p class="wwa-card__body" data-i18n="about.mission.body">To empower West African governments, enterprises, and security forces with world-class technology solutions — delivering reliable surveillance, connectivity, and intelligence systems that protect people and enable growth.</p>
+        </div>
+        <div class="wwa-card">
+          <p class="wwa-card__label" data-i18n="about.vision.label">Where We're Going</p>
+          <h3 class="wwa-card__title" data-i18n="about.vision.title">Our Vision</h3>
+          <p class="wwa-card__body" data-i18n="about.vision.body">To be West Africa's most trusted technology partner for defense, security, and connectivity — bridging the gap between global innovation and local operational realities.</p>
+        </div>
+        <div class="wwa-card">
+          <p class="wwa-card__label" data-i18n="about.values.label">What Drives Us</p>
+          <h3 class="wwa-card__title" data-i18n="about.values.title">Our Values</h3>
+          <ul class="wwa-card__list">
+            <li data-i18n="about.values.li1">Reliability — systems that work when lives depend on them</li>
+            <li data-i18n="about.values.li2">Integrity — honest advice, no vendor lock-in</li>
+            <li data-i18n="about.values.li3">Excellence — internationally certified, locally proven</li>
+            <li data-i18n="about.values.li4">Partnership — long-term relationships over one-time sales</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Intro paragraph -->
+      <div class="wwa-intro">
+        <p class="lead" data-i18n="whoweare.body">
+          Techafrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and energy sectors.
+        </p>
+      </div>
+
+    </div>
   </div>
 
   {sectors.map((s, i) => (
@@ -85,10 +117,88 @@ const sectors = [
   .sectors-heading-wrap {
     padding: clamp(80px, 10vw, 130px) 0 clamp(32px, 4vw, 56px);
   }
-  .sectors-intro {
-    max-width: 640px;
-    margin: clamp(24px, 3vw, 40px) auto clamp(32px, 4vw, 56px);
-    text-align: center;
+  /* Two-column layout */
+  .wwa-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    margin-top: clamp(32px, 4vw, 56px);
+    margin-bottom: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  /* LEFT: stacked cards */
+  .wwa-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .wwa-card {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(20px, 2.5vw, 32px);
+    border-radius: 4px;
+  }
+  .wwa-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    margin-bottom: 8px;
+  }
+  .wwa-card__title {
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: 800;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+  .wwa-card__body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .wwa-card__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wwa-card__list li {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .wwa-card__list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* RIGHT: intro paragraph */
+  .wwa-intro {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .wwa-intro .lead {
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .wwa-split {
+      grid-template-columns: 1fr;
+    }
   }
   .sectors-main-heading {
     font-size: clamp(40px, 6vw, 80px);
