@@ -5,7 +5,7 @@
   var bgColors = {
     hero:            '#000000',
     'who-we-are':    '#1a1a1a',
-    'what-we-build': '#f0f0f0',
+    'what-we-build': '#c8c8c8',
     partners:        '#ffffff',
     contact:         '#f5f0e8',
   };
