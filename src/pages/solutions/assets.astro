@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Assets Management — Techafrik Quantum Group">
+  <Nav />
+  <main id="main" style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;padding:2rem;">
+      <p class="section-label">Assets Management</p>
+      <h1 style="font-size:clamp(36px,5vw,72px);font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:-.04em;">Coming Soon</h1>
+      <p style="color:var(--muted);margin-top:1rem;">Full content for this page is on the way.</p>
+      <a class="btn btn--ghost" href={`${base}`} style="margin-top:2rem;display:inline-block;">← Back to Home</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
