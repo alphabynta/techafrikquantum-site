@@ -21,7 +21,7 @@
       'hero.line1': 'SECURE.',
       'hero.line2': 'CONNECT.',
       'hero.line3': 'PROTECT.',
-      'hero.sub': 'Defense-grade surveillance, critical connectivity, cybersecurity, and intelligent fleet management across West Africa.',
+      'hero.sub': 'Mission-critical surveillance, secure connectivity, advanced cybersecurity, and intelligent fleet management — from Africa to the world.',
       'hero.cta': 'Explore Solutions',
       'hero.cta2': 'Contact Us',
       'hero.trust1': 'Defense-Grade',
