@@ -26,7 +26,7 @@ import contactConfig     from './bg-sections/contact.js';
   let cfg = heroConfig; /* active config — updated by IntersectionObserver */
 
   /* ── Canvas resize ──────────────────────────────────────────── */
-  const PARTICLE_COUNT = 40;
+  const PARTICLE_COUNT = 120;
   const MAX_DIST = 90;
   const SAT_RGB   = '160,160,160';
   const DRONE_RGB = '148,51,234';
@@ -61,12 +61,12 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
+      this.vx = -(Math.random() * 0.4 + 0.3); this.vy = (Math.random() - .5) * 0.3;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
     }
@@ -93,12 +93,12 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
+      this.vx = -(Math.random() * 0.4 + 0.3); this.vy = (Math.random() - .5) * 0.3;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
     }
@@ -120,12 +120,12 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
+      this.vx = -(Math.random() * 0.4 + 0.3); this.vy = (Math.random() - .5) * 0.3;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
     }
@@ -152,12 +152,12 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = (Math.random() - .5) * .645; this.vy = (Math.random() - .5) * .645;
+      this.vx = -(Math.random() * 0.4 + 0.3); this.vy = (Math.random() - .5) * 0.3;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
     }
