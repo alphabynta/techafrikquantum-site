@@ -7,7 +7,7 @@
     'who-we-are':    '#1a1a1a',
     'what-we-build': '#f0f0f0',
     partners:        '#ffffff',
-    contact:         '#c47d0e',
+    contact:         '#e8960f',
   };
 
   /* Sections whose background is light — needs dark text/tokens */
