@@ -2,7 +2,7 @@
    Edit this file to change the sectors section's animated background.
    ──────────────────────────────────────────────────────────────── */
 export default {
-  rgb:          '107,142,35',
+  rgb:          '245,165,36',
   particleAlpha: 0.80,
   showLinks:    true,
 };

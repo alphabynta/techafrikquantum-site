@@ -2,7 +2,7 @@
    Edit this file to change the contact section's animated background.
    ──────────────────────────────────────────────────────────────── */
 export default {
-  rgb:          '107,142,35',
+  rgb:          '255,255,255',
   particleAlpha: 0.80,
   showLinks:    true,
 };

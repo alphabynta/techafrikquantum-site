@@ -5,8 +5,8 @@
    showLinks    — draw connecting lines between dots
    ──────────────────────────────────────────────────────────────── */
 export default {
-  rgb:          '255,255,255',
-  particleAlpha: 0.15,
-  showParticles: false,
-  showLinks:    false,
+  rgb:          '60,60,60',
+  particleAlpha: 0.80,
+  showParticles: true,
+  showLinks:    true,
 };
