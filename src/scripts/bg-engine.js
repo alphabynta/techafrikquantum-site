@@ -403,11 +403,14 @@ import contactConfig     from './bg-sections/contact.js';
     if (showP) particles.forEach(p => { p.update(); p.draw(); });
     else particles.forEach(p => p.update());
     if (showP && cfg.showLinks) drawLinks(particles);
-    separateAll(satellites, 120, 0.645); /* cap matches satellite speed */
-    satellites.forEach(s => { s.update(); s.draw(); });
+    separateAll(satellites, 120, 0.645);
+    if (cfg.showSatellites !== false) satellites.forEach(s => { s.update(); s.draw(); });
+    else satellites.forEach(s => s.update());
     separateDrones(drones, 80);
-    drones.forEach(d => { d.update(); d.draw(); });
-    guineaDrone.update(); guineaDrone.draw();
+    if (cfg.showDrones !== false) drones.forEach(d => { d.update(); d.draw(); });
+    else drones.forEach(d => d.update());
+    guineaDrone.update();
+    if (cfg.showGuineaDrone !== false) guineaDrone.draw();
     requestAnimationFrame(animate);
   }
   animate();
