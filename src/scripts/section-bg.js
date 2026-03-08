@@ -1,19 +1,17 @@
 /* section-bg.js — scroll-driven background + particle color transitions */
 (function () {
 
-  /* Background colours per section
-   * Cycle: dark → white → dark-grey → olive → dark → white → … */
+  /* Background colours per section */
   var bgColors = {
-    hero:      '#0a0a0a',  /* dark        */
-    sectors:   '#f2f2f2',  /* white       */
-    solutions: '#1e1e1e',  /* dark grey   */
-    about:     '#0a0a0a',  /* dark        */
-    partners:  '#0a0a0a',  /* dark        */
-    contact:   '#f2f2f2',  /* white       */
+    hero:            '#000000',  /* pure black      */
+    'who-we-are':    '#0d0900',  /* amber-warm dark */
+    'what-we-build': '#050a02',  /* olive dark      */
+    partners:        '#060608',  /* cool grey dark  */
+    contact:         '#0d0d0d',  /* neutral dark    */
   };
 
   /* Sections whose background is light — needs dark text */
-  var lightBg = { sectors: true, contact: true };
+  var lightBg = {};
 
   var bg = document.getElementById('page-bg');
   if (!bg) return;
