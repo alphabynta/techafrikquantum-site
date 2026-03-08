@@ -480,10 +480,8 @@
     },
   };
 
-  /* ── Language detection ─────────────────────────────────── */
+  /* ── Language detection (browser/OS setting) ────────────── */
   function detectLang() {
-    var stored = localStorage.getItem('lang');
-    if (stored && translations[stored]) return stored;
     var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
     if (nav.startsWith('fr')) return 'fr';
     if (nav.startsWith('ar')) return 'ar';
@@ -509,21 +507,6 @@
     });
   }
 
-  /* ── Switcher ────────────────────────────────────────────── */
-  function initSwitcher() {
-    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var lang = btn.getAttribute('data-lang');
-        if (translations[lang]) {
-          localStorage.setItem('lang', lang);
-          applyLang(lang);
-        }
-      });
-    });
-  }
-
   /* ── Init ────────────────────────────────────────────────── */
-  var currentLang = detectLang();
-  applyLang(currentLang);
-  initSwitcher();
+  applyLang(detectLang());
 })();
