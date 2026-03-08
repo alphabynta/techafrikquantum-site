@@ -9,6 +9,6 @@ export default {
   rgb:          '60,60,60',
   bgColor:      '#000000',
   particleAlpha: 0.80,
-  showParticles: true,
-  showLinks:    true,
+  showParticles: false,
+  showLinks:    false,
 };
