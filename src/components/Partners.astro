@@ -88,16 +88,16 @@ const testimonials = [
     margin-bottom: clamp(60px, 8vw, 100px);
   }
   .partner-card {
-    background: var(--surface); border: 1px solid var(--border);
+    background: transparent; border: 1px solid var(--border);
     border-radius: var(--radius); padding: 28px 20px;
     display: flex; align-items: center; justify-content: center;
     min-height: 100px; color: var(--muted); font-size: 13px;
     text-align: center; font-weight: 500;
-    transition: border-color .2s, background .2s;
+    transition: border-color .2s;
   }
   .partner-card:hover {
     border-color: var(--accent);
-    background: rgba(245,165,36,.04);
+    background: transparent;
   }
 
   .testimonials { margin-top: 0; }
@@ -112,7 +112,7 @@ const testimonials = [
     gap: 20px;
   }
   .tcard {
-    background: var(--surface); border: 1px solid var(--border);
+    background: transparent; border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px);
     position: relative; overflow: hidden;
     transition: border-color .2s, box-shadow .2s;
