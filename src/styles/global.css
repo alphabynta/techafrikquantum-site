@@ -73,7 +73,11 @@
 
 /* ── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-snap-type: y mandatory;
+}
 body {
   font-family: var(--font);
   font-size: 18px;
@@ -84,6 +88,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* ── Scroll snap — one section per viewport ─────────────────── */
+#hero,
+#who-we-are,
+#what-we-build,
+#partners,
+#contact {
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 /* Fixed background that transitions between section colors */
