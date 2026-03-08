@@ -76,7 +76,6 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  scroll-snap-type: y mandatory;
 }
 body {
   font-family: var(--font);
@@ -90,15 +89,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Scroll snap — one section per viewport ─────────────────── */
-#hero,
-#who-we-are,
-#what-we-build,
-#partners,
-#contact {
-  scroll-snap-align: start;
-  min-height: 100vh;
-}
 
 /* Fixed background that transitions between section colors */
 #page-bg {
