@@ -84,7 +84,7 @@
 
   /* ── Scroll update ────────────────────────────────────────── */
   /* Transition zone: color lerps over this many px as section enters viewport */
-  var ZONE = 300;
+  var ZONE = window.innerWidth < 768 ? 500 : 300;
 
   function update() {
     var vh = window.innerHeight;

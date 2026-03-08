@@ -592,7 +592,6 @@ import contactConfig     from './bg-sections/contact.js';
       if (entry.isIntersecting && SECTION_CONFIGS[entry.target.id]) {
         cfg = SECTION_CONFIGS[entry.target.id];
         sectionSpeedMult = cfg.speedMult !== undefined ? cfg.speedMult : 1.0;
-if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
       }
     });
   }, { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
