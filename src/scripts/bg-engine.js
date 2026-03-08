@@ -24,6 +24,7 @@ import contactConfig     from './bg-sections/contact.js';
   };
 
   let cfg = heroConfig; /* active config — updated by IntersectionObserver */
+  let sectionSpeedMult = 1.0; /* per-section speed scale */
 
   /* ── Canvas resize ──────────────────────────────────────────── */
   const PARTICLE_COUNT = 40;
@@ -46,7 +47,7 @@ import contactConfig     from './bg-sections/contact.js';
       this.r  = Math.random() * 1.5 + .5;
     }
     update() {
-      this.x += this.vx; this.y += this.vy;
+      this.x += this.vx * sectionSpeedMult; this.y += this.vy * sectionSpeedMult;
       if (this.x < 0 || this.x > w) this.vx *= -1;
       if (this.y < 0 || this.y > h) this.vy *= -1;
     }
@@ -67,7 +68,7 @@ import contactConfig     from './bg-sections/contact.js';
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
-      this.x += this.vx; this.y += this.vy;
+      this.x += this.vx * sectionSpeedMult; this.y += this.vy * sectionSpeedMult;
       if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
@@ -99,7 +100,7 @@ import contactConfig     from './bg-sections/contact.js';
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
-      this.x += this.vx; this.y += this.vy;
+      this.x += this.vx * sectionSpeedMult; this.y += this.vy * sectionSpeedMult;
       if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
@@ -126,7 +127,7 @@ import contactConfig     from './bg-sections/contact.js';
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
-      this.x += this.vx; this.y += this.vy;
+      this.x += this.vx * sectionSpeedMult; this.y += this.vy * sectionSpeedMult;
       if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
@@ -158,7 +159,7 @@ import contactConfig     from './bg-sections/contact.js';
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
-      this.x += this.vx; this.y += this.vy;
+      this.x += this.vx * sectionSpeedMult; this.y += this.vy * sectionSpeedMult;
       if (this.x < -120) this.x = w + 120;
       if (this.y < 0 || this.y > h) this.vy *= -1;
       this.angle += this.spin;
@@ -194,8 +195,8 @@ import contactConfig     from './bg-sections/contact.js';
       },
       update() {
         this.angle += this.spin;
-        this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed;
+        this.x += Math.cos(this.angle) * this.speed * sectionSpeedMult;
+        this.y += Math.sin(this.angle) * this.speed * sectionSpeedMult;
         if (this.x < 0) { this.x = 0; this.angle = Math.PI - this.angle; }
         if (this.x > w) { this.x = w; this.angle = Math.PI - this.angle; }
         if (this.y < 0) { this.y = 0; this.angle = -this.angle; }
@@ -394,6 +395,7 @@ import contactConfig     from './bg-sections/contact.js';
     entries.forEach(function (entry) {
       if (entry.isIntersecting && SECTION_CONFIGS[entry.target.id]) {
         cfg = SECTION_CONFIGS[entry.target.id];
+        sectionSpeedMult = cfg.speedMult !== undefined ? cfg.speedMult : 1.0;
 if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
       }
     });

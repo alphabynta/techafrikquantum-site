@@ -9,6 +9,7 @@
    showGuineaDrone— draw the Guinea-tracking drone
    ──────────────────────────────────────────────────────────────── */
 export default {
+  speedMult:       0.25,
   rgb:             '107,142,35',
   bgColor:         '#0d0a00',
   particleAlpha:    0.80,
