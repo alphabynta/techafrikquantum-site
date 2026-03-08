@@ -3,7 +3,7 @@
    ──────────────────────────────────────────────────────────────── */
 export default {
   rgb:          '160,160,160',
-  bgColor:      '#f5f2ed',
+  bgColor:      '#000000',
   particleAlpha: 0.80,
   showLinks:    true,
 };
