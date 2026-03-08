@@ -80,6 +80,7 @@
       'safety.li1': 'IP CCTV & thermal imaging networks',
       'safety.li2': 'ISR drone integration & airspace monitoring',
       'safety.li3': 'AI-assisted video analytics & alerting',
+      'safety.li4': 'Body-worn camera systems',
 
       'connectivity.label': 'Critical Connectivity',
       'connectivity.title': 'Critical Connectivity',
@@ -238,6 +239,7 @@
       'safety.li1': 'Réseaux CCTV IP & imagerie thermique',
       'safety.li2': "Intégration drone ISR & surveillance de l'espace aérien",
       'safety.li3': 'Vidéo analytique assistée par IA & alertes',
+      'safety.li4': 'Systèmes de caméras portatives',
 
       'connectivity.label': 'Connectivité Critique',
       'connectivity.title': 'Connectivité Critique',
@@ -396,6 +398,7 @@
       'safety.li1': 'شبكات CCTV IP والتصوير الحراري',
       'safety.li2': 'تكامل طائرات ISR ومراقبة المجال الجوي',
       'safety.li3': 'تحليل فيديو بمساعدة الذكاء الاصطناعي والتنبيه',
+      'safety.li4': 'أنظمة كاميرات الجسم المحمولة',
 
       'connectivity.label': 'الاتصال الحيوي',
       'connectivity.title': 'الاتصال الحيوي',
