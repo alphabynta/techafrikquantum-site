@@ -183,11 +183,15 @@ const solutions = [
   .sol-panel__list li {
     font-size: clamp(15px, 1.4vw, 18px);
     color: var(--text);
-    padding-left: 22px; position: relative;
+    padding-left: 20px; position: relative;
   }
   .sol-panel__list li::before {
-    content: '—'; position: absolute; left: 0;
-    color: var(--accent); font-weight: 700;
+    content: '';
+    position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 1px;
+    transform: rotate(45deg);
   }
 
   /* Mobile */

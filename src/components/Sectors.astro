@@ -159,16 +159,7 @@ const sectors = [
   .wwa-card__list li {
     font-size: clamp(14px, 1.2vw, 16px);
     color: var(--muted);
-    padding-left: 18px;
-    position: relative;
     line-height: 1.5;
-  }
-  .wwa-card__list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
   }
 
   .sectors-main-heading {
@@ -219,12 +210,16 @@ const sectors = [
   .sec-card__list li {
     font-size: clamp(13px, 1vw, 14px);
     color: var(--text);
-    padding-left: 18px; position: relative;
+    padding-left: 16px; position: relative;
     line-height: 1.5;
   }
   .sec-card__list li::before {
-    content: '—'; position: absolute; left: 0;
-    color: var(--accent); font-weight: 700;
+    content: '';
+    position: absolute; left: 0; top: 7px;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 1px;
+    transform: rotate(45deg);
   }
   @media (max-width: 900px) {
     .sectors-grid { grid-template-columns: repeat(2, 1fr); }
