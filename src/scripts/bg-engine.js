@@ -28,8 +28,9 @@ import contactConfig     from './bg-sections/contact.js';
   /* ── Canvas resize ──────────────────────────────────────────── */
   const PARTICLE_COUNT = 40;
   const MAX_DIST = 160;
-  const SAT_RGB   = '160,160,160';
-  const DRONE_RGB = '148,51,234';
+  const SAT_RGB        = '160,160,160';
+  const DRONE_RGB      = '148,51,234';
+  const GUINEA_DRONE_RGB = '245,165,36';
   const SPEED_MULT = window.innerWidth < 768 ? 0.35 : 1.0;
   let w, h;
   function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
@@ -253,7 +254,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() {
       this.orbitAngle = 0;
       this.orbitSpeed = 0.008;
-      this.orbitRadius = 50;
+      this.orbitRadius = 70;
       const p = this._pos();
       this.x = p.x + this.orbitRadius;
       this.y = p.y;
@@ -280,8 +281,14 @@ import contactConfig     from './bg-sections/contact.js';
       this.angle = Math.atan2(this.y - py, this.x - px);
     }
     draw() {
-      const rgb = DRONE_RGB;
-      ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.5, 0.5);
+      const rgb = GUINEA_DRONE_RGB;
+      /* targeting circle at Guinea's center */
+      const p = this._pos();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, this.orbitRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${rgb},0.25)`;
+      ctx.lineWidth = 1; ctx.stroke();
+      ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.8, 0.8);
       ctx.strokeStyle = `rgba(${rgb},1.00)`; ctx.fillStyle = `rgba(${rgb},0.45)`; ctx.lineWidth = 1.3;
       ctx.beginPath();
       ctx.moveTo(26,0); ctx.lineTo(10,-6); ctx.lineTo(-10,-42); ctx.lineTo(-22,-40); ctx.lineTo(-20,-6);
