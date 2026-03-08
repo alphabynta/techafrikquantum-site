@@ -73,7 +73,7 @@
       'mobility.li3': 'Route optimization & fuel efficiency analytics',
 
       /* SOLUTIONS */
-      'solutions.intro': 'We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and Oil & Gas sectors.',
+      'solutions.intro': 'We design, build, and implement secure, reliable and highly available IT & telecommunications solutions across defense, government, enterprise, cellular & mobility, and Oil & Gas sectors.',
       'safety.label': 'Safety & Surveillance',
       'safety.title': 'Safety & Surveillance',
       'safety.body': 'Integrated camera networks, drone monitoring, and analytics platforms that give your security team total situational awareness — day and night, indoors and outdoors.',
@@ -232,7 +232,7 @@
       'mobility.li3': "Optimisation des itinéraires & analyse d'efficacité carburant",
 
       /* SOLUTIONS */
-      'solutions.intro': "Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et du pétrole & gaz.",
+      'solutions.intro': "Nous concevons, construisons et mettons en œuvre des solutions IT & télécommunications sécurisées, fiables et hautement disponibles dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et du pétrole & gaz.",
       'safety.label': 'Sécurité & Surveillance',
       'safety.title': 'Sécurité & Surveillance',
       'safety.body': "Réseaux de caméras intégrés, surveillance par drone et plateformes analytiques offrant à votre équipe de sécurité une conscience situationnelle totale — jour et nuit, intérieur et extérieur.",
@@ -391,7 +391,7 @@
       'mobility.li3': 'تحسين المسار وتحليلات كفاءة الوقود',
 
       /* SOLUTIONS */
-      'solutions.intro': 'نصمم ونبني وننفذ حلول تكنولوجيا المعلومات والاتصالات عبر قطاعات الدفاع والحكومة والمؤسسات والاتصالات والتنقل والنفط والغاز.',
+      'solutions.intro': 'نصمم ونبني وننفذ حلول تكنولوجيا المعلومات والاتصالات الآمنة والموثوقة وعالية التوفر عبر قطاعات الدفاع والحكومة والمؤسسات والاتصالات والتنقل والنفط والغاز.',
       'safety.label': 'السلامة والمراقبة',
       'safety.title': 'السلامة والمراقبة',
       'safety.body': 'شبكات كاميرا متكاملة ومراقبة بالطائرات المسيّرة ومنصات تحليلية تمنح فريق الأمن لديك وعياً كاملاً بالموقف.',
