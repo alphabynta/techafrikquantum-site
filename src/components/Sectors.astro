@@ -214,12 +214,11 @@ const sectors = [
     line-height: 1.5;
   }
   .sec-card__list li::before {
-    content: '';
-    position: absolute; left: 0; top: 7px;
-    width: 5px; height: 5px;
-    background: var(--accent);
-    border-radius: 1px;
-    transform: rotate(45deg);
+    content: '✦';
+    position: absolute; left: 0; top: 0;
+    color: var(--accent);
+    font-size: 10px;
+    line-height: 1.5;
   }
   @media (max-width: 900px) {
     .sectors-grid { grid-template-columns: repeat(2, 1fr); }
