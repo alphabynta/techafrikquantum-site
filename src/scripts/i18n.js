@@ -24,6 +24,10 @@
       'hero.sub': 'Mission-critical surveillance, secure connectivity, advanced cybersecurity, and intelligent fleet management — from Africa to the world.',
       'hero.cta2': 'Contact Us',
 
+      /* WHO WE ARE */
+      'whoweare.title': 'WHO WE ARE',
+      'whoweare.body': "Techafrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular & mobility, and energy sectors.",
+
       /* SECTORS */
       'defense.label': 'Defense',
       'defense.title': 'Defense',
@@ -173,6 +177,10 @@
       'hero.sub': "Surveillance de qualité défense, connectivité critique, cybersécurité et gestion intelligente de flotte à travers l'Afrique de l'Ouest.",
       'hero.cta2': 'Nous Contacter',
 
+      /* WHO WE ARE */
+      'whoweare.title': 'QUI NOUS SOMMES',
+      'whoweare.body': "Techafrik Quantum Group est l'un des intégrateurs de systèmes à la croissance la plus rapide en Afrique de l'Ouest — né d'une entreprise spécialisée dans la gestion de flotte et la surveillance du niveau de carburant, devenu un intégrateur multi-plateformes. Nous concevons, construisons et mettons en œuvre des solutions IT et télécommunications dans les secteurs de la défense, du gouvernement, de l'entreprise, du cellulaire et de la mobilité, et de l'énergie.",
+
       /* SECTORS */
       'defense.label': 'Défense',
       'defense.title': 'Défense',
@@ -321,6 +329,10 @@
       'hero.line3': 'احمِ.',
       'hero.sub': 'مراقبة بمستوى الدفاع، وتواصل حيوي، وإدارة ذكية للأسطول في جميع أنحاء غرب أفريقيا.',
       'hero.cta2': 'تواصل معنا',
+
+      /* WHO WE ARE */
+      'whoweare.title': 'من نحن',
+      'whoweare.body': 'تعدّ مجموعة تيكافريك كوانتم من أسرع شركات تكامل الأنظمة نموًا في غرب أفريقيا — انطلقت من شركة متخصصة في إدارة الأسطول ومراقبة مستوى الوقود، لتتحول إلى مُدمج متعدد المنصات. نصمم ونبني وننفذ حلول تكنولوجيا المعلومات والاتصالات عبر قطاعات الدفاع والحكومة والمؤسسات والاتصالات والتنقل والطاقة.',
 
       /* SECTORS */
       'defense.label': 'الدفاع',
