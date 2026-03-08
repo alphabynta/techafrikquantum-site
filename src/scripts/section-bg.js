@@ -1,13 +1,13 @@
 /* section-bg.js — scroll-driven background color interpolation */
 (function () {
 
-  /* Background colour per section */
+  /* Background colour per section — edit each independently */
   var bgColors = {
-    hero:            '#000000',
-    'who-we-are':    '#000000',
-    'what-we-build': '#000000',
-    partners:        '#000000',
-    contact:         '#000000',
+    hero:            '#000000',  /* pure black   */
+    'who-we-are':    '#0a0f1a',  /* dark navy    */
+    'what-we-build': '#0d0a00',  /* dark amber   */
+    partners:        '#0a1a0a',  /* dark green   */
+    contact:         '#1a0a0f',  /* dark maroon  */
   };
 
   /* Sections whose background is light — needs dark text/tokens */
