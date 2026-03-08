@@ -129,11 +129,15 @@ const sectors = [
     text-align: center;
   }
 
-  /* Vertical cards */
+  /* Horizontal cards — side by side */
   .wwa-cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    width: 100%;
+  }
+  @media (max-width: 900px) {
+    .wwa-cards { grid-template-columns: 1fr; }
   }
   .wwa-card {
     border: 1px solid var(--border);
