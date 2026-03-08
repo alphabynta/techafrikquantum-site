@@ -51,16 +51,14 @@ const sectors = [
       Who We <span class="text-accent">Are</span>
     </h2>
 
-    <div class="wwa-split">
+    <div class="wwa-stack">
 
-      <!-- LEFT: Intro paragraph -->
-      <div class="wwa-intro">
-        <p class="lead" data-i18n="whoweare.body">
-          TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and energy sectors.
-        </p>
-      </div>
+      <!-- Intro paragraph -->
+      <p class="wwa-intro lead" data-i18n="whoweare.body">
+        TechAfrik Quantum Group is one of West Africa's fastest-growing system integrators — evolved from a specialized fleet management and fuel monitoring company into a multi-platform integrator. We design, build, and implement IT and telecommunications solutions across defense, government, enterprise, cellular &amp; mobility, and energy sectors.
+      </p>
 
-      <!-- RIGHT: Mission / Vision / Values cards -->
+      <!-- Cards -->
       <div class="wwa-cards">
         <div class="wwa-card">
           <p class="wwa-card__label" data-i18n="about.mission.label">Our Purpose</p>
@@ -117,17 +115,21 @@ const sectors = [
   .sectors-heading-wrap {
     padding: clamp(80px, 10vw, 130px) 0 clamp(32px, 4vw, 56px);
   }
-  /* Two-column layout */
-  .wwa-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, 4vw, 64px);
+  /* Single-column stack */
+  .wwa-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: clamp(32px, 4vw, 56px);
     margin-bottom: clamp(32px, 4vw, 56px);
-    align-items: start;
+    gap: clamp(32px, 4vw, 48px);
+  }
+  .wwa-intro {
+    max-width: 640px;
+    text-align: center;
   }
 
-  /* LEFT: stacked cards */
+  /* Vertical cards */
   .wwa-cards {
     display: flex;
     flex-direction: column;
@@ -183,23 +185,6 @@ const sectors = [
     font-weight: 700;
   }
 
-  /* RIGHT: intro paragraph */
-  .wwa-intro {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .wwa-intro .lead {
-    font-size: clamp(16px, 1.6vw, 20px);
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  @media (max-width: 900px) {
-    .wwa-split {
-      grid-template-columns: 1fr;
-    }
-  }
   .sectors-main-heading {
     font-size: clamp(40px, 6vw, 80px);
     font-weight: 800; letter-spacing: -.04em;
