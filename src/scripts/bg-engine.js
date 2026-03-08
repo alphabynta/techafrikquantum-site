@@ -371,6 +371,98 @@ import contactConfig     from './bg-sections/contact.js';
     }
   }
 
+  /* ── Encrypted data burst (drone → satellite) ───────────────── */
+  const BURST_GLYPHS = '0123456789ABCDEF';
+  const BURST_RGB    = '245,165,36'; /* amber */
+
+  class DataBurst {
+    constructor(drone, sat) {
+      this.drone = drone;
+      this.sat   = sat;
+      const count = 14 + Math.floor(Math.random() * 8);
+      this.particles = Array.from({ length: count }, function (_, i) {
+        return {
+          t:      -i * 0.045,
+          offset: (Math.random() - 0.5) * 55,
+          size:   Math.random() * 1.2 + 0.8,
+          glyph:  BURST_GLYPHS[Math.floor(Math.random() * BURST_GLYPHS.length)],
+          arrived: false,
+        };
+      });
+      this.satFlash = 0;
+      this.done     = false;
+    }
+
+    update() {
+      var allArrived = true;
+      this.particles.forEach(function (p) {
+        if (p.t < 1) {
+          p.t += 0.014 * sectionSpeedMult;
+          if (p.t < 1) allArrived = false;
+          if (p.t >= 1 && !p.arrived) { p.arrived = true; }
+        }
+      });
+      if (this.particles.some(function (p) { return p.arrived && !p._flashed; })) {
+        this.satFlash = 1;
+        this.particles.forEach(function (p) { if (p.arrived) p._flashed = true; });
+      }
+      this.satFlash = Math.max(0, this.satFlash - 0.035);
+      if (allArrived && this.satFlash < 0.01) this.done = true;
+    }
+
+    draw() {
+      var dx  = this.sat.x - this.drone.x;
+      var dy  = this.sat.y - this.drone.y;
+      var len = Math.sqrt(dx * dx + dy * dy);
+      if (len === 0) return;
+      var px  = -dy / len, py = dx / len; /* perpendicular unit vector */
+
+      this.particles.forEach(function (p) {
+        var t = p.t;
+        if (t <= 0 || t >= 1) return;
+        var scatter = p.offset * Math.sin(t * Math.PI); /* peaks mid-flight */
+        var x = this.drone.x + dx * t + px * scatter;
+        var y = this.drone.y + dy * t + py * scatter;
+        var alpha = t < 0.08 ? t / 0.08 : t > 0.88 ? (1 - t) / 0.12 : 1;
+        ctx.font = (p.size * 7) + 'px monospace';
+        ctx.fillStyle = 'rgba(' + BURST_RGB + ',' + (alpha * 0.92) + ')';
+        ctx.fillText(p.glyph, x - 3, y + 3);
+      }, this);
+
+      /* satellite absorption flash */
+      if (this.satFlash > 0.04) {
+        ctx.save();
+        ctx.shadowColor = 'rgba(' + BURST_RGB + ',' + this.satFlash + ')';
+        ctx.shadowBlur  = 28;
+        ctx.beginPath();
+        ctx.arc(this.sat.x, this.sat.y, 18 * this.satFlash + 4, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(' + BURST_RGB + ',' + (this.satFlash * 0.9) + ')';
+        ctx.lineWidth = 1.8; ctx.stroke();
+        ctx.restore();
+      }
+    }
+  }
+
+  var dataBursts  = [];
+  var burstTimer  = 80;
+
+  function updateDataBursts() {
+    burstTimer -= sectionSpeedMult;
+    if (burstTimer <= 0) {
+      var drone = drones[Math.floor(Math.random() * drones.length)];
+      var nearest = null, nearestDist = Infinity;
+      satellites.forEach(function (sat) {
+        var dx = sat.x - drone.x, dy = sat.y - drone.y;
+        var d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < nearestDist && d < 520) { nearestDist = d; nearest = sat; }
+      });
+      if (nearest) dataBursts.push(new DataBurst(drone, nearest));
+      burstTimer = 90 + Math.floor(Math.random() * 90);
+    }
+    dataBursts = dataBursts.filter(function (b) { b.update(); return !b.done; });
+    dataBursts.forEach(function (b) { b.draw(); });
+  }
+
   /* ── Signal links (drone ↔ satellite communication) ─────────── */
   const LINK_MAX_DIST = 380;
   var pingCircles  = [];
@@ -528,7 +620,8 @@ if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
     else drones.forEach(d => d.update());
     guineaDrone.update();
     if (cfg.showGuineaDrone !== false) guineaDrone.draw();
-    if (cfg.showSignalLinks) { updateSignalLinks(); drawSignalLinks(); }
+    if (cfg.showSignalLinks)  { updateSignalLinks(); drawSignalLinks(); }
+    if (cfg.showDataBursts)   { updateDataBursts(); }
     requestAnimationFrame(animate);
   }
   animate();

@@ -19,4 +19,5 @@ export default {
   showDrones:       true,
   showGuineaDrone:  true,
   showSignalLinks:  false,
+  showDataBursts:   true,
 };
