@@ -22,11 +22,7 @@
       'hero.line2': 'CONNECT.',
       'hero.line3': 'PROTECT.',
       'hero.sub': 'Mission-critical surveillance, secure connectivity, advanced cybersecurity, and intelligent fleet management — from Africa to the world.',
-      'hero.cta': 'Explore Solutions',
       'hero.cta2': 'Contact Us',
-      'hero.trust1': 'Defense-Grade',
-      'hero.trust2': 'West Africa Coverage',
-      'hero.trust3': '24/7 Support',
 
       /* SECTORS */
       'defense.label': 'Defense',
@@ -175,11 +171,7 @@
       'hero.line2': 'CONNECTER.',
       'hero.line3': 'PROTÉGER.',
       'hero.sub': "Surveillance de qualité défense, connectivité critique, cybersécurité et gestion intelligente de flotte à travers l'Afrique de l'Ouest.",
-      'hero.cta': 'Explorer les Solutions',
       'hero.cta2': 'Nous Contacter',
-      'hero.trust1': 'Qualité Défense',
-      'hero.trust2': "Couverture Afrique de l'Ouest",
-      'hero.trust3': 'Support 24/7',
 
       /* SECTORS */
       'defense.label': 'Défense',
@@ -328,11 +320,7 @@
       'hero.line2': 'اتصل.',
       'hero.line3': 'احمِ.',
       'hero.sub': 'مراقبة بمستوى الدفاع، وتواصل حيوي، وإدارة ذكية للأسطول في جميع أنحاء غرب أفريقيا.',
-      'hero.cta': 'استكشف الحلول',
       'hero.cta2': 'تواصل معنا',
-      'hero.trust1': 'بمستوى الدفاع',
-      'hero.trust2': 'تغطية غرب أفريقيا',
-      'hero.trust3': 'دعم على مدار الساعة',
 
       /* SECTORS */
       'defense.label': 'الدفاع',
