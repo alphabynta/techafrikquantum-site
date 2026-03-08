@@ -1,20 +1,23 @@
-/* section-bg.js — scroll-driven background + particle color transitions */
+/* section-bg.js — scroll-driven background color interpolation */
 (function () {
 
-  /* Background colours per section */
+  /* Background colour per section */
   var bgColors = {
-    hero:            '#000000',  /* pure black      */
-    'who-we-are':    '#ffffff',  /* bright white    */
-    'what-we-build': '#3b3a00',  /* olive green     */
-    partners:        '#f5f2ed',  /* warm off-white  */
-    contact:         '#1a1a1a',  /* dark grey       */
+    hero:            '#000000',
+    'who-we-are':    '#ffffff',
+    'what-we-build': '#3b3a00',
+    partners:        '#f5f2ed',
+    contact:         '#1a1a1a',
   };
 
-  /* Sections whose background is light — needs dark text */
+  /* Sections whose background is light — needs dark text/tokens */
   var lightBg = { 'who-we-are': true, partners: true };
 
   var bg = document.getElementById('page-bg');
   if (!bg) return;
+
+  /* Disable CSS transition — we drive color manually on every scroll frame */
+  bg.style.transition = 'none';
 
   var darkTokens = {
     '--text':    '#f0f0f2',
@@ -35,31 +38,92 @@
     '--nav-scrolled-bg': 'rgba(244,244,244,0.94)',
   };
 
+  /* ── Colour helpers ───────────────────────────────────────── */
+  function hexToRgb(hex) {
+    return [
+      parseInt(hex.slice(1, 3), 16),
+      parseInt(hex.slice(3, 5), 16),
+      parseInt(hex.slice(5, 7), 16),
+    ];
+  }
+
+  function lerpColor(a, b, t) {
+    t = Math.max(0, Math.min(1, t));
+    var ra = hexToRgb(a), rb = hexToRgb(b);
+    return 'rgb(' +
+      Math.round(ra[0] + (rb[0] - ra[0]) * t) + ',' +
+      Math.round(ra[1] + (rb[1] - ra[1]) * t) + ',' +
+      Math.round(ra[2] + (rb[2] - ra[2]) * t) + ')';
+  }
+
+  /* ── Token swap ───────────────────────────────────────────── */
+  var activeSection = '';
   function applySection(id) {
-    if (bgColors[id]) bg.style.backgroundColor = bgColors[id];
+    if (activeSection === id) return;
+    activeSection = id;
     var isLight = !!lightBg[id];
     document.body.setAttribute('data-bg-tone', isLight ? 'light' : 'dark');
     document.body.setAttribute('data-section', id);
-    /* Set tokens directly on :root — overrides any @media preference */
     var tokens = isLight ? lightTokens : darkTokens;
     var root = document.documentElement;
     Object.keys(tokens).forEach(function (k) { root.style.setProperty(k, tokens[k]); });
   }
 
-  /* Set initial values */
-  applySection('hero');
+  /* ── Section list ─────────────────────────────────────────── */
+  var keys = Object.keys(bgColors);
+  var sections = [];
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) applySection(entry.target.id);
-    });
-  }, {
-    rootMargin: '-35% 0px -35% 0px',
-    threshold: 0,
-  });
+  function buildSections() {
+    sections = keys.map(function (id) {
+      return { id: id, el: document.getElementById(id) };
+    }).filter(function (s) { return !!s.el; });
+  }
 
-  Object.keys(bgColors).forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
+  /* ── Scroll update ────────────────────────────────────────── */
+  /* Transition zone: color lerps over this many px as section enters viewport */
+  var ZONE = 300;
+
+  function update() {
+    var vh = window.innerHeight;
+    var center = window.scrollY + vh * 0.5;
+
+    for (var i = 0; i < sections.length; i++) {
+      var s = sections[i];
+      var rect = s.el.getBoundingClientRect();
+      var top = rect.top + window.scrollY;
+      var bottom = rect.bottom + window.scrollY;
+
+      if (center >= top && center < bottom) {
+        var colorA = i > 0 ? bgColors[sections[i - 1].id] : bgColors[s.id];
+        var colorB = bgColors[s.id];
+        var t = Math.min(1, (center - top) / ZONE);
+
+        bg.style.backgroundColor = lerpColor(colorA, colorB, t);
+
+        /* Swap text tokens at the midpoint of the transition */
+        applySection(t >= 0.5 ? s.id : (i > 0 ? sections[i - 1].id : s.id));
+        return;
+      }
+    }
+  }
+
+  /* ── Init ─────────────────────────────────────────────────── */
+  buildSections();
+  applySection(keys[0]);
+  bg.style.backgroundColor = bgColors[keys[0]];
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', function () {
+    buildSections();
+    update();
+  }, { passive: true });
+
+  update();
 })();
