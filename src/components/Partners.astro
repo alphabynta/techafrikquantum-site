@@ -28,8 +28,14 @@ const testimonials = [
 ---
 
 <section id="partners" aria-labelledby="partners-title" class="partners-section">
+
+  <div class="partners-heading-wrap container">
+    <h2 id="partners-title" class="partners-main-heading">
+      Partners &amp; <span class="text-accent">Customers</span>
+    </h2>
+  </div>
+
   <div class="container">
-    <h2 id="partners-title" class="partners-heading" data-i18n="partners.tech.title">Our Partners</h2>
 
     <div class="partners-grid">
       {partners.map(p => (
@@ -59,6 +65,15 @@ const testimonials = [
   .partners-section {
     padding: clamp(40px, 5vw, 64px) 0;
   }
+  .partners-heading-wrap {
+    padding: 0 0 clamp(32px, 4vw, 56px);
+  }
+  .partners-main-heading {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .text-accent { color: var(--accent); }
   .partners-heading {
     font-size: clamp(32px, 5vw, 64px);
     font-weight: 800; letter-spacing: -.04em;
