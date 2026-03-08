@@ -29,18 +29,18 @@
 
     /* Grid */
     ctx.beginPath(); path(graticule);
-    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
     ctx.lineWidth   = 0.4; ctx.stroke();
 
     /* Equator */
     ctx.beginPath();
     path({ type: 'LineString', coordinates: [[-180,0],[180,0]] });
-    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+    ctx.strokeStyle = 'rgba(255,255,255,0.30)';
     ctx.lineWidth   = 0.8; ctx.stroke();
 
     /* Country fill */
     ctx.beginPath(); path(countries);
-    ctx.fillStyle = 'rgba(255,255,255,0.10)'; ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.22)'; ctx.fill();
 
     /* Coastlines */
     ctx.beginPath(); path(countries);

@@ -73,16 +73,16 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.fillStyle = `rgba(${SAT_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-10,-14,20,28); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-42,-6,28,12); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(14,-6,28,12); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.35)`; ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.60)`; ctx.lineWidth = 0.7;
       for (let i = 1; i < 3; i++) {
         ctx.beginPath(); ctx.moveTo(-42+i*9.3,-6); ctx.lineTo(-42+i*9.3,6); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(14+i*9.3,-6); ctx.lineTo(14+i*9.3,6); ctx.stroke();
       }
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.arc(0,-14,10,Math.PI,0); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(0,-14); ctx.lineTo(0,-24); ctx.stroke();
       ctx.restore();
@@ -105,12 +105,12 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.fillStyle = `rgba(${SAT_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.arc(0,0,12,0,Math.PI*2); ctx.fill(); ctx.stroke();
       [45,135,225,315].forEach(deg => {
         const r = deg * Math.PI / 180;
         ctx.beginPath(); ctx.moveTo(Math.cos(r)*12,Math.sin(r)*12); ctx.lineTo(Math.cos(r)*40,Math.sin(r)*40);
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.8; ctx.stroke();
+        ctx.strokeStyle = `rgba(${SAT_RGB},0.80)`; ctx.lineWidth = 1.0; ctx.stroke();
       });
       ctx.restore();
     }
@@ -132,7 +132,7 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.fillStyle = `rgba(${SAT_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-52,-3,104,6); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-10,-8,20,16); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-6,-14,12,6); ctx.fill(); ctx.stroke();
@@ -140,9 +140,9 @@ import contactConfig     from './bg-sections/contact.js';
       [-52,-28,20,44].forEach(px => {
         ctx.beginPath(); ctx.rect(px,-18,20,15); ctx.fill(); ctx.stroke();
         ctx.beginPath(); ctx.rect(px,3,20,15); ctx.fill(); ctx.stroke();
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.30)`; ctx.lineWidth = 0.5;
+        ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
         ctx.beginPath(); ctx.moveTo(px+10,-18); ctx.lineTo(px+10,18); ctx.stroke();
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.lineWidth = 0.9;
+        ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       });
       ctx.restore();
     }
@@ -164,18 +164,18 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.fillStyle = `rgba(${SAT_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-14,-14,28,28); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.30)`; ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
       ctx.beginPath(); ctx.moveTo(-14,0); ctx.lineTo(14,0); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(0,-14); ctx.lineTo(0,14); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.70)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-46,-14,28,28); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(18,-14,28,28); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.30)`; ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
       [-32,-23].forEach(px => { ctx.beginPath(); ctx.moveTo(px,-14); ctx.lineTo(px,14); ctx.stroke(); });
       [27,36].forEach(px => { ctx.beginPath(); ctx.moveTo(px,-14); ctx.lineTo(px,14); ctx.stroke(); });
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${SAT_RGB},0.80)`; ctx.lineWidth = 1.0;
       ctx.beginPath(); ctx.moveTo(14,-14); ctx.lineTo(22,-22); ctx.stroke();
       ctx.beginPath(); ctx.arc(22,-22,2,0,Math.PI*2); ctx.stroke();
       ctx.restore();
@@ -208,7 +208,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { Object.assign(this, droneBase()); this.reset(); }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.5, 0.5);
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.70)`; ctx.fillStyle = `rgba(${DRONE_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.92)`; ctx.fillStyle = `rgba(${DRONE_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath();
       ctx.moveTo(28,0); ctx.bezierCurveTo(28,-5,16,-5,10,-5);
       ctx.lineTo(-22,-4); ctx.lineTo(-28,0); ctx.lineTo(-22,4); ctx.lineTo(10,5);
@@ -218,7 +218,7 @@ import contactConfig     from './bg-sections/contact.js';
       ctx.beginPath(); ctx.moveTo(8,5); ctx.lineTo(4,52); ctx.lineTo(-4,52); ctx.lineTo(-8,5); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(-22,-4); ctx.lineTo(-38,-16); ctx.lineTo(-36,-4); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(-22,4); ctx.lineTo(-38,16); ctx.lineTo(-36,4); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.40)`; ctx.lineWidth = 0.6;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.65)`; ctx.lineWidth = 0.8;
       ctx.beginPath(); ctx.arc(4,0,4,Math.PI,0); ctx.stroke();
       ctx.restore();
     }
@@ -229,17 +229,17 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { Object.assign(this, droneBase()); this.reset(); }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.5, 0.5);
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.70)`; ctx.fillStyle = `rgba(${DRONE_RGB},0.18)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.92)`; ctx.fillStyle = `rgba(${DRONE_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath();
       ctx.moveTo(26,0); ctx.lineTo(10,-6); ctx.lineTo(-10,-42); ctx.lineTo(-22,-40); ctx.lineTo(-20,-6);
       ctx.lineTo(-28,0); ctx.lineTo(-20,6); ctx.lineTo(-22,40); ctx.lineTo(-10,42); ctx.lineTo(10,6);
       ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.35)`; ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.60)`; ctx.lineWidth = 0.7;
       ctx.beginPath(); ctx.moveTo(26,0); ctx.lineTo(-28,0); ctx.stroke();
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.70)`; ctx.lineWidth = 0.9;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.92)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.moveTo(-20,-6); ctx.lineTo(-36,-18); ctx.lineTo(-34,-6); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(-20,6); ctx.lineTo(-36,18); ctx.lineTo(-34,6); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${DRONE_RGB},0.55)`; ctx.lineWidth = 0.7;
+      ctx.strokeStyle = `rgba(${DRONE_RGB},0.80)`; ctx.lineWidth = 0.9;
       ctx.beginPath(); ctx.rect(-2,-28,14,4); ctx.stroke();
       ctx.beginPath(); ctx.rect(-2,24,14,4); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(12,-26); ctx.lineTo(18,-26); ctx.stroke();
@@ -282,7 +282,7 @@ import contactConfig     from './bg-sections/contact.js';
     draw() {
       const rgb = DRONE_RGB;
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.scale(0.5, 0.5);
-      ctx.strokeStyle = `rgba(${rgb},0.90)`; ctx.fillStyle = `rgba(${rgb},0.28)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${rgb},1.00)`; ctx.fillStyle = `rgba(${rgb},0.45)`; ctx.lineWidth = 1.3;
       ctx.beginPath();
       ctx.moveTo(26,0); ctx.lineTo(10,-6); ctx.lineTo(-10,-42); ctx.lineTo(-22,-40); ctx.lineTo(-20,-6);
       ctx.lineTo(-28,0); ctx.lineTo(-20,6); ctx.lineTo(-22,40); ctx.lineTo(-10,42); ctx.lineTo(10,6);
@@ -355,7 +355,7 @@ import contactConfig     from './bg-sections/contact.js';
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(${cfg.rgb},${0.55 * (1 - d/MAX_DIST)})`;
+          ctx.strokeStyle = `rgba(${cfg.rgb},${0.85 * (1 - d/MAX_DIST)})`;
           ctx.lineWidth = .6;
           ctx.stroke();
         }
