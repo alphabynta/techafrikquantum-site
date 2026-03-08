@@ -14,6 +14,7 @@ export default {
   particleAlpha:    0.80,
   showParticles:    true,
   showLinks:        true,
+  satelliteRgb:     '107,142,35',
   showSatellites:   false,
   showDrones:       true,
   showGuineaDrone:  false,
