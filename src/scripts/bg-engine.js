@@ -28,7 +28,8 @@ import contactConfig  from './bg-sections/contact.js';
   let cfg = heroConfig; /* active config — updated by IntersectionObserver */
 
   /* ── Canvas resize ──────────────────────────────────────────── */
-  const PARTICLE_COUNT = 90;
+  const isMobile = window.innerWidth < 768;
+  const PARTICLE_COUNT = isMobile ? 30 : 90;
   const MAX_DIST = 160;
   const SAT_RGB   = '160,160,160';
   const DRONE_RGB = '148,51,234';
@@ -401,7 +402,7 @@ import contactConfig  from './bg-sections/contact.js';
     const showP = cfg.showParticles !== false;
     if (showP) particles.forEach(p => { p.update(); p.draw(); });
     else particles.forEach(p => p.update());
-    if (showP && cfg.showLinks) drawLinks(particles);
+    if (showP && cfg.showLinks && !isMobile) drawLinks(particles);
     separateAll(satellites, 120, 0.645); /* cap matches satellite speed */
     satellites.forEach(s => { s.update(); s.draw(); });
     separateDrones(drones, 80);
