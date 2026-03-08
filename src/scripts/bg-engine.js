@@ -28,7 +28,7 @@ import contactConfig     from './bg-sections/contact.js';
   /* ── Canvas resize ──────────────────────────────────────────── */
   const PARTICLE_COUNT = 40;
   const MAX_DIST = 160;
-  let SAT_RGB     = '245,165,36'; /* default orange — overridden per section via cfg.satelliteRgb */
+  const SAT_RGB   = '160,160,160';
   const DRONE_RGB = '148,51,234';
   let w, h;
   function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
@@ -386,8 +386,7 @@ import contactConfig     from './bg-sections/contact.js';
     entries.forEach(function (entry) {
       if (entry.isIntersecting && SECTION_CONFIGS[entry.target.id]) {
         cfg = SECTION_CONFIGS[entry.target.id];
-        if (cfg.satelliteRgb) SAT_RGB = cfg.satelliteRgb;
-        if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
+if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
       }
     });
   }, { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
