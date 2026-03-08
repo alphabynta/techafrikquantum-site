@@ -75,16 +75,16 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-10,-14,20,28); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-42,-6,28,12); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(14,-6,28,12); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.60)`; ctx.lineWidth = 0.7;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.60)`; ctx.lineWidth = 0.7;
       for (let i = 1; i < 3; i++) {
         ctx.beginPath(); ctx.moveTo(-42+i*9.3,-6); ctx.lineTo(-42+i*9.3,6); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(14+i*9.3,-6); ctx.lineTo(14+i*9.3,6); ctx.stroke();
       }
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.arc(0,-14,10,Math.PI,0); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(0,-14); ctx.lineTo(0,-24); ctx.stroke();
       ctx.restore();
@@ -107,12 +107,12 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.arc(0,0,12,0,Math.PI*2); ctx.fill(); ctx.stroke();
       [45,135,225,315].forEach(deg => {
         const r = deg * Math.PI / 180;
         ctx.beginPath(); ctx.moveTo(Math.cos(r)*12,Math.sin(r)*12); ctx.lineTo(Math.cos(r)*40,Math.sin(r)*40);
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.80)`; ctx.lineWidth = 1.0; ctx.stroke();
+        ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.80)`; ctx.lineWidth = 1.0; ctx.stroke();
       });
       ctx.restore();
     }
@@ -134,7 +134,7 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-52,-3,104,6); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-10,-8,20,16); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(-6,-14,12,6); ctx.fill(); ctx.stroke();
@@ -142,9 +142,9 @@ import contactConfig     from './bg-sections/contact.js';
       [-52,-28,20,44].forEach(px => {
         ctx.beginPath(); ctx.rect(px,-18,20,15); ctx.fill(); ctx.stroke();
         ctx.beginPath(); ctx.rect(px,3,20,15); ctx.fill(); ctx.stroke();
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
+        ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
         ctx.beginPath(); ctx.moveTo(px+10,-18); ctx.lineTo(px+10,18); ctx.stroke();
-        ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
+        ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       });
       ctx.restore();
     }
@@ -166,18 +166,18 @@ import contactConfig     from './bg-sections/contact.js';
     }
     draw() {
       ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle);
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.fillStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.38)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-14,-14,28,28); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
       ctx.beginPath(); ctx.moveTo(-14,0); ctx.lineTo(14,0); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(0,-14); ctx.lineTo(0,14); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.92)`; ctx.lineWidth = 1.1;
       ctx.beginPath(); ctx.rect(-46,-14,28,28); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.rect(18,-14,28,28); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.55)`; ctx.lineWidth = 0.7;
       [-32,-23].forEach(px => { ctx.beginPath(); ctx.moveTo(px,-14); ctx.lineTo(px,14); ctx.stroke(); });
       [27,36].forEach(px => { ctx.beginPath(); ctx.moveTo(px,-14); ctx.lineTo(px,14); ctx.stroke(); });
-      ctx.strokeStyle = `rgba(${SAT_RGB},0.80)`; ctx.lineWidth = 1.0;
+      ctx.strokeStyle = `rgba(${cfg.satelliteRgb || SAT_RGB},0.80)`; ctx.lineWidth = 1.0;
       ctx.beginPath(); ctx.moveTo(14,-14); ctx.lineTo(22,-22); ctx.stroke();
       ctx.beginPath(); ctx.arc(22,-22,2,0,Math.PI*2); ctx.stroke();
       ctx.restore();
