@@ -10,8 +10,6 @@ const solutions = [
     title: 'Safety & Surveillance',
     body: 'Integrated camera networks, drone monitoring, and analytics platforms that give your security team total situational awareness — day and night, indoors and outdoors.',
     li: ['IP CCTV & thermal imaging networks','ISR drone integration & airspace monitoring','AI-assisted video analytics & alerting','Military-grade body-worn camera systems'],
-    /* TODO: replace with actual image path, e.g. `${base}images/safety-bg.jpg` */
-    img: null,
   },
   {
     id: 'connectivity',
@@ -21,7 +19,6 @@ const solutions = [
     title: 'Critical Connectivity',
     body: 'When your operation cannot afford downtime, we engineer redundant, multi-path connectivity with failover designed for mission-critical environments.',
     li: ['VSAT & LEO satellite links for remote sites','Microwave & LTE hybrid WAN with automatic failover','Network SLA monitoring & proactive NOC support'],
-    img: null,
   },
   {
     id: 'assets',
@@ -31,7 +28,6 @@ const solutions = [
     title: 'Assets Management',
     body: 'Real-time visibility over vehicles, equipment, and personnel. Reduce fuel waste, prevent theft, and make smarter operational decisions.',
     li: ['GPS fleet tracking & geofencing','Fuel anti-fraud & consumption analytics','Driver behavior & safety scoring'],
-    img: null,
   },
   {
     id: 'ipnetworks',
@@ -41,7 +37,6 @@ const solutions = [
     title: 'IP Networks',
     body: 'Enterprise-grade LAN/WAN design, SD-WAN deployment, and network orchestration. Secure, observable, built to grow with your organisation.',
     li: ['LAN/WAN design, deployment & optimisation','SD-WAN & MPLS for multi-site enterprises','Network telemetry, SNMP & flow analytics'],
-    img: null,
   },
   {
     id: 'cyber',
@@ -51,7 +46,6 @@ const solutions = [
     title: 'Cybersecurity',
     body: 'From risk assessment to SOC implementation, we help organisations build a security posture that withstands real-world threats in the West African threat landscape.',
     li: ['Vulnerability assessment & penetration testing','SOC onboarding & 24/7 threat monitoring','IAM, zero-trust & compliance frameworks'],
-    img: null,
   },
 ];
 ---
@@ -65,34 +59,26 @@ const solutions = [
     <p class="solutions-intro lead" data-i18n="solutions.intro">From defense networks to enterprise infrastructure — we engineer secure, resilient, and always-on IT &amp; telecommunications solutions across every sector we serve.</p>
   </div>
 
-  {solutions.map((s, i) => (
-    <article
-      class={`sol-panel${i % 2 === 1 ? ' sol-panel--flip' : ''}`}
-      id={s.id}
-      style={s.img ? `--panel-img: url('${s.img}')` : ''}
-    >
-      <div class="sol-panel__bg" aria-hidden="true"></div>
-      <div class="sol-panel__overlay" aria-hidden="true"></div>
-      <div class="container sol-panel__content">
-        <h3 class="sol-panel__title" data-i18n={s.titleKey}>{s.title}</h3>
-        <p class="sol-panel__body" data-i18n={s.bodyKey}>{s.body}</p>
-        <ul class="sol-panel__list">
-          {s.li.map((text, j) => (
-            <li data-i18n={s.liKeys[j]}>{text}</li>
-          ))}
-        </ul>
-        <a class="btn btn--ghost sol-panel__cta" href={`${base}solutions/${s.slug}`}>Learn More</a>
-      </div>
-    </article>
-  ))}
+  <div class="container solutions-grid-wrap">
+    <div class="solutions-grid">
+      {solutions.map((s) => (
+        <div class="sol-card" id={s.id}>
+          <h3 class="sol-card__title" data-i18n={s.titleKey}>{s.title}</h3>
+          <p class="sol-card__body" data-i18n={s.bodyKey}>{s.body}</p>
+          <ul class="sol-card__list">
+            {s.li.map((text, j) => (
+              <li data-i18n={s.liKeys[j]}>{text}</li>
+            ))}
+          </ul>
+          <a class="btn btn--ghost sol-card__cta" href={`${base}solutions/${s.slug}`}>Learn More</a>
+        </div>
+      ))}
+    </div>
+  </div>
 
 </section>
 
 <style define:vars={{ droneUrl: `url('${base}icons/drone.svg')` }}>
-  .solutions-section {
-    /* background transparent — page-bg shows */
-  }
-
   .solutions-heading-wrap {
     padding: clamp(80px, 10vw, 130px) 0 clamp(32px, 4vw, 56px);
   }
@@ -108,98 +94,72 @@ const solutions = [
   }
   .text-accent { color: var(--accent); }
 
-  /* ── Full-width panel ── */
-  .sol-panel {
-    position: relative;
-    min-height: 70vh;
-    display: flex; align-items: center;
-    overflow: hidden;
-    border-top: 1px solid var(--border);
+  .solutions-grid-wrap {
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
-  /* Background image — swapped via --panel-img CSS var */
-  .sol-panel__bg {
-    position: absolute; inset: 0;
-    background-image: var(--panel-img, none);
-    background-size: cover; background-position: center;
-    transition: transform 0.6s ease;
+  /* Card — mirrors sec-card exactly */
+  .sol-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(24px, 2.5vw, 36px);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background 0.2s ease;
   }
-  .sol-panel:hover .sol-panel__bg { transform: scale(1.03); }
+  .sol-card:hover { background: rgba(255,255,255,0.06); }
 
-  /* Subtle overlay — lets page-bg cycling show through in dark mode. */
-  .sol-panel__overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(
-      105deg,
-      rgba(0,0,0,0.18) 0%,
-      rgba(0,0,0,0.08) 55%,
-      rgba(0,0,0,0.02) 100%
-    );
+  .sol-card__title {
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    line-height: 1;
   }
-  .sol-panel--flip .sol-panel__overlay {
-    background: linear-gradient(
-      -105deg,
-      rgba(0,0,0,0.18) 0%,
-      rgba(0,0,0,0.08) 55%,
-      rgba(0,0,0,0.02) 100%
-    );
-  }
-
-  /* Amber left accent line */
-  .sol-panel::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 4px; background: var(--accent);
-    z-index: 2;
-  }
-  .sol-panel--flip::before { left: auto; right: 0; }
-
-  /* Content */
-  .sol-panel__content {
-    position: relative; z-index: 2;
-    padding-top: clamp(56px, 7vh, 100px);
-    padding-bottom: clamp(56px, 7vh, 100px);
-    max-width: 780px;
-  }
-  .sol-panel--flip .sol-panel__content { margin-left: auto; }
-
-  .sol-panel__title {
-    font-size: clamp(40px, 6vw, 88px);
-    font-weight: 800; color: var(--accent);
-    letter-spacing: -.04em; text-transform: uppercase;
-    line-height: 0.95; margin-bottom: clamp(20px, 2.5vw, 36px);
-  }
-  .sol-panel__body {
-    font-size: clamp(17px, 1.6vw, 21px);
+  .sol-card__body {
+    font-size: clamp(14px, 1.1vw, 15px);
     color: var(--muted);
-    line-height: 1.75; max-width: 580px;
-    margin-bottom: clamp(24px, 3vw, 40px);
+    line-height: 1.7;
   }
-
-  .sol-panel__list {
-    list-style: none; padding: 0; margin: 0 0 clamp(28px, 3.5vw, 48px);
-    display: flex; flex-direction: column; gap: 12px;
+  .sol-card__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+    flex: 1;
   }
-  .sol-panel__list li {
-    font-size: clamp(15px, 1.4vw, 18px);
+  .sol-card__list li {
+    font-size: clamp(13px, 1vw, 14px);
     color: var(--text);
-    padding-left: 26px; position: relative;
+    padding-left: 22px; position: relative;
+    line-height: 1.5;
   }
-  .sol-panel__list li::before {
+  .sol-card__list li::before {
     content: '';
     position: absolute; left: 0; top: 50%;
     transform: translateY(-50%);
-    width: 16px; height: 16px;
+    width: 14px; height: 14px;
     background-image: var(--droneUrl);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
+  .sol-card__cta {
+    align-self: flex-start;
+    margin-top: 4px;
+  }
 
-  /* Mobile */
-  @media (max-width: 768px) {
-    .sol-panel { min-height: 80vw; }
-    .sol-panel--flip .sol-panel__content { margin-left: 0; }
-    .sol-panel__title { font-size: clamp(36px, 10vw, 60px); }
+  @media (max-width: 900px) {
+    .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .solutions-grid { grid-template-columns: 1fr; }
   }
 </style>
