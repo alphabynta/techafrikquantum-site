@@ -6,8 +6,8 @@
     hero:            '#000000',
     'who-we-are':    '#222222',
     'what-we-build': '#c8c8c8',
-    partners:        '#ffffff',
-    contact:         '#f5f0e8',
+    partners:        '#f5f0e8',
+    contact:         '#ffffff',
   };
 
   /* Sections whose background is light — needs dark text/tokens */
