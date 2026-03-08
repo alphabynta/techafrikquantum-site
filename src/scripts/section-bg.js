@@ -4,14 +4,14 @@
   /* Background colour per section */
   var bgColors = {
     hero:            '#000000',
-    'who-we-are':    '#ffffff',
+    'who-we-are':    '#1a1a1a',
     'what-we-build': '#3b3a00',
-    partners:        '#f5f2ed',
-    contact:         '#1a1a1a',
+    partners:        '#0d0d1a',
+    contact:         '#0f0a00',
   };
 
   /* Sections whose background is light — needs dark text/tokens */
-  var lightBg = { 'who-we-are': true, partners: true };
+  var lightBg = {};
 
   var bg = document.getElementById('page-bg');
   if (!bg) return;
