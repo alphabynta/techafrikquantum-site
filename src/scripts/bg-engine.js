@@ -2,12 +2,11 @@
    Per-section colours/behaviour live in ./bg-sections/*.js
    This file handles rendering; edit section files to customise each page. */
 
-import heroConfig     from './bg-sections/hero.js';
-import sectorsConfig  from './bg-sections/sectors.js';
-import solutionsConfig from './bg-sections/solutions.js';
-import aboutConfig    from './bg-sections/about.js';
-import partnersConfig from './bg-sections/partners.js';
-import contactConfig  from './bg-sections/contact.js';
+import heroConfig        from './bg-sections/hero.js';
+import whoWeAreConfig    from './bg-sections/who-we-are.js';
+import whatWeBuildConfig from './bg-sections/what-we-build.js';
+import partnersConfig    from './bg-sections/partners.js';
+import contactConfig     from './bg-sections/contact.js';
 
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -17,12 +16,11 @@ import contactConfig  from './bg-sections/contact.js';
 
   /* ── Section config map ─────────────────────────────────────── */
   const SECTION_CONFIGS = {
-    hero:      heroConfig,
-    sectors:   sectorsConfig,
-    solutions: solutionsConfig,
-    about:     aboutConfig,
-    partners:  partnersConfig,
-    contact:   contactConfig,
+    hero:            heroConfig,
+    'who-we-are':    whoWeAreConfig,
+    'what-we-build': whatWeBuildConfig,
+    partners:        partnersConfig,
+    contact:         contactConfig,
   };
 
   let cfg = heroConfig; /* active config — updated by IntersectionObserver */
@@ -382,10 +380,13 @@ import contactConfig  from './bg-sections/contact.js';
   const guineaDrone = new DroneGuinea();
 
   /* ── Section observer ───────────────────────────────────────── */
+  const pageBg = document.getElementById('page-bg');
+
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting && SECTION_CONFIGS[entry.target.id]) {
         cfg = SECTION_CONFIGS[entry.target.id];
+        if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
       }
     });
   }, { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
