@@ -71,11 +71,7 @@ const sectors = [
   .sector-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
+    gap: 12px;
   }
 
   /* Card */
@@ -83,7 +79,9 @@ const sectors = [
     position: relative;
     overflow: hidden;
     background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
     border-left: 2px solid transparent;
+    border-radius: 4px;
     padding: 20px 18px;
     display: flex;
     flex-direction: column;
