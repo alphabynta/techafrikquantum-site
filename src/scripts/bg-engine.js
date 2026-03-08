@@ -371,6 +371,110 @@ import contactConfig     from './bg-sections/contact.js';
     }
   }
 
+  /* ── Signal links (drone ↔ satellite communication) ─────────── */
+  const LINK_MAX_DIST = 380;
+  var pingCircles  = [];
+  var signalLinks  = [];
+  var linkRebuildTimer = 0;
+
+  function buildSignalLinks() {
+    signalLinks = drones.map(function (drone) {
+      var nearest = null, nearestDist = Infinity;
+      satellites.forEach(function (sat) {
+        var dx = sat.x - drone.x, dy = sat.y - drone.y;
+        var d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < nearestDist && d < LINK_MAX_DIST) { nearestDist = d; nearest = sat; }
+      });
+      return nearest ? { drone: drone, sat: nearest, packets: [], pingTimer: Math.floor(Math.random() * 120), satGlow: 0 } : null;
+    }).filter(Boolean);
+  }
+
+  function updateSignalLinks() {
+    linkRebuildTimer++;
+    if (linkRebuildTimer > 180) { buildSignalLinks(); linkRebuildTimer = 0; }
+
+    signalLinks.forEach(function (link) {
+      var dx = link.sat.x - link.drone.x, dy = link.sat.y - link.drone.y;
+      link.dist   = Math.sqrt(dx * dx + dy * dy);
+      link.active = link.dist < LINK_MAX_DIST;
+
+      link.packets = link.packets.filter(function (p) {
+        p.t += 0.007 * sectionSpeedMult;
+        if (p.t >= 1) {
+          link.satGlow = 1;
+          pingCircles.push({ x: link.sat.x, y: link.sat.y, r: 5, alpha: 0.75 });
+          return false;
+        }
+        return true;
+      });
+
+      link.satGlow = Math.max(0, link.satGlow - 0.04);
+
+      if (link.active) {
+        link.pingTimer -= sectionSpeedMult;
+        if (link.pingTimer <= 0) {
+          link.packets.push({ t: 0 });
+          link.pingTimer = 80 + Math.floor(Math.random() * 100);
+          pingCircles.push({ x: link.drone.x, y: link.drone.y, r: 5, alpha: 0.55 });
+        }
+      }
+    });
+
+    pingCircles = pingCircles.filter(function (c) {
+      c.r    += 1.4 * sectionSpeedMult;
+      c.alpha -= 0.016;
+      return c.alpha > 0;
+    });
+  }
+
+  function drawSignalLinks() {
+    var rgb = '160,160,160'; /* neutral grey for hero (no neuron rgb) */
+
+    signalLinks.forEach(function (link) {
+      if (!link.active) return;
+      var dx   = link.sat.x - link.drone.x, dy = link.sat.y - link.drone.y;
+      var fade = 1 - link.dist / LINK_MAX_DIST;
+
+      /* dashed link line */
+      ctx.save();
+      ctx.setLineDash([4, 7]);
+      ctx.beginPath();
+      ctx.moveTo(link.drone.x, link.drone.y);
+      ctx.lineTo(link.sat.x,   link.sat.y);
+      ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.30 * fade) + ')';
+      ctx.lineWidth = 0.7; ctx.stroke();
+      ctx.restore();
+
+      /* traveling signal packets */
+      link.packets.forEach(function (p) {
+        ctx.beginPath();
+        ctx.arc(link.drone.x + dx * p.t, link.drone.y + dy * p.t, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + rgb + ',0.95)';
+        ctx.fill();
+      });
+
+      /* satellite glow on receive */
+      if (link.satGlow > 0.05) {
+        ctx.save();
+        ctx.shadowColor = 'rgba(' + rgb + ',' + link.satGlow + ')';
+        ctx.shadowBlur  = 22;
+        ctx.beginPath();
+        ctx.arc(link.sat.x, link.sat.y, 14, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(' + rgb + ',' + (link.satGlow * 0.85) + ')';
+        ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.restore();
+      }
+    });
+
+    /* ping / handshake circles */
+    pingCircles.forEach(function (c) {
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(' + rgb + ',' + c.alpha + ')';
+      ctx.lineWidth = 1; ctx.stroke();
+    });
+  }
+
   /* ── Init entities ──────────────────────────────────────────── */
   resize();
   window.addEventListener('resize', resize, { passive: true });
@@ -406,6 +510,9 @@ if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
     if (el) observer.observe(el);
   });
 
+  buildSignalLinks();
+  window.addEventListener('resize', buildSignalLinks, { passive: true });
+
   /* ── Animate ────────────────────────────────────────────────── */
   function animate() {
     ctx.clearRect(0, 0, w, h);
@@ -421,6 +528,7 @@ if (pageBg && cfg.bgColor) pageBg.style.backgroundColor = cfg.bgColor;
     else drones.forEach(d => d.update());
     guineaDrone.update();
     if (cfg.showGuineaDrone !== false) guineaDrone.draw();
+    if (cfg.showSignalLinks) { updateSignalLinks(); drawSignalLinks(); }
     requestAnimationFrame(animate);
   }
   animate();
