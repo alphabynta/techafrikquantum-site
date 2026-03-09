@@ -4,28 +4,28 @@
   <path d="M 18,3 L 10,3 L 10,41 L 18,41"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- Square around TECH -->
-  <rect x="19" y="17" width="51" height="23"
+  <!-- Square aligned to AFRIK cap height: y=16 to y=36 -->
+  <rect x="19" y="16" width="51" height="20"
         fill="none" stroke="#f5a524" stroke-width="1.8"/>
 
-  <!-- TECH: small digital blocks, baseline at y=36 -->
+  <!-- TECH: centred inside square (square h=20, letters h=15 → offset 2.5 → y=19) -->
   <g fill="#f5a524">
     <!-- T -->
-    <rect x="22" y="21" width="10" height="2"/>
-    <rect x="26" y="23" width="2"  height="13"/>
+    <rect x="22" y="19" width="10" height="2"/>
+    <rect x="26" y="21" width="2"  height="13"/>
     <!-- E -->
-    <rect x="34" y="21" width="2"  height="15"/>
-    <rect x="36" y="21" width="8"  height="2"/>
-    <rect x="36" y="28" width="6"  height="2"/>
-    <rect x="36" y="34" width="8"  height="2"/>
+    <rect x="34" y="19" width="2"  height="15"/>
+    <rect x="36" y="19" width="8"  height="2"/>
+    <rect x="36" y="26" width="6"  height="2"/>
+    <rect x="36" y="32" width="8"  height="2"/>
     <!-- C -->
-    <rect x="46" y="21" width="2"  height="15"/>
-    <rect x="48" y="21" width="8"  height="2"/>
-    <rect x="48" y="34" width="8"  height="2"/>
+    <rect x="46" y="19" width="2"  height="15"/>
+    <rect x="48" y="19" width="8"  height="2"/>
+    <rect x="48" y="32" width="8"  height="2"/>
     <!-- H -->
-    <rect x="58" y="21" width="2"  height="15"/>
-    <rect x="66" y="21" width="2"  height="15"/>
-    <rect x="60" y="28" width="6"  height="2"/>
+    <rect x="58" y="19" width="2"  height="15"/>
+    <rect x="66" y="19" width="2"  height="15"/>
+    <rect x="60" y="26" width="6"  height="2"/>
   </g>
 
   <!-- Afrik: big and bold -->
