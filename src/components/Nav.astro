@@ -7,24 +7,20 @@ const base = import.meta.env.BASE_URL;
       <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 44" role="img" aria-label="TechAfrik logo">
         <!-- Square box around TECH — always amber -->
         <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
-        <!-- TECH digital letters — white on dark, black on light -->
-        <g class="logo-tech-letters">
+        <!-- TECH wire-frame strokes — white on dark, black on light -->
+        <g class="logo-tech-letters" fill="none" stroke-width="1.8" stroke-linejoin="miter">
           <!-- T -->
-          <rect x="3"  y="19" width="10" height="2"/>
-          <rect x="7"  y="21" width="2"  height="13"/>
+          <line x1="3"  y1="19" x2="13" y2="19"/>
+          <line x1="8"  y1="19" x2="8"  y2="34"/>
           <!-- E -->
-          <rect x="15" y="19" width="2"  height="15"/>
-          <rect x="17" y="19" width="8"  height="2"/>
-          <rect x="17" y="26" width="6"  height="2"/>
-          <rect x="17" y="32" width="8"  height="2"/>
+          <polyline points="25,19 15,19 15,34 25,34"/>
+          <line x1="15" y1="26" x2="23" y2="26"/>
           <!-- C -->
-          <rect x="27" y="19" width="2"  height="15"/>
-          <rect x="29" y="19" width="8"  height="2"/>
-          <rect x="29" y="32" width="8"  height="2"/>
+          <polyline points="37,19 27,19 27,34 37,34"/>
           <!-- H -->
-          <rect x="39" y="19" width="2"  height="15"/>
-          <rect x="47" y="19" width="2"  height="15"/>
-          <rect x="41" y="26" width="6"  height="2"/>
+          <line x1="39" y1="19" x2="39" y2="34"/>
+          <line x1="49" y1="19" x2="49" y2="34"/>
+          <line x1="39" y1="26" x2="49" y2="26"/>
         </g>
         <!-- AFRIK wire-frame strokes — always amber -->
         <g stroke="#f5a524" stroke-width="1.8" fill="none" stroke-linejoin="miter">
@@ -71,6 +67,6 @@ const base = import.meta.env.BASE_URL;
   }
 
   /* TECH white on dark, black on light */
-  .logo-tech-letters { fill: #ffffff; }
-  :global([data-bg-tone="light"]) .logo-tech-letters { fill: #000000; }
+  .logo-tech-letters { stroke: #ffffff; }
+  :global([data-bg-tone="light"]) .logo-tech-letters { stroke: #000000; }
 </style>

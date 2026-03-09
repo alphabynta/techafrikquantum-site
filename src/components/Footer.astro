@@ -7,19 +7,19 @@ const year = new Date().getFullYear();
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
       <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 44" role="img" aria-label="TechAfrik logo">
         <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
-        <g class="logo-tech-letters">
-          <rect x="3"  y="19" width="10" height="2"/>
-          <rect x="7"  y="21" width="2"  height="13"/>
-          <rect x="15" y="19" width="2"  height="15"/>
-          <rect x="17" y="19" width="8"  height="2"/>
-          <rect x="17" y="26" width="6"  height="2"/>
-          <rect x="17" y="32" width="8"  height="2"/>
-          <rect x="27" y="19" width="2"  height="15"/>
-          <rect x="29" y="19" width="8"  height="2"/>
-          <rect x="29" y="32" width="8"  height="2"/>
-          <rect x="39" y="19" width="2"  height="15"/>
-          <rect x="47" y="19" width="2"  height="15"/>
-          <rect x="41" y="26" width="6"  height="2"/>
+        <g class="logo-tech-letters" fill="none" stroke-width="1.8" stroke-linejoin="miter">
+          <!-- T -->
+          <line x1="3"  y1="19" x2="13" y2="19"/>
+          <line x1="8"  y1="19" x2="8"  y2="34"/>
+          <!-- E -->
+          <polyline points="25,19 15,19 15,34 25,34"/>
+          <line x1="15" y1="26" x2="23" y2="26"/>
+          <!-- C -->
+          <polyline points="37,19 27,19 27,34 37,34"/>
+          <!-- H -->
+          <line x1="39" y1="19" x2="39" y2="34"/>
+          <line x1="49" y1="19" x2="49" y2="34"/>
+          <line x1="39" y1="26" x2="49" y2="26"/>
         </g>
         <g stroke="#f5a524" stroke-width="1.8" fill="none" stroke-linejoin="miter">
           <!-- A -->
@@ -73,8 +73,8 @@ const year = new Date().getFullYear();
   }
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo-svg { width: clamp(110px, 14vw, 155px); height: auto; }
-  .logo-tech-letters { fill: #ffffff; }
-  :global([data-bg-tone="light"]) .logo-tech-letters { fill: #000000; }
+  .logo-tech-letters { stroke: #ffffff; }
+  :global([data-bg-tone="light"]) .logo-tech-letters { stroke: #000000; }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
   .social-icon {
