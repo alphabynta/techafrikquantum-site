@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
-      <span class="footer-logo-mask" style={`--logo-url: url('${base}logo.png')`} role="img" aria-label="TechAfrik logo"></span>
+      <span class="footer-logo-mask" style={`--logo-url: url('${base}logo.svg')`} role="img" aria-label="TechAfrik logo"></span>
     </a>
     <p class="footer-copy" data-i18n="footer.copyright">
       &copy; {year} TechAfrik. All rights reserved.
@@ -39,8 +39,8 @@ const year = new Date().getFullYear();
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo-mask {
     display: block;
-    width: clamp(144px, 20vw, 208px);
-    height: clamp(144px, 20vw, 208px);
+    width: clamp(140px, 16vw, 184px);
+    height: clamp(29px, 3.3vw, 38px);
     background-color: var(--primary);
     -webkit-mask-image: var(--logo-url);
     mask-image: var(--logo-url);
@@ -48,8 +48,8 @@ const year = new Date().getFullYear();
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
+    -webkit-mask-position: left center;
+    mask-position: left center;
   }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
