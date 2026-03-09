@@ -131,6 +131,18 @@
   applySection(keys[0]);
   bg.style.backgroundColor = bgColors[keys[0]];
 
+  /* ── Per-page override (solution pages) ───────────────────── */
+  var pageBg   = document.body.dataset.pageBg;
+  var pageTone = document.body.dataset.pageTone;
+  if (pageBg) {
+    bg.style.backgroundColor = pageBg;
+    var isPageLight = pageTone === 'light';
+    document.body.setAttribute('data-bg-tone', isPageLight ? 'light' : 'dark');
+    var pageTokens = isPageLight ? lightTokens : darkTokens;
+    var root = document.documentElement;
+    Object.keys(pageTokens).forEach(function (k) { root.style.setProperty(k, pageTokens[k]); });
+  }
+
   var ticking = false;
   window.addEventListener('scroll', function () {
     if (!ticking) {
