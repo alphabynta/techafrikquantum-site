@@ -24,10 +24,10 @@
     <rect x="70" y="17" width="9"  height="3"/>
   </g>
 
-  <!-- Afrik in Helvetica, baseline aligned -->
+  <!-- Afrik: light italic — contrast with heavy geometric TECH -->
   <text x="83" y="29"
         font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
-        font-size="22" font-weight="700"
+        font-size="23" font-weight="300" font-style="italic"
         textLength="58" lengthAdjust="spacingAndGlyphs"
         fill="#f5a524">Afrik</text>
 
