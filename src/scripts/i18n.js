@@ -55,9 +55,8 @@
 
       'cellular.label': 'Cellular & Mobility',
       'cellular.title': 'Cellular & Mobility',
-      'cellular.body': 'We partner with cellular operators to deliver RF engineering, spectrum management, and network orchestration services.',
-      'cellular.li1': 'RF engineering & spectrum management',
-      'cellular.li2': 'Network telemetry & SLO observability',
+      'cellular.body': 'We help cellular operators improve network performance while enabling transport operators and national fleets to gain connectivity, reduce costs, and improve safety.',
+      'cellular.li1': 'QoS & traffic engineering for carrier-grade networks',
       'cellular.li3': 'QoS & traffic engineering for carrier-grade networks',
 
       'mobility.label': 'Mobility',
@@ -213,8 +212,7 @@
       'cellular.label': 'Cellulaire & Mobilité',
       'cellular.title': 'Cellulaire & Mobilité',
       'cellular.body': "Nous collaborons avec les opérateurs cellulaires pour fournir des services d'ingénierie RF, de gestion du spectre et d'orchestration réseau.",
-      'cellular.li1': 'Ingénierie RF & gestion du spectre',
-      'cellular.li2': 'Télémétrie réseau & observabilité SLO',
+      'cellular.li1': 'QoS & ingénierie du trafic pour réseaux carrier-grade',
       'cellular.li3': 'QoS & ingénierie du trafic pour réseaux opérateurs',
 
       'mobility.label': 'Mobilité',
@@ -370,8 +368,7 @@
       'cellular.label': 'الخلوي',
       'cellular.title': 'الخلوي',
       'cellular.body': 'نتعاون مع مشغلي الشبكات الخلوية لتقديم هندسة RF وإدارة الطيف وخدمات تنسيق الشبكات.',
-      'cellular.li1': 'هندسة RF وإدارة الطيف',
-      'cellular.li2': 'قياس عن بُعد للشبكة وإمكانية مراقبة SLO',
+      'cellular.li1': 'جودة الخدمة وهندسة حركة البيانات لشبكات المشغلين',
       'cellular.li3': 'جودة الخدمة وهندسة حركة المرور لشبكات الناقلين',
 
       'mobility.label': 'المتنقلة',
