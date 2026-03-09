@@ -55,7 +55,7 @@
 
       'cellular.label': 'Cellular & Mobility',
       'cellular.title': 'Cellular & Mobility',
-      'cellular.body': 'We help cellular operators improve network performance while enabling transport operators and national fleets to gain connectivity, reduce costs, and improve safety.',
+      'cellular.body': 'We deliver QoS and traffic engineering for cellular networks, and provide fleet connectivity, tracking, and safety solutions to transport operators across West Africa.',
       'cellular.li1': 'QoS & traffic engineering for carrier-grade networks',
       'cellular.li3': 'QoS & traffic engineering for carrier-grade networks',
 
@@ -211,7 +211,7 @@
 
       'cellular.label': 'Cellulaire & Mobilité',
       'cellular.title': 'Cellulaire & Mobilité',
-      'cellular.body': "Nous collaborons avec les opérateurs cellulaires pour fournir des services d'ingénierie RF, de gestion du spectre et d'orchestration réseau.",
+      'cellular.body': "Nous assurons la qualité de service et l'ingénierie du trafic pour les réseaux cellulaires, et fournissons des solutions de connectivité, suivi et sécurité des flottes aux opérateurs de transport en Afrique de l'Ouest.",
       'cellular.li1': 'QoS & ingénierie du trafic pour réseaux carrier-grade',
       'cellular.li3': 'QoS & ingénierie du trafic pour réseaux opérateurs',
 
@@ -367,7 +367,7 @@
 
       'cellular.label': 'الخلوي',
       'cellular.title': 'الخلوي',
-      'cellular.body': 'نتعاون مع مشغلي الشبكات الخلوية لتقديم هندسة RF وإدارة الطيف وخدمات تنسيق الشبكات.',
+      'cellular.body': 'نقدم جودة الخدمة وهندسة حركة البيانات لشبكات الاتصالات الخلوية، ونوفر حلول اتصال وتتبع وسلامة الأسطول لمشغلي النقل في غرب أفريقيا.',
       'cellular.li1': 'جودة الخدمة وهندسة حركة البيانات لشبكات المشغلين',
       'cellular.li3': 'جودة الخدمة وهندسة حركة المرور لشبكات الناقلين',
 
