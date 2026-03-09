@@ -16,6 +16,29 @@
   var bg = document.getElementById('page-bg');
   if (!bg) return;
 
+  /* ── Static page override: skip scroll logic entirely ─────── */
+  var pageBg   = document.body.dataset.pageBg;
+  var pageTone = document.body.dataset.pageTone;
+  if (pageBg) {
+    bg.style.backgroundColor = pageBg;
+    var isPageLight = pageTone === 'light';
+    document.body.setAttribute('data-bg-tone', isPageLight ? 'light' : 'dark');
+    var darkTokens = {
+      '--text':'#f0f0f2','--muted':'#b0b0b0','--surface':'#0d0d0d',
+      '--surface-2':'#111111','--border':'#2a2a2a','--input-bg':'#111111',
+      '--nav-scrolled-bg':'rgba(0,0,0,0.72)',
+    };
+    var lightTokens = {
+      '--text':'#0d0d0d','--muted':'#505050','--surface':'#eaeaea',
+      '--surface-2':'#e0e0e0','--border':'#cccccc','--input-bg':'#ffffff',
+      '--nav-scrolled-bg':'rgba(244,244,244,0.75)',
+    };
+    var pageTokens = isPageLight ? lightTokens : darkTokens;
+    var root = document.documentElement;
+    Object.keys(pageTokens).forEach(function (k) { root.style.setProperty(k, pageTokens[k]); });
+    return;  /* skip all scroll-driven logic */
+  }
+
   var nav = document.querySelector('.site-header');
 
   /* Disable CSS transition on page-bg — we drive color manually on every scroll frame */
@@ -130,18 +153,6 @@
   buildSections();
   applySection(keys[0]);
   bg.style.backgroundColor = bgColors[keys[0]];
-
-  /* ── Per-page override (solution pages) ───────────────────── */
-  var pageBg   = document.body.dataset.pageBg;
-  var pageTone = document.body.dataset.pageTone;
-  if (pageBg) {
-    bg.style.backgroundColor = pageBg;
-    var isPageLight = pageTone === 'light';
-    document.body.setAttribute('data-bg-tone', isPageLight ? 'light' : 'dark');
-    var pageTokens = isPageLight ? lightTokens : darkTokens;
-    var root = document.documentElement;
-    Object.keys(pageTokens).forEach(function (k) { root.style.setProperty(k, pageTokens[k]); });
-  }
 
   var ticking = false;
   window.addEventListener('scroll', function () {
