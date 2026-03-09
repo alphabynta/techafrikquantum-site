@@ -202,15 +202,7 @@ const sectors = [
   .sec-card__list li {
     font-size: clamp(14px, 1.1vw, 16px);
     color: var(--text);
-    padding-left: 22px; position: relative;
     line-height: 1.5;
-  }
-  .sec-card__list li::before {
-    content: '';
-    position: absolute; left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 10px; height: 2px;
-    background: var(--accent);
   }
   @media (max-width: 900px) {
     .sectors-grid { grid-template-columns: repeat(2, 1fr); }
