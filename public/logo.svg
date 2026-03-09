@@ -1,15 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 42" width="205" height="42">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 40" width="185" height="40">
 
-  <!-- Filled sunrise dome: r=20, base at y=36 -->
-  <path d="M 1,36 A 20,20 0 0 1 41,36 Z" fill="#f5a524"/>
-
-  <!-- Horizon line -->
-  <line x1="0" y1="36" x2="44" y2="36" stroke="#f5a524" stroke-width="2" stroke-linecap="round"/>
+  <!-- Opening bracket -->
+  <path d="M 18,4 L 10,4 L 10,36 L 18,36"
+        fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
   <!-- Wordmark -->
-  <text x="53" y="34"
+  <text x="22" y="29"
         font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
         font-size="22" font-weight="700"
         fill="#f5a524">TechAfrik</text>
+
+  <!-- Closing bracket -->
+  <path d="M 168,4 L 176,4 L 176,36 L 168,36"
+        fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
 </svg>
