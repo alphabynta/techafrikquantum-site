@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 40" width="185" height="40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 40" width="155" height="40">
 
   <!-- Opening bracket -->
   <path d="M 18,4 L 10,4 L 10,36 L 18,36"
@@ -11,7 +11,7 @@
         fill="#f5a524">TechAfrik</text>
 
   <!-- Closing bracket -->
-  <path d="M 168,4 L 176,4 L 176,36 L 168,36"
+  <path d="M 137,4 L 145,4 L 145,36 L 137,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
 </svg>
