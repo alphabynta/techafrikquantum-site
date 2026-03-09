@@ -2,23 +2,15 @@
 const base = import.meta.env.BASE_URL;
 const sectors = [
   {
-    num: '01', id: 'defense',
-    titleKey: 'defense.title', bodyKey: 'defense.body',
-    liKeys: ['defense.li1','defense.li2','defense.li3'],
-    title: 'Defense',
-    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces operating in challenging environments. Our solutions are designed for reliability under pressure — from perimeter protection to command-and-control connectivity.',
-    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Rapid deployment & field-serviceable systems'],
+    num: '01', id: 'defense-government',
+    titleKey: 'defgov.title', bodyKey: 'defgov.body',
+    liKeys: ['defgov.li1','defgov.li2','defgov.li3','defgov.li4'],
+    title: 'Defense & Government',
+    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces and public institutions. From tactical field deployments to national smart city infrastructure — our solutions are built for reliability under pressure.',
+    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Public safety & smart city infrastructure','Governance, risk & compliance frameworks'],
   },
   {
-    num: '02', id: 'government',
-    titleKey: 'government.title', bodyKey: 'government.body',
-    liKeys: ['government.li1','government.li2','government.li3'],
-    title: 'Government',
-    body: 'We support government agencies and public institutions with secure network infrastructure, surveillance systems, and digital governance tools.',
-    li: ['Public safety & smart city infrastructure','Secure inter-agency communications','Governance, risk & compliance frameworks'],
-  },
-  {
-    num: '03', id: 'enterprise',
+    num: '02', id: 'enterprise',
     titleKey: 'enterprise.title', bodyKey: 'enterprise.body',
     liKeys: ['enterprise.li1','enterprise.li2','enterprise.li3'],
     title: 'Enterprise',
@@ -26,7 +18,7 @@ const sectors = [
     li: ['Enterprise network design & orchestration','SOC onboarding & IAM implementation','Fleet & assets tracking for operations'],
   },
   {
-    num: '04', id: 'oilgas',
+    num: '03', id: 'oilgas',
     titleKey: 'oilgas.title', bodyKey: 'oilgas.body',
     liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
     title: 'Oil & Gas',
@@ -34,7 +26,7 @@ const sectors = [
     li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
   },
   {
-    num: '05', id: 'cellular-mobility',
+    num: '04', id: 'cellular-mobility',
     titleKey: 'cellular.title', bodyKey: 'cellular.body',
     liKeys: ['cellular.li1','cellular.li2','mobility.li1','mobility.li2'],
     title: 'Cellular & Mobility',
