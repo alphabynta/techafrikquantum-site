@@ -20,56 +20,71 @@ const base = import.meta.env.BASE_URL;
       <div class="container">
         <p class="section-label">Capabilities</p>
 
-        <div class="cap-row">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">Vulnerability Assessment & Penetration Testing</h2>
-            <p class="cap-row__body">We conduct structured security assessments to identify vulnerabilities in your network infrastructure, applications, and endpoints before adversaries do. Findings are delivered with clear risk ratings and actionable remediation roadmaps tailored to your operational context.</p>
-            <ul class="cap-row__list">
-              <li>Network infrastructure vulnerability scanning and assessment</li>
-              <li>Web application and API penetration testing</li>
-              <li>Social engineering and phishing simulation exercises</li>
-              <li>Wireless network security assessment</li>
-              <li>Detailed findings report with prioritised remediation plan</li>
-            </ul>
+        <details class="cap-item">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">Vulnerability Assessment &amp; Penetration Testing</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">We conduct structured security assessments to identify vulnerabilities in your network infrastructure, applications, and endpoints before adversaries do. Findings are delivered with clear risk ratings and actionable remediation roadmaps tailored to your operational context.</p>
+              <ul class="cap-item__list">
+                <li>Network infrastructure vulnerability scanning and assessment</li>
+                <li>Web application and API penetration testing</li>
+                <li>Social engineering and phishing simulation exercises</li>
+                <li>Wireless network security assessment</li>
+                <li>Detailed findings report with prioritised remediation plan</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
-        <div class="cap-row">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">SOC Onboarding & 24/7 Threat Monitoring</h2>
-            <p class="cap-row__body">We design, configure, and onboard Security Operations Centre environments — integrating your infrastructure into a SIEM platform, building detection rules aligned to the MITRE ATT&CK framework, and standing up 24/7 monitoring. For organisations that need fully managed coverage, we operate the SOC on their behalf.</p>
-            <ul class="cap-row__list">
-              <li>SIEM platform deployment and log source integration</li>
-              <li>Detection rule development aligned to MITRE ATT&CK</li>
-              <li>Endpoint Detection and Response (EDR) deployment</li>
-              <li>24/7 alert triage, investigation, and incident response</li>
-              <li>Security metrics, SLA reporting, and continuous tuning</li>
-            </ul>
+        <details class="cap-item">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">SOC Onboarding &amp; 24/7 Threat Monitoring</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">We design, configure, and onboard Security Operations Centre environments — integrating your infrastructure into a SIEM platform, building detection rules aligned to the MITRE ATT&CK framework, and standing up 24/7 monitoring. For organisations that need fully managed coverage, we operate the SOC on their behalf.</p>
+              <ul class="cap-item__list">
+                <li>SIEM platform deployment and log source integration</li>
+                <li>Detection rule development aligned to MITRE ATT&CK</li>
+                <li>Endpoint Detection and Response (EDR) deployment</li>
+                <li>24/7 alert triage, investigation, and incident response</li>
+                <li>Security metrics, SLA reporting, and continuous tuning</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
-        <div class="cap-row cap-row--last">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">IAM, Zero-Trust & Compliance Frameworks</h2>
-            <p class="cap-row__body">We implement identity and access management systems that enforce least-privilege access across your organisation — on-premise and in the cloud. We also guide organisations through the compliance frameworks applicable to their sector, regulatory environment, and contractual obligations.</p>
-            <ul class="cap-row__list">
-              <li>Active Directory and cloud identity provider configuration</li>
-              <li>Multi-factor authentication (MFA) rollout and policy enforcement</li>
-              <li>Role-based and attribute-based access control (RBAC/ABAC)</li>
-              <li>Zero-trust network access (ZTNA) architecture and implementation</li>
-              <li>Compliance alignment: ISO 27001, NIST CSF, and sector-specific frameworks</li>
-            </ul>
+        <details class="cap-item cap-item--last">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">IAM, Zero-Trust &amp; Compliance Frameworks</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">We implement identity and access management systems that enforce least-privilege access across your organisation — on-premise and in the cloud. We also guide organisations through the compliance frameworks applicable to their sector, regulatory environment, and contractual obligations.</p>
+              <ul class="cap-item__list">
+                <li>Active Directory and cloud identity provider configuration</li>
+                <li>Multi-factor authentication (MFA) rollout and policy enforcement</li>
+                <li>Role-based and attribute-based access control (RBAC/ABAC)</li>
+                <li>Zero-trust network access (ZTNA) architecture and implementation</li>
+                <li>Compliance alignment: ISO 27001, NIST CSF, and sector-specific frameworks</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
       </div>
     </section>
@@ -103,39 +118,64 @@ const base = import.meta.env.BASE_URL;
   .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
   .sol-caps .section-label {
     margin-top: clamp(24px, 3vw, 40px);
-    margin-bottom: clamp(32px, 4vw, 56px);
+    margin-bottom: clamp(8px, 1vw, 16px);
   }
 
-  .cap-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, 4vw, 64px);
+  .cap-item { border-top: 1px solid var(--border); }
+  .cap-item--last { border-bottom: 1px solid var(--border); }
+
+  .cap-item__trigger {
+    display: flex;
     align-items: center;
-    padding: clamp(40px, 5vw, 72px) 0;
-    border-top: 1px solid var(--border);
+    justify-content: space-between;
+    padding: clamp(20px, 2.5vw, 28px) 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
   }
-  .cap-row--last { border-bottom: 1px solid var(--border); }
+  .cap-item__trigger::-webkit-details-marker { display: none; }
 
-  .cap-row__title {
-    font-size: clamp(18px, 1.8vw, 24px);
+  .cap-item__title {
+    font-size: clamp(16px, 1.6vw, 22px);
     font-weight: 800;
-    color: var(--text);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: -.02em;
     line-height: 1.1;
-    margin-bottom: clamp(12px, 1.5vw, 18px);
   }
-  .cap-row__body {
+
+  .cap-item__icon {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-left: 24px;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  details[open] .cap-item__icon { transform: rotate(45deg); }
+
+  .cap-item__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: start;
+    padding-bottom: clamp(32px, 4vw, 52px);
+  }
+
+  .cap-item__desc {
+    font-style: italic;
     font-size: clamp(14px, 1.2vw, 16px);
     color: var(--muted);
     line-height: 1.8;
     margin-bottom: clamp(16px, 1.8vw, 24px);
   }
-  .cap-row__list {
+
+  .cap-item__list {
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-direction: column; gap: 8px;
   }
-  .cap-row__list li {
+  .cap-item__list li {
     font-size: clamp(13px, 1.1vw, 15px);
     color: var(--text);
     line-height: 1.5;
@@ -160,7 +200,7 @@ const base = import.meta.env.BASE_URL;
   }
 
   @media (max-width: 768px) {
-    .cap-row { grid-template-columns: 1fr; }
+    .cap-item__body { grid-template-columns: 1fr; }
   }
 
   .sol-cta {

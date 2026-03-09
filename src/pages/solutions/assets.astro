@@ -20,56 +20,71 @@ const base = import.meta.env.BASE_URL;
       <div class="container">
         <p class="section-label">Capabilities</p>
 
-        <div class="cap-row">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">GPS Fleet Tracking & Geofencing</h2>
-            <p class="cap-row__body">Real-time GPS positioning for vehicles, trailers, and mobile equipment — accessible via web and mobile dashboard. Geofencing rules trigger automatic alerts when assets enter or exit defined zones, enabling rapid response to unauthorized movement or route deviations.</p>
-            <ul class="cap-row__list">
-              <li>Continuous real-time vehicle location updates</li>
-              <li>Historical route playback and stop analysis</li>
-              <li>Virtual geofence creation with entry/exit alerts</li>
-              <li>Battery and solar-powered trackers for unpowered assets and trailers</li>
-              <li>Multi-fleet map view with live status indicators</li>
-            </ul>
+        <details class="cap-item">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">GPS Fleet Tracking &amp; Geofencing</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">Real-time GPS positioning for vehicles, trailers, and mobile equipment — accessible via web and mobile dashboard. Geofencing rules trigger automatic alerts when assets enter or exit defined zones, enabling rapid response to unauthorized movement or route deviations.</p>
+              <ul class="cap-item__list">
+                <li>Continuous real-time vehicle location updates</li>
+                <li>Historical route playback and stop analysis</li>
+                <li>Virtual geofence creation with entry/exit alerts</li>
+                <li>Battery and solar-powered trackers for unpowered assets and trailers</li>
+                <li>Multi-fleet map view with live status indicators</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
-        <div class="cap-row">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">Fuel Level Monitoring & Consumption Analytics</h2>
-            <p class="cap-row__body">Fuel level sensors connected to fleet management software provide real-time visibility into tank levels, consumption rates, and refueling events. Analytics identify wasteful idling, abnormal consumption patterns, and potential unauthorized fuel drainage.</p>
-            <ul class="cap-row__list">
-              <li>Real-time fuel level readings from in-tank sensors</li>
-              <li>Consumption analytics per vehicle, route, and time period</li>
-              <li>Refueling event detection, logging, and reconciliation</li>
-              <li>Idle time monitoring and fuel waste reporting</li>
-              <li>Alerts on abnormal drain rates or unauthorized siphoning activity</li>
-            </ul>
+        <details class="cap-item">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">Fuel Level Monitoring &amp; Consumption Analytics</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">Fuel level sensors connected to fleet management software provide real-time visibility into tank levels, consumption rates, and refueling events. Analytics identify wasteful idling, abnormal consumption patterns, and potential unauthorized fuel drainage.</p>
+              <ul class="cap-item__list">
+                <li>Real-time fuel level readings from in-tank sensors</li>
+                <li>Consumption analytics per vehicle, route, and time period</li>
+                <li>Refueling event detection, logging, and reconciliation</li>
+                <li>Idle time monitoring and fuel waste reporting</li>
+                <li>Alerts on abnormal drain rates or unauthorized siphoning activity</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
-        <div class="cap-row cap-row--last">
-          <div class="cap-row__text">
-            <h2 class="cap-row__title">Driver Behavior & Safety Scoring</h2>
-            <p class="cap-row__body">AI-powered in-cab and external cameras combined with vehicle telematics automatically detect and score driver behavior events. Fleet managers receive automated safety reports, and drivers receive real-time in-cab coaching to correct unsafe habits before incidents occur.</p>
-            <ul class="cap-row__list">
-              <li>Detection of harsh braking, acceleration, and cornering</li>
-              <li>Distracted driving and fatigue detection via AI camera systems</li>
-              <li>Automated per-driver safety scoring and fleet-wide ranking</li>
-              <li>Real-time in-cab audio alerts for unsafe driving events</li>
-              <li>Video clip upload for incident review and liability documentation</li>
-            </ul>
+        <details class="cap-item cap-item--last">
+          <summary class="cap-item__trigger">
+            <span class="cap-item__title">Driver Behavior &amp; Safety Scoring</span>
+            <span class="cap-item__icon">+</span>
+          </summary>
+          <div class="cap-item__body">
+            <div class="cap-item__text">
+              <p class="cap-item__desc">AI-powered in-cab and external cameras combined with vehicle telematics automatically detect and score driver behavior events. Fleet managers receive automated safety reports, and drivers receive real-time in-cab coaching to correct unsafe habits before incidents occur.</p>
+              <ul class="cap-item__list">
+                <li>Detection of harsh braking, acceleration, and cornering</li>
+                <li>Distracted driving and fatigue detection via AI camera systems</li>
+                <li>Automated per-driver safety scoring and fleet-wide ranking</li>
+                <li>Real-time in-cab audio alerts for unsafe driving events</li>
+                <li>Video clip upload for incident review and liability documentation</li>
+              </ul>
+            </div>
+            <div class="cap-item__media">
+              <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+            </div>
           </div>
-          <div class="cap-row__media">
-            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
-          </div>
-        </div>
+        </details>
 
       </div>
     </section>
@@ -103,39 +118,64 @@ const base = import.meta.env.BASE_URL;
   .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
   .sol-caps .section-label {
     margin-top: clamp(24px, 3vw, 40px);
-    margin-bottom: clamp(32px, 4vw, 56px);
+    margin-bottom: clamp(8px, 1vw, 16px);
   }
 
-  .cap-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, 4vw, 64px);
+  .cap-item { border-top: 1px solid var(--border); }
+  .cap-item--last { border-bottom: 1px solid var(--border); }
+
+  .cap-item__trigger {
+    display: flex;
     align-items: center;
-    padding: clamp(40px, 5vw, 72px) 0;
-    border-top: 1px solid var(--border);
+    justify-content: space-between;
+    padding: clamp(20px, 2.5vw, 28px) 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
   }
-  .cap-row--last { border-bottom: 1px solid var(--border); }
+  .cap-item__trigger::-webkit-details-marker { display: none; }
 
-  .cap-row__title {
-    font-size: clamp(18px, 1.8vw, 24px);
+  .cap-item__title {
+    font-size: clamp(16px, 1.6vw, 22px);
     font-weight: 800;
-    color: var(--text);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: -.02em;
     line-height: 1.1;
-    margin-bottom: clamp(12px, 1.5vw, 18px);
   }
-  .cap-row__body {
+
+  .cap-item__icon {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-left: 24px;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  details[open] .cap-item__icon { transform: rotate(45deg); }
+
+  .cap-item__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: start;
+    padding-bottom: clamp(32px, 4vw, 52px);
+  }
+
+  .cap-item__desc {
+    font-style: italic;
     font-size: clamp(14px, 1.2vw, 16px);
     color: var(--muted);
     line-height: 1.8;
     margin-bottom: clamp(16px, 1.8vw, 24px);
   }
-  .cap-row__list {
+
+  .cap-item__list {
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-direction: column; gap: 8px;
   }
-  .cap-row__list li {
+  .cap-item__list li {
     font-size: clamp(13px, 1.1vw, 15px);
     color: var(--text);
     line-height: 1.5;
@@ -160,7 +200,7 @@ const base = import.meta.env.BASE_URL;
   }
 
   @media (max-width: 768px) {
-    .cap-row { grid-template-columns: 1fr; }
+    .cap-item__body { grid-template-columns: 1fr; }
   }
 
   .sol-cta {
