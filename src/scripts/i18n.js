@@ -55,7 +55,7 @@
 
       'cellular.label': 'Cellular & Mobility',
       'cellular.title': 'Cellular & Mobility',
-      'cellular.body': 'We build cellular backhaul infrastructure to extend operator network reach, optimise carrier-grade traffic, and equip transport fleets with real-time tracking and driver safety tools.',
+      'cellular.body': 'We build cellular backhaul infrastructure to extend operator network reach, optimise carrier-grade traffic, and equip logistics sector fleets with real-time tracking and driver safety tools.',
       'cellular.li1': 'Cellular Backhaul',
       'cellular.li2': 'QoS & traffic engineering for carrier-grade networks',
       'cellular.li3': 'QoS & traffic engineering for carrier-grade networks',
@@ -212,7 +212,7 @@
 
       'cellular.label': 'Cellulaire & Mobilité',
       'cellular.title': 'Cellulaire & Mobilité',
-      'cellular.body': "Nous construisons l'infrastructure de backhaul cellulaire pour étendre la couverture des opérateurs, optimisons le trafic carrier-grade, et équipons les flottes de transport avec des outils de suivi en temps réel et de sécurité des conducteurs.",
+      'cellular.body': "Nous construisons l'infrastructure de backhaul cellulaire pour étendre la couverture des opérateurs, optimisons le trafic carrier-grade, et équipons les flottes du secteur logistique avec des outils de suivi en temps réel et de sécurité des conducteurs.",
       'cellular.li1': 'Backhaul cellulaire',
       'cellular.li2': 'QoS & ingénierie du trafic pour réseaux carrier-grade',
       'cellular.li3': 'QoS & ingénierie du trafic pour réseaux opérateurs',
@@ -369,7 +369,7 @@
 
       'cellular.label': 'الخلوي',
       'cellular.title': 'الخلوي',
-      'cellular.body': 'نبني بنية تحتية للـ backhaul الخلوي لتوسيع نطاق شبكات المشغلين، ونُحسّن حركة البيانات carrier-grade، ونجهّز أساطيل النقل بأدوات التتبع الفوري وسلامة السائقين.',
+      'cellular.body': 'نبني بنية تحتية للـ backhaul الخلوي لتوسيع نطاق شبكات المشغلين، ونُحسّن حركة البيانات carrier-grade، ونجهّز أساطيل قطاع اللوجستيات بأدوات التتبع الفوري وسلامة السائقين.',
       'cellular.li1': 'Backhaul الخلوي',
       'cellular.li2': 'جودة الخدمة وهندسة حركة البيانات لشبكات المشغلين',
       'cellular.li3': 'جودة الخدمة وهندسة حركة المرور لشبكات الناقلين',
