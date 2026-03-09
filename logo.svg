@@ -29,7 +29,7 @@
         font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
         font-size="28" font-weight="700"
         textLength="76" lengthAdjust="spacingAndGlyphs"
-        fill="#f5a524">Afrik</text>
+        fill="#f5a524">AFRIK</text>
 
   <!-- Closing bracket: x = 71 + 76 + 4 = 151 -->
   <path d="M 151,3 L 159,3 L 159,41 L 151,41"
