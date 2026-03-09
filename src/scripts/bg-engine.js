@@ -64,7 +64,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = -(Math.random() * 0.4 + 0.3) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.3 * SPEED_MULT;
+      this.vx = -(Math.random() * 0.8 + 0.6) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.6 * SPEED_MULT;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -96,7 +96,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = -(Math.random() * 0.4 + 0.3) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.3 * SPEED_MULT;
+      this.vx = -(Math.random() * 0.8 + 0.6) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.6 * SPEED_MULT;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -123,7 +123,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = -(Math.random() * 0.4 + 0.3) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.3 * SPEED_MULT;
+      this.vx = -(Math.random() * 0.8 + 0.6) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.6 * SPEED_MULT;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
@@ -155,7 +155,7 @@ import contactConfig     from './bg-sections/contact.js';
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * w; this.y = Math.random() * h;
-      this.vx = -(Math.random() * 0.4 + 0.3) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.3 * SPEED_MULT;
+      this.vx = -(Math.random() * 0.8 + 0.6) * SPEED_MULT; this.vy = (Math.random() - .5) * 0.6 * SPEED_MULT;
       this.angle = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * 0.0001;
     }
     update() {
