@@ -73,8 +73,8 @@
       'safety.body': 'Integrated camera networks, drone monitoring, and analytics platforms that give your security team total situational awareness — day and night, indoors and outdoors.',
       'safety.li1': 'IP CCTV & thermal imaging networks',
       'safety.li2': 'ISR drone integration & airspace monitoring',
-      'safety.li3': 'AI-assisted video analytics & alerting',
-      'safety.li4': 'Mobile Ad Hoc Networking Systems (MANET)',
+      'safety.li3': 'Mobile Ad Hoc Networking Systems (MANET)',
+      'safety.li4': 'AI-assisted video analytics & alerting',
 
       'connectivity.label': 'Critical Connectivity',
       'connectivity.title': 'Critical Connectivity',
@@ -226,8 +226,8 @@
       'safety.body': "Réseaux de caméras intégrés, surveillance par drone et plateformes analytiques offrant à votre équipe de sécurité une conscience situationnelle totale — jour et nuit, intérieur et extérieur.",
       'safety.li1': 'Réseaux CCTV IP & imagerie thermique',
       'safety.li2': "Intégration drone ISR & surveillance de l'espace aérien",
-      'safety.li3': 'Vidéo analytique assistée par IA & alertes',
-      'safety.li4': 'Systèmes de réseaux ad hoc mobiles (MANET)',
+      'safety.li3': 'Systèmes de réseaux ad hoc mobiles (MANET)',
+      'safety.li4': 'Vidéo analytique assistée par IA & alertes',
 
       'connectivity.label': 'Connectivité Critique',
       'connectivity.title': 'Connectivité Critique',
@@ -379,8 +379,8 @@
       'safety.body': 'شبكات كاميرا متكاملة ومراقبة بالطائرات المسيّرة ومنصات تحليلية تمنح فريق الأمن لديك وعياً كاملاً بالموقف.',
       'safety.li1': 'شبكات CCTV IP والتصوير الحراري',
       'safety.li2': 'تكامل طائرات ISR ومراقبة المجال الجوي',
-      'safety.li3': 'تحليل فيديو بمساعدة الذكاء الاصطناعي والتنبيه',
-      'safety.li4': 'أنظمة الشبكات المتنقلة المخصصة (MANET)',
+      'safety.li3': 'أنظمة الشبكات المتنقلة المخصصة (MANET)',
+      'safety.li4': 'تحليل فيديو بمساعدة الذكاء الاصطناعي والتنبيه',
 
       'connectivity.label': 'الاتصال الحيوي',
       'connectivity.title': 'الاتصال الحيوي',
