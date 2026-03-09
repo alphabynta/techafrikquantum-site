@@ -4,6 +4,10 @@
   <path d="M 18,3 L 10,3 L 10,41 L 18,41"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
+  <!-- Square around TECH -->
+  <rect x="19" y="17" width="51" height="23"
+        fill="none" stroke="#f5a524" stroke-width="1.8"/>
+
   <!-- TECH: small digital blocks, baseline at y=36 -->
   <g fill="#f5a524">
     <!-- T -->
