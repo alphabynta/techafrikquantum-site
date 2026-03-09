@@ -89,7 +89,7 @@
 
       'assets.label': 'Assets Management',
       'assets.title': 'Assets Management',
-      'assets.body': 'Real-time visibility over vehicles, equipment, and personnel. Reduce fuel waste, prevent theft, and make smarter operational decisions.',
+      'assets.body': 'Real-time GPS tracking, fuel level monitoring, and driver behavior analytics — giving fleet operators full visibility over their assets, reducing consumption losses, and improving safety compliance.',
       'assets.li1': 'GPS fleet tracking & geofencing',
       'assets.li2': 'Fuel level monitoring & consumption analytics',
       'assets.li3': 'Driver behavior & safety scoring',
@@ -246,7 +246,7 @@
 
       'assets.label': 'Gestion des Actifs',
       'assets.title': 'Gestion des Actifs',
-      'assets.body': "Visibilité en temps réel sur véhicules, équipements et personnel. Réduire le gaspillage de carburant, prévenir le vol et prendre de meilleures décisions opérationnelles.",
+      'assets.body': "Suivi GPS en temps réel, surveillance du niveau de carburant et analyse du comportement des conducteurs — offrant aux opérateurs de flotte une visibilité complète sur leurs actifs, réduisant les pertes de consommation et améliorant la conformité à la sécurité.",
       'assets.li1': 'Suivi GPS de flotte & géofencing',
       'assets.li2': 'Surveillance du niveau de carburant & analytique de consommation',
       'assets.li3': 'Comportement conducteur & scoring sécurité',
@@ -403,7 +403,7 @@
 
       'assets.label': 'إدارة الأصول',
       'assets.title': 'إدارة الأصول',
-      'assets.body': 'رؤية في الوقت الفعلي على المركبات والمعدات والأفراد. تقليل هدر الوقود ومنع السرقة واتخاذ قرارات تشغيلية أذكى.',
+      'assets.body': 'تتبع GPS في الوقت الفعلي ومراقبة مستوى الوقود وتحليلات سلوك السائقين — مما يمنح مشغلي الأسطول رؤية كاملة على أصولهم ويقلل خسائر الاستهلاك ويحسن الامتثال للسلامة.',
       'assets.li1': 'تتبع أسطول GPS والسياج الجغرافي',
       'assets.li2': 'مراقبة مستوى الوقود وتحليلات الاستهلاك',
       'assets.li3': 'سلوك السائق وتسجيل السلامة',
