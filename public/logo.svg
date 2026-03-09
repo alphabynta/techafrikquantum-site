@@ -1,16 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 36" width="148" height="36">
 
-  <!-- 240° orbital arc — open at the bottom, r=18, center (25,24) -->
-  <path d="M 9.4,33 A 18,18 0 1 1 40.6,33"
-        fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Wordmark: TECH in white, AFRIK in amber -->
+  <text x="4" y="23"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="21" font-weight="800" letter-spacing="2.5">
+    <tspan fill="#e8e8e8">TECH</tspan><tspan fill="#f5a524">AFRIK</tspan>
+  </text>
 
-  <!-- Origin dot -->
-  <circle cx="25" cy="24" r="5" fill="#f5a524"/>
-
-  <!-- Wordmark -->
-  <text x="54" y="33"
-        font-family="'Segoe UI', Arial, sans-serif"
-        font-size="22" font-weight="700" letter-spacing="-0.3"
-        fill="#f5a524">TechAfrik</text>
+  <!-- Amber accent bar under TECH -->
+  <rect x="4" y="29" width="60" height="2.5" rx="1.2" fill="#f5a524"/>
 
 </svg>
