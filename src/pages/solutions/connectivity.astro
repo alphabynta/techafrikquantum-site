@@ -19,12 +19,12 @@ const base = import.meta.env.BASE_URL;
     <section id="capabilities" class="sol-caps">
       <div class="container">
         <p class="section-label">Capabilities</p>
-        <div class="caps-grid">
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Sites Interconnection over Satellite</h2>
-            <p class="cap-card__body">We connect isolated and distributed sites using VSAT and broadband satellite links. High-availability configurations with geo-redundant satellite HUBs — dual ground station architecture with automatic failover between geographically separated teleports — ensure connectivity even when one hub is degraded or unavailable.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Sites Interconnection over Satellite</h2>
+            <p class="cap-row__body">We connect isolated and distributed sites using VSAT and broadband satellite links. High-availability configurations with geo-redundant satellite HUBs — dual ground station architecture with automatic failover between geographically separated teleports — ensure connectivity even when one hub is degraded or unavailable.</p>
+            <ul class="cap-row__list">
               <li>VSAT C/Ku/Ka-band links for fixed and remote sites</li>
               <li>LEO broadband for rapid-deployment and high-throughput scenarios</li>
               <li>Geo-redundant satellite HUBs with automatic teleport failover</li>
@@ -32,11 +32,16 @@ const base = import.meta.env.BASE_URL;
               <li>Unified IP link carrying voice, data, and video</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Satellite on the Move (SOTM)</h2>
-            <p class="cap-card__body">Continuous satellite connectivity for vehicles, vessels, and mobile platforms in motion. SOTM systems maintain a live link to the satellite while the platform moves, enabling real-time command, control, and communications without interruption.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Satellite on the Move (SOTM)</h2>
+            <p class="cap-row__body">Continuous satellite connectivity for vehicles, vessels, and mobile platforms in motion. SOTM systems maintain a live link to the satellite while the platform moves, enabling real-time command, control, and communications without interruption.</p>
+            <ul class="cap-row__list">
               <li>Auto-tracking antennas for ground vehicles and naval vessels</li>
               <li>Seamless beam handover during movement</li>
               <li>Live voice, video, and data over a mobile satellite link</li>
@@ -44,11 +49,16 @@ const base = import.meta.env.BASE_URL;
               <li>Compatible with GEO and LEO satellite constellations</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Rapid-Deployment Satellite Terminals (SOTP)</h2>
-            <p class="cap-card__body">Satellite terminals designed for fast setup and teardown — enabling connectivity wherever a unit or team stops. From man-portable kits to vehicle-integrated systems, these terminals auto-acquire the satellite on arrival and establish a link within minutes.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Rapid-Deployment Satellite Terminals (SOTP)</h2>
+            <p class="cap-row__body">Satellite terminals designed for fast setup and teardown — enabling connectivity wherever a unit or team stops. From man-portable kits to vehicle-integrated systems, these terminals auto-acquire the satellite on arrival and establish a link within minutes.</p>
+            <ul class="cap-row__list">
               <li>Manpacks — man-portable terminals for dismounted and foot-mobile deployments</li>
               <li>Flyaway kits — airline-checkable case systems deployable anywhere within hours</li>
               <li>Driveaway systems — vehicle-integrated terminals with automatic satellite acquisition on arrival</li>
@@ -56,11 +66,16 @@ const base = import.meta.env.BASE_URL;
               <li>Compatible with military and commercial satellite networks</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Tactical Communication HUBs</h2>
-            <p class="cap-card__body">Field-deployable central nodes that aggregate multiple connectivity paths — satellite, microwave, and radio — onto a single managed IP backbone. Tactical HUBs serve as the communications anchor for forward operating bases, mobile command posts, and multi-site field operations.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Tactical Communication HUBs</h2>
+            <p class="cap-row__body">Field-deployable central nodes that aggregate multiple connectivity paths — satellite, microwave, and radio — onto a single managed IP backbone. Tactical HUBs serve as the communications anchor for forward operating bases, mobile command posts, and multi-site field operations.</p>
+            <ul class="cap-row__list">
               <li>Aggregation of satellite, microwave, and radio links into a unified IP core</li>
               <li>Traffic prioritisation and quality of service for voice, video, and data</li>
               <li>Integration of MANET, VHF/UHF radio, and satellite onto one backbone</li>
@@ -68,11 +83,16 @@ const base = import.meta.env.BASE_URL;
               <li>Remote management and real-time status monitoring</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Site-to-Site Microwave Links</h2>
-            <p class="cap-card__body">For urban, peri-urban, and campus environments, we design and deploy licensed microwave backhaul links. Low latency, high throughput, and no dependency on third-party last-mile providers — ideal for inter-site connectivity where terrestrial fiber is unavailable or uneconomical.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Site-to-Site Microwave Links</h2>
+            <p class="cap-row__body">For urban, peri-urban, and campus environments, we design and deploy licensed microwave backhaul links. Low latency, high throughput, and no dependency on third-party last-mile providers — ideal for inter-site connectivity where terrestrial fiber is unavailable or uneconomical.</p>
+            <ul class="cap-row__list">
               <li>Licensed microwave point-to-point (PtP) links</li>
               <li>Point-to-multipoint (PtMP) for multi-site clusters</li>
               <li>Encrypted microwave links for secure inter-site data</li>
@@ -80,11 +100,16 @@ const base = import.meta.env.BASE_URL;
               <li>High-availability configurations with automatic link protection</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Radio Communication</h2>
-            <p class="cap-card__body">We design and deploy VHF/UHF radio networks for tactical and operational communications — from repeater infrastructure extending coverage across difficult terrain, to IP radio gateways bridging legacy radio networks into modern data architectures.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Radio Communication</h2>
+            <p class="cap-row__body">We design and deploy VHF/UHF radio networks for tactical and operational communications — from repeater infrastructure extending coverage across difficult terrain, to IP radio gateways bridging legacy radio networks into modern data architectures.</p>
+            <ul class="cap-row__list">
               <li>VHF/UHF radio networks for tactical and field operations</li>
               <li>Encrypted digital voice (DMR, P25, TETRA) for public safety and defense</li>
               <li>Repeater infrastructure for coverage in terrain-challenged areas</li>
@@ -92,16 +117,28 @@ const base = import.meta.env.BASE_URL;
               <li>Integration with dispatch, command, and control center platforms</li>
             </ul>
           </div>
-
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section id="noc" class="sol-noc">
-      <div class="container sol-noc__inner">
-        <p class="section-label">Operations Support</p>
-        <h2 class="sol-noc__title">Network Telemetry, SLA Monitoring & NOC Support</h2>
-        <p class="sol-noc__body lead">All connectivity solutions we deploy are backed by continuous monitoring from a centralised Network Operations Centre. We provide proactive fault detection, SLA-based availability reporting, remote troubleshooting, and scheduled preventive maintenance — so your links stay up and performance stays measurable.</p>
+        <div class="cap-row cap-row--last">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Network Telemetry, SLA Monitoring & NOC Support</h2>
+            <p class="cap-row__body">All connectivity solutions we deploy are backed by continuous monitoring from a centralised Network Operations Centre. We provide proactive fault detection, SLA-based availability reporting, remote troubleshooting, and scheduled preventive maintenance — so your links stay up and performance stays measurable.</p>
+            <ul class="cap-row__list">
+              <li>24/7 network monitoring from a centralised NOC</li>
+              <li>Proactive fault detection and alerting before outages impact operations</li>
+              <li>SLA-based reporting on availability, latency, and throughput</li>
+              <li>Remote troubleshooting and configuration management</li>
+              <li>Scheduled preventive maintenance and on-site intervention</li>
+            </ul>
+          </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -131,64 +168,72 @@ const base = import.meta.env.BASE_URL;
   }
   .sol-hero__lead { max-width: 640px; font-style: italic; }
 
-  .sol-caps { padding-bottom: clamp(60px, 8vw, 100px); }
-  .caps-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
+  .sol-caps .section-label {
     margin-top: clamp(24px, 3vw, 40px);
+    margin-bottom: clamp(32px, 4vw, 56px);
   }
-  @media (max-width: 600px) { .caps-grid { grid-template-columns: 1fr; } }
 
-  .cap-card {
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    background: rgba(255,255,255,0.03);
-    padding: clamp(24px, 2.5vw, 36px);
-    border-radius: 4px;
-    display: flex; flex-direction: column; gap: 14px;
-    transition: background 0.2s ease;
+  .cap-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: center;
+    padding: clamp(40px, 5vw, 72px) 0;
+    border-top: 1px solid var(--border);
   }
-  .cap-card:hover { background: rgba(255,255,255,0.06); }
-  .cap-card__title {
-    font-size: clamp(16px, 1.5vw, 20px);
-    font-weight: 800; color: var(--accent);
-    text-transform: uppercase; letter-spacing: -.02em; line-height: 1.1;
+  .cap-row--last { border-bottom: 1px solid var(--border); }
+
+  .cap-row__title {
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 800;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    margin-bottom: clamp(12px, 1.5vw, 18px);
   }
-  .cap-card__body {
+  .cap-row__body {
     font-size: clamp(14px, 1.2vw, 16px);
-    color: var(--muted); line-height: 1.7;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: clamp(16px, 1.8vw, 24px);
   }
-  .cap-card__list {
+  .cap-row__list {
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-direction: column; gap: 8px;
   }
-  .cap-card__list li {
+  .cap-row__list li {
     font-size: clamp(13px, 1.1vw, 15px);
     color: var(--text);
-    padding-left: 16px; position: relative; line-height: 1.5;
-  }
-  .cap-card__list li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--accent); font-weight: 700;
+    line-height: 1.5;
   }
 
-  .sol-noc {
-    padding: clamp(48px, 6vw, 80px) 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  .media-slot {
+    aspect-ratio: 16 / 9;
+    border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
-  .sol-noc__inner { display: flex; flex-direction: column; gap: 16px; }
-  .sol-noc__title {
-    font-size: clamp(20px, 2.5vw, 32px);
-    font-weight: 800; letter-spacing: -.03em;
-    color: var(--text); text-transform: uppercase; line-height: 1.1;
+  .media-slot__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    letter-spacing: .2em;
   }
-  .sol-noc__body { max-width: 720px; }
+
+  @media (max-width: 768px) {
+    .cap-row { grid-template-columns: 1fr; }
+  }
 
   .sol-cta {
     padding: clamp(48px, 6vw, 80px) 0;
+    border-top: 1px solid var(--border);
   }
   .sol-cta__inner { display: flex; flex-direction: column; gap: 16px; }
   .sol-cta__title {

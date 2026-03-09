@@ -19,12 +19,12 @@ const base = import.meta.env.BASE_URL;
     <section id="capabilities" class="sol-caps">
       <div class="container">
         <p class="section-label">Capabilities</p>
-        <div class="caps-grid">
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">ISR Drone Integration & Airspace Monitoring</h2>
-            <p class="cap-card__body">We integrate unmanned aerial systems into your security architecture — providing persistent elevated surveillance, real-time aerial reconnaissance, and airspace monitoring. Tethered and free-flight platforms extend your surveillance perimeter beyond ground-based systems and feed live video into your command center.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">ISR Drone Integration & Airspace Monitoring</h2>
+            <p class="cap-row__body">We integrate unmanned aerial systems into your security architecture — providing persistent elevated surveillance, real-time aerial reconnaissance, and airspace monitoring. Tethered and free-flight platforms extend your surveillance perimeter beyond ground-based systems and feed live video into your command center.</p>
+            <ul class="cap-row__list">
               <li>Tethered UAS for persistent elevated ISR without flight-time limits</li>
               <li>Autonomous free-flight drones for area reconnaissance and patrol</li>
               <li>Airspace monitoring and counter-UAS (C-UAS) RF detection</li>
@@ -32,11 +32,16 @@ const base = import.meta.env.BASE_URL;
               <li>Vehicle-mounted and man-portable platform options</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">Mobile Ad Hoc Networking Systems (MANET)</h2>
-            <p class="cap-card__body">MANET radios form self-healing, self-configuring IP mesh networks that connect personnel, vehicles, and unmanned systems in the field — without relying on fixed infrastructure. Every node acts simultaneously as a transceiver and router, automatically adapting to movement and link disruptions.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">Mobile Ad Hoc Networking Systems (MANET)</h2>
+            <p class="cap-row__body">MANET radios form self-healing, self-configuring IP mesh networks that connect personnel, vehicles, and unmanned systems in the field — without relying on fixed infrastructure. Every node acts simultaneously as a transceiver and router, automatically adapting to movement and link disruptions.</p>
+            <ul class="cap-row__list">
               <li>Self-forming mesh with no master node dependency</li>
               <li>Simultaneous voice, video, and data over a single encrypted IP link</li>
               <li>Integration with UAVs, UGVs, and sensor platforms</li>
@@ -44,11 +49,16 @@ const base = import.meta.env.BASE_URL;
               <li>Scalable from small team deployments to large multi-node networks</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">IP CCTV & Thermal Imaging Networks</h2>
-            <p class="cap-card__body">We design and deploy scalable IP video surveillance networks for perimeters, facilities, and urban environments. Fixed, PTZ, and thermal cameras are integrated into a unified video management system — accessible from a central command center or remotely over secure links.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">IP CCTV & Thermal Imaging Networks</h2>
+            <p class="cap-row__body">We design and deploy scalable IP video surveillance networks for perimeters, facilities, and urban environments. Fixed, PTZ, and thermal cameras are integrated into a unified video management system — accessible from a central command center or remotely over secure links.</p>
+            <ul class="cap-row__list">
               <li>Fixed, PTZ, and multi-sensor camera deployments</li>
               <li>Long-range thermal cameras for perimeter detection in low-light and zero-light</li>
               <li>Ruggedized outdoor enclosures for harsh environments</li>
@@ -56,11 +66,16 @@ const base = import.meta.env.BASE_URL;
               <li>Integration with access control, alarm, and dispatch systems</li>
             </ul>
           </div>
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
+        </div>
 
-          <div class="cap-card">
-            <h2 class="cap-card__title">AI-Assisted Video Analytics & Alerting</h2>
-            <p class="cap-card__body">AI-powered analytics engines process live and recorded video to detect threats, anomalies, and events automatically — reducing operator workload and shortening response time. Analytics run at the edge or centrally and integrate directly into your operations center workflow.</p>
-            <ul class="cap-card__list">
+        <div class="cap-row cap-row--last">
+          <div class="cap-row__text">
+            <h2 class="cap-row__title">AI-Assisted Video Analytics & Alerting</h2>
+            <p class="cap-row__body">AI-powered analytics engines process live and recorded video to detect threats, anomalies, and events automatically — reducing operator workload and shortening response time. Analytics run at the edge or centrally and integrate directly into your operations center workflow.</p>
+            <ul class="cap-row__list">
               <li>Intrusion detection and perimeter breach alerting</li>
               <li>Person and vehicle detection, classification, and counting</li>
               <li>Behavioral anomaly and unusual motion detection</li>
@@ -68,8 +83,11 @@ const base = import.meta.env.BASE_URL;
               <li>Alert correlation with access control and incident management platforms</li>
             </ul>
           </div>
-
+          <div class="cap-row__media">
+            <div class="media-slot"><span class="media-slot__label">Video / Image</span></div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -100,46 +118,66 @@ const base = import.meta.env.BASE_URL;
   .sol-hero__lead { max-width: 640px; font-style: italic; }
 
   .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
-  .caps-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .sol-caps .section-label {
     margin-top: clamp(24px, 3vw, 40px);
+    margin-bottom: clamp(32px, 4vw, 56px);
   }
-  @media (max-width: 600px) { .caps-grid { grid-template-columns: 1fr; } }
 
-  .cap-card {
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    background: rgba(255,255,255,0.03);
-    padding: clamp(24px, 2.5vw, 36px);
-    border-radius: 4px;
-    display: flex; flex-direction: column; gap: 14px;
-    transition: background 0.2s ease;
+  .cap-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: center;
+    padding: clamp(40px, 5vw, 72px) 0;
+    border-top: 1px solid var(--border);
   }
-  .cap-card:hover { background: rgba(255,255,255,0.06); }
-  .cap-card__title {
-    font-size: clamp(16px, 1.5vw, 20px);
-    font-weight: 800; color: var(--accent);
-    text-transform: uppercase; letter-spacing: -.02em; line-height: 1.1;
+  .cap-row--last { border-bottom: 1px solid var(--border); }
+
+  .cap-row__title {
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 800;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    margin-bottom: clamp(12px, 1.5vw, 18px);
   }
-  .cap-card__body {
+  .cap-row__body {
     font-size: clamp(14px, 1.2vw, 16px);
-    color: var(--muted); line-height: 1.7;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: clamp(16px, 1.8vw, 24px);
   }
-  .cap-card__list {
+  .cap-row__list {
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-direction: column; gap: 8px;
   }
-  .cap-card__list li {
+  .cap-row__list li {
     font-size: clamp(13px, 1.1vw, 15px);
     color: var(--text);
-    padding-left: 16px; position: relative; line-height: 1.5;
+    line-height: 1.5;
   }
-  .cap-card__list li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--accent); font-weight: 700;
+
+  .media-slot {
+    aspect-ratio: 16 / 9;
+    border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .media-slot__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+  }
+
+  @media (max-width: 768px) {
+    .cap-row { grid-template-columns: 1fr; }
   }
 
   .sol-cta {
