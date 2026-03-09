@@ -1,3 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="32" viewBox="0 0 160 32">
-  <text x="0" y="24" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5a524">TechAfrik</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 48" width="230" height="48">
+  <!-- Hexagon: flat-top, center (24,24), radius 19 -->
+  <polygon points="43,24 33.5,40.5 14.5,40.5 5,24 14.5,7.5 33.5,7.5"
+           fill="none" stroke="#f5a524" stroke-width="1.8"/>
+
+  <!-- Circuit lines from center to 3 alternating vertices -->
+  <line x1="24" y1="24" x2="43" y2="24"    stroke="#f5a524" stroke-width="1.2"/>
+  <line x1="24" y1="24" x2="14.5" y2="40.5" stroke="#f5a524" stroke-width="1.2"/>
+  <line x1="24" y1="24" x2="14.5" y2="7.5"  stroke="#f5a524" stroke-width="1.2"/>
+
+  <!-- Node dots -->
+  <circle cx="24"  cy="24"   r="3"   fill="#f5a524"/>
+  <circle cx="43"  cy="24"   r="2.5" fill="#f5a524"/>
+  <circle cx="14.5" cy="40.5" r="2.5" fill="#f5a524"/>
+  <circle cx="14.5" cy="7.5"  r="2.5" fill="#f5a524"/>
+
+  <!-- Wordmark: "Tech" light + "Afrik" bold -->
+  <text x="56" y="33"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="23" font-weight="400" letter-spacing="0.3"
+        fill="#e8e8e8">Tech</text>
+  <text x="108" y="33"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="23" font-weight="800" letter-spacing="0.3"
+        fill="#f5a524">Afrik</text>
 </svg>
