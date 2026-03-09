@@ -2,23 +2,15 @@
 const base = import.meta.env.BASE_URL;
 const sectors = [
   {
-    num: '01', id: 'defense', bgImg: null,
-    labelKey: 'defense.label', titleKey: 'defense.title', bodyKey: 'defense.body',
-    liKeys: ['defense.li1','defense.li2','defense.li3'],
-    label: 'Defense', title: 'Defense',
-    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces operating in challenging environments. Our solutions are designed for reliability under pressure — from perimeter protection to command-and-control connectivity.',
-    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Rapid deployment & field-serviceable systems'],
+    num: '01', id: 'defense-government', bgImg: null,
+    labelKey: 'defgov.label', titleKey: 'defgov.title', bodyKey: 'defgov.body',
+    liKeys: ['defgov.li1','defgov.li2','defgov.li3','defgov.li4'],
+    label: 'Defense & Government', title: 'Defense & Government',
+    body: 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces and public institutions. From tactical field deployments to national smart city infrastructure — our solutions are built for reliability under pressure.',
+    li: ['Tactical surveillance & ISR drone integration','Encrypted military-grade communications','Public safety & smart city infrastructure','Governance, risk & compliance frameworks'],
   },
   {
-    num: '02', id: 'government', bgImg: null,
-    labelKey: 'government.label', titleKey: 'government.title', bodyKey: 'government.body',
-    liKeys: ['government.li1','government.li2','government.li3'],
-    label: 'Government', title: 'Government',
-    body: 'We support government agencies and public institutions with secure network infrastructure, surveillance systems, and digital governance tools.',
-    li: ['Public safety & smart city infrastructure','Secure inter-agency communications','Governance, risk & compliance frameworks'],
-  },
-  {
-    num: '03', id: 'enterprise', bgImg: null,
+    num: '02', id: 'enterprise', bgImg: null,
     labelKey: 'enterprise.label', titleKey: 'enterprise.title', bodyKey: 'enterprise.body',
     liKeys: ['enterprise.li1','enterprise.li2','enterprise.li3'],
     label: 'Enterprise', title: 'Enterprise',
@@ -26,7 +18,7 @@ const sectors = [
     li: ['Enterprise network design & orchestration','SOC onboarding & IAM implementation','Fleet & assets tracking for operations'],
   },
   {
-    num: '04', id: 'oilgas', bgImg: null,
+    num: '03', id: 'oilgas', bgImg: null,
     labelKey: 'oilgas.label', titleKey: 'oilgas.title', bodyKey: 'oilgas.body',
     liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
     label: 'Oil & Gas', title: 'Oil & Gas',
@@ -34,7 +26,7 @@ const sectors = [
     li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
   },
   {
-    num: '05', id: 'cellular-mobility', bgImg: null,
+    num: '04', id: 'cellular-mobility', bgImg: null,
     labelKey: 'cellular.label', titleKey: 'cellular.title', bodyKey: 'cellular.body',
     liKeys: ['cellular.li1','cellular.li2','mobility.li1','mobility.li2'],
     label: 'Cellular & Mobility', title: 'Cellular & Mobility',
