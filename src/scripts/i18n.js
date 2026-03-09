@@ -41,9 +41,10 @@
 
       'enterprise.label': 'Enterprise',
       'enterprise.title': 'Enterprise',
-      'enterprise.body': 'Corporate networks, cybersecurity operations, and assets management for businesses that cannot afford downtime.',
+      'enterprise.body': 'We equip enterprises with the tools to stay secure, operationally efficient, and customer-ready — from cybersecurity and fleet management to CRM systems that drive revenue.',
       'enterprise.li1': 'SOC onboarding & IAM implementation',
       'enterprise.li2': 'Fleet & assets tracking for operations',
+      'enterprise.li3': 'Customer Relationship Management (CRM) Systems',
 
       'oilgas.label': 'Oil & Gas',
       'oilgas.title': 'Oil & Gas',
@@ -197,9 +198,10 @@
 
       'enterprise.label': 'Entreprise',
       'enterprise.title': 'Entreprise',
-      'enterprise.body': "Réseaux d'entreprise, opérations de cybersécurité et gestion des actifs pour les entreprises qui ne peuvent pas se permettre d'interruption.",
+      'enterprise.body': "Nous équipons les entreprises pour rester sécurisées, efficaces et orientées client — de la cybersécurité et la gestion de flotte aux systèmes CRM qui génèrent de la valeur.",
       'enterprise.li1': 'Intégration SOC & mise en œuvre IAM',
       'enterprise.li2': 'Suivi de flotte & gestion des actifs opérationnels',
+      'enterprise.li3': 'Systèmes de gestion de la relation client (CRM)',
 
       'oilgas.label': 'Pétrole & Gaz',
       'oilgas.title': 'Pétrole & Gaz',
@@ -353,9 +355,10 @@
 
       'enterprise.label': 'المؤسسات',
       'enterprise.title': 'المؤسسات',
-      'enterprise.body': 'شبكات الشركات وعمليات الأمن السيبراني وإدارة الأصول للمؤسسات التي لا يمكنها تحمل التوقف.',
+      'enterprise.body': 'نزوّد المؤسسات بالأدوات للبقاء آمنة وفعّالة تشغيلياً وجاهزة للعملاء — من الأمن السيبراني وإدارة الأسطول إلى أنظمة CRM التي تدفع النمو.',
       'enterprise.li1': 'تأهيل SOC وتنفيذ IAM',
       'enterprise.li2': 'تتبع الأسطول وإدارة أصول العمليات',
+      'enterprise.li3': 'أنظمة إدارة علاقات العملاء (CRM)',
 
       'oilgas.label': 'النفط والغاز',
       'oilgas.title': 'النفط والغاز',
