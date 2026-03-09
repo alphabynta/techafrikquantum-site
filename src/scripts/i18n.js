@@ -55,8 +55,9 @@
 
       'cellular.label': 'Cellular & Mobility',
       'cellular.title': 'Cellular & Mobility',
-      'cellular.body': 'We deliver QoS and traffic engineering for cellular networks, and provide fleet connectivity, tracking, and safety solutions to transport operators across West Africa.',
-      'cellular.li1': 'QoS & traffic engineering for carrier-grade networks',
+      'cellular.body': 'We implement local backhaul systems that help cellular operators extend their network reach, deliver QoS and traffic engineering for carrier-grade performance, and provide fleet connectivity and safety solutions to transport operators across West Africa.',
+      'cellular.li1': 'Local backhaul systems for network extension',
+      'cellular.li2': 'QoS & traffic engineering for carrier-grade networks',
       'cellular.li3': 'QoS & traffic engineering for carrier-grade networks',
 
       'mobility.label': 'Mobility',
@@ -211,8 +212,9 @@
 
       'cellular.label': 'Cellulaire & Mobilité',
       'cellular.title': 'Cellulaire & Mobilité',
-      'cellular.body': "Nous assurons la qualité de service et l'ingénierie du trafic pour les réseaux cellulaires, et fournissons des solutions de connectivité, suivi et sécurité des flottes aux opérateurs de transport en Afrique de l'Ouest.",
-      'cellular.li1': 'QoS & ingénierie du trafic pour réseaux carrier-grade',
+      'cellular.body': "Nous déployons des systèmes de backhaul locaux pour aider les opérateurs cellulaires à étendre leur couverture réseau, assurons la QoS et l'ingénierie du trafic, et fournissons des solutions de connectivité et de sécurité des flottes aux opérateurs de transport en Afrique de l'Ouest.",
+      'cellular.li1': 'Systèmes de backhaul local pour extension de réseau',
+      'cellular.li2': 'QoS & ingénierie du trafic pour réseaux carrier-grade',
       'cellular.li3': 'QoS & ingénierie du trafic pour réseaux opérateurs',
 
       'mobility.label': 'Mobilité',
@@ -367,8 +369,9 @@
 
       'cellular.label': 'الخلوي',
       'cellular.title': 'الخلوي',
-      'cellular.body': 'نقدم جودة الخدمة وهندسة حركة البيانات لشبكات الاتصالات الخلوية، ونوفر حلول اتصال وتتبع وسلامة الأسطول لمشغلي النقل في غرب أفريقيا.',
-      'cellular.li1': 'جودة الخدمة وهندسة حركة البيانات لشبكات المشغلين',
+      'cellular.body': 'ننفذ أنظمة backhaul محلية تساعد مشغلي الشبكات الخلوية على توسيع نطاقهم، ونقدم جودة الخدمة وهندسة حركة البيانات، ونوفر حلول الأسطول والسلامة لمشغلي النقل في غرب أفريقيا.',
+      'cellular.li1': 'أنظمة backhaul محلية لتوسيع الشبكة',
+      'cellular.li2': 'جودة الخدمة وهندسة حركة البيانات لشبكات المشغلين',
       'cellular.li3': 'جودة الخدمة وهندسة حركة المرور لشبكات الناقلين',
 
       'mobility.label': 'المتنقلة',
