@@ -18,9 +18,8 @@
 
   var nav = document.querySelector('.site-header');
 
-  /* Disable CSS transition — we drive color manually on every scroll frame */
+  /* Disable CSS transition on page-bg — we drive color manually on every scroll frame */
   bg.style.transition = 'none';
-  if (nav) nav.style.transition = 'none';
 
   var darkTokens = {
     '--text':    '#f0f0f2',
@@ -29,7 +28,7 @@
     '--surface-2': '#111111',
     '--border':  '#2a2a2a',
     '--input-bg': '#111111',
-    '--nav-scrolled-bg': 'rgba(0,0,0,0.92)',
+    '--nav-scrolled-bg': 'rgba(0,0,0,0.72)',
   };
   var lightTokens = {
     '--text':    '#0d0d0d',
@@ -38,7 +37,7 @@
     '--surface-2': '#e0e0e0',
     '--border':  '#cccccc',
     '--input-bg': '#ffffff',
-    '--nav-scrolled-bg': 'rgba(244,244,244,0.94)',
+    '--nav-scrolled-bg': 'rgba(244,244,244,0.75)',
   };
 
   /* ── Colour helpers ───────────────────────────────────────── */
@@ -88,10 +87,6 @@
 
   function applyColor(color) {
     bg.style.backgroundColor = color;
-    if (nav) {
-      var rgb = hexToRgb(color);
-      nav.style.backgroundColor = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.88)';
-    }
   }
 
   function update() {
@@ -135,7 +130,6 @@
   buildSections();
   applySection(keys[0]);
   bg.style.backgroundColor = bgColors[keys[0]];
-  if (nav) nav.style.backgroundColor = 'rgba(0,0,0,0.88)';
 
   var ticking = false;
   window.addEventListener('scroll', function () {

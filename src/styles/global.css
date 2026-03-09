@@ -12,7 +12,7 @@
   --accent-border: rgba(245, 165, 36, .35);
   --border: #2a2a2a;
   --input-bg: #111111;
-  --nav-scrolled-bg: rgba(0,0,0,0.92);
+  --nav-scrolled-bg: rgba(0,0,0,0.72);
   --btn-ghost-hover: rgba(255,255,255,.06);
   --btn-ghost-hover-border: rgba(255,255,255,.2);
   --lang-hover-border: rgba(255,255,255,.2);
@@ -37,7 +37,7 @@
     --accent-border: rgba(245, 165, 36, .40);
     --border: #cccccc;
     --input-bg: #ffffff;
-    --nav-scrolled-bg: rgba(244,244,244,0.94);
+    --nav-scrolled-bg: rgba(244,244,244,0.75);
     --btn-ghost-hover: rgba(0,0,0,.05);
     --btn-ghost-hover-border: rgba(0,0,0,.18);
     --lang-hover-border: rgba(0,0,0,.18);
@@ -53,7 +53,7 @@
   --surface-2: #111111;
   --border: #2a2a2a;
   --input-bg: #111111;
-  --nav-scrolled-bg: rgba(0,0,0,0.92);
+  --nav-scrolled-bg: rgba(0,0,0,0.72);
   --btn-ghost-hover: rgba(255,255,255,.06);
   --btn-ghost-hover-border: rgba(255,255,255,.2);
   --lang-hover-border: rgba(255,255,255,.2);
@@ -65,7 +65,7 @@
   --surface-2: #e0e0e0;
   --border: #cccccc;
   --input-bg: #ffffff;
-  --nav-scrolled-bg: rgba(244,244,244,0.94);
+  --nav-scrolled-bg: rgba(244,244,244,0.75);
   --btn-ghost-hover: rgba(0,0,0,.05);
   --btn-ghost-hover-border: rgba(0,0,0,.18);
   --lang-hover-border: rgba(0,0,0,.18);
