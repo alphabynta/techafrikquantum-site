@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 44" width="165" height="44">
 
-  <!-- Opening bracket -->
-  <path d="M 18,3 L 10,3 L 10,41 L 18,41"
-        fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
-
   <!-- Square aligned to AFRIK cap height: y=16 to y=36 -->
   <rect x="19" y="16" width="51" height="20"
         fill="none" stroke="#f5a524" stroke-width="1.8"/>
@@ -35,8 +31,5 @@
         textLength="76" lengthAdjust="spacingAndGlyphs"
         fill="#f5a524">AFRIK</text>
 
-  <!-- Closing bracket: x = 71 + 76 + 4 = 151 -->
-  <path d="M 151,3 L 159,3 L 159,41 L 151,41"
-        fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
 </svg>
