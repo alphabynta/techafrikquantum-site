@@ -37,6 +37,7 @@
       'defgov.li2': 'Encrypted military-grade communications',
       'defgov.li3': 'Public safety & smart city infrastructure',
       'defgov.li4': 'Governance, risk & compliance frameworks',
+      'defgov.li5': 'Remote Education (E-learning)',
 
       'enterprise.label': 'Enterprise',
       'enterprise.title': 'Enterprise',
@@ -191,6 +192,7 @@
       'defgov.li2': 'Communications militaires chiffrées',
       'defgov.li3': 'Sécurité publique & infrastructure ville intelligente',
       'defgov.li4': 'Cadres de gouvernance, risque & conformité',
+      'defgov.li5': 'Éducation à distance (E-learning)',
 
       'enterprise.label': 'Entreprise',
       'enterprise.title': 'Entreprise',
@@ -345,6 +347,7 @@
       'defgov.li2': 'اتصالات عسكرية مشفرة',
       'defgov.li3': 'السلامة العامة وبنية المدن الذكية',
       'defgov.li4': 'أطر الحوكمة والمخاطر والامتثال',
+      'defgov.li5': 'التعليم عن بُعد (التعلم الإلكتروني)',
 
       'enterprise.label': 'المؤسسات',
       'enterprise.title': 'المؤسسات',
