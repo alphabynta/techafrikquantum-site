@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Connectivity & IP Networks — TechAfrik" description="End-to-end network infrastructure — satellite links, microwave, LAN/WAN, SD-WAN, and NOC support for mission-critical environments.">
+  <Nav />
+  <main id="main">
+
+    <section id="hero" class="sol-hero">
+      <div class="container sol-hero__inner">
+        <p class="section-label">What We Build</p>
+        <h1 class="sol-hero__title">Connectivity &amp;<br/>IP Networks</h1>
+        <p class="sol-hero__lead lead">We engineer end-to-end network infrastructure — from satellite and hybrid WAN links to LAN/WAN design and SD-WAN orchestration. Built for mission-critical environments where downtime is not an option.</p>
+      </div>
+    </section>
+
+    <section id="capabilities" class="sol-caps">
+      <div class="container">
+        <p class="section-label">Capabilities</p>
+        <div class="caps-grid">
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Remote Sites over Satellite</h2>
+            <p class="cap-card__body">We connect isolated sites — mining camps, oil fields, border posts, and rural deployments — using VSAT and LEO satellite links. High-availability configurations with redundant beam paths ensure connectivity even in degraded conditions.</p>
+            <ul class="cap-card__list">
+              <li>VSAT C/Ku/Ka-band for fixed remote sites</li>
+              <li>LEO broadband (Starlink, OneWeb) for rapid deployment</li>
+              <li>Dual-path failover between satellite and terrestrial</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Site-to-Site Microwave Links</h2>
+            <p class="cap-card__body">For urban, peri-urban, and campus environments, we design and deploy licensed microwave backhaul links. Low latency, high throughput, and no dependency on third-party last-mile providers.</p>
+            <ul class="cap-card__list">
+              <li>Licensed microwave point-to-point (PtP) links</li>
+              <li>Point-to-multipoint (PtMP) for multi-site clusters</li>
+              <li>RF site surveys, frequency planning & licensing support</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">LAN/WAN Design & Deployment</h2>
+            <p class="cap-card__body">From structured cabling to enterprise core switching, we design networks that are secure, segmented, and built to scale. Every deployment is documented and handed over with full topology and runbook.</p>
+            <ul class="cap-card__list">
+              <li>Structured cabling & passive infrastructure</li>
+              <li>Core/distribution/access switching architecture</li>
+              <li>VLAN segmentation, QoS & access control</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">SD-WAN & MPLS</h2>
+            <p class="cap-card__body">Multi-site organisations need intelligent WAN that prioritises critical traffic, fails over automatically, and gives visibility into every link. We deploy and manage SD-WAN fabrics and MPLS circuits across West Africa.</p>
+            <ul class="cap-card__list">
+              <li>SD-WAN deployment & policy configuration</li>
+              <li>MPLS circuits & carrier coordination</li>
+              <li>Application-aware routing & traffic shaping</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Network Telemetry & NOC Support</h2>
+            <p class="cap-card__body">We don't just build — we monitor. Our NOC team watches your network around the clock, with telemetry, SNMP, and flow analytics feeding into dashboards that surface issues before they become outages.</p>
+            <ul class="cap-card__list">
+              <li>Network SLA monitoring & alerting</li>
+              <li>SNMP, NetFlow & syslog aggregation</li>
+              <li>Proactive NOC support & incident escalation</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="sol-cta">
+      <div class="container sol-cta__inner">
+        <h2 class="sol-cta__title">Ready to build your network?</h2>
+        <p class="sol-cta__body lead">Tell us about your environment and we'll design a solution around your constraints.</p>
+        <a class="btn btn--primary" href={`${base}#contact`}>Contact Us</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero */
+  .sol-hero {
+    min-height: 60vh;
+    display: flex; align-items: center;
+    padding: clamp(120px, 14vw, 180px) 0 clamp(48px, 6vw, 80px);
+  }
+  .sol-hero__title {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+    margin: 12px 0 clamp(20px, 3vw, 36px);
+  }
+  .sol-hero__lead { max-width: 640px; font-style: italic; }
+
+  /* Capabilities grid */
+  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: clamp(24px, 3vw, 40px);
+  }
+  @media (max-width: 900px) { .caps-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .caps-grid { grid-template-columns: 1fr; } }
+
+  .cap-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(24px, 2.5vw, 36px);
+    border-radius: 4px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: background 0.2s ease;
+  }
+  .cap-card:hover { background: rgba(255,255,255,0.06); }
+  .cap-card__title {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 800; color: var(--accent);
+    text-transform: uppercase; letter-spacing: -.02em; line-height: 1.1;
+  }
+  .cap-card__body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted); line-height: 1.7;
+  }
+  .cap-card__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .cap-card__list li {
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--text);
+    padding-left: 16px; position: relative; line-height: 1.5;
+  }
+  .cap-card__list li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* CTA */
+  .sol-cta {
+    padding: clamp(48px, 6vw, 80px) 0;
+    border-top: 1px solid var(--border);
+  }
+  .sol-cta__inner { display: flex; flex-direction: column; gap: 16px; }
+  .sol-cta__title {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .sol-cta__body { max-width: 560px; }
+</style>
