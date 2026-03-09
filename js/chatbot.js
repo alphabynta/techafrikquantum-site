@@ -19,7 +19,7 @@
   const KB=[
     {k:['safety','surveillance','drone','video','camera'], a:'We deploy Safety & Surveillance including IP video, analytics, ISR drones, and body‑worn cameras. Need a demo? Use the “Request a demo” buttons on the Solutions page.'},
     {k:['connectivity','satellite','scpc','teleport','link','bandwidth'], a:'For Critical Connectivity we design SCPC links and teleports with HA architectures. We can review your link budget via a demo request.'},
-    {k:['asset','assets','fleet','fuel','tracking','gps'], a:'Assets Management covers fleet tracking, driver analytics, and fuel anti‑fraud systems.'},
+    {k:['asset','assets','fleet','fuel','tracking','gps'], a:'Assets Management covers fleet tracking, driver analytics, and fuel level monitoring systems.'},
     {k:['network','ip network','observability','telemetry','orchestration'], a:'IP Networks cover orchestration, config management, and observability (metrics, logs, traces).'},
     {k:['cyber','security','soc','pentest','iam','governance'], a:'Cybersecurity services include PenTesting, SOC onboarding, Governance & Compliance, and IAM.'},
     {k:['price','pricing','cost','quote','rfp'], a:'We scope by environment and SLAs. Please use Contact Us to share details, and we’ll respond with a quote.'},
