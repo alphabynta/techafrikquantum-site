@@ -4,24 +4,24 @@
   <path d="M 18,4 L 10,4 L 10,36 L 18,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- TECH in LCD / digital-clock style (stroke-based segments) -->
-  <g fill="none" stroke="#f5a524" stroke-width="2.5" stroke-linecap="square">
-    <!-- T: crossbar + centre stem -->
-    <line x1="22" y1="7" x2="34" y2="7"/>
-    <line x1="28" y1="7" x2="28" y2="29"/>
-    <!-- E: left vertical + top + mid (short) + bottom -->
-    <line x1="37" y1="7" x2="37" y2="29"/>
-    <line x1="37" y1="7"  x2="49" y2="7"/>
-    <line x1="37" y1="18" x2="47" y2="18"/>
-    <line x1="37" y1="29" x2="49" y2="29"/>
-    <!-- C: left vertical + top + bottom -->
-    <line x1="52" y1="7" x2="52" y2="29"/>
-    <line x1="52" y1="7"  x2="64" y2="7"/>
-    <line x1="52" y1="29" x2="64" y2="29"/>
+  <!-- TECH in filled rectangular blocks — 24-show digital style -->
+  <g fill="#f5a524">
+    <!-- T: top bar + centre stem -->
+    <rect x="22" y="7"  width="13" height="3"/>
+    <rect x="27" y="10" width="3"  height="19"/>
+    <!-- E: left bar + top + mid (short) + bottom -->
+    <rect x="37" y="7"  width="3"  height="22"/>
+    <rect x="40" y="7"  width="10" height="3"/>
+    <rect x="40" y="17" width="8"  height="3"/>
+    <rect x="40" y="26" width="10" height="3"/>
+    <!-- C: left bar + top + bottom -->
+    <rect x="52" y="7"  width="3"  height="22"/>
+    <rect x="55" y="7"  width="10" height="3"/>
+    <rect x="55" y="26" width="10" height="3"/>
     <!-- H: two verticals + crossbar -->
-    <line x1="67" y1="7"  x2="67" y2="29"/>
-    <line x1="79" y1="7"  x2="79" y2="29"/>
-    <line x1="67" y1="18" x2="79" y2="18"/>
+    <rect x="67" y="7"  width="3"  height="22"/>
+    <rect x="79" y="7"  width="3"  height="22"/>
+    <rect x="70" y="17" width="9"  height="3"/>
   </g>
 
   <!-- Afrik in Helvetica, baseline aligned -->
