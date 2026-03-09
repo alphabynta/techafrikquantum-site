@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
-      <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 44" role="img" aria-label="TechAfrik logo">
+      <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 44" role="img" aria-label="TechAfrik logo">
         <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
         <g class="logo-tech-letters">
           <rect x="3"  y="19" width="10" height="2"/>
@@ -40,8 +40,11 @@ const year = new Date().getFullYear();
           <line x1="95" y1="28" x2="103" y2="22"/>
           <line x1="95" y1="28" x2="103" y2="34"/>
         </g>
-        <line x1="55" y1="38" x2="101" y2="38" stroke="#f5a524" stroke-width="1.6"/>
-        <polygon points="101,35 107,38 101,41" fill="#f5a524"/>
+        <!-- Medieval arrow underline — always amber -->
+        <polygon points="55,37 51,33 57,35" fill="#f5a524"/>
+        <polygon points="55,37 51,41 57,39" fill="#f5a524"/>
+        <line x1="57" y1="37" x2="103" y2="37" stroke="#f5a524" stroke-width="1.6"/>
+        <polygon points="111,37 105,32 108,35 103,35 103,39 108,39 105,42" fill="#f5a524"/>
       </svg>
     </a>
     <p class="footer-copy" data-i18n="footer.copyright">
