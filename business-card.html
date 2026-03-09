@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechAfrik — Business Card · Madjou Balde</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 60px 40px;
+    }
+
+    .side-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      margin-bottom: -36px;
+      align-self: flex-start;
+      margin-left: calc(50% - 315px);
+    }
+
+    /* ── Card shell: 3.5" × 2" ratio ── */
+    .card {
+      width: 630px;
+      height: 360px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    /* ══════════════════════════════════
+       FRONT
+    ══════════════════════════════════ */
+    .card--front {
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 48px 40px 52px;
+    }
+
+    /* Amber left edge */
+    .card--front::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: #f5a524;
+    }
+
+    /* Subtle grid texture */
+    .card--front::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,165,36,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,165,36,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .card__logo {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card__bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .card__name {
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .card__title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #f5a524;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      margin-bottom: 20px;
+    }
+
+    .card__divider {
+      width: 32px;
+      height: 1px;
+      background: rgba(245,165,36,0.4);
+      margin-bottom: 16px;
+    }
+
+    .card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card__detail {
+      font-size: 11px;
+      font-weight: 400;
+      color: #808080;
+      letter-spacing: .02em;
+    }
+
+    .card__detail span {
+      display: inline-block;
+      width: 14px;
+      color: rgba(245,165,36,0.5);
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════
+       BACK
+    ══════════════════════════════════ */
+    .card--back {
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Large amber rectangle geometry */
+    .card--back::before {
+      content: '';
+      position: absolute;
+      inset: 32px;
+      border: 1px solid rgba(245,165,36,0.08);
+      border-radius: 2px;
+    }
+
+    /* Corner accents */
+    .corner {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: rgba(245,165,36,0.35);
+      border-style: solid;
+    }
+    .corner--tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+    .corner--tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+    .corner--bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+    .corner--br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+    .back-logo {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #ffffff; padding: 0; gap: 0; }
+      .side-label { display: none; }
+      .card { box-shadow: none; page-break-after: always; }
+      @page { size: 3.5in 2in; margin: 0; }
+      .card { width: 3.5in; height: 2in; border-radius: 0; }
+      .card--front { padding: 0.22in 0.27in 0.22in 0.29in; }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="side-label">Front</p>
+
+  <!-- ── FRONT ── -->
+  <div class="card card--front">
+
+    <div class="card__logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 44" height="30">
+        <!-- TECH box -->
+        <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <!-- T -->
+        <line x1="3"  y1="19" x2="13" y2="19" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="8"  y1="19" x2="8"  y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <!-- E -->
+        <polyline points="25,19 15,19 15,34 25,34" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="15" y1="26" x2="23" y2="26" stroke="#ffffff" stroke-width="1.8"/>
+        <!-- C -->
+        <polyline points="37,19 27,19 27,34 37,34" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+        <!-- H -->
+        <line x1="39" y1="19" x2="39" y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="49" y1="19" x2="49" y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="39" y1="26" x2="49" y2="26" stroke="#ffffff" stroke-width="1.8"/>
+        <!-- A -->
+        <polyline points="55,34 60,19 65,34" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="57" y1="27" x2="63" y2="27" stroke="#f5a524" stroke-width="1.8"/>
+        <!-- F -->
+        <polyline points="77,19 67,19 67,34" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="67" y1="26" x2="75" y2="26" stroke="#f5a524" stroke-width="1.8"/>
+        <!-- R -->
+        <polyline points="79,34 79,19 89,19 89,26 79,26" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="83" y1="26" x2="89" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <!-- I -->
+        <line x1="96"  y1="19" x2="96"  y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="91"  y1="19" x2="101" y2="19" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="91"  y1="34" x2="101" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <!-- K -->
+        <line x1="103" y1="19" x2="103" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="103" y1="26" x2="113" y2="19" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="103" y1="26" x2="113" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+      </svg>
+    </div>
+
+    <div class="card__bottom">
+      <p class="card__name">Madjou Balde</p>
+      <p class="card__title">President &amp; CEO</p>
+      <div class="card__divider"></div>
+      <div class="card__details">
+        <p class="card__detail"><span>T</span>+224 xxx yy uu ww</p>
+        <p class="card__detail"><span>E</span>madjou.balde@techafrik.com</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="side-label">Back</p>
+
+  <!-- ── BACK ── -->
+  <div class="card card--back">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+
+    <div class="back-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 44" height="64">
+        <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="3"  y1="19" x2="13" y2="19" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="8"  y1="19" x2="8"  y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <polyline points="25,19 15,19 15,34 25,34" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="15" y1="26" x2="23" y2="26" stroke="#ffffff" stroke-width="1.8"/>
+        <polyline points="37,19 27,19 27,34 37,34" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="39" y1="19" x2="39" y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="49" y1="19" x2="49" y2="34" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="39" y1="26" x2="49" y2="26" stroke="#ffffff" stroke-width="1.8"/>
+        <polyline points="55,34 60,19 65,34" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="57" y1="27" x2="63" y2="27" stroke="#f5a524" stroke-width="1.8"/>
+        <polyline points="77,19 67,19 67,34" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="67" y1="26" x2="75" y2="26" stroke="#f5a524" stroke-width="1.8"/>
+        <polyline points="79,34 79,19 89,19 89,26 79,26" fill="none" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="83" y1="26" x2="89" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="96"  y1="19" x2="96"  y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="91"  y1="19" x2="101" y2="19" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="91"  y1="34" x2="101" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="103" y1="19" x2="103" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="103" y1="26" x2="113" y2="19" stroke="#f5a524" stroke-width="1.8"/>
+        <line x1="103" y1="26" x2="113" y2="34" stroke="#f5a524" stroke-width="1.8"/>
+      </svg>
+    </div>
+  </div>
+
+</body>
+</html>
