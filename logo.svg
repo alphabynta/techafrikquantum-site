@@ -1,17 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 40" width="155" height="40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40">
 
   <!-- Opening bracket -->
   <path d="M 18,4 L 10,4 L 10,36 L 18,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- Wordmark -->
+  <!-- Wordmark: forced to exactly 100px so closing bracket can be placed precisely -->
   <text x="22" y="29"
         font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
         font-size="22" font-weight="700"
+        textLength="100" lengthAdjust="spacingAndGlyphs"
         fill="#f5a524">TechAfrik</text>
 
-  <!-- Closing bracket -->
-  <path d="M 137,4 L 145,4 L 145,36 L 137,36"
+  <!-- Closing bracket: starts at x=22+100+4=126 -->
+  <path d="M 126,4 L 134,4 L 134,36 L 126,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
 </svg>
