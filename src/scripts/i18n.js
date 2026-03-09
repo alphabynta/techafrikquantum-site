@@ -83,7 +83,8 @@
       'connectivity.li2': 'Satellite on the Move (SOTM)',
       'connectivity.li3': 'Satellite on the Pause (SOTP)',
       'connectivity.li4': 'Site to site Microwave links',
-      'connectivity.li5': 'Network telemetry, SLA monitoring & NOC support',
+      'connectivity.li5': 'Radio Communication',
+      'connectivity.li6': 'Network telemetry, SLA monitoring & NOC support',
 
       'assets.label': 'Assets Management',
       'assets.title': 'Assets Management',
@@ -238,7 +239,8 @@
       'connectivity.li2': 'Satellite en mouvement (SOTM)',
       'connectivity.li3': 'Satellite à l\'arrêt (SOTP)',
       'connectivity.li4': 'Liaisons micro-ondes site à site',
-      'connectivity.li5': 'Télémétrie réseau, monitoring SLA & support NOC',
+      'connectivity.li5': 'Communication Radio',
+      'connectivity.li6': 'Télémétrie réseau, monitoring SLA & support NOC',
 
       'assets.label': 'Gestion des Actifs',
       'assets.title': 'Gestion des Actifs',
@@ -393,7 +395,8 @@
       'connectivity.li2': 'الأقمار الصناعية أثناء الحركة (SOTM)',
       'connectivity.li3': 'الأقمار الصناعية عند التوقف (SOTP)',
       'connectivity.li4': 'روابط الميكروويف بين المواقع',
-      'connectivity.li5': 'قياس الشبكة ومراقبة SLA ودعم NOC',
+      'connectivity.li5': 'الاتصالات الراديوية',
+      'connectivity.li6': 'قياس الشبكة ومراقبة SLA ودعم NOC',
 
       'assets.label': 'إدارة الأصول',
       'assets.title': 'إدارة الأصول',
