@@ -4,7 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<Layout title="Connectivity — TechAfrik" description="Mission-critical connectivity solutions — satellite links, SOTM, SOTP, and microwave backhaul for remote and mobile operations.">
+<Layout title="Connectivity — TechAfrik" description="Mission-critical connectivity — satellite, SOTM, manpacks, flyaway, driveaway, tactical HUBs, microwave, and radio for remote and mobile operations.">
   <Nav />
   <main id="main">
 
@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL;
       <div class="container sol-hero__inner">
         <p class="section-label">What We Build</p>
         <h1 class="sol-hero__title">Connectivity</h1>
-        <p class="sol-hero__lead lead">When your operation cannot afford downtime, we engineer redundant, multi-path connectivity solutions — from satellite links to microwave backhaul — designed for mission-critical environments.</p>
+        <p class="sol-hero__lead lead">When your operation cannot afford downtime, we engineer redundant, multi-path connectivity solutions — from geo-redundant satellite hubs to microwave backhaul and tactical radio — designed for mission-critical environments anywhere on the continent.</p>
       </div>
     </section>
 
@@ -23,45 +23,85 @@ const base = import.meta.env.BASE_URL;
 
           <div class="cap-card">
             <h2 class="cap-card__title">Sites Interconnection over Satellite</h2>
-            <p class="cap-card__body">We connect isolated and distributed sites using VSAT and LEO satellite links. High-availability configurations with redundant beam paths ensure connectivity even in degraded conditions.</p>
+            <p class="cap-card__body">We connect isolated and distributed sites using VSAT and broadband satellite links. High-availability configurations with geo-redundant satellite HUBs — dual ground station architecture with automatic failover between geographically separated teleports — ensure connectivity even when one hub is degraded or unavailable.</p>
             <ul class="cap-card__list">
-              <li>VSAT C/Ku/Ka-band for fixed remote sites</li>
-              <li>LEO broadband (Starlink, OneWeb) for rapid deployment</li>
-              <li>Dual-path failover between satellite and terrestrial</li>
+              <li>VSAT C/Ku/Ka-band links for fixed and remote sites</li>
+              <li>LEO broadband for rapid-deployment and high-throughput scenarios</li>
+              <li>Geo-redundant satellite HUBs with automatic teleport failover</li>
+              <li>Dual-path failover between satellite and terrestrial backups</li>
+              <li>Unified IP link carrying voice, data, and video</li>
             </ul>
           </div>
 
           <div class="cap-card">
             <h2 class="cap-card__title">Satellite on the Move (SOTM)</h2>
-            <p class="cap-card__body">Continuous satellite connectivity for vehicles, vessels, and aircraft in motion. SOTM systems maintain a live link to the satellite while the platform moves, enabling real-time command, control, and communications on the go.</p>
+            <p class="cap-card__body">Continuous satellite connectivity for vehicles, vessels, and mobile platforms in motion. SOTM systems maintain a live link to the satellite while the platform moves, enabling real-time command, control, and communications without interruption.</p>
             <ul class="cap-card__list">
-              <li>Auto-tracking antennas for ground vehicles & vessels</li>
+              <li>Auto-tracking antennas for ground vehicles and naval vessels</li>
               <li>Seamless beam handover during movement</li>
-              <li>Encrypted voice, data & video over mobile link</li>
+              <li>Live voice, video, and data over a mobile satellite link</li>
+              <li>Encrypted communications for sensitive operations</li>
+              <li>Compatible with GEO and LEO satellite constellations</li>
             </ul>
           </div>
 
           <div class="cap-card">
-            <h2 class="cap-card__title">Satellite on the Pause (SOTP)</h2>
-            <p class="cap-card__body">Rapidly deployable satellite terminals that establish connectivity when a vehicle or unit stops. SOTP systems are designed for quick setup and teardown — ideal for mobile command posts and field operations.</p>
+            <h2 class="cap-card__title">Rapid-Deployment Satellite Terminals (SOTP)</h2>
+            <p class="cap-card__body">Satellite terminals designed for fast setup and teardown — enabling connectivity wherever a unit or team stops. From man-portable kits to vehicle-integrated systems, these terminals auto-acquire the satellite on arrival and establish a link within minutes.</p>
             <ul class="cap-card__list">
-              <li>Rapid-deploy flyaway & manpack terminals</li>
-              <li>Auto-acquisition for fast setup on arrival</li>
-              <li>Compatible with military & commercial satellite networks</li>
+              <li>Manpacks — man-portable terminals for dismounted and foot-mobile deployments</li>
+              <li>Flyaway kits — airline-checkable case systems deployable anywhere within hours</li>
+              <li>Driveaway systems — vehicle-integrated terminals with automatic satellite acquisition on arrival</li>
+              <li>Fast auto-acquisition for immediate connectivity on setup</li>
+              <li>Compatible with military and commercial satellite networks</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Tactical Communication HUBs</h2>
+            <p class="cap-card__body">Field-deployable central nodes that aggregate multiple connectivity paths — satellite, microwave, and radio — onto a single managed IP backbone. Tactical HUBs serve as the communications anchor for forward operating bases, mobile command posts, and multi-site field operations.</p>
+            <ul class="cap-card__list">
+              <li>Aggregation of satellite, microwave, and radio links into a unified IP core</li>
+              <li>Traffic prioritisation and quality of service for voice, video, and data</li>
+              <li>Integration of MANET, VHF/UHF radio, and satellite onto one backbone</li>
+              <li>Ruggedized and portable form factors for forward deployments</li>
+              <li>Remote management and real-time status monitoring</li>
             </ul>
           </div>
 
           <div class="cap-card">
             <h2 class="cap-card__title">Site-to-Site Microwave Links</h2>
-            <p class="cap-card__body">For urban, peri-urban, and campus environments, we design and deploy licensed microwave backhaul links. Low latency, high throughput, and no dependency on third-party last-mile providers.</p>
+            <p class="cap-card__body">For urban, peri-urban, and campus environments, we design and deploy licensed microwave backhaul links. Low latency, high throughput, and no dependency on third-party last-mile providers — ideal for inter-site connectivity where terrestrial fiber is unavailable or uneconomical.</p>
             <ul class="cap-card__list">
               <li>Licensed microwave point-to-point (PtP) links</li>
               <li>Point-to-multipoint (PtMP) for multi-site clusters</li>
-              <li>RF site surveys, frequency planning & licensing support</li>
+              <li>Encrypted microwave links for secure inter-site data</li>
+              <li>RF site surveys, frequency planning, and licensing support</li>
+              <li>High-availability configurations with automatic link protection</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Radio Communication</h2>
+            <p class="cap-card__body">We design and deploy VHF/UHF radio networks for tactical and operational communications — from repeater infrastructure extending coverage across difficult terrain, to IP radio gateways bridging legacy radio networks into modern data architectures.</p>
+            <ul class="cap-card__list">
+              <li>VHF/UHF radio networks for tactical and field operations</li>
+              <li>Encrypted digital voice (DMR, P25, TETRA) for public safety and defense</li>
+              <li>Repeater infrastructure for coverage in terrain-challenged areas</li>
+              <li>IP radio gateways bridging radio networks to data systems</li>
+              <li>Integration with dispatch, command, and control center platforms</li>
             </ul>
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <section id="noc" class="sol-noc">
+      <div class="container sol-noc__inner">
+        <p class="section-label">Operations Support</p>
+        <h2 class="sol-noc__title">Network Telemetry, SLA Monitoring & NOC Support</h2>
+        <p class="sol-noc__body lead">All connectivity solutions we deploy are backed by continuous monitoring from a centralised Network Operations Centre. We provide proactive fault detection, SLA-based availability reporting, remote troubleshooting, and scheduled preventive maintenance — so your links stay up and performance stays measurable.</p>
       </div>
     </section>
 
@@ -91,7 +131,7 @@ const base = import.meta.env.BASE_URL;
   }
   .sol-hero__lead { max-width: 640px; font-style: italic; }
 
-  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
+  .sol-caps { padding-bottom: clamp(60px, 8vw, 100px); }
   .caps-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -134,9 +174,21 @@ const base = import.meta.env.BASE_URL;
     color: var(--accent); font-weight: 700;
   }
 
-  .sol-cta {
+  .sol-noc {
     padding: clamp(48px, 6vw, 80px) 0;
     border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .sol-noc__inner { display: flex; flex-direction: column; gap: 16px; }
+  .sol-noc__title {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 800; letter-spacing: -.03em;
+    color: var(--text); text-transform: uppercase; line-height: 1.1;
+  }
+  .sol-noc__body { max-width: 720px; }
+
+  .sol-cta {
+    padding: clamp(48px, 6vw, 80px) 0;
   }
   .sol-cta__inner { display: flex; flex-direction: column; gap: 16px; }
   .sol-cta__title {

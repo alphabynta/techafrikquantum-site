@@ -4,15 +4,153 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<Layout title="Safety & Surveillance — TechAfrik">
+<Layout title="Safety & Surveillance — TechAfrik" description="ISR drone integration, MANET networking, IP CCTV, and AI video analytics for mission-critical surveillance operations.">
   <Nav />
-  <main id="main" style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
-    <div style="text-align:center;padding:2rem;">
-      <p class="section-label">Safety & Surveillance</p>
-      <h1 style="font-size:clamp(36px,5vw,72px);font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:-.04em;">Coming Soon</h1>
-      <p style="color:var(--muted);margin-top:1rem;">Full content for this page is on the way.</p>
-      <a class="btn btn--ghost" href={`${base}`} style="margin-top:2rem;display:inline-block;">← Back to Home</a>
-    </div>
+  <main id="main">
+
+    <section id="hero" class="sol-hero">
+      <div class="container sol-hero__inner">
+        <p class="section-label">What We Build</p>
+        <h1 class="sol-hero__title">Safety &amp; Surveillance</h1>
+        <p class="sol-hero__lead lead">Total situational awareness — from the ground up and the air down. We design and integrate surveillance architectures that combine ISR drones, mesh networking, IP CCTV, and AI analytics into a unified operational picture.</p>
+      </div>
+    </section>
+
+    <section id="capabilities" class="sol-caps">
+      <div class="container">
+        <p class="section-label">Capabilities</p>
+        <div class="caps-grid">
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">ISR Drone Integration & Airspace Monitoring</h2>
+            <p class="cap-card__body">We integrate unmanned aerial systems into your security architecture — providing persistent elevated surveillance, real-time aerial reconnaissance, and airspace monitoring. Tethered and free-flight platforms extend your surveillance perimeter beyond ground-based systems and feed live video into your command center.</p>
+            <ul class="cap-card__list">
+              <li>Tethered UAS for persistent elevated ISR without flight-time limits</li>
+              <li>Autonomous free-flight drones for area reconnaissance and patrol</li>
+              <li>Airspace monitoring and counter-UAS (C-UAS) RF detection</li>
+              <li>Live video downlink integrated into command and control systems</li>
+              <li>Vehicle-mounted and man-portable platform options</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">Mobile Ad Hoc Networking Systems (MANET)</h2>
+            <p class="cap-card__body">MANET radios form self-healing, self-configuring IP mesh networks that connect personnel, vehicles, and unmanned systems in the field — without relying on fixed infrastructure. Every node acts simultaneously as a transceiver and router, automatically adapting to movement and link disruptions.</p>
+            <ul class="cap-card__list">
+              <li>Self-forming mesh with no master node dependency</li>
+              <li>Simultaneous voice, video, and data over a single encrypted IP link</li>
+              <li>Integration with UAVs, UGVs, and sensor platforms</li>
+              <li>Operational in GPS-denied and electronically contested environments</li>
+              <li>Scalable from small team deployments to large multi-node networks</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">IP CCTV & Thermal Imaging Networks</h2>
+            <p class="cap-card__body">We design and deploy scalable IP video surveillance networks for perimeters, facilities, and urban environments. Fixed, PTZ, and thermal cameras are integrated into a unified video management system — accessible from a central command center or remotely over secure links.</p>
+            <ul class="cap-card__list">
+              <li>Fixed, PTZ, and multi-sensor camera deployments</li>
+              <li>Long-range thermal cameras for perimeter detection in low-light and zero-light</li>
+              <li>Ruggedized outdoor enclosures for harsh environments</li>
+              <li>Edge and central recording with redundant storage options</li>
+              <li>Integration with access control, alarm, and dispatch systems</li>
+            </ul>
+          </div>
+
+          <div class="cap-card">
+            <h2 class="cap-card__title">AI-Assisted Video Analytics & Alerting</h2>
+            <p class="cap-card__body">AI-powered analytics engines process live and recorded video to detect threats, anomalies, and events automatically — reducing operator workload and shortening response time. Analytics run at the edge or centrally and integrate directly into your operations center workflow.</p>
+            <ul class="cap-card__list">
+              <li>Intrusion detection and perimeter breach alerting</li>
+              <li>Person and vehicle detection, classification, and counting</li>
+              <li>Behavioral anomaly and unusual motion detection</li>
+              <li>Cross-camera person and vehicle search across large archives</li>
+              <li>Alert correlation with access control and incident management platforms</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="sol-cta">
+      <div class="container sol-cta__inner">
+        <h2 class="sol-cta__title">Need a surveillance architecture?</h2>
+        <p class="sol-cta__body lead">Tell us about your environment and threat profile — we'll design a solution around your operational requirements.</p>
+        <a class="btn btn--primary" href={`${base}#contact`}>Contact Us</a>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .sol-hero {
+    min-height: 60vh;
+    display: flex; align-items: center;
+    padding: clamp(120px, 14vw, 180px) 0 clamp(48px, 6vw, 80px);
+  }
+  .sol-hero__title {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+    margin: 12px 0 clamp(20px, 3vw, 36px);
+  }
+  .sol-hero__lead { max-width: 640px; font-style: italic; }
+
+  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: clamp(24px, 3vw, 40px);
+  }
+  @media (max-width: 600px) { .caps-grid { grid-template-columns: 1fr; } }
+
+  .cap-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    padding: clamp(24px, 2.5vw, 36px);
+    border-radius: 4px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: background 0.2s ease;
+  }
+  .cap-card:hover { background: rgba(255,255,255,0.06); }
+  .cap-card__title {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 800; color: var(--accent);
+    text-transform: uppercase; letter-spacing: -.02em; line-height: 1.1;
+  }
+  .cap-card__body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--muted); line-height: 1.7;
+  }
+  .cap-card__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .cap-card__list li {
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--text);
+    padding-left: 16px; position: relative; line-height: 1.5;
+  }
+  .cap-card__list li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  .sol-cta {
+    padding: clamp(48px, 6vw, 80px) 0;
+    border-top: 1px solid var(--border);
+  }
+  .sol-cta__inner { display: flex; flex-direction: column; gap: 16px; }
+  .sol-cta__title {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800; letter-spacing: -.04em;
+    color: var(--text); text-transform: uppercase; line-height: 1;
+  }
+  .sol-cta__body { max-width: 560px; }
+</style>
