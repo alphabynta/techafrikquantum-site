@@ -32,7 +32,7 @@
       /* SECTORS */
       'defgov.label': 'Defense & Government',
       'defgov.title': 'Defense & Government',
-      'defgov.body': 'We deliver hardened surveillance, secure communications, and ISR capabilities for defense forces and public institutions. From tactical field deployments to national smart city infrastructure — our solutions are built for reliability under pressure.',
+      'defgov.body': 'From tactical ISR and encrypted field communications to smart city infrastructure, governance frameworks, and remote education platforms — we equip defense forces and public institutions with technology built for reliability under pressure.',
       'defgov.li1': 'Tactical surveillance & ISR drone integration',
       'defgov.li2': 'Encrypted military-grade communications',
       'defgov.li3': 'Public safety & smart city infrastructure',
@@ -189,7 +189,7 @@
       /* SECTORS */
       'defgov.label': 'Défense & Gouvernement',
       'defgov.title': 'Défense & Gouvernement',
-      'defgov.body': "Nous fournissons des capacités de surveillance renforcées, des communications sécurisées et des capacités ISR pour les forces de défense et les institutions publiques. Du déploiement tactique à l'infrastructure nationale de ville intelligente — nos solutions sont conçues pour la fiabilité sous pression.",
+      'defgov.body': "De l'ISR tactique et des communications chiffrées de terrain aux infrastructures de villes intelligentes, aux cadres de gouvernance et aux plateformes d'éducation à distance — nous équipons les forces de défense et les institutions publiques avec des technologies conçues pour la fiabilité sous pression.",
       'defgov.li1': 'Surveillance tactique & intégration drone ISR',
       'defgov.li2': 'Communications militaires chiffrées',
       'defgov.li3': 'Sécurité publique & infrastructure ville intelligente',
@@ -346,7 +346,7 @@
       /* SECTORS */
       'defgov.label': 'الدفاع والحكومة',
       'defgov.title': 'الدفاع والحكومة',
-      'defgov.body': 'نقدم قدرات مراقبة متصلبة واتصالات آمنة وقدرات ISR لقوات الدفاع والمؤسسات العامة. من النشر الميداني التكتيكي إلى البنية التحتية الوطنية للمدن الذكية — حلولنا مصممة للموثوقية تحت الضغط.',
+      'defgov.body': 'من ISR التكتيكي والاتصالات الميدانية المشفرة إلى بنية المدن الذكية وأطر الحوكمة ومنصات التعليم عن بُعد — نزوّد قوات الدفاع والمؤسسات العامة بتكنولوجيا مصممة للموثوقية تحت الضغط.',
       'defgov.li1': 'مراقبة تكتيكية وتكامل طائرات ISR بدون طيار',
       'defgov.li2': 'اتصالات عسكرية مشفرة',
       'defgov.li3': 'السلامة العامة وبنية المدن الذكية',
