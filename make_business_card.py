@@ -99,7 +99,7 @@ blank = prs.slide_layouts[6]  # completely blank
 # Shared layout constants
 LOGO_X      = 0.22   # logo left margin
 LOGO_Y      = 0.20   # logo top
-LOGO_W      = 0.80   # logo width
+LOGO_W      = 1.20   # logo width
 
 # Left column (name + title)
 NAME_X      = 0.22
