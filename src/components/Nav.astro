@@ -5,8 +5,8 @@ const base = import.meta.env.BASE_URL;
   <div class="container site-header__inner">
     <a class="logo" href={`${base}`} aria-label="TechAfrik home">
       <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 44" role="img" aria-label="TechAfrik logo">
-        <!-- Square box around TECH -->
-        <rect class="logo-tech-box" x="0" y="16" width="51" height="20" fill="none" stroke-width="1.8"/>
+        <!-- Square box around TECH — always amber -->
+        <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
         <!-- TECH digital letters -->
         <g class="logo-tech-letters">
           <!-- T -->
@@ -58,8 +58,5 @@ const base = import.meta.env.BASE_URL;
 
   /* TECH white on dark, black on light */
   .logo-tech-letters { fill: #ffffff; }
-  .logo-tech-box     { stroke: #ffffff; }
-
   :global([data-bg-tone="light"]) .logo-tech-letters { fill: #000000; }
-  :global([data-bg-tone="light"]) .logo-tech-box     { stroke: #000000; }
 </style>

@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
       <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 44" role="img" aria-label="TechAfrik logo">
-        <rect class="logo-tech-box" x="0" y="16" width="51" height="20" fill="none" stroke-width="1.8"/>
+        <rect x="0" y="16" width="51" height="20" fill="none" stroke="#f5a524" stroke-width="1.8"/>
         <g class="logo-tech-letters">
           <rect x="3"  y="19" width="10" height="2"/>
           <rect x="7"  y="21" width="2"  height="13"/>
@@ -60,9 +60,7 @@ const year = new Date().getFullYear();
   .footer-logo { display: inline-flex; align-items: center; }
   .footer-logo-svg { width: clamp(110px, 14vw, 155px); height: auto; }
   .logo-tech-letters { fill: #ffffff; }
-  .logo-tech-box     { stroke: #ffffff; }
   :global([data-bg-tone="light"]) .logo-tech-letters { fill: #000000; }
-  :global([data-bg-tone="light"]) .logo-tech-box     { stroke: #000000; }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
   .social-icon {
