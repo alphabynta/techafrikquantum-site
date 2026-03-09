@@ -23,7 +23,7 @@ const sectors = [
     liKeys: ['oilgas.li1','oilgas.li2','oilgas.li3'],
     label: 'Oil & Gas', title: 'Oil & Gas',
     body: 'Remote sites, offshore platforms, and pipeline corridors demand connectivity and safety systems that work without exception.',
-    li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel anti-fraud systems'],
+    li: ['Satellite & radio connectivity for remote sites','Perimeter intrusion detection for critical assets','Fleet tracking & fuel level monitoring'],
   },
   {
     num: '04', id: 'cellular-mobility', bgImg: null,
@@ -209,11 +209,8 @@ const sectors = [
     content: '';
     position: absolute; left: 0; top: 50%;
     transform: translateY(-50%);
-    width: 14px; height: 14px;
-    background-image: var(--droneUrl);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 10px; height: 2px;
+    background: var(--accent);
   }
   @media (max-width: 900px) {
     .sectors-grid { grid-template-columns: repeat(2, 1fr); }
