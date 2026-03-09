@@ -1,18 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 40" width="158" height="40">
 
   <!-- Opening bracket -->
   <path d="M 18,4 L 10,4 L 10,36 L 18,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- Wordmark: forced to exactly 100px so closing bracket can be placed precisely -->
-  <text x="22" y="29"
+  <!-- TECH in LCD / digital-clock style (stroke-based segments) -->
+  <g fill="none" stroke="#f5a524" stroke-width="2.5" stroke-linecap="square">
+    <!-- T: crossbar + centre stem -->
+    <line x1="22" y1="7" x2="34" y2="7"/>
+    <line x1="28" y1="7" x2="28" y2="29"/>
+    <!-- E: left vertical + top + mid (short) + bottom -->
+    <line x1="37" y1="7" x2="37" y2="29"/>
+    <line x1="37" y1="7"  x2="49" y2="7"/>
+    <line x1="37" y1="18" x2="47" y2="18"/>
+    <line x1="37" y1="29" x2="49" y2="29"/>
+    <!-- C: left vertical + top + bottom -->
+    <line x1="52" y1="7" x2="52" y2="29"/>
+    <line x1="52" y1="7"  x2="64" y2="7"/>
+    <line x1="52" y1="29" x2="64" y2="29"/>
+    <!-- H: two verticals + crossbar -->
+    <line x1="67" y1="7"  x2="67" y2="29"/>
+    <line x1="79" y1="7"  x2="79" y2="29"/>
+    <line x1="67" y1="18" x2="79" y2="18"/>
+  </g>
+
+  <!-- Afrik in Helvetica, baseline aligned -->
+  <text x="83" y="29"
         font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
         font-size="22" font-weight="700"
-        textLength="100" lengthAdjust="spacingAndGlyphs"
-        fill="#f5a524">TechAfrik</text>
+        textLength="58" lengthAdjust="spacingAndGlyphs"
+        fill="#f5a524">Afrik</text>
 
-  <!-- Closing bracket: starts at x=22+100+4=126 -->
-  <path d="M 126,4 L 134,4 L 134,36 L 126,36"
+  <!-- Closing bracket: x = 83 + 58 + 4 = 145 -->
+  <path d="M 145,4 L 153,4 L 153,36 L 145,36"
         fill="none" stroke="#f5a524" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"/>
 
 </svg>
