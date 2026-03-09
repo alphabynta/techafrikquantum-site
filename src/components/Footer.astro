@@ -5,7 +5,28 @@ const year = new Date().getFullYear();
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
-      <span class="footer-logo-mask" style={`--logo-url: url('${base}logo.svg')`} role="img" aria-label="TechAfrik logo"></span>
+      <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 44" role="img" aria-label="TechAfrik logo">
+        <rect class="logo-tech-box" x="0" y="16" width="51" height="20" fill="none" stroke-width="1.8"/>
+        <g class="logo-tech-letters">
+          <rect x="3"  y="19" width="10" height="2"/>
+          <rect x="7"  y="21" width="2"  height="13"/>
+          <rect x="15" y="19" width="2"  height="15"/>
+          <rect x="17" y="19" width="8"  height="2"/>
+          <rect x="17" y="26" width="6"  height="2"/>
+          <rect x="17" y="32" width="8"  height="2"/>
+          <rect x="27" y="19" width="2"  height="15"/>
+          <rect x="29" y="19" width="8"  height="2"/>
+          <rect x="29" y="32" width="8"  height="2"/>
+          <rect x="39" y="19" width="2"  height="15"/>
+          <rect x="47" y="19" width="2"  height="15"/>
+          <rect x="41" y="26" width="6"  height="2"/>
+        </g>
+        <text x="55" y="36"
+              font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+              font-size="28" font-weight="700"
+              textLength="76" lengthAdjust="spacingAndGlyphs"
+              fill="#f5a524">AFRIK</text>
+      </svg>
     </a>
     <p class="footer-copy" data-i18n="footer.copyright">
       &copy; {year} TechAfrik. All rights reserved.
@@ -37,20 +58,11 @@ const year = new Date().getFullYear();
     gap: 16px; flex-wrap: wrap; height: 64px; overflow: visible;
   }
   .footer-logo { display: inline-flex; align-items: center; }
-  .footer-logo-mask {
-    display: block;
-    width: clamp(120px, 16vw, 175px);
-    height: clamp(26px, 3.2vw, 37px);
-    background-color: var(--primary);
-    -webkit-mask-image: var(--logo-url);
-    mask-image: var(--logo-url);
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: left center;
-    mask-position: left center;
-  }
+  .footer-logo-svg { width: clamp(110px, 14vw, 155px); height: auto; }
+  .logo-tech-letters { fill: #ffffff; }
+  .logo-tech-box     { stroke: #ffffff; }
+  :global([data-bg-tone="light"]) .logo-tech-letters { fill: #000000; }
+  :global([data-bg-tone="light"]) .logo-tech-box     { stroke: #000000; }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
   .social-icon {
