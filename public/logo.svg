@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 36" width="148" height="36">
-
-  <!-- Wordmark: TECH in white, AFRIK in amber -->
-  <text x="4" y="23"
-        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
-        font-size="21" font-weight="800" letter-spacing="2.5">
-    <tspan fill="#e8e8e8">TECH</tspan><tspan fill="#f5a524">AFRIK</tspan>
-  </text>
-
-  <!-- Amber accent bar under TECH -->
-  <rect x="4" y="29" width="60" height="2.5" rx="1.2" fill="#f5a524"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 56" width="272" height="56">
+  <g font-family="'Courier New', Courier, monospace" font-size="8" fill="#f5a524">
+    <text x="4" y="11"  xml:space="preserve">█████ █████ ████  █   █  ███  █████ ████  █████ █   █</text>
+    <text x="4" y="22"  xml:space="preserve">  █   █     █    █   █ █   █ █     █   █   █   █  █ </text>
+    <text x="4" y="33"  xml:space="preserve">  █   ████  █    █████ █████ ████  ████    █   ███  </text>
+    <text x="4" y="44"  xml:space="preserve">  █   █     █    █   █ █   █ █     █ █     █   █  █ </text>
+    <text x="4" y="55"  xml:space="preserve">  █   █████  ████ █   █ █   █ █     █  ██ █████ █   █</text>
+  </g>
 </svg>
