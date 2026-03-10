@@ -9,11 +9,7 @@ const base = import.meta.env.BASE_URL;
   <Nav />
   <main id="main">
 
-    <div class="page-bg-wrap">
-      <video class="sol-hero__bg-video" src={`${base}videos/satellite.mp4`} autoplay muted loop playsinline></video>
-      <div class="sol-hero__overlay"></div>
-
-      <section id="sol-hero" class="sol-hero">
+    <section id="sol-hero" class="sol-hero">
         <div class="container sol-hero__inner">
           <h1 class="sol-hero__title">Connectivity</h1>
           <p class="sol-hero__lead lead">When your operation cannot afford downtime, we engineer redundant, multi-path connectivity solutions — from geo-redundant satellite hubs to microwave backhaul and tactical radio — designed for mission-critical environments anywhere on the continent.</p>
@@ -178,7 +174,6 @@ const base = import.meta.env.BASE_URL;
 
       </div>
     </section>
-    </div><!-- /.page-bg-wrap -->
 
     <section id="sol-cta" class="sol-cta">
       <div class="container sol-cta__inner">
@@ -193,25 +188,6 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <style>
-  .page-bg-wrap {
-    position: relative;
-    overflow: hidden;
-    background: #000;
-  }
-  .sol-hero__bg-video {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  .sol-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.60);
-    z-index: 1;
-  }
-
   .sol-hero {
     min-height: 60vh;
     display: flex; align-items: center;
@@ -226,7 +202,7 @@ const base = import.meta.env.BASE_URL;
   }
   .sol-hero__lead { max-width: 100%; font-style: italic; }
 
-  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); position: relative; z-index: 2; }
+  .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
   .sol-caps .section-label {
     margin-top: clamp(24px, 3vw, 40px);
     margin-bottom: clamp(8px, 1vw, 16px);

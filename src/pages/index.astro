@@ -7,11 +7,14 @@ import Solutions from '../components/Solutions.astro';
 import Partners from '../components/Partners.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <Layout
   title="TechAfrik — Secure. Connect. Protect."
   description="Mission-critical surveillance, secure connectivity, advanced cybersecurity, and intelligent fleet management — from Africa to the world."
 >
+  <video class="site-bg-video" src={`${base}videos/satellite.mp4`} autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="site-bg-overlay" aria-hidden="true"></div>
   <Nav />
   <main id="main">
     <Hero />
@@ -22,3 +25,19 @@ import Footer from '../components/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .site-bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -3;
+  }
+  .site-bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.68);
+    z-index: -2;
+  }
+</style>

@@ -97,17 +97,13 @@ const solutions = [
   /* Card — mirrors sec-card exactly */
   .sol-card {
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
     padding: clamp(24px, 2.5vw, 36px);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: background 0.2s ease;
   }
-  .sol-card:hover { background: transparent; }
 
   .sol-card__title {
     font-size: clamp(20px, 1.8vw, 25px);
@@ -121,7 +117,7 @@ const solutions = [
   }
   .sol-card__body {
     font-size: clamp(15px, 1.3vw, 17px);
-    color: var(--muted);
+    color: var(--text);
     line-height: 1.7;
   }
   .sol-card__list {
