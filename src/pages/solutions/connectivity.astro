@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL;
   <main id="main">
 
     <section id="sol-hero" class="sol-hero">
+        <canvas id="globe-canvas" aria-hidden="true"></canvas>
         <div class="container sol-hero__inner">
           <h1 class="sol-hero__title">Connectivity</h1>
           <p class="sol-hero__lead lead">When your operation cannot afford downtime, we engineer redundant, multi-path connectivity solutions — from geo-redundant satellite hubs to microwave backhaul and tactical radio — designed for mission-critical environments anywhere on the continent.</p>
@@ -189,9 +190,20 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .sol-hero {
+    position: relative;
     min-height: 60vh;
     display: flex; align-items: center;
     padding: clamp(120px, 14vw, 180px) 0 clamp(48px, 6vw, 80px);
+    overflow: hidden;
+  }
+  #globe-canvas {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: auto;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 0;
   }
   .sol-hero__inner { position: relative; z-index: 2; }
   .sol-hero__title {
