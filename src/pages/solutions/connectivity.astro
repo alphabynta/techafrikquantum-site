@@ -13,6 +13,9 @@ const base = import.meta.env.BASE_URL;
       <div class="container sol-hero__inner">
         <h1 class="sol-hero__title">Connectivity</h1>
         <p class="sol-hero__lead lead">When your operation cannot afford downtime, we engineer redundant, multi-path connectivity solutions — from geo-redundant satellite hubs to microwave backhaul and tactical radio — designed for mission-critical environments anywhere on the continent.</p>
+        <div class="sol-hero__video-wrap">
+          <video class="cap-video" src={`${base}videos/satellite.mp4`} autoplay muted loop playsinline></video>
+        </div>
       </div>
     </section>
 
@@ -199,7 +202,10 @@ const base = import.meta.env.BASE_URL;
     color: var(--text); text-transform: uppercase; line-height: 1;
     margin: 12px 0 clamp(20px, 3vw, 36px);
   }
-  .sol-hero__lead { max-width: 640px; font-style: italic; }
+  .sol-hero__lead { max-width: 640px; font-style: italic; margin-bottom: clamp(32px, 4vw, 56px); }
+
+  .sol-hero__video-wrap { width: 100%; }
+  .sol-hero__video-wrap .media-slot { aspect-ratio: 16 / 9; max-width: 100%; }
 
   .sol-caps { padding-bottom: clamp(80px, 10vw, 140px); }
   .sol-caps .section-label {
