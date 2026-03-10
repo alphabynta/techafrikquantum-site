@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Layout title="Connectivity — TechAfrik" description="Mission-critical connectivity — satellite, SOTM, manpacks, flyaway, driveaway, tactical HUBs, microwave, and radio for remote and mobile operations.">
-  <script is:inline>document.body.dataset.pageBg='transparent';document.body.dataset.pageTone='dark';</script>
+  <script is:inline>document.body.dataset.pageBg='#000000';document.body.dataset.pageTone='dark';</script>
   <Nav />
   <main id="main">
 
@@ -196,6 +196,7 @@ const base = import.meta.env.BASE_URL;
   .page-bg-wrap {
     position: relative;
     overflow: hidden;
+    background: #000;
   }
   .sol-hero__bg-video {
     position: absolute;
