@@ -9,12 +9,12 @@
    showGuineaDrone— draw the Guinea-tracking drone
    ──────────────────────────────────────────────────────────────── */
 export default {
-  rgb:             '60,60,60',
+  rgb:             '245,165,36',
   bgColor:         '#000000',
-  particleAlpha:    0.80,
-  showParticles:    false,
-  showLinks:        false,
-  satelliteRgb:     '160,160,160',
+  particleAlpha:    0.55,
+  showParticles:    true,
+  showLinks:        true,
+  satelliteRgb:     '245,165,36',
   showSatellites:   true,
   showDrones:       true,
   showGuineaDrone:  true,
