@@ -1,12 +1,5 @@
 ---
-const base = import.meta.env.BASE_URL;
-const partners = [
-  { name: 'Achbin',  src: `${base}images/partners/achbin.png`  },
-  { name: 'Delta',   src: `${base}images/partners/delta.jpeg`  },
-  { name: 'IBS',     src: `${base}images/partners/ibs.png`     },
-  { name: 'OIM',     src: `${base}images/partners/oim.jpeg`    },
-  { name: 'UNFPA',   src: `${base}images/partners/unfpa.jpeg`  },
-];
+const partners = [{}, {}, {}, {}, {}];
 const testimonials = [
   {
     bodyKey: 'partners.t1.body', nameKey: 'partners.t1.name', roleKey: 'partners.t1.role',
@@ -44,10 +37,8 @@ const testimonials = [
     <p class="partners-trust-label">They Trust Us</p>
 
     <div class="partners-grid">
-      {partners.map(p => (
-        <div class="partner-card">
-          <img src={p.src} alt={p.name} loading="lazy" />
-        </div>
+      {partners.map(() => (
+        <div class="partner-card"></div>
       ))}
     </div>
 
