@@ -102,17 +102,13 @@ const sectors = [
   .sec-card {
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
     padding: clamp(24px, 2.5vw, 36px);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: background 0.2s ease;
   }
-  .sec-card:hover { background: transparent; }
   .sec-card__title {
     font-size: clamp(20px, 1.8vw, 25px);
     font-weight: 800;
