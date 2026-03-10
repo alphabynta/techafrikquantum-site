@@ -1,7 +1,11 @@
 ---
+const base = import.meta.env.BASE_URL;
 const partners = [
-  'Partner Logo 1','Partner Logo 2','Partner Logo 3','Partner Logo 4',
-  'Partner Logo 5','Partner Logo 6','Partner Logo 7','Partner Logo 8',
+  { name: 'Achbin',  src: `${base}images/partners/achbin.png`  },
+  { name: 'Delta',   src: `${base}images/partners/delta.jpeg`  },
+  { name: 'IBS',     src: `${base}images/partners/ibs.png`     },
+  { name: 'OIM',     src: `${base}images/partners/oim.jpeg`    },
+  { name: 'UNFPA',   src: `${base}images/partners/unfpa.jpeg`  },
 ];
 const testimonials = [
   {
@@ -39,7 +43,9 @@ const testimonials = [
 
     <div class="partners-grid">
       {partners.map(p => (
-        <div class="partner-card">{p}</div>
+        <div class="partner-card">
+          <img src={p.src} alt={p.name} loading="lazy" />
+        </div>
       ))}
     </div>
 
@@ -99,6 +105,14 @@ const testimonials = [
   .partner-card:hover {
     border-color: var(--accent);
     background: transparent;
+  }
+  .partner-card img {
+    max-width: 100%; max-height: 60px;
+    object-fit: contain; filter: brightness(0) invert(1);
+    opacity: 0.7; transition: opacity .2s;
+  }
+  .partner-card:hover img {
+    opacity: 1;
   }
 
   .testimonials { margin-top: 0; }
