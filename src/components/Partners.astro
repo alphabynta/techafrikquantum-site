@@ -41,6 +41,8 @@ const testimonials = [
 
   <div class="container">
 
+    <p class="partners-trust-label">They Trust Us</p>
+
     <div class="partners-grid">
       {partners.map(p => (
         <div class="partner-card">
@@ -86,6 +88,10 @@ const testimonials = [
     color: var(--accent); text-transform: uppercase;
     margin-bottom: clamp(32px, 4vw, 56px);
     line-height: 1;
+  }
+  .partners-trust-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .2em;
+    color: var(--muted); margin-bottom: 24px; font-weight: 500;
   }
   .partners-grid {
     display: grid;
