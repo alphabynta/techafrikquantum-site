@@ -1,11 +1,5 @@
 ---
-const partners = [
-  { name: 'Partner 1' },
-  { name: 'Partner 2' },
-  { name: 'Partner 3' },
-  { name: 'Partner 4' },
-  { name: 'Partner 5' },
-];
+const partners = [{}, {}, {}, {}, {}];
 const testimonials = [
   {
     bodyKey: 'partners.t1.body', nameKey: 'partners.t1.name', roleKey: 'partners.t1.role',
@@ -43,12 +37,11 @@ const testimonials = [
     <p class="partners-trust-label">They Trust Us</p>
 
     <div class="partners-grid">
-      {partners.map(p => (
+      {partners.map(() => (
         <div class="partner-card">
           <div class="partner-logo-area">
-            {/* Replace this comment with: <img src="/images/partners/name.png" alt={p.name}> */}
+            {/* Replace with: <img src="/images/partners/name.png" alt="Partner name"> */}
           </div>
-          <span class="partner-name">{p.name}</span>
         </div>
       ))}
     </div>
