@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 44" role="img" aria-label="TechAfrik logo">
+
+  <!-- ── NEURON CONNECTIVITY ICON (amber) ── -->
+  <!-- Layer 1→2 connections -->
+  <g stroke="#f5a524" stroke-width="0.85" opacity="0.4">
+    <line x1="5"  y1="14" x2="19" y2="8"/>
+    <line x1="5"  y1="14" x2="19" y2="22"/>
+    <line x1="5"  y1="14" x2="19" y2="36"/>
+    <line x1="5"  y1="30" x2="19" y2="8"/>
+    <line x1="5"  y1="30" x2="19" y2="22"/>
+    <line x1="5"  y1="30" x2="19" y2="36"/>
+  </g>
+  <!-- Layer 2→3 connections -->
+  <g stroke="#f5a524" stroke-width="0.85" opacity="0.4">
+    <line x1="19" y1="8"  x2="33" y2="14"/>
+    <line x1="19" y1="8"  x2="33" y2="30"/>
+    <line x1="19" y1="22" x2="33" y2="14"/>
+    <line x1="19" y1="22" x2="33" y2="30"/>
+    <line x1="19" y1="36" x2="33" y2="14"/>
+    <line x1="19" y1="36" x2="33" y2="30"/>
+  </g>
+  <!-- Nodes -->
+  <g fill="#f5a524">
+    <circle cx="5"  cy="14" r="2.2"/>
+    <circle cx="5"  cy="30" r="2.2"/>
+    <circle cx="19" cy="8"  r="2.2"/>
+    <circle cx="19" cy="22" r="2.8"/>
+    <circle cx="19" cy="36" r="2.2"/>
+    <circle cx="33" cy="14" r="2.2"/>
+    <circle cx="33" cy="30" r="2.2"/>
+  </g>
+
+  <!-- ── TECH (white wireframe) ── -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- T -->
+    <line x1="40" y1="17" x2="52" y2="17"/>
+    <line x1="46" y1="17" x2="46" y2="33"/>
+    <!-- E -->
+    <line x1="55" y1="17" x2="55" y2="33"/>
+    <line x1="55" y1="17" x2="65" y2="17"/>
+    <line x1="55" y1="25" x2="63" y2="25"/>
+    <line x1="55" y1="33" x2="65" y2="33"/>
+    <!-- C -->
+    <polyline points="77,17 67,17 67,33 77,33"/>
+    <!-- H -->
+    <line x1="79" y1="17" x2="79" y2="33"/>
+    <line x1="91" y1="17" x2="91" y2="33"/>
+    <line x1="79" y1="25" x2="91" y2="25"/>
+  </g>
+
+  <!-- ── AFRIK (amber wireframe) ── -->
+  <g fill="none" stroke="#f5a524" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- A -->
+    <polyline points="96,33 102,17 108,33"/>
+    <line x1="98" y1="27" x2="106" y2="27"/>
+    <!-- F -->
+    <line x1="111" y1="17" x2="111" y2="33"/>
+    <line x1="111" y1="17" x2="121" y2="17"/>
+    <line x1="111" y1="25" x2="119" y2="25"/>
+    <!-- R -->
+    <line x1="124" y1="17" x2="124" y2="33"/>
+    <polyline points="124,17 132,17 134,20 132,25 124,25"/>
+    <line x1="130" y1="25" x2="136" y2="33"/>
+    <!-- I -->
+    <line x1="142" y1="17" x2="142" y2="33"/>
+    <line x1="138" y1="17" x2="146" y2="17"/>
+    <line x1="138" y1="33" x2="146" y2="33"/>
+    <!-- K -->
+    <line x1="149" y1="17" x2="149" y2="33"/>
+    <line x1="157" y1="17" x2="149" y2="25"/>
+    <line x1="149" y1="25" x2="157" y2="33"/>
+  </g>
+
+</svg>
