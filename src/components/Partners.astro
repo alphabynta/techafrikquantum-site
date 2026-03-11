@@ -1,5 +1,11 @@
 ---
-const partners = [{}, {}, {}, {}, {}];
+const partners = [
+  { src: '/images/partners/achbin.png', alt: 'Achbin' },
+  { src: '/images/partners/ibs.png', alt: 'IBS' },
+  { src: '/images/partners/delta.jpeg', alt: 'Delta' },
+  { src: '/images/partners/oim.jpeg', alt: 'OIM' },
+  { src: '/images/partners/unfpa.jpeg', alt: 'UNFPA' },
+];
 const testimonials = [
   {
     bodyKey: 'partners.t1.body', nameKey: 'partners.t1.name', roleKey: 'partners.t1.role',
@@ -37,10 +43,10 @@ const testimonials = [
     <p class="partners-trust-label">They Trust Us</p>
 
     <div class="partners-grid">
-      {partners.map(() => (
+      {partners.map(p => (
         <div class="partner-card">
           <div class="partner-logo-area">
-            {/* Replace with: <img src="/images/partners/name.png" alt="Partner name"> */}
+            <img src={p.src} alt={p.alt} />
           </div>
         </div>
       ))}
