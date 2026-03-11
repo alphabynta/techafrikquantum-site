@@ -1,11 +1,12 @@
 ---
+import Logo from './Logo.astro';
 const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-strip">
     <a class="footer-logo" href={`${base}`} aria-label="TechAfrik home">
-      <img class="footer-logo-img" src={`${base}images/logo.svg`} alt="TechAfrik logo" />
+      <Logo />
     </a>
     <p class="footer-copy" data-i18n="footer.copyright">
       &copy; {year} TechAfrik. All rights reserved.
@@ -37,7 +38,7 @@ const year = new Date().getFullYear();
     gap: 16px; flex-wrap: wrap; height: 64px; overflow: visible;
   }
   .footer-logo { display: inline-flex; align-items: center; }
-  .footer-logo-img { width: clamp(110px, 14vw, 155px); height: auto; }
+  .logo-svg { width: clamp(110px, 14vw, 155px); height: auto; }
   .footer-copy { font-size: 13px; color: var(--muted); margin: 0; }
   .footer-social { display: flex; gap: 8px; }
   .social-icon {
