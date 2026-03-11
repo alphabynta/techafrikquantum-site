@@ -1,5 +1,11 @@
 ---
-const partners = [{}, {}, {}, {}, {}];
+const partners = [
+  { name: 'Partner 1' },
+  { name: 'Partner 2' },
+  { name: 'Partner 3' },
+  { name: 'Partner 4' },
+  { name: 'Partner 5' },
+];
 const testimonials = [
   {
     bodyKey: 'partners.t1.body', nameKey: 'partners.t1.name', roleKey: 'partners.t1.role',
@@ -37,8 +43,13 @@ const testimonials = [
     <p class="partners-trust-label">They Trust Us</p>
 
     <div class="partners-grid">
-      {partners.map(() => (
-        <div class="partner-card"></div>
+      {partners.map(p => (
+        <div class="partner-card">
+          <div class="partner-logo-area">
+            {/* Replace this comment with: <img src="/images/partners/name.png" alt={p.name}> */}
+          </div>
+          <span class="partner-name">{p.name}</span>
+        </div>
       ))}
     </div>
 
@@ -91,16 +102,27 @@ const testimonials = [
     margin-bottom: clamp(60px, 8vw, 100px);
   }
   .partner-card {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+    transition: border-color .2s;
+  }
+  .partner-card:hover { border-color: rgba(255,255,255,.15); }
+  .partner-logo-area {
+    width: 100%; height: 72px;
     display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
+    border: 1px dashed var(--border); border-radius: 4px;
   }
-  .partner-card img {
-    width: 100%; height: auto;
-    object-fit: contain; display: block;
-    opacity: 0.85; transition: opacity .2s;
+  .partner-logo-area img {
+    max-width: 100%; max-height: 60px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); opacity: 0.75; transition: opacity .2s;
   }
-  .partner-card:hover img {
-    opacity: 1;
+  .partner-card:hover .partner-logo-area img { opacity: 1; }
+  .partner-name {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
   }
 
   .testimonials { margin-top: 0; }
