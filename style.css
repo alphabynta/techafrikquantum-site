@@ -361,7 +361,8 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
 
 /* ── Partners page ──────────────────────────────────────────── */
 .partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--space-3);margin-top:var(--space-4)}
-.partner-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);display:flex;align-items:center;justify-content:center;min-height:100px;color:var(--muted);font-size:13px;text-align:center;transition:border-color .2s}
+.partner-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;color:var(--muted);font-size:13px;text-align:center;transition:border-color .2s}
+.partner-name{font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
 .partner-card:hover{border-color:rgba(255,255,255,.15)}
 .partner-card img{max-width:100%;max-height:70px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;transition:opacity .2s}
 .partner-card:hover img{opacity:1}
