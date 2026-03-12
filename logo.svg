@@ -24,12 +24,12 @@
     <rect x="60" y="26" width="6"  height="2"/>
   </g>
 
-  <!-- Afrik: big and bold -->
+  <!-- AFRIK: Oxanium font (futuristic geometric tech) -->
+  <!-- NOTE: renders correctly only when inlined in HTML with Oxanium loaded via Google Fonts -->
   <text x="71" y="36"
-        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-family="'Oxanium', sans-serif"
         font-size="28" font-weight="700"
         textLength="76" lengthAdjust="spacingAndGlyphs"
         fill="#f5a524">AFRIK</text>
-
 
 </svg>
