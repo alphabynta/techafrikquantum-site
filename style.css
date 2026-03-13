@@ -98,7 +98,7 @@ small,.small{font-size:13px;color:var(--muted)}
   gap:var(--space-3);
 }
 .logo{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;font-weight:700;font-size:15px;letter-spacing:-.01em}
-.logo img,.logo svg{display:block;object-fit:contain;width:250px;height:auto}
+.logo img,.logo svg{display:block;object-fit:contain;width:340px;height:auto}
 .primary-nav .nav-list{
   display:flex;gap:2px;list-style:none;align-items:center;flex-wrap:nowrap;
 }
@@ -461,7 +461,7 @@ canvas.bg-canvas{position:absolute;inset:0;width:100% !important;height:100% !im
   .container{padding:0 12px}
   .footer__columns{grid-template-columns:1fr}
   .footer__brand{grid-column:span 1}
-  .logo img,.logo svg{width:160px !important;height:auto !important}
+  .logo img,.logo svg{width:200px !important;height:auto !important}
   .btn{padding:10px 16px;font-size:13px}
   .card{padding:var(--space-3)}
   .hero--full{min-height:clamp(180px,55vh,300px)}
