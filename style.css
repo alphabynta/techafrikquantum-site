@@ -98,6 +98,37 @@ small,.small{font-size:13px;color:var(--muted)}
   padding-top:10px;padding-bottom:10px;
   gap:var(--space-3);
 }
+
+/* ── Page anchor nav strip ──────────────────────────────────────── */
+.page-nav{
+  position:sticky;
+  top:var(--header-h);
+  z-index:40;
+  background:#0d0d0d;
+  border-bottom:1px solid #1a1a1a;
+  display:flex;
+  overflow-x:auto;
+  white-space:nowrap;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+.page-nav::-webkit-scrollbar{display:none}
+.page-nav__link{
+  padding:12px 18px;
+  font-size:13px;
+  letter-spacing:.04em;
+  color:var(--muted);
+  text-decoration:none;
+  border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s;
+  flex-shrink:0;
+}
+.page-nav__link:hover{color:var(--text)}
+.page-nav__link--active{
+  color:var(--accent);
+  border-bottom-color:var(--accent);
+}
+
 .logo{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;font-weight:700;font-size:15px;letter-spacing:-.01em}
 .logo img,.logo svg{display:block;object-fit:contain;width:340px;height:auto}
 .primary-nav .nav-list{
