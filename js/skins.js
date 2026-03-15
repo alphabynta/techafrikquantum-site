@@ -94,3 +94,27 @@
     closeModal();
   });
 })();
+
+// ── Page nav: highlight active section on scroll ──────────────
+(function () {
+  var sections = document.querySelectorAll('#home,#about,#solutions,#partners,#contact');
+  var navLinks = document.querySelectorAll('.page-nav__link');
+  if (!sections.length || !navLinks.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function (link) {
+          link.classList.remove('page-nav__link--active');
+        });
+        var active = document.querySelector('.page-nav__link[href="#' + entry.target.id + '"]');
+        if (active) {
+          active.classList.add('page-nav__link--active');
+          active.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+        }
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
