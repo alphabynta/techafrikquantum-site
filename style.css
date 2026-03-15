@@ -15,12 +15,13 @@
   --radius-lg:18px;
   --space-1:8px;--space-2:12px;--space-3:16px;--space-4:24px;--space-5:32px;--space-6:48px;
   --maxw:1400px;
+  --header-h:60px;
   --font:'Orbitron',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 
 /* ── Reset ──────────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:108px}
 body{
   font-family:var(--font);
   font-size:16px;
