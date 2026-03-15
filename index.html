@@ -205,6 +205,53 @@
         </div>
       </div>
     </section>
+
+  <!-- CONTACT US -->
+  <section id="contact" class="section" aria-labelledby="form-title">
+    <div class="container">
+      <p class="section-label">Send a Message</p>
+      <h2 id="form-title">How Can We Help?</h2>
+      <form id="contact-form" class="lead-form">
+        <div class="form-row"><label for="c-name">Full name</label><input id="c-name" class="input" required /></div>
+        <div class="form-row"><label for="c-email">Work email</label><input id="c-email" type="email" class="input" required /></div>
+        <div class="form-row"><label for="c-company">Company</label><input id="c-company" class="input" /></div>
+        <div class="form-row"><label for="c-topic">Topic</label>
+          <select id="c-topic" class="input">
+            <option>Safety &amp; Surveillance</option>
+            <option>Critical Connectivity</option>
+            <option>Assets Management</option>
+            <option>IP Networks</option>
+            <option>Cybersecurity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row"><label for="c-message">Message</label><textarea id="c-message" class="textarea" rows="5" required></textarea></div>
+        <button class="btn btn--primary" type="submit">Send Message</button>
+      </form>
+      <p class="small" style="color:var(--muted);margin-top:12px">This offline build uses your email client to send the message.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="info-title">
+    <div class="container">
+      <p class="section-label">Find Us</p>
+      <h2 id="info-title">Contact Information</h2>
+      <div class="grid">
+        <div class="card card--accent" style="grid-column:span 4">
+          <h3>Email</h3>
+          <p><a href="mailto:info@techafrikquantumgroup.com" style="color:var(--accent)">info@techafrikquantumgroup.com</a></p>
+        </div>
+        <div class="card card--accent" style="grid-column:span 4">
+          <h3>Location</h3>
+          <p>Conakry, Guinea<br />West Africa</p>
+        </div>
+        <div class="card card--accent" style="grid-column:span 4">
+          <h3>Careers</h3>
+          <p><a href="mailto:careers@techafrikquantumgroup.com" style="color:var(--accent)">careers@techafrikquantumgroup.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
